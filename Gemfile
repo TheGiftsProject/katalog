@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'slim'
 gem 'pg'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'debugger'

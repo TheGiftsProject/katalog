@@ -2,7 +2,6 @@ doctype html
 
 html
   head
-
     title Katalog
     = stylesheet_link_tag    'application', 'data-turbolinks-track' => true, :media => 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -10,5 +9,7 @@ html
     meta name='author' content='IIC'
 
   body
+    = render 'header'
 
-    == yield
+    .container
+      == yield

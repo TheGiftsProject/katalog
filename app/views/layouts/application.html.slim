@@ -1,0 +1,14 @@
+doctype html
+
+html
+  head
+
+    title Katalog
+    = stylesheet_link_tag    'application', 'data-turbolinks-track' => true, :media => 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    meta name='author' content='IIC'
+
+  body
+
+    == yield

@@ -9,7 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'slim'
 gem 'pg'
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 
 group :development, :test do
   gem 'debugger'

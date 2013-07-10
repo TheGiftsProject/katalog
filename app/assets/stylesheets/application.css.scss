@@ -3,6 +3,7 @@
 @import 'animation';
 @import 'bootswatch/spacelab/variables';
 @import 'bootstrap';
+body { padding-top: 60px; } // Bootstrap body padding for fixed navbar
 @import 'bootstrap-responsive';
 @import 'bootswatch/spacelab/bootswatch';
 

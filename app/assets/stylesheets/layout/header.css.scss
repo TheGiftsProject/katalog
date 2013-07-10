@@ -1,5 +1,18 @@
 .navbar {
   .logo-balloon {
-    @include inline-block(middle);
+    float: left;
+
+    &:hover {
+      position: relative;
+      @include animation(balloon 1s ease-out infinite);
+    }
   }
+}
+
+@include keyframes(balloon) {
+  $delta: 1.5px;
+
+  25%  { top:  $delta; }
+  75%  { top: -$delta; }
+  100% { top:  0px; }
 }

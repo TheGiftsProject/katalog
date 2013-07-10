@@ -1,0 +1,5 @@
+.navbar {
+  .logo-balloon {
+    @include inline-block(middle);
+  }
+}

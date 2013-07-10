@@ -1,4 +1,9 @@
-@import 'bootswatch/flatly/variables';
+// frameworks
+@import 'compass';
+@import 'bootswatch/spacelab/variables';
 @import 'bootstrap';
 @import 'bootstrap-responsive';
-@import 'bootswatch/flatly/bootswatch';
+@import 'bootswatch/spacelab/bootswatch';
+
+// app
+@import 'layout';

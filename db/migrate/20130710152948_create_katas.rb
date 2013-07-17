@@ -5,7 +5,7 @@ class CreateKatas < ActiveRecord::Migration
       t.string :subtitle
       t.string :repo_url
       t.string :demo_url
-      t.string :status
+      t.string :status, :default => :idea
       t.timestamps
     end
   end

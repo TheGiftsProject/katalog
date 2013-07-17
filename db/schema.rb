@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20130717150833) do
     t.string   "subtitle"
     t.string   "repo_url"
     t.string   "demo_url"
-    t.string   "status"
+    t.string   "status",     default: "idea"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

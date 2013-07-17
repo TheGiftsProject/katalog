@@ -17,7 +17,11 @@ ActiveRecord::Schema.define(version: 20130710152948) do
   enable_extension "plpgsql"
 
   create_table "katas", force: true do |t|
-    t.string   "name"
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "repo_url"
+    t.string   "demo_url"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

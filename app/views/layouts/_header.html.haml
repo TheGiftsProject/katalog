@@ -1,0 +1,11 @@
+%header
+  %h1 Katalog
+  %form.form-search
+    = text_field_tag :query, nil, :placeholder => 'Search for Project or Tag', :class => 'input-medium search-query'
+  .user-dashboard
+    - if user_signed_in?
+      = image_tag current_user.image
+      %strong current_user.nickname
+      = link_to 'sign_out', 'sign_out'
+    - else
+      = link_to 'sign_in', 'sign_in'

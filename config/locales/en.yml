@@ -17,10 +17,35 @@ en:
       text: 'THE place to share and work on ideas and side-projects'
       sign_in: 'Sign in with GitHub'
 
-  projects:
-    title: 'Projects'
+    new:
+      title: 'New Project'
+
+    edit:
+      title: 'Edit Project'
+
+
+    index:
+      title: 'Projects'
+      new: 'New Project'
+
+    show:
+      edit: 'Edit'
+
+
   project:
     last_updated: "Last Updated %{time} ago"
 
+  notices:
+    created: 'Project was successfully created.'
+    updated: 'Project was successfully updated.'
+    destroyed: 'Project was removed.'
+
   errors:
     sign_in: 'Sign-in failed'
+
+
+  activerecord:
+    attributes:
+      project:
+#        title: 'Title'
+#        subtitle: 'Subtitle'

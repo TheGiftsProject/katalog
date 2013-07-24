@@ -1,0 +1,16 @@
+= form_for project , :html => {:class => 'form-horizontal'} do |f|
+  .control-group
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title, :placeholder => 'Project Title'
+  .control-group
+    = f.label :subtitle, :class => 'control-label'
+    .controls
+      = f.text_field :subtitle, :placeholder => 'Project Subtitle'
+  -#.control-group
+  -#  = f.label :tags, :class => 'control-label'
+  -#  .controls
+  -#    = f.text_field :tags, :placeholder => 'Tags'
+  .control-group
+    .controls
+      = f.submit :class => 'btn btn-primary'

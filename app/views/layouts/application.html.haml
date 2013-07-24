@@ -1,0 +1,14 @@
+!!! 5
+%html.no-js{:lang => 'en'}
+  %head
+    %meta{:charset => 'utf-8'}
+    %title= t('site.title')
+    %meta{:name => 'description', :content => t('site.description')}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
+    %link{:href => '/favicon.ico', :rel => 'shortcut icon'}
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, :media => 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %body
+    .container
+      = yield

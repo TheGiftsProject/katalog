@@ -8,4 +8,4 @@ en:
     header_title: 'KataLog'
 
   errors:
-    sign_in: 'Signing-in failed'
+    sign_in: 'Sign-in failed'

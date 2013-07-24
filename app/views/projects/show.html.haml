@@ -1,3 +1,6 @@
 .project-page
-  %h1.title= current_project.title
-  %h2.subtitle= current_project.subtitle
+  .page-header
+    %h1.title
+      = current_project.title
+      %small= current_project.status
+    %h2.subtitle= current_project.subtitle

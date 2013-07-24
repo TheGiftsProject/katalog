@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    user = find_or_create_user_from_auth_hash(auth_hash)
+    user = UserCreator.connect_from_omniauth(auth_hash)
     sign_in(user)
     redirect_to root_url
   end
@@ -12,10 +12,6 @@ class SessionsController < ApplicationController
   end
 
   protected
-
-  def find_or_create_user_from_auth_hash(auth_hash)
-    User.find_or
-  end
 
   def auth_hash
     request.env['omniauth.auth']

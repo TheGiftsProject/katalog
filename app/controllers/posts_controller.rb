@@ -5,8 +5,4 @@ class PostsController < ApplicationController
   def create
   end
 
-  def image_uploaded
-
-  end
-
 end

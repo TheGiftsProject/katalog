@@ -1,6 +1,6 @@
 class UserConnector
 
-  class UserConnector::UnsupportedProviderError < StandardError; end
+  class UnsupportedProviderError < StandardError; end
 
   def self.connect_from_omniauth(auth_hash)
     case auth_hash.provider.to_sym
@@ -19,7 +19,13 @@ class UserConnector
     end
 
     class GitHub
+
+      class UnauthorizedGithubUser < StandardError; end
+
       def self.connect(auth_hash)
+        #github_user_info = Octokit.user auth_hash.info.nickname
+        #raise UnauthorizedGithubUser if github_user_info
+
         User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
                                                           :name     => auth_hash.info.name,
                                                           :nickname => auth_hash.info.nickname,

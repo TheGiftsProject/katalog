@@ -33,30 +33,35 @@ describe GithubGrabber do
 
   end
 
-
-
   describe 'fetch info on a project' do
 
-    let(:project_name) { 'ebryn/ember-model' }
+    let(:project_name) { 'emberjs/ember-rails' }
 
-    it "fetches the project's website URL" do
+    let(:website_url) { 'https://github.com/emberjs/ember-rails' }
+    let(:commit_sha1) { '6a90f623cb6c4cfc69e02773c50ccf01bc24439b' }
+    let(:commit_message) { "Merge pull request #223 from ccarruitero/readme\n\nadd bootstrap generator options in README" }
+    let(:commit_date) { '2013-07-21T11:55:35Z' }
 
-      #subject.repository.should eq 'website url'
-
+    it "fetches the project's website URL", :vcr do
+      subject.website.should eq website_url
     end
 
-    xit "fetches the project's last commit" do
-
-      #subject.last_commit.should eq 'last_commit'
-
+    it "fetches the project's last commit", :vcr do
+      last_commit = subject.last_commit
+      last_commit.sha.should eq commit_sha1
+      last_commit.message.should eq commit_message
+      last_commit.date.should eq commit_date
     end
 
-    xit "fetches the project's contributors" do
+  end
 
-      #subject.contributors.should eq ['contributor#1', 'contributor#2']
-
+  describe :contributors do
+    let(:project_name) { 'rspec/rspec' }
+    it "fetches the project's contributors", :vcr do
+      contributors = subject.contributors
+      contributors.first['login'].should eq 'dchelimsky'
+      contributors.should have(7).contributors
     end
-
   end
 
 end

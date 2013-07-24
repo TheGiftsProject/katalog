@@ -24,8 +24,12 @@ class GithubGrabber
   end
 
   def last_commit
-    #@client.list_commits(@project_name, 'master', :per_page => 1, :accept => DEFAULT_ACCEPT)
-    master_branch['commit']
+    last_commit = master_branch['commit']
+    Hashie::Mash.new(
+        sha: last_commit['sha'],
+        message: last_commit['commit']['message'],
+        date: last_commit['commit']['committer']['date']
+    )
   end
 
   def website
@@ -33,11 +37,10 @@ class GithubGrabber
   end
 
   def contributors
-    @client.list_commits(@project_name, :accept => DEFAULT_ACCEPT)
+    @client.contributors(@project_name, false, :accept => DEFAULT_ACCEPT)
   end
 
-  #private
-
+  private
 
   def repository
     @repository ||= @client.repository(@project_name, :accept => DEFAULT_ACCEPT)
@@ -47,8 +50,4 @@ class GithubGrabber
     @master_branch ||= @client.branch(@project_name, 'master', :accept => DEFAULT_ACCEPT)
   end
 
-  #def is_on_current_project?
-  #  return if @repository.blank?
-  #  @repository['name'] != @project_name
-  #end
 end

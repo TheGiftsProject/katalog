@@ -1,4 +1,7 @@
 en:
+  site:
+    title: 'Katalog'
+    description: 'THE place to manage your ideas and side projects'
 
   layout:
     page_title: 'KataLog'

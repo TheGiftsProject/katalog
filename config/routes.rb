@@ -1,7 +1,8 @@
 Katalog::Application.routes.draw do
 
-  root 'root#index'
 
   resources :projects, :only => [:index, :show]
+
+  root :to => 'application#root'
 
 end

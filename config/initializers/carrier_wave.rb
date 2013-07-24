@@ -4,5 +4,5 @@ CarrierWave.configure do |config|
       :aws_secret_key_id => ENV['KATALOG_AWS_ID'],
       :aws_secret_access_key => ENV['KATALOG_ACCESS_KEY']
   }
-  config.fog_directory = 'aws bucket'
+  config.fog_directory = 'katalog-images'
 end

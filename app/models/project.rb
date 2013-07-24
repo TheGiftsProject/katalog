@@ -6,4 +6,20 @@ class Project < ActiveRecord::Base
 
   enum :status, [:idea, :wip, :done, :dead]
 
+  scope :latest_first, -> { order(:updated_at => :desc) }
+
+
+
+  def to_param
+    slug
+  end
+
+
+  private
+
+  def slug
+    "#{id}-#{title.parameterize}"
+  end
+
+
 end

@@ -5,6 +5,8 @@ module UserSupport
 
   SESSION_KEY = :user
 
+  helper_method :current_user, :user_signed_in?
+
   def current_user
     @_current_user ||= load_user
   end

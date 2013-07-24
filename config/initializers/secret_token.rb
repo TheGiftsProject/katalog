@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Katalog::Application.config.secret_key_base = 'a92fbb5f2890ff4d7dc10f290ef50bc5fb5ced0695bf738b1275cb70fce7024dc081be0a09e160cd88a2554fe76eb639a9552e2badfd8177e9d1db738118a4d6'
+Katalog::Application.config.secret_key_base = ENV['RAILS_SECRET_KEY_BASE']

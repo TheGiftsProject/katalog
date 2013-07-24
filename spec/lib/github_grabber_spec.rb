@@ -18,7 +18,7 @@ describe GithubGrabber do
     end
 
     describe :changelog do
-      let(:project_name) { 'bower/bower' }
+      let(:project_name) { 'pcreux/pimpmychangelog' }
       it "fetches the project's CHANGELOG.md", :vcr do
         subject.changelog.should eq load_file('changelog')
       end
@@ -37,21 +37,23 @@ describe GithubGrabber do
 
   describe 'fetch info on a project' do
 
-    xit "fetches the project's website URL" do
+    let(:project_name) { 'ebryn/ember-model' }
 
-      subject.website_url.should eq 'website url'
+    it "fetches the project's website URL" do
+
+      #subject.repository.should eq 'website url'
 
     end
 
     xit "fetches the project's last commit" do
 
-      subject.last_commit.should eq 'last_commit'
+      #subject.last_commit.should eq 'last_commit'
 
     end
 
     xit "fetches the project's contributors" do
 
-      subject.contributors.should eq ['contributor#1', 'contributor#2']
+      #subject.contributors.should eq ['contributor#1', 'contributor#2']
 
     end
 

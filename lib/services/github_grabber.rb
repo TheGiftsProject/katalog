@@ -22,4 +22,33 @@ class GithubGrabber
   def todo
     @client.contents(@project_name, :path => 'TODO.md', :accept => DEFAULT_ACCEPT)
   end
+
+  def last_commit
+    #@client.list_commits(@project_name, 'master', :per_page => 1, :accept => DEFAULT_ACCEPT)
+    master_branch['commit']
+  end
+
+  def website
+    repository['homepage']
+  end
+
+  def contributors
+    @client.list_commits(@project_name, :accept => DEFAULT_ACCEPT)
+  end
+
+  #private
+
+
+  def repository
+    @repository ||= @client.repository(@project_name, :accept => DEFAULT_ACCEPT)
+  end
+
+  def master_branch
+    @master_branch ||= @client.branch(@project_name, 'master', :accept => DEFAULT_ACCEPT)
+  end
+
+  #def is_on_current_project?
+  #  return if @repository.blank?
+  #  @repository['name'] != @project_name
+  #end
 end

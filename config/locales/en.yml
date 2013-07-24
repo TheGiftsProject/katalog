@@ -16,3 +16,6 @@ en:
     title: 'Projects'
   project:
     last_updated: "Last Updated %{time} ago"
+
+  errors:
+    sign_in: 'Sign-in failed'

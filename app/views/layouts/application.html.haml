@@ -12,6 +12,6 @@
   %body
     .container
       - if blank_page?
-        = yield
+        = render 'layouts/blank_page'
       - else
         = render 'layouts/page'

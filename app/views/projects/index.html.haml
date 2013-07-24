@@ -4,6 +4,14 @@
     = link_to new_project_path, :class => ['btn', 'btn-mini'] do
       %i.icon-plus-sign
       %span= t('pages.index.new')
+-if @tag
+  .filtered
+    Filtered for tag
+    = link_to projects_path do
+      .tag
+        %i.icon-remove
+        = @tag.name
+
 
 
 .projects

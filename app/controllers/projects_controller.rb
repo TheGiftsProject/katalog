@@ -5,7 +5,11 @@ class ProjectsController < ApplicationController
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.latest_first
+    if params[:tag].present?
+      @tag = Tag.where(:name => params[:tag]).first
+      @projects = @tag.projects.latest_first if @tag
+    end
+    @projects ||= Project.latest_first
   end
 
   def show

@@ -1,7 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  if Rails.env.production?
-  else
-    provider :developer
-    provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
-  end
+  provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
+  provider :developer unless Rails.env.production?
 end

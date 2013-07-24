@@ -10,9 +10,7 @@
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, :media => 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
   %body
-    .container
-      - if blank_page?
-        = @background
-        = render 'layouts/blank_page', :locales => {:background => @background}
-      - else
-        = render 'layouts/page', :locales => {:background => @background}
+    - if blank_page?
+      = render 'layouts/blank_page', :locales => {:background => @background}
+    - else
+      = render 'layouts/page', :locales => {:background => @background}

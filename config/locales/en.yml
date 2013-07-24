@@ -13,7 +13,7 @@ en:
 
   pages:
     root:
-      title: 'Welcome to Katalog'
+      title: 'Katalog'
       text: 'THE place to share and work on ideas and side-projects'
       sign_in: 'Sign in with GitHub'
 

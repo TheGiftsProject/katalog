@@ -4,7 +4,13 @@
 @import 'compass';
 @import 'animation';
 @import 'bootstrap';
+@import "font-awesome";
+@import "components/avatars";
+@import "components/tags";
 
 // application
 @import 'layout';
 @import 'pages/projects/new';
+@import 'bootstrap-overides';
+@import 'layout';
+@import 'project/all';

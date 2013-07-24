@@ -16,4 +16,5 @@
 //= require showdown
 //= require underscore
 //= require s3_direct_upload
-//= require_tree ./components
+//= require bootstrap
+//= require_tree .

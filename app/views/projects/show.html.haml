@@ -1,1 +1,8 @@
-%h1 project name
+.project-page
+  = link_to projects_path ,:class => 'back' do
+    %i.icon-chevron-left
+    %span= t('pages.show.back')
+
+  = render 'projects/show/page_header'
+  = render 'projects/show/floating_info_box'
+

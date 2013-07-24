@@ -1,0 +1,7 @@
+.tags{
+  .tag{
+    @extend .label;
+    @extend .label-info;
+    vertical-align: middle;
+  }
+}

@@ -18,6 +18,8 @@ gem 'haml'
 gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
 gem 'animation'
 
+gem 'carrierwave_direct'
+
 group :development, :test do
   gem 'debugger'
   gem 'awesome_print'

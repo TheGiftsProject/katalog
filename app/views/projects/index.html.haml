@@ -1,1 +1,4 @@
-%h1 Project List
+%h1 Projects
+.projects
+  - @projects.each do |project|
+    = render 'projects/project_row', :project => project

@@ -14,7 +14,7 @@ startSearch = ->
       name: 'projects'
       valueKey: 'title'
       engine: Hogan
-      template: "<p><strong>{{title}}</strong><br><span>{{subtitle}}</span></p>"
+      template: "<p><strong>{{title}}</strong></p>"
       remote:
         url: '/autocomplete/projects?q=%QUERY'
     }

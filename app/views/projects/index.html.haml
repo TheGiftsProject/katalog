@@ -1,4 +1,11 @@
-%h1= t('projects.title')
+.page-header
+  %h1
+    = t('projects.title')
+    = link_to new_project_path, :class => ['btn', 'btn-mini'] do
+      %i.icon-plus-sign
+      %span New Project
+
+
 .projects
   - @projects.each do |project|
     = render 'projects/project_row', :project => project

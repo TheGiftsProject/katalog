@@ -1,6 +1,6 @@
 Katalog::Application.routes.draw do
 
-  resources :projects, :only => [:index, :show]
+  resources :projects
 
   # authentication
   match '/auth/:provider/callback', :to => 'session#create', :via => [:get, :post]

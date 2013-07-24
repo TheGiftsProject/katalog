@@ -2,15 +2,23 @@
   .control-group
     = f.label :title, :class => 'control-label'
     .controls
-      = f.text_field :title, :placeholder => 'Project Title'
+      = f.text_field :title, :placeholder => 'Project Title', :class => 'input-xlarge'
   .control-group
     = f.label :subtitle, :class => 'control-label'
     .controls
-      = f.text_field :subtitle, :placeholder => 'Project Subtitle'
-  -#.control-group
-  -#  = f.label :tags, :class => 'control-label'
-  -#  .controls
-  -#    = f.text_field :tags, :placeholder => 'Tags'
+      = f.text_field :subtitle, :placeholder => 'Project Subtitle', :class => 'input-xlarge'
+  .control-group
+    = f.label :tags, :class => 'control-label'
+    .controls
+      = f.text_field :tags, :placeholder => 'Tags', :class => 'input-xlarge'
+  .control-group
+    = f.label :repo_url, :class => 'control-label'
+    .controls
+      = f.text_field :repo_url, :type => 'url', :placeholder => 'https://github.com/TheGiftsProject/repo', :class => 'input-xlarge'
+  .control-group
+    = f.label :demo_url, :class => 'control-label'
+    .controls
+      = f.text_field :demo_url, :type => 'url', :placeholder => 'http://demo.example.com', :class => 'input-xlarge'
   .control-group
     .controls
       = f.submit :class => 'btn btn-primary'

@@ -21,6 +21,7 @@ en:
       title: 'New Project'
 
     edit:
+      back: 'View Project'
       title: 'Edit Project'
 
 
@@ -29,6 +30,7 @@ en:
       new: 'New Project'
 
     show:
+      back: 'All Projects'
       edit: 'Edit'
 
 

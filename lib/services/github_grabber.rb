@@ -24,16 +24,16 @@ class GithubGrabber
   end
 
   def last_commit
-    last_commit = master_branch['commit']
+    last_commit = master_branch.commit
     Hashie::Mash.new(
-        sha: last_commit['sha'],
-        message: last_commit['commit']['message'],
-        date: last_commit['commit']['committer']['date']
+        sha: last_commit.sha,
+        message: last_commit.commit.message,
+        date: last_commit.commit.committer.date
     )
   end
 
   def website
-    repository['homepage']
+    repository.homepage
   end
 
   def contributors

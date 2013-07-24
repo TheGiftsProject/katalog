@@ -25,8 +25,9 @@ class window.PostView
 
   _uploadCompleted: (ev, content) ->
     text = @ui.markdownText.val()
-    @ui.markdownText.val("![Alt text](#{content.url})")
-    @ui.markdownText.keyup()
+    text += "![Alt text](#{content.url})"
+    @ui.markdownText.val(text)
+    @ui.markdownText.change()
 
 
 

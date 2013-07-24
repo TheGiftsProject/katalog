@@ -15,7 +15,7 @@ class window.PostView
 
   _bindEvents: ->
     _.bindAll(@, '_onChange', '_uploadCompleted')
-    @ui.markdownText.keyup(@_onChange)
+    @ui.markdownText.change(@_onChange)
     @ui.fileUploadForm.bind('s3_upload_complete', @_uploadCompleted)
 
   _onChange: ->

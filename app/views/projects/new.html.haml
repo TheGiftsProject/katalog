@@ -1,11 +1,17 @@
 != javascript_include_tag 'pages/projects/new'
 
 .post
-  %textarea.markdown-text{:rows => 3, :placeholder => 'Enter markdown text'}
-  %h2 Preview
-  .markdown-preview
-  != s3_uploader_form :id => 'file-upload-form' do
-    != hidden_field_tag 'Content-Type', ''
-    != file_field_tag :file, :multiple => true
-
-
+  .tabbable
+    %ul.nav.nav-tabs
+      %li.active
+        %a{:href => '#text', :data => {:toggle => 'tab'}} Text
+      %li
+        %a{:href => '#preview', :data => {:toggle => 'tab'}} Preview
+    .tab-content
+      #text.tab-pane.active
+        %textarea.markdown-text{:rows => 3, :placeholder => 'Enter markdown text'}
+        != s3_uploader_form :id => 'file-upload-form' do
+          != hidden_field_tag 'Content-Type', ''
+          != file_field_tag :file, :multiple => true
+      #preview.tab-pane
+        .markdown-preview

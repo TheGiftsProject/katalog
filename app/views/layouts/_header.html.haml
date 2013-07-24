@@ -1,9 +1,8 @@
 %header.navbar
   .navbar-inner
-    .brand
-      Katalog
+    .brand= t('site.title')
     %form.navbar-search
-      = text_field_tag :query, nil, :placeholder => 'Search for Project or Tag', :class => 'input-long search-query'
+      = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'input-long search-query'
     %ul.user-dashboard.nav.pull-right
       - if user_signed_in?
         %li.dropdown
@@ -14,7 +13,9 @@
             %b.caret
           %ul.dropdown-menu
             %li
-              = link_to 'Sign Out', 'sign_out'
+              = link_to t('layout.header.links.projects'), projects_path
+            %li
+              = link_to t('layout.header.links.sign_out'), 'sign_out'
       - else
         %li
-          = link_to 'Sign In', 'sign_in'
+          = link_to t('layout.header.links.sign_in'), 'sign_in'

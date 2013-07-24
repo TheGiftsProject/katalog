@@ -4,5 +4,15 @@ en:
     description: 'THE place to manage your ideas and side projects'
 
   layout:
-    page_title: 'KataLog'
-    header_title: 'KataLog'
+    header:
+      search_placeholder: 'Search for Project or Tag'
+      links:
+        projects: 'All Projects'
+        sign_in: 'Sign In'
+        sign_out: 'Sign Out'
+
+
+  projects:
+    title: 'Projects'
+  project:
+    last_updated: "Last Updated %{time} ago"

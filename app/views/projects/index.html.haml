@@ -1,4 +1,4 @@
-%h1 Projects
+%h1= t('projects.title')
 .projects
   - @projects.each do |project|
     = render 'projects/project_row', :project => project

@@ -3,7 +3,4 @@
     = link_to project do
       .title= project.title
       .subtitle= project.subtitle
-      .last-update
-        Last Updated
-        = time_ago_in_words project.updated_at
-        ago
+      .last-update= t('project.last_updated', :time => time_ago_in_words(project.updated_at))

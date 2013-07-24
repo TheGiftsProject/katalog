@@ -1,6 +1,7 @@
 %header.navbar
   .navbar-inner
-    .brand= t('site.title')
+    = link_to projects_path do
+      .brand= t('site.title')
     %form.navbar-search
       = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'input-long search-query', :autocomplete => :off
     %ul.user-dashboard.nav.pull-right

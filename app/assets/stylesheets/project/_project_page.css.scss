@@ -1,7 +1,36 @@
 .project-page{
+  h1{
+    font-weight: normal;
+    margin: 0;
+  }
   .subtitle{
     font-weight: normal;
-    color: $gray;
-    font-size: 22px;
+    color: $grayLight;
+    font-size: 16px;
+    line-height: 200%;
+  }
+
+  .contributors{
+    overflow: hidden;
+  }
+  .avatar{
+    height: 50px;
+    width: 50px;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .page-header{
+    position: relative;
+  }
+
+  .expanded_info{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .tags{
+    margin-top: 5px;
   }
 }

@@ -8,12 +8,9 @@ class Project < ActiveRecord::Base
 
   scope :latest_first, -> { order(:updated_at => :desc) }
 
-
-
   def to_param
     slug
   end
-
 
   private
 

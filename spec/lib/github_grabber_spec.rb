@@ -57,9 +57,13 @@ describe GithubGrabber do
 
   describe :contributors do
     let(:project_name) { 'rspec/rspec' }
+    let(:contributor_name) { 'dchelimsky' }
+    let(:contributor_avatar_url) { 'https://secure.gravatar.com/avatar/5d38ab152e1e3e219512a9859fcd93af?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' }
+
     it "fetches the project's contributors", :vcr do
       contributors = subject.contributors
-      contributors.first['login'].should eq 'dchelimsky'
+      contributors.first.login.should eq contributor_name
+      contributors.first.avatar_url.should eq contributor_avatar_url
       contributors.should have(7).contributors
     end
   end

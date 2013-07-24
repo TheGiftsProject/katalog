@@ -1,6 +1,6 @@
 .hero-unit
-  %h1 Welcome to Katalog
-  %p THE place to share and work on ideas and side-projects
+  %h1= t('pages.root.title')
+  %p= t('pages.root.text')
   %p
     = link_to sign_in_path, :class => 'btn btn-large' do
       %i.icon-github

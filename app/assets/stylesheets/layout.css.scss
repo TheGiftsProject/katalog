@@ -1,33 +1,3 @@
 @import 'layout/header';
-
-html, body{
-  @include min-height(100%);
-}
-
-body{
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  &, &.landing{
-    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/landing.jpg'));
-  }
-  &.idea{
-    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/idea.jpg'));
-  }
-  &.wip{
-    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/wip.jpg'));
-  }
-  &.sunset{
-    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/sunset.jpg'));
-  }
-  &.katakomb{
-    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/katakomb.jpg'));
-  }
-}
-
-.container{
-  background: rgba(white, 0.85);
-  padding: 10px;
-  margin: 10px auto;
-  @include min-height(400px);
-}
+@import 'layout/background';
+@import 'layout/container';

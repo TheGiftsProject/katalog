@@ -1,0 +1,6 @@
+.container{
+  background: rgba(white, 0.85);
+  padding: 10px;
+  margin: 10px auto;
+  @include min-height(400px);
+}

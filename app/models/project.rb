@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   enum :status, [:idea, :wip, :done, :dead]
 
   scope :latest_first, -> { order(:updated_at => :desc) }
+  scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
 
   def to_param
     slug

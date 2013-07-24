@@ -1,0 +1,31 @@
+#= require hogan.js
+#= require twitter/typeahead
+
+startSearch = ->
+  $('.search-query').typeahead([
+    {
+      name: 'prefetched_tags'
+      prefetch: '/autocomplete/tags.json'
+      valueKey: 'name'
+      engine: Hogan
+      template: "<p><span class='label label-info'>{{name}}</span></p>"
+    }
+    {
+      name: 'projects'
+      valueKey: 'title'
+      engine: Hogan
+      template: "<p><strong>{{title}}</strong><br><span>{{subtitle}}</span></p>"
+      remote:
+        url: '/autocomplete/projects?q=%QUERY'
+    }
+  ]
+  ).on('typeahead:selected', (ev, selected, dataset) ->
+    if selected.title
+      path = "/projects/#{selected.id}"
+    else
+      path = "/projects?tag=#{selected.name}"
+    Turbolinks.visit(path)
+  )
+
+$(document).on 'ready', startSearch
+$(document).on 'page:load', startSearch

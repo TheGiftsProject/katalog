@@ -32,4 +32,18 @@
     font-size: 13px;
     color: $gray;
   }
+
+  .avatar{
+    width: 36px;
+    height: 36px;
+  }
+  .contributors{
+    position: absolute;
+    right: $padding;
+    top: $padding;
+  }
+
+  .tags{
+    display: inline;
+  }
 }

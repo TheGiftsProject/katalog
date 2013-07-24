@@ -8,7 +8,7 @@
         %li.dropdown
           %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
             - if current_user.image.present?
-              = image_tag current_user.image, :class => 'img-circle avatar'
+              = render 'users/avatar', :user => current_user
             %strong= current_user.nickname
             %b.caret
           %ul.dropdown-menu

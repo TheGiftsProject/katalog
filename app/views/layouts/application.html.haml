@@ -11,4 +11,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
   %body
     .container
-      = yield
+      - if blank_page?
+        = render 'layouts/blank_page'
+      - else
+        = render 'layouts/page'

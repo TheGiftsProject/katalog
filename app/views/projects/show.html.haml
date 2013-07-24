@@ -1,8 +1,15 @@
 .project-page
+  = link_to projects_path ,:class => 'back' do
+    %i.icon-chevron-left
+    %span= t('pages.show.back')
   .page-header
     %h1.title
       = status_icon(current_project)
       = current_project.title
-      %small
-        = current_project.status
+      = link_to edit_project_path(current_project), :class => 'btn btn-small' do
+        %i.icon-edit
+        %span= t('pages.show.edit')
+      = link_to current_project, :method => :delete, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-small btn-danger' do
+        %i.icon-remove
+        %span= t('pages.show.delete')
     %h2.subtitle= current_project.subtitle

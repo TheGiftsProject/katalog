@@ -17,11 +17,37 @@ en:
       text: 'THE place to share and work on ideas and side-projects'
       sign_in: 'Sign in with GitHub'
 
-  projects:
-    title: 'Projects'
+    new:
+      title: 'New Project'
+
+    edit:
+      back: 'View Project'
+      title: 'Edit Project'
+
+
+    index:
+      title: 'Projects'
+      new: 'New Project'
+
+    show:
+      back: 'All Projects'
+      edit: 'Edit'
+
+
   project:
     last_updated: "Last Updated %{time} ago"
+
+  notices:
+    created: 'Project was successfully created.'
+    updated: 'Project was successfully updated.'
+    destroyed: 'Project was removed.'
 
   errors:
     sign_in: 'Sign-in failed'
     unauthorized: 'You are not authorized to view this Katalog'
+
+  activerecord:
+    attributes:
+      project:
+#        title: 'Title'
+#        subtitle: 'Subtitle'

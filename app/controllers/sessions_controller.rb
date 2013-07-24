@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    user = UserCreator.connect_from_omniauth(auth_hash)
+    user = UserConnector.connect_from_omniauth(auth_hash)
     sign_in(user)
     redirect_to root_url
   end

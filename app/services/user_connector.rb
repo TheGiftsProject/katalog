@@ -1,11 +1,11 @@
-class UserCreator
+class UserConnector
 
-  class UserCreator::UnsupportedProviderError < StandardError; end
+  class UserConnector::UnsupportedProviderError < StandardError; end
 
   def self.connect_from_omniauth(auth_hash)
     case auth_hash.provider.to_sym
-      when :developer then UserCreator::OmniAuth::Developer.connect(auth_hash)
-      when :github    then UserCreator::OmniAuth::GitHub.connect(auth_hash)
+      when :developer then UserConnector::OmniAuth::Developer.connect(auth_hash)
+      when :github    then UserConnector::OmniAuth::GitHub.connect(auth_hash)
       else raise UnsupportedProviderError, auth_hash.provider
     end
   end

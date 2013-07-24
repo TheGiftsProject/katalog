@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   include UserSupport
   include BackgroundSupport
 
-
   def root
     if user_signed_in?
       redirect_to projects_url

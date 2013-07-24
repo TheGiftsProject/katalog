@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require jquery.tiltShift.js
 //= require_tree .

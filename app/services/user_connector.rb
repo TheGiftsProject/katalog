@@ -31,6 +31,8 @@ class UserConnector
     end
 
     def self.authorized?(uid)
+      return true if User.find_by_uid(uid)
+
       members = Octokit::Client.new.organization_members(ENV['AUTHORIZED_GITHUB_ORGANIZATION'])
       members.find { |member| member.id.to_s == uid }
     end

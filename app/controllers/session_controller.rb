@@ -5,7 +5,10 @@ class SessionController < ApplicationController
   def create
     user = UserConnector.connect_from_omniauth(auth_hash)
     sign_in(user)
-    redirect_to root_url
+  rescue UserConnector::GitHub::UnauthorizedGithubUser
+    flash[:error] = t('errors.unauthorized')
+  ensure
+    redirect_to root_url(:port => nil)
   end
 
   def destroy

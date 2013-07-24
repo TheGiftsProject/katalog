@@ -6,3 +6,6 @@ en:
   layout:
     page_title: 'KataLog'
     header_title: 'KataLog'
+
+  errors:
+    sign_in: 'Signing-in failed'

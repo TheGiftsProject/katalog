@@ -1,2 +1,5 @@
-Welcome to Katalog
-= link_to 'Sign in with GitHub', sign_in_path
+
+%h1 Welcome to Katalog
+= link_to sign_in_path, :class => 'btn btn-large' do
+  %i.icon-github
+  %span= t('pages.root.sign_in')

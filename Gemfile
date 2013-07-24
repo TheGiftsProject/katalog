@@ -19,6 +19,7 @@ gem 'omniauth-github'
 # compass-rails is kinda dead and doesn't work on Rails4, use this until there's a proper fix.
 gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
 gem 'animation'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'debugger'

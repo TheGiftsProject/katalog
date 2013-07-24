@@ -11,6 +11,9 @@ en:
         sign_in: 'Sign In'
         sign_out: 'Sign Out'
 
+  pages:
+    root:
+      sign_in: 'Sign in with GitHub'
 
   projects:
     title: 'Projects'

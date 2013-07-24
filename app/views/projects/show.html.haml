@@ -1,6 +1,8 @@
 .project-page
   .page-header
     %h1.title
+      = status_icon(current_project)
       = current_project.title
-      %small= current_project.status
+      %small
+        = current_project.status
     %h2.subtitle= current_project.subtitle

@@ -9,7 +9,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, :media => 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-  %body
+  %body{ background_class }
     .container
       - if blank_page?
         = render 'layouts/blank_page'

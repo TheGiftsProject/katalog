@@ -5,8 +5,24 @@ html, body{
 }
 
 body{
-  @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/landing.jpg'));
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: 100%;
+  &, &.landing{
+    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/landing.jpg'));
+  }
+  &.idea{
+    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/idea.jpg'));
+  }
+  &.wip{
+    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/wip.jpg'));
+  }
+  &.sunset{
+    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/sunset.jpg'));
+  }
+  &.katakomb{
+    @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/katakomb.jpg'));
+  }
 }
 
 .container{

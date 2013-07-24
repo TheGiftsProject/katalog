@@ -1,6 +1,8 @@
 = cache(project) do
   .project-row
     = link_to project do
-      .title= project.title
+      .title
+        = status_icon(project)
+        = project.title
       .subtitle= project.subtitle
       .last-update= t('project.last_updated', :time => time_ago_in_words(project.updated_at))

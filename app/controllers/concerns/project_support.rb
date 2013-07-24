@@ -2,6 +2,7 @@ module ProjectSupport
 
   extend ControllerSupport::Base
   include ErrorSupport
+  include BackgroundSupport
 
   helper_method :current_project
 
@@ -11,6 +12,7 @@ module ProjectSupport
 
   def has_project
     forbidden if current_project.nil?
+    set_background(current_project.status)
   end
 
   private

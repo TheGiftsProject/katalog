@@ -10,12 +10,13 @@ class window.PostView
     @ui =
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
-    @$el.S3Uploader()
+      fileUploadForm: @$el.find('#file-upload-form')
+    @ui.fileUploadForm.S3Uploader()
 
   _bindEvents: ->
     _.bindAll(@, '_onChange', '_uploadCompleted')
     @ui.markdownText.keyup(@_onChange)
-    @$el.bind('s3_upload_complete', @_uploadCompleted)
+    @ui.fileUploadForm.bind('s3_upload_complete', @_uploadCompleted)
 
   _onChange: ->
     text = @ui.markdownText.val()
@@ -23,7 +24,9 @@ class window.PostView
     @ui.markdownPreview.html(html)
 
   _uploadCompleted: (ev, content) ->
-    console.log "file uploaded to: #{content.url}"
+    text = @ui.markdownText.val()
+    @ui.markdownText.val("![Alt text](#{content.url})")
+    @ui.markdownText.keyup()
 
 
 

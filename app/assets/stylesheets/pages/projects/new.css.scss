@@ -1,15 +1,19 @@
-textarea {
-  @include box-sizing(border-box);
-  width: 100%;
-}
-
-#post {
+.post {
 
   .markdown-preview {
     border: 1px solid #ccc;
     @include border-radius(4px);
     padding: 5px;
     @include min-height(200px);
+  }
+
+  textarea {
+    @include box-sizing(border-box);
+    width: 100%;
+  }
+
+  form {
+    margin-top: 30px;
   }
 
 }

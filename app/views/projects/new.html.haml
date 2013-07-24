@@ -1,10 +1,11 @@
 != javascript_include_tag 'pages/projects/new'
 
-!= s3_uploader_form :id => 'post' do
-  != hidden_field_tag 'Content-Type', 'image/jpeg'
-  != file_field_tag :file, :multiple => true
+.post
   %textarea.markdown-text{:rows => 3, :placeholder => 'Enter markdown text'}
   %h2 Preview
   .markdown-preview
-  != submit_tag
+  != s3_uploader_form :id => 'file-upload-form' do
+    != hidden_field_tag 'Content-Type', ''
+    != file_field_tag :file, :multiple => true
+
 

@@ -1,6 +1,6 @@
-class CreateKatas < ActiveRecord::Migration
+class CreateProjects < ActiveRecord::Migration
   def change
-    create_table :katas do |t|
+    create_table :projects do |t|
       t.string :title
       t.string :subtitle
       t.string :repo_url

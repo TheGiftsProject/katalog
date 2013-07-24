@@ -16,7 +16,15 @@ ActiveRecord::Schema.define(version: 20130724064118) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "katas", force: true do |t|
+  create_table "posts", force: true do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+    t.string  "text",       limit: 1024
+    t.string  "story",                   default: "none"
+    t.boolean "update",                  default: false
+  end
+
+  create_table "projects", force: true do |t|
     t.string   "title"
     t.string   "subtitle"
     t.string   "repo_url"
@@ -26,17 +34,9 @@ ActiveRecord::Schema.define(version: 20130724064118) do
     t.datetime "updated_at"
   end
 
-  create_table "katas_tags", force: true do |t|
-    t.integer "kata_id"
+  create_table "projects_tags", force: true do |t|
+    t.integer "project_id"
     t.integer "tag_id"
-  end
-
-  create_table "posts", force: true do |t|
-    t.integer "kata_id"
-    t.integer "user_id"
-    t.string  "text",    limit: 1024
-    t.string  "story",                default: "none"
-    t.boolean "update",               default: false
   end
 
   create_table "tags", force: true do |t|
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20130724064118) do
     t.datetime "updated_at"
   end
 
-  create_table "users_katas", force: true do |t|
-    t.integer "kata_id"
+  create_table "users_projects", force: true do |t|
+    t.integer "project_id"
     t.integer "user_id"
   end
 

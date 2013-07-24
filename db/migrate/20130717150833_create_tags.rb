@@ -4,8 +4,8 @@ class CreateTags < ActiveRecord::Migration
       t.string :name
     end
 
-    create_table :katas_tags do |t|
-      t.belongs_to :kata
+    create_table :projects_tags do |t|
+      t.belongs_to :project
       t.belongs_to :tag
     end
   end

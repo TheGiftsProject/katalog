@@ -2,7 +2,6 @@
   .navbar-inner
     .brand= t('site.title')
     %form.navbar-search
-      %i.icon-search
       = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'input-long search-query', :autocomplete => :off
     %ul.user-dashboard.nav.pull-right
       - if user_signed_in?

@@ -1,0 +1,15 @@
+html, body{
+  @include min-height(100%);
+}
+
+body{
+  @include background-image(linear-gradient(rgba(white,0.2),rgba(white,0.4)), image-url('backgrounds/landing.jpg'));
+  background-size: 100%;
+}
+
+.container{
+  background: rgba(white, 0.85);
+  padding: 10px;
+  margin: 10px auto;
+  @include min-height(400px);
+}

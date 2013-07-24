@@ -1,0 +1,13 @@
+.info-box{
+  padding: 10px;
+  background: #FFF;
+  @include border-radius(10px);
+  text-align: center;
+  & > img, & > a{
+    display: block;
+  }
+  & > img{
+    width: 200px;
+    height: 150px;
+  }
+}

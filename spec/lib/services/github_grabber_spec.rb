@@ -68,4 +68,15 @@ describe GithubGrabber do
     end
   end
 
+  describe :hooks do
+
+    let(:project_name) { 'iic-ninjas/MyAwesomeKataRepo' }
+
+    it "hooks me in" do
+      subject.hook_me.should be_true
+    end
+
+
+  end
+
 end

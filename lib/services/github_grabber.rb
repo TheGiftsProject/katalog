@@ -40,6 +40,15 @@ class GithubGrabber
     @client.contributors(@project_name, false, :accept => DEFAULT_ACCEPT)
   end
 
+  def hook
+    @client.subscribe_service_hook(@project_name, 'postreceive', 'URL' => 'http://www.google.com')
+  end
+
+  HOOK_CALLBACK = 'http://www.doodle.com'
+  def hook_me(callback = HOOK_CALLBACK)
+    @client.subscribe(subscribe_topic, callback)
+  end
+
   private
 
   def repository
@@ -48,6 +57,10 @@ class GithubGrabber
 
   def master_branch
     @master_branch ||= @client.branch(@project_name, 'master', :accept => DEFAULT_ACCEPT)
+  end
+
+  def subscribe_topic
+    "#{Octokit.web_endpoint}#{Octokit::Repository.new(@project_name)}/events/push"
   end
 
 end

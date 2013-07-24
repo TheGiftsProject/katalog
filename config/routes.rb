@@ -2,6 +2,6 @@ Katalog::Application.routes.draw do
 
   root 'root#index'
 
-  resources :katas, :only => [:index, :show]
+  resources :projects, :only => [:index, :show]
 
 end

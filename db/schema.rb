@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130717150833) do
+ActiveRecord::Schema.define(version: 20130724064118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20130717150833) do
     t.integer "tag_id"
   end
 
+  create_table "posts", force: true do |t|
+    t.integer "kata_id"
+    t.integer "user_id"
+    t.string  "text",    limit: 1024
+    t.string  "story",                default: "none"
+    t.boolean "update",               default: false
+  end
+
   create_table "tags", force: true do |t|
     t.string "name"
   end
@@ -43,6 +51,11 @@ ActiveRecord::Schema.define(version: 20130717150833) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users_katas", force: true do |t|
+    t.integer "kata_id"
+    t.integer "user_id"
   end
 
 end

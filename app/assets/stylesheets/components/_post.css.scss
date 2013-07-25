@@ -1,5 +1,14 @@
 .post {
 
+  .container {
+    width: 100%;
+    @include box-sizing(border-box);
+  }
+
+  .nab-tabs {
+    margin-bottom: 
+  }
+
   .markdown-preview {
     border: 1px solid #ccc;
     @include border-radius(4px);

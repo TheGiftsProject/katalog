@@ -29,7 +29,9 @@ class window.PostView
     @ui.markdownText.val(text)
     @ui.markdownText.change()
 
-
+$(document).ready(->
+  new PostView(el: $('.post'))
+)
 
 
 

@@ -10,6 +10,7 @@
 
   textarea {
     @include box-sizing(border-box);
+    resize:vertical;
     width: 100%;
   }
 

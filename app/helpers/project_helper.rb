@@ -9,8 +9,11 @@ module ProjectHelper
   def viewed_by_current_user?(project)
     viewed_hash = cookies[:viewed]
     return false unless viewed_hash
-    Rails.logger.info(viewed_hash)
     JSON.parse(viewed_hash)[project.id.to_s]
+  end
+
+  def back_to_index_url
+    session[:referer] || projects_path
   end
 
 end

@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def create
     post = build_post
     if post.save
+      current_project.users << current_user unless current_project.users.include? current_user
       redirect_to current_project
     else
       redirect_to current_project, :alert => t('errors.post_fail')

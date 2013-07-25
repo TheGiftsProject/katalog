@@ -42,9 +42,11 @@ module ProjectSupport
   # referer
 
   def save_referer
-    referrer = request.referer
+    referer = request.referer
+    return if referer.nil?
+
     # if came from a filtered index, save it.
-    session[:referer] = referrer if (referrer['tag'] || referrer['filter'])
+    session[:referer] = referrer if (referer['tag'] || referer['filter'])
   end
 
   def reset_referer

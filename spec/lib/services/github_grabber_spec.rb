@@ -7,7 +7,7 @@ describe GithubGrabber do
   describe 'fetch info files from a project' do
 
     def load_file(file_name)
-      File.read("#{Rails.root}/spec/test_files/#{file_name.upcase}.md").force_encoding("ASCII-8BIT")
+      File.read("#{Rails.root}/spec/test_files/#{file_name.upcase}.html").force_encoding("ASCII-8BIT")
     end
 
     describe :readme do
@@ -16,6 +16,7 @@ describe GithubGrabber do
         subject.readme.should eq load_file('readme')
       end
     end
+
 
     describe :changelog do
       let(:project_name) { 'pcreux/pimpmychangelog' }

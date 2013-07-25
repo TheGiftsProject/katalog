@@ -10,17 +10,20 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:tag].present?
-      @tag = Tag.where(:name => params[:tag]).first
-      @projects = @tag.projects.latest_first if @tag
+      @tag = Tag.find_caseless(params[:tag]).first
+      if @tag
+        @projects = @tag.projects.latest_first
+      else
+        @projects = []
+      end
     else
       @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
       case(@filter)
-        when :all then @projects = Project
-        when :mine then @projects = current_user.projects
-        else @projects = Project.where(:status => @filter)
+        when :all then @projects = Project.latest_first
+        when :mine then @projects = current_user.projects.latest_first
+        else @projects = Project.where(:status => @filter).latest_first
       end
     end
-    @projects = @projects.latest_first
   end
 
   def show
@@ -60,7 +63,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url])
+    params.require(:project).permit(:title, :subtitle, :demo_url, :repo_url, :string_tags => [])
   end
 
   def set_viewed_cookie

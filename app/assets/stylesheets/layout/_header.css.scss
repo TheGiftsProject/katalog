@@ -9,4 +9,15 @@ header{
     height: 16px;
     width: 16px;
   }
+
+  .navbar-inner {
+    padding-right: 0;
+    padding-left: 0;
+
+    .navbar-search {
+      .input-long {
+        line-height: 15px;
+      }
+    }
+  }
 }

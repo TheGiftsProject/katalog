@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require showdown
 //= require underscore
-//= require s3_direct_upload
+//= require dropzone
 //= require bootstrap
+//= require s3_direct_upload
 //= require_tree .

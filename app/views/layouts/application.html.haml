@@ -15,3 +15,6 @@
       = render 'layouts/blank_page'
     - else
       = render 'layouts/page'
+    - yield :bottom_javascripts
+
+    = s3_form_data_fields

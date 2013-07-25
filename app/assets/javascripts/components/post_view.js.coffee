@@ -1,5 +1,7 @@
 class window.PostView
 
+  @formDataFields: {}
+
   @registerViews: ->
     $('.post').each(-> new PostView(el: $(this)))
 
@@ -13,18 +15,22 @@ class window.PostView
     @ui =
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
-      fileUploadForm: @$el.find('#file-upload-form')
-    @ui.fileUploadForm.S3Uploader()
+    @ui.markdownText.dropzone(url: 'https://s3.amazonaws.com/katalog-images/', sending: (file, xhr, formData) => @_beforeUpload(file, xhr, formData))
 
   _bindEvents: ->
     _.bindAll(@, '_onChange', '_uploadCompleted')
     @ui.markdownText.change(@_onChange)
-    @ui.fileUploadForm.bind('s3_upload_complete', @_uploadCompleted)
 
   _onChange: ->
     text = @ui.markdownText.val()
     html = @converter.makeHtml(text)
     @ui.markdownPreview.html(html)
+
+  _beforeUpload: (file, xhr, formData) ->
+    xhr.setRequestHeader('Accept', '*/*')
+
+    for key of @constructor.formDataFields
+      formData.append(key, @constructor.formDataFields[key])
 
   _uploadCompleted: (ev, content) ->
     text = @ui.markdownText.val()

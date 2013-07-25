@@ -59,15 +59,8 @@ en:
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'
-    post_created: 'Post created successfully.'
 
   errors:
     sign_in: 'Sign-in failed'
     unauthorized: 'You are not authorized to view Katalog'
-    post_fail: 'Failed to post.'
-
-  activerecord:
-    attributes:
-      project:
-#        title: 'Title'
-#        subtitle: 'Subtitle'
+    post_fail: 'Failed to post'

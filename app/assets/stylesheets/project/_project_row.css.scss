@@ -5,17 +5,16 @@
   position: relative;
   padding: $padding 5px;
 
-  &:nth-child(2n){
-    background: rgba(black, 0.05);
+  border-bottom: 1px solid #999;
+  @include box-shadow(0 1px white);
+  &:last-child{
+    border-bottom: 0px solid #999;
+    @include box-shadow(0 0px white);
   }
 
   a{
     color: $textColor;
     text-decoration: none;
-  }
-
-  &:hover{
-    background: rgba(white, 0.6);
   }
 
   .title{

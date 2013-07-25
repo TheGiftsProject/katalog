@@ -4,6 +4,7 @@
     = link_to new_project_path, :class => ['btn', 'btn-mini'] do
       %i.icon-plus-sign
       %span= t('pages.index.new')
+
 -if @tag
   .filtered
     Filtered for tag
@@ -11,9 +12,15 @@
       .tag
         %i.icon-remove
         = @tag.name
-
-
-
+- else
+  %ul.nav.nav-pills
+    - all_filters.each do |filter|
+      %li{ active_class_if_current(filter) }
+        = link_to t(filter, :scope => 'pages.index.filters'), projects_path(:filter => filter)
 .projects
-  - @projects.each do |project|
-    = render 'projects/project_row', :project => project
+  .well
+    - if @projects.empty?
+      %p= t('pages.index.no_projects')
+    - else
+      - @projects.each do |project|
+        = render 'projects/project_row', :project => project

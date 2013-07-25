@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require showdown
+//= require underscore
+//= require s3_direct_upload
 //= require bootstrap
 //= require_tree .

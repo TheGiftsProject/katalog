@@ -32,6 +32,12 @@ en:
     show:
       back: 'All Projects'
       edit: 'Edit'
+      urls:
+        repo: 'Repo URL'
+        demo: 'Demo URL'
+        changelog: 'CHANGELOG'
+        todo: 'TODO'
+        readme: 'README'
 
 
   project:

@@ -47,7 +47,7 @@ en:
 
     errors:
       code-404: "The page you're looking for isn't here"
-      code-500: "OH NO! an unexpected error has occured"
+      code-500: "OH NO! an unexpected error has occurred"
       code-403: "Where do you think you're going?"
 
 
@@ -59,15 +59,28 @@ en:
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'
-    post_created: 'Post created successfully.'
 
   errors:
     sign_in: 'Sign-in failed'
     unauthorized: 'You are not authorized to view Katalog'
-    post_fail: 'Failed to post.'
+    post_fail: 'Failed to post'
 
   activerecord:
     attributes:
       project:
-#        title: 'Title'
-#        subtitle: 'Subtitle'
+        title: "Title"
+        subtitle: "Subtitle"
+      post:
+        text: "Post text"
+    errors:
+      models:
+        project:
+          attributes:
+            title:
+              blank: "is required"
+            subtitle:
+              blank: "is required"
+        post:
+          attributes:
+            text:
+              blank: "is required"

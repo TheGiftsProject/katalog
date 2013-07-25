@@ -13,6 +13,8 @@ class Project < ActiveRecord::Base
   scope :latest_first, -> { order(:updated_at => :desc) }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
 
+  validates_presence_of :subtitle, :title
+
   def to_param
     slug
   end
@@ -26,11 +28,9 @@ class Project < ActiveRecord::Base
   end
 
   def string_tags=(array)
-    Rails.logger.info("String tags= #{array.inspect}")
     real_tags = array.map do |tag_name|
       Tag.find_caseless(tag_name).first_or_create(:name => tag_name.capitalize)
     end
-    Rails.logger.info("tags= #{real_tags.inspect}")
 
     self.tags = real_tags
   end

@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
 
   before_filter :sign_in_required
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
+  before_filter :save_referer, :only => [:show]
+  before_filter :reset_referer, :only => [:index]
   after_filter :set_viewed_cookie, :only => [:create, :show]
 
   def index
@@ -40,7 +42,8 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to @project, notice: t('notices.created')
     else
-      render action: 'new'
+      flash[:error] = @project.errors.full_messages.join(', ')
+      redirect_to new_project_path
     end
   end
 
@@ -71,20 +74,6 @@ class ProjectsController < ApplicationController
     project = current_user.projects.build(project_params)
     project.posts.first.user = current_user
     project
-  end
-
-  def set_viewed_cookie
-    project = @project || current_project
-    return unless project.less_than_week_old?
-
-    if cookies[:viewed]
-      viewed_hash = JSON.parse(cookies[:viewed])
-    else
-      viewed_hash = {}
-    end
-
-    viewed_hash[project.id] = true
-    cookies[:viewed] = {:value => viewed_hash.to_json, :expires => 1.week.from_now}
   end
 
 end

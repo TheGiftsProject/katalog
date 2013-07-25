@@ -6,20 +6,24 @@ class ProjectsController < ApplicationController
 
   before_filter :sign_in_required
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
+  after_filter :set_viewed_cookie, :only => [:create, :show]
 
   def index
     if params[:tag].present?
-      @tag = Tag.where(:name => params[:tag]).first
-      @projects = @tag.projects.latest_first if @tag
+      @tag = Tag.find_caseless(params[:tag]).first
+      if @tag
+        @projects = @tag.projects.latest_first
+      else
+        @projects = []
+      end
     else
       @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
       case(@filter)
-        when :all then @projects = Project
-        when :mine then @projects = current_user.projects
-        else @projects = Project.where(:status => @filter)
+        when :all then @projects = Project.latest_first
+        when :mine then @projects = current_user.projects.latest_first
+        else @projects = Project.where(:status => @filter).latest_first
       end
     end
-    @projects = @projects.latest_first
   end
 
   def show
@@ -60,14 +64,27 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params[:project][:posts_attributes].each { |post| post[:user] = current_user }
-    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text] ])
+    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :string_tags => [], :posts_attributes => [:text]])
   end
 
   def build_project
     project = current_user.projects.build(project_params)
     project.posts.first.user = current_user
     project
+  end
+
+  def set_viewed_cookie
+    project = @project || current_project
+    return unless project.less_than_week_old?
+
+    if cookies[:viewed]
+      viewed_hash = JSON.parse(cookies[:viewed])
+    else
+      viewed_hash = {}
+    end
+
+    viewed_hash[project.id] = true
+    cookies[:viewed] = {:value => viewed_hash.to_json, :expires => 1.week.from_now}
   end
 
 end

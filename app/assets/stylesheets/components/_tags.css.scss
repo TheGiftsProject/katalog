@@ -1,3 +1,13 @@
+.tags{
+  form &{
+    @include inline-block;
+    margin-top: 3px;
+    a{
+      text-decoration: none;
+    }
+  }
+}
+
 .tag{
   @extend .label;
   @extend .label-success;

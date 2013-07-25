@@ -1,5 +1,6 @@
 class AutocompleteController < ApplicationController
 
+  before_filter :sign_in_required
   before_action :load_query, :only => [:projects]
 
   def tags
@@ -11,8 +12,6 @@ class AutocompleteController < ApplicationController
       {:value => project.title, :tokens => project.title.split(' ') }
     end
   end
-
-
 
   private
 

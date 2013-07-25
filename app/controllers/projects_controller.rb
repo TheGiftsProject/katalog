@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
 
   include ProjectSupport
 
+  before_filter :sign_in_required
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
 
   def index

@@ -56,7 +56,7 @@ en:
 
   errors:
     sign_in: 'Sign-in failed'
-    unauthorized: 'You are not authorized to view this Katalog'
+    unauthorized: 'You are not authorized to view Katalog'
 
   activerecord:
     attributes:

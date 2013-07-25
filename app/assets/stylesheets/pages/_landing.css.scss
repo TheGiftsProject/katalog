@@ -1,6 +1,6 @@
 .centered-container {
   position: relative;
-  top: 200px;
+  top: 225px;
   width: 500px;
   display: block;
   margin-left: auto;
@@ -16,7 +16,11 @@
   h1 {
     font-size: 79px;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin: 25px;
+  }
+
+  p {
+    margin: 15px;
   }
 }
 

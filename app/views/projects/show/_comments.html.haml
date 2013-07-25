@@ -1,7 +1,7 @@
 .comments
   - current_project.posts.each do |post|
     - if post.text.present?
-      .comment
+      .comment{ class_if('is_status_update', post.updated?) }
         .top
           .who
             = render 'users/avatar', :user => post.user

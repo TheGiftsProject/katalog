@@ -5,6 +5,13 @@
   background: white;
   margin: 5px 0;
   border: 1px solid #cacaca;
+
+  &.is_status_update{
+    .top{
+      background: #F3F1B2;
+    }
+  }
+
   .top{
     padding: 5px;
     background: #f3f3f3;
@@ -24,8 +31,8 @@
     }
   }
   .body{
-    overflow-x: scroll;
     padding: 5px;
+    overflow-x: auto;
   }
 
   pre {

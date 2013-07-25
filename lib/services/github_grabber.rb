@@ -15,7 +15,7 @@ class GithubGrabber
   end
 
   def self.from_project(project)
-    self.from_url(project.url)
+    self.from_url(project.repo_url)
   end
 
   def self.from_url(project_url)

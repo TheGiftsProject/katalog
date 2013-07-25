@@ -1,4 +1,4 @@
-require 'lib/services/github_grabber'
+require 'services/github_grabber'
 
 class ProjectsController < ApplicationController
 
@@ -62,9 +62,9 @@ class ProjectsController < ApplicationController
   end
 
   def fetch_github_page
-    method = controller.action_name
+    method = action_name
     @github_page_title = method.to_s.upcase
-    @github_page = GithubGrabber.from_project(current_project).call(method)
+    @github_page = GithubGrabber.from_project(current_project).send(method)
     render 'projects/github_page'
   end
 

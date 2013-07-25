@@ -1,4 +1,4 @@
-require 'lib/services/github_grabber'
+require 'services/github_grabber'
 
 class GithubObserver
 

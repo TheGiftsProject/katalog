@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-
+    @post = current_project.posts.build
   end
 
   def new

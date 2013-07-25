@@ -26,8 +26,14 @@ en:
 
 
     index:
-      title: 'Projects'
-      new: 'New Project'
+      new: 'Add'
+      filters:
+        all: 'ALL PROJECTS'
+        mine: 'MY PROJECTS'
+        idea: "IDEA"
+        wip: "WIP"
+        done: 'SUNSET'
+        dead: 'KATAKOMB'
 
     show:
       back: 'All Projects'

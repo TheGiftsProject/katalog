@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  DEFAULT_FILTER = :idea
+
   include ProjectSupport
 
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
@@ -8,8 +10,15 @@ class ProjectsController < ApplicationController
     if params[:tag].present?
       @tag = Tag.where(:name => params[:tag]).first
       @projects = @tag.projects.latest_first if @tag
+    else
+      @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
+      case(@filter)
+        when :all then @projects = Project
+        when :mine then @projects = current_user.projects
+        else @projects = Project.where(:status => @filter)
+      end
     end
-    @projects ||= Project.latest_first
+    @projects = @projects.latest_first
   end
 
   def show

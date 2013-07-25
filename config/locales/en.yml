@@ -64,3 +64,23 @@ en:
     sign_in: 'Sign-in failed'
     unauthorized: 'You are not authorized to view Katalog'
     post_fail: 'Failed to post'
+
+  activerecord:
+    attributes:
+      project:
+        title: "Title"
+        subtitle: "Subtitle"
+      post:
+        text: "Post text"
+    errors:
+      models:
+        project:
+          attributes:
+            title:
+              blank: "is required"
+            subtitle:
+              blank: "is required"
+        post:
+          attributes:
+            text:
+              blank: "is required"

@@ -13,6 +13,8 @@ class Project < ActiveRecord::Base
   scope :latest_first, -> { order(:updated_at => :desc) }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
 
+  validates_presence_of :subtitle, :title
+
   def to_param
     slug
   end

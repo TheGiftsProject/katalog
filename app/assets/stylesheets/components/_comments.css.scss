@@ -24,6 +24,13 @@
     }
   }
   .body{
+    overflow-x: scroll;
     padding: 5px;
+  }
+
+  pre {
+    overflow-x: scroll;
+    white-space: pre;
+    word-wrap: normal;
   }
 }

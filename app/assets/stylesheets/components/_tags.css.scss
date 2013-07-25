@@ -12,4 +12,8 @@
   @extend .label;
   @extend .label-success;
   vertical-align: middle;
+
+  &.new {
+    @extend .label-important;
+  }
 }

@@ -26,6 +26,10 @@ gem 'animation'
 gem 'font-awesome-rails'
 gem 'twitter-typeahead-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'debugger'
   gem 'awesome_print'

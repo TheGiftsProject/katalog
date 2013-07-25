@@ -22,8 +22,8 @@
   .control-group
     = f.label :posts, 'Initial post', :class => 'control-label'
     .controls
-      != f.fields_for 'posts_attributes[]', @initial_post do |post_form|
-        != render :partial => 'components/post', :locals => {:f => post_form}
+      = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
+        = render :partial => 'components/post', :locals => {:f => post_form}
   .control-group
     .controls
       = f.submit :class => 'btn btn-primary'

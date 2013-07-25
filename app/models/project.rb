@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+  DEFAULT_IMAGE = 'http://placehold.it/200x150'
+
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :users
   has_many :posts
@@ -11,6 +13,10 @@ class Project < ActiveRecord::Base
 
   def to_param
     slug
+  end
+
+  def image
+    DEFAULT_IMAGE
   end
 
   private

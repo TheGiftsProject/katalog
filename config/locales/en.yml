@@ -50,6 +50,9 @@ en:
       code-500: "OH NO! an unexpected error has occurred"
       code-403: "Where do you think you're going?"
 
+  post:
+    status_update: "Status update"
+
 
   project:
     last_updated: "Last Updated %{time} ago"

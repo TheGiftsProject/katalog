@@ -20,5 +20,9 @@
     .controls
       = f.text_field :demo_url, :type => 'url', :placeholder => 'http://demo.example.com', :class => 'input-xlarge'
   .control-group
+    = f.label :posts, 'Initial post', :class => 'control-label'
+    .controls
+      != render :partial => 'components/post'
+  .control-group
     .controls
       = f.submit :class => 'btn btn-primary'

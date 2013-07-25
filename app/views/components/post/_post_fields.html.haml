@@ -14,3 +14,5 @@
           -#  != file_field_tag :file, :multiple => true
         #preview.tab-pane
           .markdown-preview
+    - unless project.new_record?
+      = render 'components/post/status_fields', :f => f

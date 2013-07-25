@@ -1,4 +1,4 @@
 = form_for [project, post], :html => {:class => 'form-horizontal'} do |f|
   .control-group
-    = render 'components/post/post_fields', :f => f
+    = render 'components/post/post_fields', :f => f, :project => project
     = f.submit :class => 'btn btn-primary pull-right'

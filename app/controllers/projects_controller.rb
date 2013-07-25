@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
       redirect_to @project, notice: t('notices.created')
     else
       flash[:error] = @project.errors.full_messages.join(', ')
-      render action: 'new', error: @project.errors
+      redirect_to new_project_path
     end
   end
 

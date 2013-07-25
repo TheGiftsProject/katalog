@@ -26,6 +26,7 @@ module ProjectSupport
 
   def set_viewed_cookie
     project = @project || current_project
+    return if project.new_record?
     return unless project.less_than_week_old?
 
     if cookies[:viewed]

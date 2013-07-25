@@ -1,6 +1,6 @@
 require 'services/github_grabber'
 
-class GithubObserver
+class GithubObserver < ActiveRecord::Observer
 
   observe :project
 

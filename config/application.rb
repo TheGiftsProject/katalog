@@ -21,5 +21,8 @@ module Katalog
     # config.i18n.default_locale = :de
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    # Activate observers that should always be running.
+    config.active_record.observers = :github_observer
   end
 end

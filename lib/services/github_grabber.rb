@@ -7,6 +7,9 @@ class GithubGrabber
 
   attr_accessor :client
 
+  # see: GithubSupport
+  cattr_accessor :hook_callback_url
+
   # we create a client to handle Github's Rate Limiting
   # see: http://developer.github.com/v3/#rate-limiting
   def initialize(repo)
@@ -53,11 +56,11 @@ class GithubGrabber
   end
 
   def subscribe_to_service_hook
-    @client.subscribe(subscribe_topic, hook_callback_url)
+    @client.subscribe(subscribe_topic, GithubGrabber.hook_callback_url)
   end
 
   def unsubscribe_to_service_hook
-    @client.unsubscribe(subscribe_topic, hook_callback_url)
+    @client.unsubscribe(subscribe_topic, GithubGrabber.hook_callback_url)
   end
 
   private
@@ -72,10 +75,6 @@ class GithubGrabber
 
   def subscribe_topic
     "#{Octokit.web_endpoint}#{@repository}/events/push"
-  end
-
-  def hook_callback_url
-    Rails.application.routes.url_helpers.github_post_receive_hook_url
   end
 
 end

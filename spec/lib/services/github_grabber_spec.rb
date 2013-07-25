@@ -72,7 +72,9 @@ describe GithubGrabber do
   describe 'Github service hooks' do
 
     before :all do
-      Rails.application.routes.default_url_options[:host] = 'iic-katalog-testing.herokuapp.com'
+      host = 'iic-katalog-testing.herokuapp.com'
+      url = Rails.application.routes.url_helpers.github_post_receive_hook_url(host: host)
+      GithubGrabber.hook_callback_url = url
     end
 
     let(:project_name) { 'iic-ninjas/MyAwesomeKataRepo' }

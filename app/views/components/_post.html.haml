@@ -7,7 +7,7 @@
         %a{:href => '#preview', :data => {:toggle => 'tab'}} Preview
     .tab-content
       #text.tab-pane.active
-        %textarea.markdown-text{:rows => 3, :placeholder => 'Enter markdown text', :name => 'project[posts_attributes][][text]'}
+        = f.text_area :text, :rows => 3, :placeholder => 'Enter markdown text', :class => 'markdown-text'
         -#!= s3_uploader_form :id => 'file-upload-form' do
         -#  != hidden_field_tag 'Content-Type', ''
         -#  != file_field_tag :file, :multiple => true

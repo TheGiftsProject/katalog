@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @initial_post = @project.posts.build
   end
 
   def create

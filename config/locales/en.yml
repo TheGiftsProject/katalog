@@ -48,6 +48,7 @@ en:
 
   project:
     last_updated: "Last Updated %{time} ago"
+    new_tag: "NEW"
 
   notices:
     created: 'Project was successfully created.'

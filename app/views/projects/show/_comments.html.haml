@@ -7,8 +7,11 @@
             = render 'users/avatar', :user => post.user
             = post.user.nickname
           .when
-            = time_ago_in_words post.created_at
-            ago
+            - if post.updated?
+              %i.icon-star
+            %span
+              = time_ago_in_words post.created_at
+              ago
         .body
           ~ markdown.render(post.text).html_safe
   = render 'components/post/add_post', :project => current_project, :post => @post

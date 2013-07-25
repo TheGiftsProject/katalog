@@ -11,3 +11,4 @@
             ago
         .body
           ~ markdown.render(post.text).html_safe
+  = render 'components/post/add_post', :project => current_project, :post => @post

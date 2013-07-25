@@ -15,10 +15,7 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :subtitle, :title
 
-  delegate :readme, :todo, :changelog,
-           :website, :last_commit, :contributors,
-           :subscribe_to_service_hook,
-           :unsubscribe_to_service_hook, :to => :github_grabber
+  include Project::GithubConcern
 
   def to_param
     slug
@@ -40,32 +37,10 @@ class Project < ActiveRecord::Base
     self.tags = real_tags
   end
 
-  def sync_with_github
-    sync_website_url
-    sync_last_commit_date
-    sync_contributors
-  end
-
-  def sync_website_url
-    github_grabber.website
-  end
-
-  def sync_last_commit_date
-
-  end
-
-  def sync_contributors
-
-  end
-
   private
 
   def slug
     "#{id}-#{title.parameterize}"
-  end
-
-  def github_grabber
-    @github_grabber ||= GithubGrabber.from_project(self)
   end
 
 end

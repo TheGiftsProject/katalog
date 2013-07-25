@@ -1,22 +1,21 @@
 .project-row{
-  $padding: 12px;
+  $padding: 10px;
 
-  cursor: pointer;
   overflow: hidden;
   position: relative;
-  padding: $padding 5px;
+  padding: $padding 15px;
 
-  &:nth-child(2n){
-    background: rgba(black, 0.05);
+  border-bottom: 1px solid #ccc;
+  @include box-shadow(0 1px white);
+
+  &:last-child{
+    border-bottom: none;
+    @include box-shadow(none);
   }
 
   a{
     color: $textColor;
     text-decoration: none;
-  }
-
-  &:hover{
-    background: rgba(white, 0.6);
   }
 
   .title{
@@ -27,14 +26,14 @@
   .subtitle{
     font-size: 16px;
     line-height: normal;
-    color: $gray;
+    color: $grayLight;
   }
 
   .last-update{
     position: absolute;
-    bottom: $padding;
+    bottom: $padding - 3;
     right: $padding;
-    font-size: 13px;
+    font-size: 11px;
     color: $gray;
   }
 
@@ -50,5 +49,7 @@
 
   .tags{
     display: inline;
+    //@include inline-block;
+    //marign-top: -3px;
   }
 }

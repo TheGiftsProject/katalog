@@ -9,8 +9,15 @@
       = f.text_field :subtitle, :placeholder => 'Project Subtitle', :class => 'input-xlarge'
   .control-group
     = f.label :tags, :class => 'control-label'
-    .controls
-      = f.text_field :tags, :placeholder => 'Tags', :class => 'input-xlarge'
+    .controls.tagging
+      = text_field_tag :tags_input,'', :placeholder => 'Tags', :class => ''
+      .tags
+        - project.tags.each do |tag|
+          = link_to '#' do
+            %span.tag
+              = hidden_field_tag 'project[string_tags][]', tag.name
+              = tag.name
+              %i.icon-remove
   .control-group
     = f.label :repo_url, :class => 'control-label'
     .controls
@@ -19,6 +26,12 @@
     = f.label :demo_url, :class => 'control-label'
     .controls
       = f.text_field :demo_url, :type => 'url', :placeholder => 'http://demo.example.com', :class => 'input-xlarge'
+  - if project.new_record?
+    .control-group
+      = f.label :posts, 'Initial post', :class => 'control-label'
+      .controls
+        = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
+          = render 'components/post/post_fields', :f => post_form
   .control-group
     .controls
       = f.submit :class => 'btn btn-primary'

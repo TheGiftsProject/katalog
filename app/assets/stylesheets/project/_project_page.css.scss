@@ -12,6 +12,7 @@
 
   .contributors{
     overflow: hidden;
+    height: 50px;
   }
   .avatar{
     height: 50px;
@@ -32,5 +33,9 @@
 
   .tags{
     margin-top: 5px;
+  }
+
+  .post {
+    clear: both;
   }
 }

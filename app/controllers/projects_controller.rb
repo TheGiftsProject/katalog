@@ -2,30 +2,52 @@ require 'services/github_grabber'
 
 class ProjectsController < ApplicationController
 
+  DEFAULT_FILTER = :idea
+
   include ProjectSupport
 
+  before_filter :sign_in_required
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
+  before_filter :save_referer, :only => [:show]
+  before_filter :reset_referer, :only => [:index]
+  after_filter :set_viewed_cookie, :only => [:create, :show]
 
   before_filter :fetch_github_page, :only => [:readme, :todo, :changelog]
 
   def index
-    @projects = Project.latest_first
+    if params[:tag].present?
+      @tag = Tag.find_caseless(params[:tag]).first
+      if @tag
+        @projects = @tag.projects.latest_first
+      else
+        @projects = []
+      end
+    else
+      @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
+      case(@filter)
+        when :all then @projects = Project.latest_first
+        when :mine then @projects = current_user.projects.latest_first
+        else @projects = Project.where(:status => @filter).latest_first
+      end
+    end
   end
 
   def show
-
+    @post = current_project.posts.build
   end
 
   def new
     @project = Project.new
+    @initial_post = @project.posts.build
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = build_project
     if @project.save
       redirect_to @project, notice: t('notices.created')
     else
-      render action: 'new'
+      flash[:error] = @project.errors.full_messages.join(', ')
+      redirect_to new_project_path
     end
   end
 
@@ -58,7 +80,13 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url])
+    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :string_tags => [], :posts_attributes => [:text]])
+  end
+
+  def build_project
+    project = current_user.projects.build(project_params)
+    project.posts.first.user = current_user
+    project
   end
 
   def fetch_github_page

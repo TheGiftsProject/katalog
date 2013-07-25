@@ -21,4 +21,34 @@ module ProjectSupport
     project_id = params[:project_id] || params[:id]
     Project.find(project_id.to_i)
   end
+
+  # cookies
+
+  def set_viewed_cookie
+    project = @project || current_project
+    return if project.new_record?
+    return unless project.less_than_week_old?
+
+    if cookies[:viewed]
+      viewed_hash = JSON.parse(cookies[:viewed])
+    else
+      viewed_hash = {}
+    end
+
+    viewed_hash[project.id] = true
+    cookies[:viewed] = {:value => viewed_hash.to_json, :expires => 1.week.from_now}
+  end
+
+  # referer
+
+  def save_referer
+    referrer = request.referer
+    # if came from a filtered index, save it.
+    session[:referer] = referrer if (referrer['tag'] || referrer['filter'])
+  end
+
+  def reset_referer
+    session[:referer] = nil
+  end
+
 end

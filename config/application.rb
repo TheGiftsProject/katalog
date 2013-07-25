@@ -24,5 +24,7 @@ module Katalog
 
     # Activate observers that should always be running.
     config.active_record.observers = :github_observer
+
+    config.exceptions_app = self.routes
   end
 end

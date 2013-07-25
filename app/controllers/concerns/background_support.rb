@@ -3,7 +3,7 @@ module BackgroundSupport
 
   DEFAULT = 'landing'
 
-  helper_method :background_class
+  helper_method :background
 
   def set_background(type)
     @background = type
@@ -11,10 +11,6 @@ module BackgroundSupport
 
   def background
     @background.presence || DEFAULT
-  end
-
-  def background_class
-    {:class => background}
   end
 
 end

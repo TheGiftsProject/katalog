@@ -1,0 +1,17 @@
+.alert {
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+  position: relative;
+  top: 25px;
+}
+
+.container {
+  .alert {
+    margin-right: 0;
+    margin-left: 0;
+    width: auto;
+    position: static;
+    top: 0;
+  }
+}

@@ -1,0 +1,28 @@
+.post {
+
+  .container {
+    width: 100%;
+    @include box-sizing(border-box);
+    border: 1px solid #cccccc;
+    @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+  }
+
+  .markdown-preview {
+    border: 1px solid #ccc;
+    @include border-radius(4px);
+    padding: 5px;
+    @include box-sizing(border-box);
+    @include min-height(70px);
+  }
+
+  textarea {
+    @include box-sizing(border-box);
+    resize:vertical;
+    width: 100%;
+  }
+
+  form {
+    margin-top: 30px;
+  }
+
+}

@@ -19,6 +19,16 @@ class Project < ActiveRecord::Base
     DEFAULT_IMAGE
   end
 
+  def string_tags=(array)
+    Rails.logger.info("String tags= #{array.inspect}")
+    real_tags = array.map do |tag_name|
+      Tag.find_caseless(tag_name).first_or_create(:name => tag_name.capitalize)
+    end
+    Rails.logger.info("tags= #{real_tags.inspect}")
+
+    self.tags = real_tags
+  end
+
   private
 
   def slug

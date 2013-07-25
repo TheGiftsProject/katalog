@@ -3,7 +3,7 @@
   margin-bottom: 0;
 }
 
-.tt-hint{
+header .tt-hint{
     @extend .search-query;
 }
 

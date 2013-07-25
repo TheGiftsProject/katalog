@@ -15,6 +15,10 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :subtitle, :title
 
+  delegate :readme, :todo, :changelog,
+           :subscribe_to_service_hook,
+           :unsubscribe_to_service_hook, :to => :github_grabber
+
   def to_param
     slug
   end
@@ -39,6 +43,10 @@ class Project < ActiveRecord::Base
 
   def slug
     "#{id}-#{title.parameterize}"
+  end
+
+  def github_grabber
+    @github_grabber ||= GithubGrabber.from_project(self)
   end
 
 end

@@ -8,8 +8,8 @@
     .tab-content
       #text.tab-pane.active
         %textarea.markdown-text{:rows => 3, :placeholder => 'Enter markdown text'}
-        != s3_uploader_form :id => 'file-upload-form' do
-          != hidden_field_tag 'Content-Type', ''
-          != file_field_tag :file, :multiple => true
+        -#!= s3_uploader_form :id => 'file-upload-form' do
+        -#  != hidden_field_tag 'Content-Type', ''
+        -#  != file_field_tag :file, :multiple => true
       #preview.tab-pane
         .markdown-preview

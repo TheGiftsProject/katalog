@@ -1,6 +1,7 @@
 %header.navbar
   .navbar-inner
     = link_to projects_path do
+      = image_tag('logo/logo-small.png', :class => 'logo')
       .brand= t('site.title')
     %form.navbar-search
       = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'input-long search-query', :autocomplete => :off

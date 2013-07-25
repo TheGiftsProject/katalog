@@ -45,7 +45,8 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text] ])
+    params[:project][:posts_attributes].each { |post| post[:user] = current_user }
+    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text, :user] ])
   end
 
 end

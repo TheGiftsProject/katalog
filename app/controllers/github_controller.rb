@@ -12,6 +12,9 @@ class GithubController < ApplicationController
     payload = JSON.parse(payload)
 
 
+    # find project
+    # project.update_last_commit
+
   end
 
 end

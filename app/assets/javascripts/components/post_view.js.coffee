@@ -1,5 +1,8 @@
 class window.PostView
 
+  @registerViews: ->
+    $('.post').each(-> new PostView(el: $(this)))
+
   constructor: (options) ->
     @$el = options.el
     @converter = new Showdown.converter()
@@ -29,9 +32,8 @@ class window.PostView
     @ui.markdownText.val(text)
     @ui.markdownText.change()
 
-$(document).ready(->
-  new PostView(el: $('.post'))
-)
+$(document).on 'ready', PostView.registerViews
+$(document).on 'page:load', PostView.registerViews
 
 
 

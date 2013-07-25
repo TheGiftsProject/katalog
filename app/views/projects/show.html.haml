@@ -5,9 +5,5 @@
 
   = render 'projects/show/page_header'
   = render 'projects/show/floating_info_box'
-  = form_for [current_project, @post], :html => {:class => 'form-horizontal'} do |f|
-    .control-group
-      = render :partial => 'components/post', :locals => {:f => f}
-    .control-group
-      = f.submit "Create post"
+  = render 'projects/show/add_post', :project => current_project, :post => @post
 

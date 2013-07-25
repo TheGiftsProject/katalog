@@ -18,8 +18,8 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'octokit'
 gem 'redcarpet'
-gem 'github-markdown'
 gem 'rouge'
+gem 'md_emoji'
 
 gem 'hogan_assets'
 

@@ -88,7 +88,6 @@ GEM
     font-awesome-rails (3.2.1.2)
       railties (>= 3.2, < 5.0)
     fssm (0.2.10)
-    github-markdown (0.5.3)
     haml (4.0.3)
       tilt
     hashie (2.0.5)
@@ -110,6 +109,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    md_emoji (1.0.1)
+      railties (>= 3.1.0)
+      redcarpet (>= 2.0)
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
@@ -238,10 +240,10 @@ DEPENDENCIES
   enumify
   factory_girl_rails
   font-awesome-rails
-  github-markdown
   haml
   hogan_assets
   jquery-rails
+  md_emoji
   octokit
   omniauth
   omniauth-github

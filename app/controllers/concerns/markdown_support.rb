@@ -1,7 +1,7 @@
 require 'rouge/plugins/redcarpet'
 module MarkdownSupport
 
-  class HTML < Redcarpet::Render::HTML
+  class HTML < MdEmoji::Render
     include Rouge::Plugins::Redcarpet
   end
 

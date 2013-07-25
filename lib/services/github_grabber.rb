@@ -2,8 +2,10 @@ require 'octokit'
 
 class GithubGrabber
 
-  DEFAULT_ACCEPT = 'application/vnd.github.raw'
+  RAW_ACCEPT = 'application/vnd.github.raw'
   HTML_ACCEPT = 'application/vnd.github.html'
+
+  attr_accessor :client
 
   # we create a client to handle Github's Rate Limiting
   # see: http://developer.github.com/v3/#rate-limiting
@@ -47,30 +49,33 @@ class GithubGrabber
   end
 
   def contributors
-    @client.contributors(@repository, false, :accept => DEFAULT_ACCEPT)
+    @client.contributors(@repository, false, :accept => RAW_ACCEPT)
   end
 
-  SERVICE_HOOK_CALLBACK = 'http://iic-katalog.herokuapp.com/github/post_receive_hook'
-  def subscribe_to_service_hook(callback = github_post_receive_hook_url())
-    @client.subscribe(subscribe_topic, callback)
+  def subscribe_to_service_hook
+    @client.subscribe(subscribe_topic, hook_callback_url)
   end
 
-  def unsubscribe_to_service_hook(callback = SERVICE_HOOK_CALLBACK)
-    @client.unsubscribe(subscribe_topic, callback)
+  def unsubscribe_to_service_hook
+    @client.unsubscribe(subscribe_topic, hook_callback_url)
   end
 
   private
 
   def repository_info
-    @repository_info ||= @client.repository(@repository, :accept => DEFAULT_ACCEPT)
+    @repository_info ||= @client.repository(@repository, :accept => RAW_ACCEPT)
   end
 
   def master_branch
-    @master_branch ||= @client.branch(@repository, 'master', :accept => DEFAULT_ACCEPT)
+    @master_branch ||= @client.branch(@repository, 'master', :accept => RAW_ACCEPT)
   end
 
   def subscribe_topic
     "#{Octokit.web_endpoint}#{@repository}/events/push"
+  end
+
+  def hook_callback_url
+    Rails.application.routes.url_helpers.github_post_receive_hook_url
   end
 
 end

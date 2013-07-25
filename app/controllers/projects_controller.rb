@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = build_project
     if @project.save
       redirect_to @project, notice: t('notices.created')
     else
@@ -61,7 +61,13 @@ class ProjectsController < ApplicationController
 
   def project_params
     params[:project][:posts_attributes].each { |post| post[:user] = current_user }
-    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text, :user] ])
+    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text] ])
+  end
+
+  def build_project
+    project = current_user.projects.build(project_params)
+    project.posts.first.user = current_user
+    project
   end
 
 end

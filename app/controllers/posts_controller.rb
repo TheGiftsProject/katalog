@@ -6,15 +6,24 @@ class PostsController < ApplicationController
   before_filter :has_project
 
   def create
-    current_project.posts.create(post_params)
-    redirect_to current_project
+    post = build_post
+    if post.save
+      redirect_to current_project, :notice => t('notices.post_created')
+    else
+      redirect_to current_project, :alert => t('errors.post_fail')
+    end
   end
 
   private
 
   def post_params
-    params[:user] = current_user
-    params.require(:post).permit(:text, :user)
+    params.require(:post).permit(:text)
+  end
+
+  def build_post
+    post = current_project.posts.build(post_params)
+    post.user = current_user
+    post
   end
 
 end

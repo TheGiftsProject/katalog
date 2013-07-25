@@ -23,7 +23,7 @@
     = f.label :posts, 'Initial post', :class => 'control-label'
     .controls
       = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
-        = render 'components/post', :f => post_form
+        = render 'components/post/post_fields', :f => post_form
   .control-group
     .controls
       = f.submit :class => 'btn btn-primary'

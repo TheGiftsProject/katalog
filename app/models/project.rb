@@ -19,11 +19,14 @@ class Project < ActiveRecord::Base
     DEFAULT_IMAGE
   end
 
+  def less_than_week_old?
+    self.created_at > 1.week.ago
+  end
+
   private
 
   def slug
     "#{id}-#{title.parameterize}"
   end
-
 
 end

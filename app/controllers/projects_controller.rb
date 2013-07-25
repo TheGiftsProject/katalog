@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   before_filter :sign_in_required
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
+  after_filter :set_viewed_cookie, :only => [:create, :show]
 
   def index
     if params[:tag].present?
@@ -60,6 +61,20 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url])
+  end
+
+  def set_viewed_cookie
+    project = @project || current_project
+    return unless project.less_than_week_old?
+
+    if cookies[:viewed]
+      viewed_hash = JSON.parse(cookies[:viewed])
+    else
+      viewed_hash = {}
+    end
+
+    viewed_hash[project.id] = true
+    cookies[:viewed] = {:value => viewed_hash.to_json, :expires => 1.week.from_now}
   end
 
 end

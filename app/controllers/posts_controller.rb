@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     post = build_post
     if post.save
-      redirect_to current_project, :notice => t('notices.post_created')
+      redirect_to current_project
     else
       redirect_to current_project, :alert => t('errors.post_fail')
     end

@@ -1,4 +1,7 @@
 .tags
+  - if new_for_current_user?(project)
+    %span.tag.new= t('project.new_tag')
   - project.tags.each do |tag|
-    %span.tag
-      = tag.name
+    = link_to projects_path(:tag => tag.name) do
+      %span.tag
+        = tag.name

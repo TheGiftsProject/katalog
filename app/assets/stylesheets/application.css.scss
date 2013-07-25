@@ -3,14 +3,16 @@
 // frameworks
 @import 'compass';
 @import 'animation';
+@import 'compass/css3/user-interface';
 @import 'bootstrap';
+@import 'typeahead-bootstrap';
 @import "font-awesome";
 @import "components/avatars";
 @import "components/tags";
 
 // application
-@import 'layout';
 @import 'pages/projects/new';
 @import 'bootstrap-overides';
 @import 'layout';
 @import 'project/all';
+@import 'pages/all';

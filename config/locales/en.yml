@@ -13,7 +13,7 @@ en:
 
   pages:
     root:
-      title: 'Welcome to Katalog'
+      title: 'Katalog'
       text: 'THE place to share and work on ideas and side-projects'
       sign_in: 'Sign in with GitHub'
 
@@ -26,16 +26,29 @@ en:
 
 
     index:
-      title: 'Projects'
-      new: 'New Project'
+      new: 'Add'
+      filters:
+        all: 'ALL PROJECTS'
+        mine: 'MY PROJECTS'
+        idea: "IDEA"
+        wip: "WIP"
+        done: 'SUNSET'
+        dead: 'KATAKOMB'
 
     show:
       back: 'All Projects'
       edit: 'Edit'
+      urls:
+        repo: 'Repo URL'
+        demo: 'Demo URL'
+        changelog: 'CHANGELOG'
+        todo: 'TODO'
+        readme: 'README'
 
 
   project:
     last_updated: "Last Updated %{time} ago"
+    new_tag: "NEW"
 
   notices:
     created: 'Project was successfully created.'
@@ -44,7 +57,7 @@ en:
 
   errors:
     sign_in: 'Sign-in failed'
-    unauthorized: 'You are not authorized to view this Katalog'
+    unauthorized: 'You are not authorized to view Katalog'
 
   activerecord:
     attributes:

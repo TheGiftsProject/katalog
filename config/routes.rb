@@ -4,6 +4,11 @@ Katalog::Application.routes.draw do
     resources :posts, :only => [:new, :create]
   end
 
+  resource :autocomplete, :controller => 'autocomplete', :only => [] do
+    get :tags
+    get :projects
+  end
+
   # authentication
   match '/auth/:provider/callback', :to => 'session#create', :via => [:get, :post]
   get '/auth/destroy', :to => 'session#destroy', :as => 'sign_out'

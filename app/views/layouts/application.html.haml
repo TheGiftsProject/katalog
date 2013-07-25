@@ -12,6 +12,6 @@
   %body
     = render 'layouts/background'
     - if blank_page?
-      = render 'layouts/blank_page', :locales => {:background => @background}
+      = render 'layouts/blank_page'
     - else
-      = render 'layouts/page', :locales => {:background => @background}
+      = render 'layouts/page'

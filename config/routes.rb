@@ -1,6 +1,8 @@
 Katalog::Application.routes.draw do
 
-  resources :projects
+  resources :projects do
+    resources :posts, :only => [:create]
+  end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do
     get :tags

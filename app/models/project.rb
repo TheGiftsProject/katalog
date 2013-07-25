@@ -4,7 +4,9 @@ class Project < ActiveRecord::Base
 
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :users
-  has_many :posts
+  has_many :posts, :dependent => :destroy
+
+  accepts_nested_attributes_for :posts
 
   enum :status, [:idea, :wip, :done, :dead]
 

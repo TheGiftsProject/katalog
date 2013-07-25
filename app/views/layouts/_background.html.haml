@@ -1,3 +1,6 @@
 .background-wrapper
   .select-stopper
-  = image_tag("backgrounds/#{background}.jpg", :class => 'background-image')
+  - if background == 'landing'
+    = image_tag("backgrounds/#{background}.jpg", :class => 'background-image')
+  - else
+    = image_tag("backgrounds/#{background}.png", :class => 'background-image')

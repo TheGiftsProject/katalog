@@ -1,0 +1,13 @@
+.comments
+  - current_project.posts.each do |post|
+    - if post.text.present?
+      .comment
+        .top
+          .who
+            = render 'users/avatar', :user => post.user
+            = post.user.nickname
+          .when
+            = time_ago_in_words post.created_at
+            ago
+        .body
+          != markdown.render(post.text)

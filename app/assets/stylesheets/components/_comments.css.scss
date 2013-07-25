@@ -1,0 +1,27 @@
+.comment{
+  background: white;
+  margin: 5px 0;
+  border: 1px solid #c3c3c3;
+  width: 700px;
+  .top{
+    padding: 5px;
+    background: #d3d3d3;
+    border-bottom: 1px solid #c3c3c3;
+    overflow: hidden;
+    .avatar{
+      width: 20px;
+      height: 20px;
+      float: none;
+    }
+    .who{
+      float: left;
+    }
+    .when{
+      float: right;
+      font-size: 11px;
+    }
+  }
+  .body{
+    padding: 5px;
+  }
+}

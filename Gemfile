@@ -17,6 +17,9 @@ gem 'haml'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'octokit'
+gem 'redcarpet'
+gem 'github-markdown'
+gem 'rouge'
 
 gem 'hogan_assets'
 

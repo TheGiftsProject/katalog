@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
 
   def less_than_week_old?
     self.created_at > 1.week.ago
+  end
 
   def string_tags=(array)
     Rails.logger.info("String tags= #{array.inspect}")

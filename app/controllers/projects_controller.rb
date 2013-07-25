@@ -8,9 +8,6 @@ class ProjectsController < ApplicationController
     @projects = Project.latest_first
   end
 
-  def new
-  end
-
   def show
 
   end

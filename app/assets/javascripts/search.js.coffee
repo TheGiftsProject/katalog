@@ -8,7 +8,7 @@ startSearch = ->
       prefetch: '/autocomplete/tags.json'
       valueKey: 'name'
       engine: Hogan
-      template: "<p><span class='label label-info'>{{name}}</span></p>"
+      template: "<p><span class='tag'>{{name}}</span></p>"
     }
     {
       name: 'projects'

@@ -1,15 +1,16 @@
 .project-row{
-  $padding: 12px;
+  $padding: 10px;
 
   overflow: hidden;
   position: relative;
-  padding: $padding 5px;
+  padding: $padding 15px;
 
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #ccc;
   @include box-shadow(0 1px white);
+
   &:last-child{
-    border-bottom: 0px solid #999;
-    @include box-shadow(0 0px white);
+    border-bottom: none;
+    @include box-shadow(none);
   }
 
   a{
@@ -25,14 +26,14 @@
   .subtitle{
     font-size: 16px;
     line-height: normal;
-    color: $gray;
+    color: $grayLight;
   }
 
   .last-update{
     position: absolute;
-    bottom: $padding;
+    bottom: $padding - 3;
     right: $padding;
-    font-size: 13px;
+    font-size: 11px;
     color: $gray;
   }
 

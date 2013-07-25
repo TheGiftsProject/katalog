@@ -26,8 +26,7 @@ en:
 
 
     index:
-      title: 'Projects'
-      new: 'New Project'
+      new: 'Add'
       filters:
         all: 'ALL PROJECTS'
         mine: 'MY PROJECTS'

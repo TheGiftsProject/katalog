@@ -1,8 +1,12 @@
+require 'lib/services/github_grabber'
+
 class ProjectsController < ApplicationController
 
   include ProjectSupport
 
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
+
+  before_filter :fetch_github_page, :only => [:readme, :todo, :changelog]
 
   def index
     @projects = Project.latest_first
@@ -42,10 +46,26 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, notice: t('notices.destroyed')
   end
 
+  def readme
+  end
+
+  def changelog
+  end
+
+  def todo
+  end
+
   private
 
   def project_params
     params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url])
+  end
+
+  def fetch_github_page
+    method = controller.action_name
+    @github_page_title = method.to_s.upcase
+    @github_page = GithubGrabber.from_project(current_project).call(method)
+    render 'projects/github_page'
   end
 
 end

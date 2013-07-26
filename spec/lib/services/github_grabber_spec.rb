@@ -71,16 +71,14 @@ describe GithubGrabber do
 
   describe 'Github service hooks' do
 
-    before :all do
-      host = 'iic-katalog-testing.herokuapp.com'
-      url = Rails.application.routes.url_helpers.github_post_receive_hook_url(host: host)
-      GithubGrabber.hook_callback_url = url
-    end
-
     let(:project_name) { 'iic-ninjas/MyAwesomeKataRepo' }
 
     let(:push_events_url) { subject.send(:subscribe_topic) }
-    let(:post_callback_url) { subject.send(:hook_callback_url) }
+    let(:post_callback_url) { 'http://iic-katalog.mock-url.com/callback' }
+
+    before :all do
+      GithubGrabber.hook_callback_url = post_callback_url
+    end
 
     it 'subscribes to service hook', :vcr do
       subject.subscribe_to_service_hook.should be_true

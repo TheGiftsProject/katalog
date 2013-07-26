@@ -5,6 +5,7 @@ Katalog::Application.routes.draw do
     get :readme
     get :changelog
     get :todo
+    post :service_hook, :as => 'github_service_hook'
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do
@@ -17,7 +18,6 @@ Katalog::Application.routes.draw do
   get '/auth/destroy', :to => 'session#destroy', :as => 'sign_out'
   get '/auth/failure', :to => 'session#failure'
   get '/auth/:provider', :to => 'session#nothing', :as => 'sign_in', :defaults => {:provider => :github}
-  get '/github/post_receive_hook', :to => 'github#post_receive_hook', :as => 'github_post_receive_hook'
 
   root :to => 'application#root'
 

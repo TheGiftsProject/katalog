@@ -1,18 +1,15 @@
-require 'services/github_grabber'
-
 class ProjectsController < ApplicationController
 
   DEFAULT_FILTER = :idea
 
   include ProjectSupport
+  include GithubSupport
 
   before_filter :sign_in_required
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
   before_filter :save_referer, :only => [:show]
   before_filter :reset_referer, :only => [:index]
   after_filter :set_viewed_cookie, :only => [:create, :show]
-
-  before_filter :fetch_github_page, :only => [:readme, :todo, :changelog]
 
   def index
     if params[:tag].present?
@@ -68,15 +65,6 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, notice: t('notices.destroyed')
   end
 
-  def readme
-  end
-
-  def changelog
-  end
-
-  def todo
-  end
-
   private
 
   def project_params
@@ -87,13 +75,6 @@ class ProjectsController < ApplicationController
     project = current_user.projects.build(project_params)
     project.posts.first.user = current_user
     project
-  end
-
-  def fetch_github_page
-    method = action_name
-    @github_page_title = method.to_s.upcase
-    @github_page = GithubGrabber.from_project(current_project).send(method)
-    render 'projects/github_page'
   end
 
 end

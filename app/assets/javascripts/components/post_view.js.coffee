@@ -1,3 +1,13 @@
+emojiExtension = (converter) ->
+    [
+      {
+        type    : 'lang',
+        regex   : '\\B:([\\S]+):',
+        replace : (match, prefix, content, suffix) ->
+              return "<img src='/assets/emojis/#{prefix}.png' height=20 width=20/>"
+      }
+    ]
+
 class window.PostView
 
   @registerViews: ->
@@ -5,7 +15,7 @@ class window.PostView
 
   constructor: (options) ->
     @$el = options.el
-    @converter = new Showdown.converter()
+    @converter = new Showdown.converter(extensions: [emojiExtension])
     @_initUI()
     @_bindEvents()
 

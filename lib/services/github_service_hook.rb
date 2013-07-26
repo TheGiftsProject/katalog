@@ -39,7 +39,7 @@ class GithubServiceHook
   def sync_contributors
     commiters = @payload.commits.map(&:committer).map(&:username)
     project_contributers = project.users.map(&:nickname)
-    project.sync_contributors unless project_contributers.includes?(commiters)
+    project.sync_contributors unless project_contributers.include?(commiters)
   end
 
 end

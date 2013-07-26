@@ -39,18 +39,8 @@ module Project::GithubConcern
     @github_grabber ||= GithubGrabber.from_project(self)
   end
 
-  # see: http://developer.github.com/v3/repos/collaborators/
   def assign_contributor(contributor)
-
-    new_contributor = User.find_or_initialize_by(uid: contributor.id) do |u|
-      u.name = contributor.login
-      u.nickname = contributor.login
-      u.image = contributor.avatar_url
-      u.projects << self
-
-      # where is the email?! see: http://developer.github.com/v3/users/emails/
-      #u.email = contributor.login
-    end
+    new_contributor = User.find_or_init_by_contributor(contributor)
 
     # if the user already exists then just add it to his projects
     new_contributor.projects << self

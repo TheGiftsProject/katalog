@@ -11,9 +11,10 @@ class GithubController < ApplicationController
 
     payload = JSON.parse(payload)
 
+    # check if payload.ref == "refs/heads/master" ??
 
-    # find project
-    # project.update_last_commit
+    # find project by payload.repository.url
+    # project.update_last_commit  payload.head_commit.timestamp
 
   end
 

@@ -15,7 +15,7 @@ class window.PostView
     @ui =
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
-    @ui.markdownText.dropzone(url: 'https://s3.amazonaws.com/katalog-images/', sending: (file, xhr, formData) => @_beforeUpload(file, xhr, formData))
+    @ui.markdownText.dropzone(url: 'https://s3.amazonaws.com/katalog-images/', clickable: false, sending: (file, xhr, formData) => @_beforeUpload(file, xhr, formData))
 
   _bindEvents: ->
     _.bindAll(@, '_onChange', '_uploadCompleted')

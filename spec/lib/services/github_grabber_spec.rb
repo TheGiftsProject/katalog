@@ -72,11 +72,11 @@ describe GithubGrabber do
   describe 'Github service hooks' do
 
     let(:project_name) { 'iic-ninjas/MyAwesomeKataRepo' }
-
     let(:push_events_url) { subject.send(:subscribe_topic) }
     let(:post_callback_url) { 'http://iic-katalog.mock-url.com/callback' }
+    let(:client) { subject.send(:client) }
 
-    before :all do
+    before do
       GithubGrabber.hook_callback_url = post_callback_url
     end
 
@@ -85,9 +85,9 @@ describe GithubGrabber do
     end
 
     it 'subscribes to service hook with a callback url' do
-      allow(subject.client).to receive(:subscribe) { true }
+      allow(client).to receive(:subscribe) { true }
       subject.subscribe_to_service_hook
-      expect(subject.client).to have_received(:subscribe).with(push_events_url, post_callback_url)
+      expect(client).to have_received(:subscribe).with(push_events_url, post_callback_url)
     end
 
     it 'unsubscribes from a service hook', :vcr do
@@ -95,9 +95,9 @@ describe GithubGrabber do
     end
 
     it 'unsubscribes from a service hook for the callback url' do
-      allow(subject.client).to receive(:unsubscribe) { true }
+      allow(client).to receive(:unsubscribe) { true }
       subject.unsubscribe_to_service_hook
-      expect(subject.client).to have_received(:unsubscribe).with(push_events_url, post_callback_url)
+      expect(client).to have_received(:unsubscribe).with(push_events_url, post_callback_url)
     end
 
   end

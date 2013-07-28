@@ -34,6 +34,7 @@ en:
         wip: "WIP"
         done: 'SUNSET'
         dead: 'KATAKOMB'
+      filtered: "Filtered for tag"
 
     show:
       back: 'All Projects'
@@ -53,6 +54,10 @@ en:
 
   post:
     status_update: "Status update"
+    tabs:
+      text: "Text"
+      preview: "Preview"
+    placeholder: "Enter markdown text"
 
 
   project:

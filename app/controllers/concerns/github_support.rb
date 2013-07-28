@@ -17,9 +17,9 @@ module GithubSupport
   end
 
   def post_receive_hook
-    GithubServiceHook.new(params[:payload]).process_payload
+    GithubServiceHook.new(current_project).process_payload(params[:payload])
   end
-s
+
   def set_github_grabber_host
     GithubGrabber.hook_callback_url = project_github_service_hook_url(current_project)
   end

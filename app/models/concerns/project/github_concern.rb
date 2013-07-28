@@ -20,7 +20,7 @@ module Project::GithubConcern
   end
 
   def sync_website_url
-    self.website_url = 'github_grabber.website'
+    self.website_url = github_grabber.website
   end
 
   def sync_last_commit_date

@@ -12,3 +12,6 @@ GITHUB:
 UI:
     * Zen index page.
 
+MISC:
+    * Localization for new/edit form (missing currently).
+

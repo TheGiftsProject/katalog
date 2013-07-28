@@ -1,0 +1,13 @@
+.comment{ class_if('is_status_update', post.updated?) }
+  .top
+    .who
+      = render 'users/avatar', :user => post.user
+      = post.user.nickname
+    .when
+      - if post.updated?
+        %i.icon-star
+      %span
+        = time_ago_in_words post.created_at
+        ago
+  .body
+    ~ markdown.render(post.text).html_safe

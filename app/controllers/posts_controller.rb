@@ -8,15 +8,33 @@ class PostsController < ApplicationController
   def create
     post = build_post
     if post.save
-      update_project_status if post.updated?
-      current_project.users << current_user unless current_project.users.include? current_user
-      redirect_to current_project
+      add_user_to_project
+      project_changed = update_project_status
+
+      respond_to_post(post, project_changed)
     else
       redirect_to current_project, :alert => t('errors.post_fail')
     end
   end
 
+
   private
+
+  def respond_to_post(post, project_changed)
+    if request.xhr?
+      if project_changed
+        render :json => {:refresh => true, :url => project_path(current_project)}
+      else
+        render :partial => 'projects/show/comment', :locals => {:post => post}
+      end
+    else
+      redirect_to current_project
+    end
+  end
+
+  def add_user_to_project
+    current_project.users << current_user unless current_project.users.include? current_user
+  end
 
   def post_params
     params.require(:post).permit(:text, :updated)
@@ -33,7 +51,10 @@ class PostsController < ApplicationController
   end
 
   def update_project_status
-    current_project.update(project_params)
+    current_project.assign_attributes(project_params)
+    changed = current_project.changed?
+    current_project.save
+    changed
   end
 
 end

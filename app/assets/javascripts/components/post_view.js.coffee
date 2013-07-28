@@ -26,13 +26,27 @@ class window.PostView
       fileUploadForm: @$el.find('#file-upload-form')
       statusUpdateCheckbox: @$el.find('.checkbox.update')
       changeStatusRadio: @$el.find('.radio-group')
+      form: $('#new_post')
+
     @ui.fileUploadForm.S3Uploader()
 
   _bindEvents: ->
-    _.bindAll(@, '_onChange', '_uploadCompleted','_statusUpdateChange')
+    _.bindAll(@, '_onChange', '_uploadCompleted','_statusUpdateChange', '_submit')
     @ui.markdownText.change(@_onChange)
     @ui.fileUploadForm.bind('s3_upload_complete', @_uploadCompleted)
     @ui.statusUpdateCheckbox.change(@_statusUpdateChange)
+    @ui.form.submit(@_submit)
+
+  _submit: (ev) ->
+    ev.preventDefault()
+    jQuery.post(@ui.form.attr('action'), @ui.form.serialize(), (suc) =>
+      if (suc.refresh)
+        Turbolinks.visit(suc.url)
+      else
+        @ui.markdownText.val('')
+        @ui.statusUpdateCheckbox.prop('checked', false)
+        @ui.form.before(suc)
+    )
 
   _onChange: ->
     text = @ui.markdownText.val()

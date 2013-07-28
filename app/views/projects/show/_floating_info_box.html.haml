@@ -12,11 +12,9 @@
 
   .well-small
     - if @show_statuses
-      Filtering
       = link_to project_path(current_project), :class => 'btn btn-mini btn-warning' do
-        Status Updates
+        = t('pages.show.filter_updates')
         %i.icon-remove
     - else
-      %span Only show
       = link_to project_path(current_project, :statuses => true), :class => 'btn btn-mini btn-warning' do
-        Status Updates
+        = t('pages.show.filter_updates')

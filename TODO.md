@@ -11,4 +11,5 @@ GITHUB:
     * Last commit.
 
 UI:
-    * Better Filter statuses button
+    * Zen index page.
+

@@ -13,7 +13,12 @@ class PostsController < ApplicationController
 
       respond_to_post(post, project_changed)
     else
-      redirect_to current_project, :alert => t('errors.post_fail')
+      if request.xhr?
+        flash[:alert] = t('errors.post_fail')
+        render :json => {:refresh => true, :url => project_path(current_project)}
+      else
+        redirect_to current_project, :alert => t('errors.post_fail')
+      end
     end
   end
 

@@ -3,6 +3,7 @@
     = f.check_box(:updated)
     = t('post.status_update')
 
+  = f.submit :class => 'btn btn-primary pull-right'
 
   .btn-group.radio-group{:data => {:toggle => 'buttons-radio'}}
     - Project::STATUSES.each do |status|

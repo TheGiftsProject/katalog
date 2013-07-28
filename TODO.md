@@ -1,5 +1,4 @@
 POST:
-    * Post button in project page should move inside the container.
     * Image upload and drag in MD post component.
     * Default code format recognition.
     * Emoji autocomplete.

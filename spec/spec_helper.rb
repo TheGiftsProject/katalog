@@ -1,22 +1,25 @@
+
 # Load pow environment variables into development and test environments
-if FileTest.exist?(".powenv")
-  begin
-    # read contents of .powenv
-    powenv = File.open(".powenv", "rb")
-    contents = powenv.read
-    # parse content and retrieve variables from file
-    lines = contents.gsub("export ", "").split(/\n\r?/).reject{|line| line.blank?}
-    lines.each do |line|
-      keyValue = line.split("=", 2)
-      next unless keyValue.count == 2
-      # set environment variable set in .powenv
-      ENV[keyValue.first] = keyValue.last.gsub("'",'').gsub('"','')
+def load_powenv
+  if FileTest.exist?(".powenv") and ENV["RAILS_ENV"] == 'test'
+    begin
+      # read contents of .powenv
+      powenv = File.open(".powenv", "rb")
+      contents = powenv.read
+      # parse content and retrieve variables from file
+      lines = contents.gsub("export ", "").split(/\n\r?/).reject{|line| line.blank?}
+      lines.each do |line|
+        keyValue = line.split("=", 2)
+        next unless keyValue.count == 2
+        # set environment variable set in .powenv
+        ENV[keyValue.first] = keyValue.last.gsub("'",'').gsub('"','')
+      end
+      # close file pointer
+      powenv.close
+    rescue => e
     end
-    # close file pointer
-    powenv.close
-  rescue => e
   end
-end if Rails.env.development? || Rails.env.test?
+end
 
 def initialize_testing_environment
   # This file is copied to spec/ when you run 'rails generate rspec:install'
@@ -25,8 +28,11 @@ def initialize_testing_environment
   require 'rspec/rails'
   require 'rspec/autorun'
 
+  load_powenv
+
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
+  Dir[Rails.root.join("spec/spec_helpers/**/*.rb")].each {|f| require f}
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
   RSpec.configure do |config|
@@ -51,8 +57,6 @@ def initialize_testing_environment
 
     config.include FactoryGirl::Syntax::Methods # Don't need to write FactoryGirl.create => create
 
-    load "#{Rails.root}/db/seeds.rb"
-
     VCR.configure do |config|
       config.allow_http_connections_when_no_cassette = true
       config.default_cassette_options = { :record => :new_episodes}
@@ -61,8 +65,9 @@ def initialize_testing_environment
       config.configure_rspec_metadata!
     end
 
-    #ActiveRecord::Base.observers.disable :all
+    ActiveRecord::Base.observers.disable :all
 
+    load "#{Rails.root}/db/seeds.rb"
   end
 end
 

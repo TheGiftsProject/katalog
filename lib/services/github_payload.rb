@@ -1,6 +1,6 @@
 class GithubPayload
 
-  class InvalidPayloadExcpetion < Error; end
+  class InvalidPayloadExcpetion < StandardError; end
 
   def initialize(payload)
     return raise InvalidPayloadExcpetion.new('Github Post-Receive Hook received empty payload') if @payload.blank?

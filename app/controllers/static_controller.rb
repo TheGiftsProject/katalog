@@ -15,7 +15,7 @@ class StaticController < ApplicationController
   private
 
   def render_error(code)
-
+    @no_background = true
     render :file => 'static/error', :locals => {:code => code}
   end
 end

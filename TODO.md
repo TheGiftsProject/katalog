@@ -10,10 +10,5 @@ GITHUB:
     * Contributors.
     * Last commit.
 
-
 UI:
     * Better Filter statuses button
-
-
-Bugs:
-    * When errors occur (500) the background is shown

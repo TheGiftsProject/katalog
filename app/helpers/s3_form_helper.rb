@@ -9,8 +9,7 @@ module S3FormHelper
         :signature => signature,
         :success_action_status => success_action_status,
         'X-Requested-With' => 'xhr',
-        'Content-Type' => '',
-        'content-type' => 'image/jpeg'
+        'Content-Type' => ''
     }
 
     javascript_tag <<-END
@@ -18,12 +17,8 @@ module S3FormHelper
     END
   end
 
-  #def key
-  #  "#{key_starts_with}{timestamp}-{unique_id}-#{SecureRandom.hex}/${filename}"
-  #end
-
   def key
-    "#{key_starts_with}#{SecureRandom.hex}/bozaglo.jpg"
+    "#{key_starts_with}{timestamp}-#{SecureRandom.hex}/${filename}"
   end
 
   def policy

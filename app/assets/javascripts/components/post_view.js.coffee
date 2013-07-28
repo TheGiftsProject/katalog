@@ -16,15 +16,29 @@ class window.PostView
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
 
+    formDataFields = @constructor.formDataFields
     @ui.markdownText.fileupload(
       dropZone: @ui.markdownText
       url: 'https://s3.amazonaws.com/katalog-images/'
       type: 'POST'
       autoUpload: true
       dataType: 'xml'
-    )
-    @ui.markdownText.bind('fileuploadsubmit', (event, data) =>
-      data.formData = @constructor.formDataFields
+      formData: (form) ->
+#        data = form.serializeArray()
+        data = $('#file-upload-form').serializeArray()
+
+#        for key of formDataFields
+#          data.push(name: key, value: formDataFields[key])
+
+        key = data[1].value.replace('{timestamp}', new Date().getTime()).replace('{unique_id}', @files[0].unique_id)
+        data[1].value = key
+
+        fileType = ''
+        if 'type' of @files[0]
+          fileType = @files[0].type
+        data.push(name: 'content-type', value: fileType)
+
+        data
     )
 
     $(document).bind('dragover', -> null)

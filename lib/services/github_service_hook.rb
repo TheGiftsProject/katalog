@@ -33,7 +33,8 @@ class GithubServiceHook
   end
 
   def should_sync_contributors
-    project.users.map(&:nickname).include?(@payload.contributors_usernames)
+    contributors_usernames = project.users.map(&:nickname)
+    not contributors_usernames.include?(@payload.contributors_usernames)
   end
 
 end

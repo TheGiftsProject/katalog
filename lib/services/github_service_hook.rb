@@ -25,15 +25,16 @@ class GithubServiceHook
   end
 
   def sync_last_commit
-    @project.update_attributes( last_commit_date: @payload.head_commit.timestamp)
+    @project.last_commit_date = @payload.head_commit.timestamp
+    @project.save
   end
 
   def sync_contributors
-    project.sync_contributors unless should_sync_contributors
+    @project.sync_contributors unless should_sync_contributors
   end
 
   def should_sync_contributors
-    contributors_usernames = project.users.map(&:nickname)
+    contributors_usernames = @project.users.map(&:nickname)
     not contributors_usernames.include?(@payload.contributors_usernames)
   end
 

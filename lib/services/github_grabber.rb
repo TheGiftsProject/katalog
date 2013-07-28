@@ -21,6 +21,7 @@ class GithubGrabber
   end
 
   def self.from_url(project_url)
+    raise ArgumentError, 'Repository url is invalid' if project_url.blank?
     repository = Octokit::Repository.from_url(project_url)
     self.new repository
   end

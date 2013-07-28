@@ -34,14 +34,13 @@ FactoryGirl.define do
       mock_github_service_hook true
     end
 
-    before(:build) do |project, evaluator|
+    after(:build) do |project, evaluator|
+
       if evaluator.mock_github_service_hook and project.repo_url.present?
         mock_github_grabber = GithubGrabberMock.from_project(project)
         project.stub(:github_grabber).and_return(mock_github_grabber)
       end
-    end
 
-    after(:build) do |project, evaluator|
       if evaluator.users_count > 0
         create_list(:user, evaluator.users_count).each do |user|
           user.projects << project

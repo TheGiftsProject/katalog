@@ -15,7 +15,20 @@ class window.PostView
     @ui =
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
-    @ui.markdownText.dropzone(url: 'https://s3.amazonaws.com/katalog-images/', clickable: false, sending: (file, xhr, formData) => @_beforeUpload(file, xhr, formData))
+
+    @ui.markdownText.fileupload(
+      dropZone: @ui.markdownText
+      url: 'https://s3.amazonaws.com/katalog-images/'
+      type: 'POST'
+      autoUpload: true
+      dataType: 'xml'
+    )
+    @ui.markdownText.bind('fileuploadsubmit', (event, data) =>
+      data.formData = @constructor.formDataFields
+    )
+
+    $(document).bind('dragover', -> null)
+    $(document).bind('drop dragover', (event) -> event.preventDefault())
 
   _bindEvents: ->
     _.bindAll(@, '_onChange', '_uploadCompleted')
@@ -25,12 +38,6 @@ class window.PostView
     text = @ui.markdownText.val()
     html = @converter.makeHtml(text)
     @ui.markdownPreview.html(html)
-
-  _beforeUpload: (file, xhr, formData) ->
-    xhr.setRequestHeader('Accept', '*/*')
-
-    for key of @constructor.formDataFields
-      formData.append(key, @constructor.formDataFields[key])
 
   _uploadCompleted: (ev, content) ->
     text = @ui.markdownText.val()

@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.widget
+//= require jquery.fileupload
 //= require turbolinks
 //= require showdown
 //= require underscore
-//= require dropzone
 //= require bootstrap
-//= require s3_direct_upload
 //= require_tree .

@@ -4,14 +4,17 @@ class GithubServiceHook
 
   MASTER_BRANCH_REF = "refs/heads/master"
 
-  def initialize(project)
+  def initialize(project, payload = nil)
     @project = project
+    with_payload(payload) if payload.present?
   end
 
   # see: https://help.github.com/articles/post-receive-hooks
-  def process_payload(raw_payload)
-    @payload = GithubPayload.new(raw_payload)
+  def with_payload(payload)
+    @payload = payload
+  end
 
+  def process_payload
     if has_matching_project?
       sync_last_commit
       sync_contributors

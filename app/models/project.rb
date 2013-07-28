@@ -37,6 +37,10 @@ class Project < ActiveRecord::Base
     self.tags = real_tags
   end
 
+  def last_commit_date=(date_string)
+    self[:last_commit_date] = date_string.to_datetime
+  end
+
   private
 
   def slug

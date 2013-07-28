@@ -31,7 +31,6 @@ class GithubServiceHook
     @payload.ref == MASTER_BRANCH_REF
   end
 
-  #TODO: covert date format???
   def sync_last_commit
     current_project.update_attributes( last_commit_date: @payload.head_commit.timestamp)
   end

@@ -21,9 +21,8 @@ module Project::GithubConcern
     self.website_url = 'github_grabber.website'
   end
 
-  #TODO: covert date format???
   def sync_last_commit_date
-    self.last_commit_date = Date.now #github_grabber.last_commit.date
+    self.last_commit_date = github_grabber.last_commit.date
   end
 
   def sync_contributors

@@ -1,13 +1,26 @@
 FactoryGirl.define do
   factory :user do
-    name 'isc-ci'
-    uid  '3001848'
+    sequence(:name)  { |n| "github-username-#{n}" }
+    sequence(:nickname)  { |n| "github-nickname-#{n}" }
+    sequence(:uid)  { |n| "300184#{n}" }
+
+    trait :isc_ci do
+      name 'isc-ci'
+      nickname 'isc-ci'
+      uid  '3001848'
+    end
   end
 
   factory :project do
     title     "MyAwesomeKataRepo"
-    repo_url  "https://github.com/iic-ninjas/MyAwesomeKataRepo"
-    status    :idea
+
+    trait :idea do
+      status :idea
+    end
+
+    trait :with_repo do
+      repo_url  "https://github.com/iic-ninjas/MyAwesomeKataRepo"
+    end
 
     ignore do
       users_count 1
@@ -15,8 +28,10 @@ FactoryGirl.define do
 
     after(:build) do |project, evaluator|
       if evaluator.users_count > 0
-        #project.users << build_list(:users, evaluator.users_count, :project => project)
-        project.users << build(:users, :project => project)
+        create_list(:users, evaluator.users_count).each do |user|
+          user.projects << project
+          user.save
+        end
       end
     end
   end

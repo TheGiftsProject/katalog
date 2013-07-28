@@ -9,3 +9,14 @@
       %i.icon-desktop
       %span= t('pages.show.urls.demo')
 
+
+  .well-small
+    - if @show_statuses
+      Filtering
+      = link_to project_path(current_project), :class => 'btn btn-mini btn-warning' do
+        Status Updates
+        %i.icon-remove
+    - else
+      %span Only show
+      = link_to project_path(current_project, :statuses => true), :class => 'btn btn-mini btn-warning' do
+        Status Updates

@@ -3,10 +3,8 @@
   background: #FFF;
   @include border-radius(10px);
   text-align: center;
-  & > img, & > a{
-    display: block;
-  }
   & > img{
+    display: block;
     width: 200px;
     height: 150px;
   }

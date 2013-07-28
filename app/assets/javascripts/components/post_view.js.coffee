@@ -24,12 +24,15 @@ class window.PostView
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
       fileUploadForm: @$el.find('#file-upload-form')
+      statusUpdateCheckbox: @$el.find('.checkbox.update')
+      changeStatusRadio: @$el.find('.radio-group')
     @ui.fileUploadForm.S3Uploader()
 
   _bindEvents: ->
-    _.bindAll(@, '_onChange', '_uploadCompleted')
+    _.bindAll(@, '_onChange', '_uploadCompleted','_statusUpdateChange')
     @ui.markdownText.change(@_onChange)
     @ui.fileUploadForm.bind('s3_upload_complete', @_uploadCompleted)
+    @ui.statusUpdateCheckbox.change(@_statusUpdateChange)
 
   _onChange: ->
     text = @ui.markdownText.val()
@@ -41,6 +44,9 @@ class window.PostView
     text += "![Alt text](#{content.url})"
     @ui.markdownText.val(text)
     @ui.markdownText.change()
+
+  _statusUpdateChange: ->
+    @ui.changeStatusRadio.toggle()
 
 $(document).on 'ready', PostView.registerViews
 $(document).on 'page:load', PostView.registerViews

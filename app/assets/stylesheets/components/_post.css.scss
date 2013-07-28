@@ -32,3 +32,15 @@
   }
 
 }
+
+.status-fields{
+  margin-top: 10px;
+  .update{
+    float: left;
+    margin-top: 6px;
+  }
+  .radio-group{
+    float: right;
+    display: none;
+  }
+}

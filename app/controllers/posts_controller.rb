@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def create
     post = build_post
     if post.save
+      update_project_status if post.updated?
       current_project.users << current_user unless current_project.users.include? current_user
       redirect_to current_project
     else
@@ -21,10 +22,18 @@ class PostsController < ApplicationController
     params.require(:post).permit(:text, :updated)
   end
 
+  def project_params
+    params.require(:project).permit(:status)
+  end
+
   def build_post
     post = current_project.posts.build(post_params)
     post.user = current_user
     post
+  end
+
+  def update_project_status
+    current_project.update(project_params)
   end
 
 end

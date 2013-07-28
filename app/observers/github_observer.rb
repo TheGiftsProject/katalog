@@ -5,21 +5,21 @@ class GithubObserver < ActiveRecord::Observer
   observe :project
 
   def after_create(project)
-    project.subscribe_to_service_hook if should_use_service_hook?(project)
+    project.sync_with_github
   end
 
   def after_update(project)
-    project.subscribe_to_service_hook if should_use_service_hook? and project.repo_url_was.blank?
+    project.sync_with_github if should_sync_after_update?(project)
   end
 
   def after_destory(project)
-    project.unsubscribe_to_service_hook if should_use_service_hook?(project)
+    project.unsubscribe_to_service_hook if project.should_sync_with_github?
   end
 
   private
 
-  def should_use_service_hook?(project)
-    project.repo_url.present?
+  def should_sync_after_update?(project)
+    project.repo_url_was.blank?
   end
 
 end

@@ -38,6 +38,12 @@ module Project::GithubConcern
     end
   end
 
+  def includes_contributors?(contributors_emails)
+    current_contributors_emails = Set.new(self.users.map(&:email))
+    new_contributors_emails = Set.new(contributors_emails)
+    current_contributors_emails.subset?(new_contributors_emails)
+  end
+
   def is_same_repo?(repo)
     repo = repo.repo_url if repo.is_a? Project
     current_repo = Octokit::Repository.from_url(self.repo_url)

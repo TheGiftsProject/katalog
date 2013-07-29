@@ -33,18 +33,11 @@ class GithubServiceHook
   end
 
   def sync_contributors
-    if should_sync_contributors
-      puts 'should_sync_contributors'
-      @project.sync_contributors
-    else
-      puts 'dont sync shit'
-    end
+    @project.sync_contributors unless contributors_synced?
   end
 
-  def should_sync_contributors
-    contributors_emails = Set.new(@project.users.map(&:email))
-    new_contributors_emails = Set.new(@payload.contributors_emails)
-    not contributors_emails.subset?(new_contributors_emails)
+  def contributors_synced?
+    @project.includes_contributors?(@payload.contributors_emails)
   end
 
 end

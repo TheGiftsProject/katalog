@@ -11,6 +11,7 @@ GITHUB:
     * Last commit.
 
 UI:
+    * Fix buttons padding (delete) in heroku.
     * Zen index page.
 
 MISC:

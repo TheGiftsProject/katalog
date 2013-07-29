@@ -27,6 +27,10 @@ module Project::GithubConcern
     self.last_commit_date = github_grabber.last_commit.date
   end
 
+  def last_commit_date=(date_string)
+    self[:last_commit_date] = date_string.to_datetime
+  end
+
   def sync_contributors
     existing_users_uids = self.users.map(&:uid)
     self.contributors.each do |contributor|

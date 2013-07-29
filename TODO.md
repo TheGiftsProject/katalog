@@ -2,6 +2,7 @@ POST:
     * Image upload and drag in MD post component.
     * Default code format recognition.
     * Emoji autocomplete.
+    * Don't try to parse emoji if doesn't exist.
     * Pusher.
 
 GITHUB:

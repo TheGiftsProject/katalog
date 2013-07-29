@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe GithubServiceHook do
 
-  let(:project) { create(:project, :with_repo) }
+  let(:project) { create(:project, :with_repo, users_count: 1) }
+  let(:user) { project.user.first }
   let(:repository_url) { 'some repo url' }
   let(:contributors_email) { 'test.email.com' }
   let(:contributors_emails) { [contributors_email] }
@@ -14,14 +15,13 @@ describe GithubServiceHook do
                          contributors_emails: contributors_emails)
   }
 
-  subject { GithubServiceHook.new(project) }
-
-  before :each do
-    subject.with_payload(payload)
-    subject.process_payload
-  end
+  subject { GithubServiceHook.new(project, payload) }
 
   describe :process_payload do
+
+    before :each do
+      subject.process_payload
+    end
 
     context 'when the payload has a matching project' do
 
@@ -63,6 +63,10 @@ describe GithubServiceHook do
   end
 
   describe :sync_contributors do
+
+    before :each do
+      subject.process_payload
+    end
 
     context 'when the payload contributors are included in the project' do
 

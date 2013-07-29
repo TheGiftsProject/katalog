@@ -4,6 +4,7 @@ describe GithubPayload do
 
   let(:repository_url) { 'https://github.com/iic-ninjas/MyAwesomeKataRepo' }
   let(:contributors_email) { 'afarhi@ebay.com' }
+  let(:last_commit_date) { '2013-07-26T00:25:33-07:00' }
   let(:raw_payload) { load_payload_from_file }
 
   subject { GithubPayload.new(raw_payload) }
@@ -14,6 +15,6 @@ describe GithubPayload do
 
   its(:repository_url) { should eq repository_url }
   its(:contributors_emails) { should eq [contributors_email] }
-  its(:last_commit_date) { should eq '2013-07-26T00:25:33-07:00' }
+  its(:last_commit_date) { should eq last_commit_date }
 
 end

@@ -14,6 +14,8 @@ UI:
     * Fix buttons padding (delete) in heroku.
     * Zen index page.
 
-MISC:
-    * Localization for new/edit form (missing currently).
+BUGS:
+    * No localization for new/edit form (missing currently).
+    * When opening new idea my avatar is not in the list.
+    * New tags are not registered in project form.
 

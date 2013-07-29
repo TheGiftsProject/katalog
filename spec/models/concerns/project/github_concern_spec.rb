@@ -83,19 +83,11 @@ describe Project::GithubConcern do
 
   end
 
-
-
   describe :sync_contributors do
 
     context "when the project's contributors are all in sync" do
 
-      let(:existing_user) {
-        Hashie::Mash.new(
-            id: user.uid,
-            login: user.nickname,
-            avatar_url: user.image
-        )
-      }
+      let(:existing_user) { create(:github_contributor, id: user.uid) }
 
       before do
         subject.stub(:contributors => [existing_user])
@@ -111,17 +103,7 @@ describe Project::GithubConcern do
 
     context "when the project's contributors are not in sync" do
 
-      let(:uid) { '1232333' }
-      let(:nickname) { 'new-user-nickname' }
-      let(:avatar_url) { 'http://new-user.avatar-url.com' }
-
-      let(:new_user) {
-        Hashie::Mash.new(
-          id: uid,
-          login: nickname,
-          avatar_url: avatar_url
-        )
-      }
+      let(:new_user) { create(:github_contributor) }
 
       before do
         subject.stub(:contributors => [new_user])
@@ -131,9 +113,6 @@ describe Project::GithubConcern do
         expect {
           subject.sync_contributors
         }.to change(subject.users, :count).by(1)
-
-        User.last.projects.should include subject
-        subject.reload.users.should include User.last
       end
 
     end

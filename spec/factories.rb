@@ -51,4 +51,15 @@ FactoryGirl.define do
       end
     end
   end
+
+  factory :github_contributor, class: Hashie::Mash do
+
+    skip_create
+
+    sequence(:id)  { |n| "#{n+1}#{n+2}#{n+3}" } #github's uid
+    login       'new-user-nickname'
+    avatar_url  'http://new-user.avatar-url.com'
+
+    initialize_with { Hashie::Mash.new(attributes) }
+  end
 end

@@ -29,16 +29,22 @@ class GithubServiceHook
 
   def sync_last_commit
     @project.last_commit_date = @payload.last_commit_date
-    @project.save
+    @project.save!
   end
 
   def sync_contributors
-    @project.sync_contributors unless should_sync_contributors
+    if should_sync_contributors
+      puts 'should_sync_contributors'
+      @project.sync_contributors
+    else
+      puts 'dont sync shit'
+    end
   end
 
   def should_sync_contributors
-    contributors_emails = @project.users.map(&:email)
-    not contributors_emails.include?(@payload.contributors_emails)
+    contributors_emails = Set.new(@project.users.map(&:email))
+    new_contributors_emails = Set.new(@payload.contributors_emails)
+    not contributors_emails.subset?(new_contributors_emails)
   end
 
 end

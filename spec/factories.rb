@@ -5,10 +5,12 @@ FactoryGirl.define do
     sequence(:name)  { |n| "github-username-#{n}" }
     sequence(:nickname)  { |n| "github-nickname-#{n}" }
     sequence(:uid)  { |n| "300184#{n}" }
+    sequence(:email)  { |n| "email_text#{n}@email.com" }
 
     trait :isc_ci do
       name 'isc-ci'
       nickname 'isc-ci'
+      email 'isc_ci@email.com'
       uid  '3001848'
     end
   end

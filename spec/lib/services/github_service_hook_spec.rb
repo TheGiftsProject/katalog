@@ -2,12 +2,14 @@ require 'spec_helper'
 
 describe GithubServiceHook do
 
-  let(:project) { create(:project, :with_repo, users_count: 1) }
-  let(:user) { project.user.first }
   let(:repository_url) { 'some repo url' }
   let(:contributors_email) { 'test.email.com' }
   let(:contributors_emails) { [contributors_email] }
-  let(:last_commit_date) { '2013-07-26T00:25:33-07:00' }
+  let(:old_commit_date) { 3.day.ago }
+  let(:last_commit_date) { 1.day.ago }
+
+  let(:project) { create(:project, :with_repo, users_count: 1, last_commit_date: old_commit_date) }
+  let(:user) { project.users.first }
 
   let(:payload) { double(:github_payload,
                          repository_url: repository_url,
@@ -20,6 +22,8 @@ describe GithubServiceHook do
   describe :process_payload do
 
     before :each do
+      allow(subject).to receive(:sync_last_commit)
+      allow(subject).to receive(:sync_contributors)
       subject.process_payload
     end
 
@@ -57,34 +61,34 @@ describe GithubServiceHook do
 
     it "updated the project's last commit date from the payload" do
       expect{
-        subject.process_payload
-      }.to change(project, :last_commite_date).to(last_commit_date)
+        subject.send(:sync_last_commit)
+      }.to change(project, :last_commit_date).from(old_commit_date).to(last_commit_date)
     end
+
   end
 
   describe :sync_contributors do
 
     before :each do
-      subject.process_payload
+      allow(project).to receive(:sync_contributors)
+      subject.send(:sync_contributors)
     end
 
     context 'when the payload contributors are included in the project' do
 
-      let(:existing_contributor_email) { project.users.first.email }
-      let(:contributors_emails) { [existing_contributor_email] }
+      let(:contributors_emails) { [user.email] }
 
-      it "syncs the project's contributors" do
-        expect(project).to have_received(:sync_contributors)
+      it "ignore project's contributors sync" do
+        expect(project).not_to have_received(:sync_contributors)
       end
     end
 
     context 'when the payload contributors are not included in the project' do
 
-      let(:new_contributor_email) { 'new@email.com' }
-      let(:contributors_emails) { [new_contributor_email] }
+      let(:contributors_emails) { ['new_contributor@email.com'] }
 
-      it "ignore project's contributors sync" do
-        expect(project).not_to have_received(:sync_contributors)
+      it "syncs the project's contributors" do
+        expect(project).to have_received(:sync_contributors)
       end
     end
 

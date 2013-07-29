@@ -28,7 +28,7 @@ class GithubServiceHook
   end
 
   def sync_last_commit
-    @project.last_commit_date = @payload.head_commit.timestamp
+    @project.last_commit_date = @payload.last_commit_date
     @project.save
   end
 

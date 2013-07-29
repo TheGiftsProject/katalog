@@ -17,4 +17,8 @@ class GithubPayload
     @payload.commits.map(&:committer).map(&:email)
   end
 
+  def last_commit_date
+    @payload.head_commit.timestamp
+  end
+
 end

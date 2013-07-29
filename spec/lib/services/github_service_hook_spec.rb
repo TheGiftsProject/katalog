@@ -2,9 +2,17 @@ require 'spec_helper'
 
 describe GithubServiceHook do
 
-  let(:project) { create(:project) }
+  let(:project) { create(:project, :with_repo) }
+  let(:repository_url) { 'some repo url' }
+  let(:contributors_email) { 'test.email.com' }
+  let(:contributors_emails) { [contributors_email] }
+  let(:last_commit_date) { '2013-07-26T00:25:33-07:00' }
 
-  let(:payload) { GithubPayload.new(raw_payload) }
+  let(:payload) { double(:github_payload,
+                         repository_url: repository_url,
+                         last_commit_date: last_commit_date,
+                         contributors_emails: contributors_emails)
+  }
 
   subject { GithubServiceHook.new(project) }
 
@@ -17,9 +25,7 @@ describe GithubServiceHook do
 
     context 'when the payload has a matching project' do
 
-      before :all do
-        subject.stub(:has_matching_project? => true)
-      end
+      let(:repository_url) { project.repo_url }
 
       it "syncs the project's last commit date" do
         expect(subject).to have_received(:sync_last_commit)
@@ -33,9 +39,7 @@ describe GithubServiceHook do
 
     context 'when the payload has no matching project' do
 
-      before :all do
-        subject.stub(:has_matching_project? => false)
-      end
+      let(:repository_url) { 'https://github.com/unknown/repo' }
 
       it "ignore project's last commit date sync" do
         expect(subject).not_to have_received(:sync_last_commit)
@@ -51,15 +55,10 @@ describe GithubServiceHook do
 
   describe :sync_last_commit do
 
-    let(:new_date) { DateTime.new }
-
-    let(:payload_with_new_date) { }
-    let(:payload) { payload_with_new_date }
-
     it "updated the project's last commit date from the payload" do
       expect{
         subject.process_payload
-      }.to change(project, :last_commite_date).to(new_date)
+      }.to change(project, :last_commite_date).to(last_commit_date)
     end
   end
 
@@ -67,8 +66,8 @@ describe GithubServiceHook do
 
     context 'when the payload contributors are included in the project' do
 
-      let(:payload_with_existing_contributors) { }
-      let(:payload) { payload_with_existing_contributors }
+      let(:existing_contributor_email) { project.users.first.email }
+      let(:contributors_emails) { [existing_contributor_email] }
 
       it "syncs the project's contributors" do
         expect(project).to have_received(:sync_contributors)
@@ -77,8 +76,8 @@ describe GithubServiceHook do
 
     context 'when the payload contributors are not included in the project' do
 
-      let(:payload_with_new_contributors) { }
-      let(:payload) { payload_with_new_contributors }
+      let(:new_contributor_email) { 'new@email.com' }
+      let(:contributors_emails) { [new_contributor_email] }
 
       it "ignore project's contributors sync" do
         expect(project).not_to have_received(:sync_contributors)

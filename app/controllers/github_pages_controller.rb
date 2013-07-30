@@ -1,6 +1,6 @@
 require 'services/github_grabber'
 
-class GithubPageController < ProjectsController
+class GithubPagesController < ProjectsController
 
   include ProjectSupport
 

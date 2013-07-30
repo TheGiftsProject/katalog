@@ -6,7 +6,7 @@ Katalog::Application.routes.draw do
     scope :controller => :github_hook do
       post :post_receive_hook
     end
-    scope :controller => :github_page do
+    scope :controller => :github_pages do
       get :readme
       get :changelog
       get :todo

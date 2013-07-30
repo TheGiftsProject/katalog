@@ -4,7 +4,7 @@ Katalog::Application.routes.draw do
     resources :posts, :only => [:create]
 
     scope :controller => :github_hook do
-      post :post_receive_hook #, :to => 'github_hook#post_receive_hook' #:controller => :github_hook
+      post :post_receive_hook
     end
     scope :controller => :github_page do
       get :readme

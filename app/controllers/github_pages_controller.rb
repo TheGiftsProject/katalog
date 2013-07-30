@@ -1,6 +1,6 @@
 require 'services/github_grabber'
 
-class GithubPagesController < ProjectsController
+class GithubPagesController < ApplicationController
 
   include ProjectSupport
 
@@ -14,7 +14,7 @@ class GithubPagesController < ProjectsController
 
   # create an action for each page
   GITHUB_PAGES.each do |github_page|
-    define_method(github_page)
+    define_method(github_page) {}
   end
 
   private

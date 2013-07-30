@@ -2,7 +2,10 @@ Katalog::Application.routes.draw do
 
   resources :projects do
     resources :posts, :only => [:create]
-    post :github_service_hook, :controller => :github_hook
+
+    scope :controller => :github_hook do
+      post :post_receive_hook #, :to => 'github_hook#post_receive_hook' #:controller => :github_hook
+    end
     scope :controller => :github_page do
       get :readme
       get :changelog

@@ -1,16 +1,28 @@
 require 'services/github_payload'
 require 'services/github_service_hook'
 
-class GithubHookController < ProjectsController
+class GithubHookController < ApplicationController
 
   include ProjectSupport
   include GithubSupport
 
+  layout false
+
   skip_before_filter :verify_authenticity_token, :only => [:post_receive_hook]
 
   def post_receive_hook
-    payload = GithubPayload.new(params[:payload])
-    GithubServiceHook.new(current_project, payload).process_payload
+    github_service.process_payload
+    render :nothing => true
+  end
+
+  private
+
+  def github_service
+    @github_service ||= GithubServiceHook.new(current_project, payload)
+  end
+
+  def payload
+    @payload ||= GithubPayload.new(params[:payload])
   end
 
 end

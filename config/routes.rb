@@ -2,10 +2,12 @@ Katalog::Application.routes.draw do
 
   resources :projects do
     resources :posts, :only => [:create]
-    get :readme
-    get :changelog
-    get :todo
-    post :service_hook, :as => 'github_service_hook'
+    post :github_service_hook, :controller => :github_hook
+    scope :controller => :github_page do
+      get :readme
+      get :changelog
+      get :todo
+    end
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do

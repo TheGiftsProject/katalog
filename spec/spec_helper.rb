@@ -28,6 +28,11 @@ def initialize_testing_environment
   require 'rspec/rails'
   require 'rspec/autorun'
 
+  # hack to allow controller specs
+  Katalog::Application.configure do
+    config.secret_key_base = 'RAILS_SECRET_KEY_BASE'
+  end
+
   load_powenv
 
   # Requires supporting ruby files with custom matchers and macros, etc,

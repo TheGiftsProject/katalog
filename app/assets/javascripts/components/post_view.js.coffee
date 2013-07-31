@@ -23,10 +23,9 @@ class window.PostView
       type: 'POST'
       autoUpload: true
       dataType: 'xml'
+      paramName: 'file'
       formData: (form) ->
-#        data = form.serializeArray()
         data = $('#file-upload-form').serializeArray()
-
 #        for key of formDataFields
 #          data.push(name: key, value: formDataFields[key])
 

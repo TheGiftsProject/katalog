@@ -1,4 +1,4 @@
-require 'services/github_grabber'
+require 'github_grabber'
 
 class GithubObserver < ActiveRecord::Observer
 
@@ -10,10 +10,6 @@ class GithubObserver < ActiveRecord::Observer
 
   def after_update(project)
     project.sync_with_github if should_sync_after_update?(project)
-  end
-
-  def after_destory(project)
-    project.unsubscribe_to_service_hook if project.should_sync_with_github?
   end
 
   private

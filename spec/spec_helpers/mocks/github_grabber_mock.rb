@@ -1,4 +1,4 @@
-require 'services/github_grabber'
+require 'github_grabber'
 require 'rspec/mocks'
 
 class GithubGrabberMock < GithubGrabber

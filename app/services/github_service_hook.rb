@@ -1,4 +1,4 @@
-require 'services/github_grabber'
+require 'github_grabber'
 
 # see: https://help.github.com/articles/post-receive-hooks
 class GithubServiceHook

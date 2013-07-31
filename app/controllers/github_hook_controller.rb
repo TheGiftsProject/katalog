@@ -1,5 +1,5 @@
-require 'services/github_payload'
-require 'services/github_service_hook'
+require 'github_payload'
+require 'github_service_hook'
 
 class GithubHookController < ApplicationController
 

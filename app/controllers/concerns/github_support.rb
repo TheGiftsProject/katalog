@@ -1,4 +1,4 @@
-require 'services/github_grabber'
+require 'github_grabber'
 
 module GithubSupport
   extend ControllerSupport::Base

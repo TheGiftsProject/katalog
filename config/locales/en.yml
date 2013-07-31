@@ -25,6 +25,14 @@ en:
       back: 'View Project'
       title: 'Edit Project'
 
+    form:
+      placeholders:
+        title: 'Project Title'
+        subtitle: 'Project Subtitle'
+        tags: 'Tags'
+        repo_url: 'https://github.com/TheGiftsProject/repo'
+        demo_url: 'http://demo.example.com'
+      initial_post: 'Initial post'
 
     index:
       new: 'Add'

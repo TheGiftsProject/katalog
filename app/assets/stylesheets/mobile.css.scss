@@ -1,0 +1,19 @@
+@media screen and (max-width: 480px) {
+
+  .logo {
+    width: 80px;
+  }
+
+  h1.grand-title {
+    font-size: 55px;
+  }
+
+  .container, .centered-container {
+    width: 100%;
+    @include box-sizing(border-box);
+  }
+
+  .centered-container {
+    top: 100px;
+  }
+}

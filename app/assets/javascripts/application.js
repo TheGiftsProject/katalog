@@ -16,6 +16,7 @@
 //= require jquery.fileupload
 //= require turbolinks
 //= require showdown
+//= require jquery.insertatcaret
 //= require underscore
 //= require bootstrap
 //= require_tree .

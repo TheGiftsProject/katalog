@@ -40,9 +40,7 @@ class window.PostView
     @ui.markdownPreview.html(html)
 
   _fileAdded: (ev, data) ->
-    text = @ui.markdownText.val()
-    text += @_placeholderForFile(data.files[0].name)
-    @ui.markdownText.val(text)
+    @ui.markdownText.insertAtCaret(@_placeholderForFile(data.files[0].name))
 
   _uploadCompleted: (ev, data) ->
     file = data.result.getElementsByTagName('Location')[0].firstChild.nodeValue

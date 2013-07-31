@@ -39,7 +39,7 @@ FactoryGirl.define do
     after(:build) do |project, evaluator|
 
       if evaluator.mock_github_service_hook and project.repo_url.present?
-        mock_github_grabber = GithubGrabberMock.from_project(project)
+        mock_github_grabber = GithubGrabberMock.new(project)
         project.stub(:github_grabber).and_return(mock_github_grabber)
       end
 

@@ -61,7 +61,7 @@ module Project::GithubConcern
   private
 
   def github_grabber
-    @github_grabber ||= GithubGrabber.from_project(self)
+    @github_grabber ||= GithubGrabber.new(self)
   end
 
   def assign_contributor(contributor)

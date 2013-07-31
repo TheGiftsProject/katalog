@@ -10,20 +10,13 @@ class GithubGrabber
   # see: GithubSupport
   cattr_accessor :hook_callback_url
 
-  # we create a client to handle Github's Rate Limiting
-  # see: http://developer.github.com/v3/#rate-limiting
+  # @param repo [Project] Either a Project model or anything supported by Octokit::Repository
   def initialize(repo)
-    @repository = Octokit::Repository.new repo
-  end
-
-  def self.from_project(project)
-    self.from_url(project.repo_url)
-  end
-
-  def self.from_url(project_url)
-    raise ArgumentError, 'Repository url is invalid' if project_url.blank?
-    repository = Octokit::Repository.from_url(project_url)
-    self.new repository
+    if repo.is_a? Project
+      @repository = Octokit::Repository.from_url(repo.repo_url)
+    else
+      @repository = Octokit::Repository.new repo
+    end
   end
 
   def readme
@@ -65,6 +58,8 @@ class GithubGrabber
 
   private
 
+  # we create a client to handle Github's Rate Limiting
+  # see: http://developer.github.com/v3/#rate-limiting
   def client
     @client ||= Octokit::Client.new
   end

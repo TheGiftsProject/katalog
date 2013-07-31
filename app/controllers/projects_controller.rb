@@ -60,6 +60,7 @@ class ProjectsController < ApplicationController
   def build_project
     project = current_user.projects.build(project_params)
     project.posts.first.user = current_user
+    project.users = [current_user]
     project
   end
 

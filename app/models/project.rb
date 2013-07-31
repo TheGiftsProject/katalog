@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
   end
 
   def image
-    DEFAULT_IMAGE
+    last_posted_image || DEFAULT_IMAGE
   end
 
   def less_than_week_old?
@@ -39,6 +39,10 @@ class Project < ActiveRecord::Base
 
   def slug
     "#{id}-#{title.parameterize}"
+  end
+
+  def last_posted_image
+    posts.has_image.last.try(:image_url)
   end
 
 end

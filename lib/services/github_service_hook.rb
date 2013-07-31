@@ -24,7 +24,7 @@ class GithubServiceHook
   private
 
   def has_matching_project?
-    @project.is_same_repo? @payload.repository_url
+    @project.same_repo? @payload.repository_url
   end
 
   def sync_last_commit

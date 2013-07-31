@@ -7,8 +7,7 @@ module User::GithubConcern
 
     # see: http://developer.github.com/v3/repos/collaborators/
     def find_or_init_by_contributor(contributor)
-
-      User.find_or_initialize_by(uid: contributor.id) do |u|
+      User.where(:uid => contributor.id).first_or_initialize do |u|
         u.name = contributor.login
         u.nickname = contributor.login
         u.image = contributor.avatar_url

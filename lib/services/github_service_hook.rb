@@ -15,7 +15,7 @@ class GithubServiceHook
   end
 
   def process_payload
-    if has_matching_project?
+    if matching_project?
       sync_last_commit
       sync_contributors
     end
@@ -23,7 +23,7 @@ class GithubServiceHook
 
   private
 
-  def has_matching_project?
+  def matching_project?
     @project.same_repo? @payload.repository_url
   end
 

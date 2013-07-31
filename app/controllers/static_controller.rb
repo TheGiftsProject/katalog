@@ -12,6 +12,10 @@ class StaticController < ApplicationController
     render_error(500)
   end
 
+  def zen
+    @no_background = true
+  end
+
   private
 
   def render_error(code)

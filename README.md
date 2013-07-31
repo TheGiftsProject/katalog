@@ -3,7 +3,6 @@ __The place to share and work on ideas and side-projects__
 
 Katalog is a side-projects and ideas tracking web app. It allows your development team to suggest ideas for side-project, discuss about them, and kickstart them into live projects.
 
----------------------
 
 ## Setup
 
@@ -39,12 +38,10 @@ __Look-and-feel__
 
 If you wish to edit the look-and-feel of Katalog, feel free to edit the images and `en.yml` files.
 
----------------------
 
 ## Version
 0.1
 
----------------------
 
 ## License
 

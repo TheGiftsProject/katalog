@@ -5,19 +5,19 @@ class GithubPagesController < ApplicationController
   include ProjectSupport
 
   GITHUB_PAGES = [
-      :readme,
-      :todo,
-      :changelog
+    :readme,
+    :todo,
+    :changelog
   ]
-
-  before_filter :setup_github_page, :only => GITHUB_PAGES
 
   # create an action for each page
   GITHUB_PAGES.each do |github_page|
-    define_method(github_page) {}
+    define_method(github_page) do
+      setup_github_page
+    end
   end
 
-  private
+  #private
 
   def setup_github_page
     method = action_name

@@ -41,10 +41,13 @@ module Project::GithubConcern
   def includes_contributors?(contributors_emails)
     current_contributors_emails = Set.new(self.users.map(&:email))
     new_contributors_emails = Set.new(contributors_emails)
-    current_contributors_emails.subset?(new_contributors_emails)
+    new_contributors_emails.subset?(current_contributors_emails)
   end
 
-  def is_same_repo?(repo)
+  # Compares the current Project's repo to a given repo url or Project's repo url
+  #
+  # @param repo [String, Project] Either a A GitHub repository url or a Project model
+  def same_repo?(repo)
     repo = repo.repo_url if repo.is_a? Project
     current_repo = Octokit::Repository.from_url(self.repo_url)
     other_repo = Octokit::Repository.from_url(repo)

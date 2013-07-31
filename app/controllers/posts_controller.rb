@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   include ProjectSupport
+  include PostSupport
 
   before_filter :sign_in_required
   before_filter :has_project
@@ -22,6 +23,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    current_post.destroy
+    redirect_to current_project
+  end
 
   private
 

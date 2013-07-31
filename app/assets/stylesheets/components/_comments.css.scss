@@ -32,6 +32,18 @@
       float: right;
       font-size: 11px;
     }
+    .actions {
+      .action {
+        color: #a4a4a4;
+        margin-left: 10px;
+        float: right;
+        line-height: 21px;
+
+        &:hover{
+          color: black;
+        }
+      }
+    }
   }
   .body{
     padding: 5px;

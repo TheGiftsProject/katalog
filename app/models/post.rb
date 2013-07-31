@@ -11,6 +11,8 @@ class Post < ActiveRecord::Base
   scope :has_image, -> { where("text like '%![%](%)%'") }
   scope :reverse, -> { order(:id => :desc) }
 
+  acts_as_paranoid
+
   def image_url
     image_urls.first
   end

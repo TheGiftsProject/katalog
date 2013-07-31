@@ -1,7 +1,7 @@
 Katalog::Application.routes.draw do
 
   resources :projects do
-    resources :posts, :only => [:create]
+    resources :posts, :only => [:create, :destroy]
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do

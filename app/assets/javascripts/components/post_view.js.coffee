@@ -40,15 +40,22 @@ class window.PostView
     @ui.markdownPreview.html(html)
 
   _fileAdded: (ev, data) ->
-    console.log 'file added'
-    console.log data
+    text = @ui.markdownText.val()
+    text += @_placeholderForFile(data.files[0].name)
+    @ui.markdownText.val(text)
 
   _uploadCompleted: (ev, data) ->
     file = data.result.getElementsByTagName('Location')[0].firstChild.nodeValue
     text = @ui.markdownText.val()
-    text += "![](#{file})"
+    text = text.replace(@_placeholderForFile(data.files[0].name), @_markdownForImage(file))
     @ui.markdownText.val(text)
     @ui.markdownText.change()
+
+  _placeholderForFile: (filename) ->
+    "![Uploading #{filename} ...]()"
+
+  _markdownForImage: (file) ->
+    "![](#{file})"
 
 $(document).on 'ready', PostView.registerViews
 $(document).on 'page:load', PostView.registerViews

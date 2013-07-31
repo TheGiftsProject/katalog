@@ -12,7 +12,3 @@ UI:
 
 BUGS:
     * Fix buttons padding (delete) in heroku.
-
-MISC:
-    * Make configurable (+README.md).
-

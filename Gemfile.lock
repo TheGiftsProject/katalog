@@ -98,9 +98,6 @@ GEM
       tilt (>= 1.3.3)
     httpauth (0.2.0)
     i18n (0.6.4)
-    jquery-fileupload-rails (0.4.1)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -175,11 +172,6 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    s3_direct_upload (0.1.6)
-      coffee-rails (>= 3.2.1)
-      jquery-fileupload-rails (~> 0.4.1)
-      rails (>= 3.2)
-      sass-rails (>= 3.2.5)
     sass (3.2.9)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -246,7 +238,6 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_12factor
   rspec-rails
-  s3_direct_upload
   sass-rails (~> 4.0.0)
   slim
   textacular (~> 3.0)

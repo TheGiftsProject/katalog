@@ -7,7 +7,7 @@ module S3FormHelper
         :utf8 => '✓',
         :key => key,
         :acl => acl,
-        :AWSAccessKeyId => S3DirectUpload.config.access_key_id,
+        :AWSAccessKeyId => S3Storage.access_key_id,
         :policy => policy,
         :signature => signature,
         :success_action_status => success_action_status,
@@ -29,7 +29,7 @@ module S3FormHelper
   end
 
   def signature
-    Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), S3DirectUpload.config.secret_access_key, policy)).gsub("\n", "")
+    Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), S3Storage.secret_access_key, policy)).gsub("\n", "")
   end
 
   def key_starts_with
@@ -53,7 +53,7 @@ module S3FormHelper
             ["starts-with", "$x-requested-with", ""],
             ["content-length-range", 0, 500.megabytes],
             ["starts-with","$content-type",""],
-            {bucket: S3DirectUpload.config.bucket},
+            {bucket: S3Storage.bucket},
             {acl: acl},
             {success_action_status: success_action_status}
         ]

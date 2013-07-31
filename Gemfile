@@ -20,6 +20,7 @@ gem 'octokit'
 gem 'redcarpet'
 gem 'rouge'
 gem 'md_emoji'
+gem 'paranoia'
 
 gem 'hogan_assets'
 

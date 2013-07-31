@@ -3,6 +3,8 @@
     .who
       = render 'users/avatar', :user => post.user
       = post.user.nickname
+    .actions
+      = link_to '', [current_project, post], :method => :delete, :class => 'icon-remove-sign action'
     .when
       - if post.updated?
         %i.icon-star

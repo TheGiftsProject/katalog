@@ -13,7 +13,9 @@ UI:
 
 BUGS:
     * Fix buttons padding (delete) in heroku.
-    * Re-add the new tag - it's currently problematic because of caching
+    * Re-add the new tag - it's currently problematic because of caching.
     * Remove caching.
 
+MISC:
+    * Make configurable (+README.md).
 

@@ -17,14 +17,14 @@ describe GithubServiceHook do
                          contributors_emails: contributors_emails)
   }
 
-  subject { GithubServiceHook.new(project, payload) }
+  subject { GithubServiceHook.new(project) }
 
   describe :process_payload do
 
     before :each do
       allow(subject).to receive(:sync_last_commit)
       allow(subject).to receive(:sync_contributors)
-      subject.process_payload
+      subject.process_payload(payload)
     end
 
     context 'when the payload has a matching project' do
@@ -59,6 +59,10 @@ describe GithubServiceHook do
 
   describe :sync_last_commit do
 
+    before do
+      subject.payload = payload
+    end
+
     it "updated the project's last commit date from the payload" do
       expect{
         subject.send(:sync_last_commit)
@@ -70,6 +74,7 @@ describe GithubServiceHook do
   describe :sync_contributors do
 
     before :each do
+      subject.payload = payload
       allow(project).to receive(:sync_contributors)
       subject.send(:sync_contributors)
     end

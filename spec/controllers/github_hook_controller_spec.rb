@@ -26,12 +26,12 @@ describe GithubHookController do
 
     it 'processes the given post receive payload' do
       allow(controller).to receive(:payload).and_return(payload)
-      allow(GithubServiceHook).to receive(:new).with(current_project, payload).and_call_original
+      allow(GithubServiceHook).to receive(:new).with(current_project).and_call_original
 
       post :post_receive_hook, :project_id => current_project.id, :payload => raw_payload
 
-      expect(GithubServiceHook).to have_received(:new).with(current_project, payload)
-      expect(github_service).to have_received(:process_payload)
+      expect(GithubServiceHook).to have_received(:new).with(current_project)
+      expect(github_service).to have_received(:process_payload).with(payload)
     end
 
   end

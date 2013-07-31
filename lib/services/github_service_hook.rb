@@ -1,20 +1,18 @@
 require 'services/github_grabber'
 
+# see: https://help.github.com/articles/post-receive-hooks
 class GithubServiceHook
+
+  attr_accessor :payload
 
   MASTER_BRANCH_REF = "refs/heads/master"
 
-  def initialize(project, payload = nil)
+  def initialize(project)
     @project = project
-    with_payload(payload) if payload.present?
   end
 
-  # see: https://help.github.com/articles/post-receive-hooks
-  def with_payload(payload)
+  def process_payload(payload)
     @payload = payload
-  end
-
-  def process_payload
     if matching_project?
       sync_last_commit
       sync_contributors

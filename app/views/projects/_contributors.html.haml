@@ -2,7 +2,8 @@
   - project.users.each do |user|
     .contributor
       = render 'users/avatar', :user => user
-      = link_to [current_project, user], :method => :delete, :class => 'remove' do
-        %span.icon-stack
-          %i.icon-circle
-          %i.icon-remove-sign
+      - if allow_delete
+        = link_to [project, user], :method => :delete, :class => 'remove' do
+          %span.icon-stack
+            %i.icon-circle
+            %i.icon-remove-sign

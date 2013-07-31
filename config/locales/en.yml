@@ -25,6 +25,14 @@ en:
       back: 'View Project'
       title: 'Edit Project'
 
+    form:
+      placeholders:
+        title: 'Project Title'
+        subtitle: 'Project Subtitle'
+        tags: 'Tags'
+        repo_url: 'https://github.com/TheGiftsProject/repo'
+        demo_url: 'http://demo.example.com'
+      initial_post: 'Initial post'
 
     index:
       new: 'Add'
@@ -74,6 +82,7 @@ en:
     sign_in: 'Sign-in failed'
     unauthorized: 'You are not authorized to view Katalog'
     post_fail: 'Failed to post'
+    cant_delete: "You can't delete a post you didn't post"
 
   activerecord:
     attributes:

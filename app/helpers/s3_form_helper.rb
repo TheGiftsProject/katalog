@@ -11,8 +11,7 @@ module S3FormHelper
         :policy => policy,
         :signature => signature,
         :success_action_status => success_action_status,
-        'X-Requested-With' => 'xhr',
-        'Content-Type' => ''
+        'X-Requested-With' => 'xhr'
     }
 
     javascript_tag <<-END

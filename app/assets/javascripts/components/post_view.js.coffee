@@ -32,7 +32,7 @@ class window.PostView
         data[1].value = data[1].value.replace('{timestamp}', new Date().getTime())
 
         fileType = if 'type' of @files[0] then @files[0].type else ''
-        data.push(name: 'content-type', value: fileType)
+        data.push(name: 'Content-Type', value: fileType)
         data
     )
 

@@ -82,6 +82,7 @@ en:
     sign_in: 'Sign-in failed'
     unauthorized: 'You are not authorized to view Katalog'
     post_fail: 'Failed to post'
+    cant_delete: "You can't delete a post you didn't post"
 
   activerecord:
     attributes:

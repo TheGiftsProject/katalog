@@ -10,6 +10,7 @@
     = link_to current_project, :method => :delete, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-small btn-danger' do
       %i.icon-remove
       %span= t('pages.show.delete')
+
     .subtitle
       = current_project.subtitle
       &nbsp;

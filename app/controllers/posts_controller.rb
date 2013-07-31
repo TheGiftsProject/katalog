@@ -24,7 +24,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    current_post.destroy
+    if current_post.user == current_user
+      current_post.destroy
+    else
+      flash[:error] = t('errors.cant_delete')
+    end
     redirect_to current_project
   end
 

@@ -8,6 +8,7 @@ en:
       search_placeholder: 'Search for Project or Tag'
       links:
         projects: 'All Projects'
+        zen: 'Moment of Zen'
         sign_in: 'Sign In'
         sign_out: 'Sign Out'
 

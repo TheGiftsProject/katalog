@@ -17,6 +17,7 @@ Katalog::Application.routes.draw do
 
   root :to => 'application#root'
 
+  get 'zen', :to => 'static#zen'
   get '404', :to => 'static#not_found'
   get '401', :to => 'static#not_found'
   get '403', :to => 'static#forbidden'

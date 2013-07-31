@@ -18,8 +18,6 @@ BUGS:
     * Fix buttons padding (delete) in heroku.
     * Fix no emojis in Heroku.
     * No localization for new/edit form (missing currently).
-    * When opening new idea my avatar is not in the list.
-    * New tags are not registered in project form.
     * Re-add the new tag - it's currently problematic because of caching
 
 

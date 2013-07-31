@@ -15,7 +15,6 @@ UI:
 
 BUGS:
     * Fix buttons padding (delete) in heroku.
-    * Fix no emojis in Heroku.
     * Re-add the new tag - it's currently problematic because of caching
 
 

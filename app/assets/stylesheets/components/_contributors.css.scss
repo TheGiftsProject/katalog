@@ -1,0 +1,28 @@
+.contributors{
+  overflow: hidden;
+  height: 50px;
+  .contributor{
+    height: 50px;
+    width: auto;
+    float: right;
+    margin-left: 5px;
+    position: relative;
+    &:hover{
+      .remove{
+        display: block;
+      }
+    }
+    .remove{
+      display: none;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      color: white;
+      font-size: 1.5em;
+      .icon-remove-sign{
+        color: $red;
+      }
+
+    }
+  }
+}

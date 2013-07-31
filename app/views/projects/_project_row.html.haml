@@ -6,4 +6,4 @@
     = render 'projects/tags', :project => project
   .subtitle= project.subtitle
   .last-update= t('project.last_updated', :time => time_ago_in_words(project.updated_at))
-  = render 'projects/contributors', :project => project
+  = render 'projects/contributors', :project => project, :allow_delete => false

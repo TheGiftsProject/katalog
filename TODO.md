@@ -7,13 +7,11 @@ POST:
     * Syntax coloring in javascript (preview).
 
 UI:
-    * Zen index page.
+    * Zen 2.0
     * Mobile UI.
 
 BUGS:
     * Fix buttons padding (delete) in heroku.
-    * Re-add the new tag - it's currently problematic because of caching.
-    * Remove caching.
 
 MISC:
     * Make configurable (+README.md).

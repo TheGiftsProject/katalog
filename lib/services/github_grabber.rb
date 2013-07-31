@@ -51,7 +51,7 @@ class GithubGrabber
     repository_info.homepage
   end
 
-  def contributors
+  def fetch_contributors
     client.contributors(@repository, false, :accept => RAW_ACCEPT)
   end
 

@@ -13,7 +13,7 @@ describe Project::GithubConcern do
     context 'when sync with Github is needed' do
 
       before do
-        subject.stub(:should_sync_with_github? => true)
+        allow(subject).to receive(:should_sync_with_github?).and_return(true)
         allow(subject).to receive(:subscribe_to_service_hook)
         allow(subject).to receive(:sync_website_url)
         allow(subject).to receive(:sync_last_commit_date)
@@ -90,7 +90,7 @@ describe Project::GithubConcern do
       let(:existing_user) { create(:github_contributor, id: user.uid) }
 
       before do
-        subject.stub(:contributors => [existing_user])
+        allow(subject).to receive(:fetch_contributors).and_return([existing_user])
       end
 
       it "doesn't add any new users" do
@@ -106,7 +106,7 @@ describe Project::GithubConcern do
       let(:new_user) { create(:github_contributor) }
 
       before do
-        subject.stub(:contributors => [new_user])
+        allow(subject).to receive(:fetch_contributors).and_return([new_user])
       end
 
       it 'adds the new contributor to the project' do

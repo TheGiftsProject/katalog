@@ -5,7 +5,7 @@ module Project::GithubConcern
   # Goes into Project
 
   delegate :readme, :todo, :changelog,
-           :website, :last_commit, :contributors,
+           :website, :last_commit, :fetch_contributors,
            :subscribe_to_service_hook,
            :unsubscribe_to_service_hook, :to => :github_grabber
 
@@ -33,7 +33,7 @@ module Project::GithubConcern
 
   def sync_contributors
     existing_users_uids = self.users.map(&:uid)
-    self.contributors.each do |contributor|
+    self.fetch_contributors.each do |contributor|
       assign_contributor(contributor) unless existing_users_uids.include?(contributor.id)
     end
   end

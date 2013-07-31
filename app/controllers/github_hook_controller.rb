@@ -6,8 +6,6 @@ class GithubHookController < ApplicationController
   include ProjectSupport
   include GithubSupport
 
-  layout false
-
   skip_before_filter :verify_authenticity_token, :only => [:post_receive_hook]
 
   def post_receive_hook

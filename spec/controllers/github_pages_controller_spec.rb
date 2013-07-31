@@ -4,21 +4,37 @@ describe GithubPagesController do
 
   let(:current_project) { create(:project, :with_repo) }
 
-  describe :read do
+  before do
+    allow(controller).to receive(:current_project).and_return(current_project)
+  end
 
-    let(:page_content) { 'readme' }
+  shared_examples :github_page do
+
+    let(:page_name) { example.example_group.parent.description }
+    let(:action_name) { page_name.to_sym }
+
+    let(:page_content) { "#{page_name}-html-content" }
 
     before do
-      allow_any_instance_of(GithubGrabber).to receive(:readme).and_return(page_content)
-      get :readme, :project_id => current_project.id
+      allow(current_project).to receive(action_name).and_return(page_content)
+      get page_name, :project_id => current_project.id
     end
 
-    it 'fetchs the readme file from Github' do
+    it "fetchs the file from Github" do
       expect(assigns[:github_page]).to eq page_content
     end
 
     it 'sets the page title to be the current action' do
-      expect(assigns[:github_page_title]).to eq "README"
+      expect(assigns[:github_page_title]).to eq action_name.to_s
+    end
+
+  end
+
+
+  GithubPagesController::GITHUB_PAGES.each do |github_page_name|
+
+    describe github_page_name do
+      it_behaves_like :github_page
     end
 
   end

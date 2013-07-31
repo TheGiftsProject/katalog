@@ -21,8 +21,8 @@ class GithubPagesController < ApplicationController
 
   def setup_github_page
     method = action_name
-    @github_page_title = method.to_s.upcase
-    @github_page = GithubGrabber.from_project(current_project).send(method)
+    @github_page_title = method.to_s
+    @github_page = current_project.send(method)
     render 'projects/github_page'
   end
 

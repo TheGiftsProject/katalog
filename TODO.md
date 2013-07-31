@@ -7,7 +7,7 @@ POST:
     * Syntax coloring in javascript (preview).
 
 UI:
-    * Zen index page.
+    * Zen 2.0
     * Remove me from Project link.
     * Mobile UI.
 

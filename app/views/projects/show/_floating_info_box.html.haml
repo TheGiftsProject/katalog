@@ -1,20 +1,21 @@
-.info-box.pull-right
-  = image_tag current_project.image
-  - if current_project.repo_url.present?
-    = link_to current_project.repo_url, :class => 'a-link' do
-      %i.icon-code
-      %span= t('pages.show.urls.repo')
-  - if current_project.demo_url.present?
-    = link_to current_project.demo_url, :class => 'a-link' do
-      %i.icon-desktop
-      %span= t('pages.show.urls.demo')
+= cache(current_project) do
+  .info-box.pull-right
+    = image_tag current_project.image
+    - if current_project.repo_url.present?
+      = link_to current_project.repo_url, :class => 'a-link' do
+        %i.icon-code
+        %span= t('pages.show.urls.repo')
+    - if current_project.demo_url.present?
+      = link_to current_project.demo_url, :class => 'a-link' do
+        %i.icon-desktop
+        %span= t('pages.show.urls.demo')
 
 
-  .well-small
-    - if @show_statuses
-      = link_to project_path(current_project), :class => 'btn btn-mini btn-warning' do
-        = t('pages.show.filter_updates')
-        %i.icon-remove
-    - else
-      = link_to project_path(current_project, :statuses => true), :class => 'btn btn-mini btn-success' do
-        = t('pages.show.filter_updates')
+    .well-small
+      - if @show_statuses
+        = link_to project_path(current_project), :class => 'btn btn-mini btn-warning' do
+          = t('pages.show.filter_updates')
+          %i.icon-remove
+      - else
+        = link_to project_path(current_project, :statuses => true), :class => 'btn btn-mini btn-success' do
+          = t('pages.show.filter_updates')

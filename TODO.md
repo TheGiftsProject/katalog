@@ -4,6 +4,7 @@ POST:
     * Emoji autocomplete.
     * Don't try to parse emoji if doesn't exist.
     * Pusher.
+    * Add Delete post
 
 GITHUB:
     * README/TODO/CHANGELOG.
@@ -19,4 +20,5 @@ BUGS:
     * When opening new idea my avatar is not in the list.
     * New tags are not registered in project form.
     * Re-add the new tag - it's currently problematic because of caching
+
 

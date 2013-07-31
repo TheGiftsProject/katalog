@@ -8,7 +8,6 @@ POST:
 
 UI:
     * Zen index page.
-    * Remove me from Project link.
     * Mobile UI.
 
 BUGS:

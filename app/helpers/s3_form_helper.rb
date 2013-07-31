@@ -15,7 +15,7 @@ module S3FormHelper
     }
 
     javascript_tag <<-END
-      PostView.formDataFields = #{fields.to_json}
+      S3Storage.formFields = #{fields.to_json}
     END
   end
 

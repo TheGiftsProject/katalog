@@ -1,7 +1,5 @@
 class window.PostView
 
-  @formDataFields: {}
-
   @registerViews: ->
     $('.post').each(-> new PostView(el: $(this)))
 
@@ -16,7 +14,6 @@ class window.PostView
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
 
-    formDataFields = @constructor.formDataFields
     @ui.markdownText.fileupload(
       dropZone: @ui.markdownText
       url: 'https://s3.amazonaws.com/katalog-images/'
@@ -24,23 +21,17 @@ class window.PostView
       autoUpload: true
       dataType: 'xml'
       paramName: 'file'
-      formData: (form) ->
-        data = form.serializeArray()
-        for key of formDataFields
-          data.push(name: key, value: formDataFields[key])
-
-        data[1].value = data[1].value.replace('{timestamp}', new Date().getTime())
-
+      formData: -> # this method is binded to fileupload component and must not be binded to this class
+        data = S3Storage.generateFormData()
         fileType = if 'type' of @files[0] then @files[0].type else ''
         data.push(name: 'Content-Type', value: fileType)
         data
     )
 
-    $(document).bind('dragover', -> null)
-    $(document).bind('drop dragover', (event) -> event.preventDefault())
-
   _bindEvents: ->
-    _.bindAll(@, '_onChange', '_uploadCompleted')
+    _.bindAll(@, '_onChange', '_uploadCompleted', '_fileAdded')
+    @ui.markdownText.bind('fileuploadadd', @_fileAdded)
+    @ui.markdownText.bind('fileuploaddone', @_uploadCompleted)
     @ui.markdownText.change(@_onChange)
 
   _onChange: ->
@@ -48,9 +39,14 @@ class window.PostView
     html = @converter.makeHtml(text)
     @ui.markdownPreview.html(html)
 
-  _uploadCompleted: (ev, content) ->
+  _fileAdded: (ev, data) ->
+    console.log 'file added'
+    console.log data
+
+  _uploadCompleted: (ev, data) ->
+    file = data.result.getElementsByTagName('Location')[0].firstChild.nodeValue
     text = @ui.markdownText.val()
-    text += "![Alt text](#{content.url})"
+    text += "![](#{file})"
     @ui.markdownText.val(text)
     @ui.markdownText.change()
 

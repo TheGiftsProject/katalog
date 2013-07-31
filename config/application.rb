@@ -21,7 +21,6 @@ module Katalog
     # config.i18n.default_locale = :de
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.compile = true
 
     config.exceptions_app = self.routes
   end

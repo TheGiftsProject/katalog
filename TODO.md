@@ -3,7 +3,6 @@ POST:
     * Default code format recognition.
     * Emoji autocomplete.
     * Pusher (optional).
-    * Delete post.
     * Edit post.
 
 GITHUB:

@@ -1,7 +1,10 @@
+# encoding: utf-8
+
 module S3FormHelper
 
   def s3_form_data_fields
     fields = {
+        :utf8 => '✓',
         :key => key,
         :acl => acl,
         :AWSAccessKeyId => S3DirectUpload.config.access_key_id,
@@ -26,7 +29,7 @@ module S3FormHelper
   end
 
   def signature
-    Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), S3DirectUpload.config.secret_access_key, policy)).gsub('\n', '')
+    Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest::Digest.new('sha1'), S3DirectUpload.config.secret_access_key, policy)).gsub("\n", "")
   end
 
   def key_starts_with

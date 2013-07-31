@@ -25,18 +25,14 @@ class window.PostView
       dataType: 'xml'
       paramName: 'file'
       formData: (form) ->
-        data = $('#file-upload-form').serializeArray()
-#        for key of formDataFields
-#          data.push(name: key, value: formDataFields[key])
+        data = form.serializeArray()
+        for key of formDataFields
+          data.push(name: key, value: formDataFields[key])
 
-        key = data[1].value.replace('{timestamp}', new Date().getTime()).replace('{unique_id}', @files[0].unique_id)
-        data[1].value = key
+        data[1].value = data[1].value.replace('{timestamp}', new Date().getTime())
 
-        fileType = ''
-        if 'type' of @files[0]
-          fileType = @files[0].type
+        fileType = if 'type' of @files[0] then @files[0].type else ''
         data.push(name: 'content-type', value: fileType)
-
         data
     )
 

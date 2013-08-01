@@ -56,6 +56,7 @@ class window.PostView
         Turbolinks.visit(suc.url)
       else
         @ui.markdownText.val('')
+        @ui.markdownText.change()
         @ui.statusUpdateCheckbox.prop('checked', false)
         @ui.form.before(suc)
     )

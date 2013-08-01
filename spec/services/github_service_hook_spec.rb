@@ -73,9 +73,11 @@ describe GithubServiceHook do
 
   describe :sync_contributors do
 
+    let(:github_syncer) { subject.send(:github_syncer) }
+
     before :each do
       subject.payload = payload
-      allow(project).to receive(:sync_contributors)
+      allow(github_syncer).to receive(:sync_contributors)
       subject.send(:sync_contributors)
     end
 
@@ -84,7 +86,7 @@ describe GithubServiceHook do
       let(:contributors_emails) { [user.email] }
 
       it "ignore project's contributors sync" do
-        expect(project).not_to have_received(:sync_contributors)
+        expect(github_syncer).not_to have_received(:sync_contributors)
       end
     end
 
@@ -93,7 +95,7 @@ describe GithubServiceHook do
       let(:contributors_emails) { ['new_contributor@email.com'] }
 
       it "syncs the project's contributors" do
-        expect(project).to have_received(:sync_contributors)
+        expect(github_syncer).to have_received(:sync_contributors)
       end
     end
 

@@ -70,8 +70,6 @@ def initialize_testing_environment
       config.configure_rspec_metadata!
     end
 
-    ActiveRecord::Base.observers.disable :all
-
     load "#{Rails.root}/db/seeds.rb"
   end
 end

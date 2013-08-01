@@ -20,9 +20,8 @@ class GithubPagesController < ApplicationController
   #private
 
   def setup_github_page
-    method = action_name
-    @github_page_title = method.to_s
-    @github_page = current_project.send(method)
+    @github_page_title = action_name.to_s
+    @github_page = current_project.send("github_#{action_name}")
     render 'projects/github_page'
   end
 

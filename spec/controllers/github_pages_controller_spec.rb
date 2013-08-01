@@ -11,7 +11,7 @@ describe GithubPagesController do
   shared_examples :github_page do
 
     let(:page_name) { example.example_group.parent.description }
-    let(:action_name) { page_name.to_sym }
+    let(:action_name) { "github_#{page_name}".to_sym }
 
     let(:page_content) { "#{page_name}-html-content" }
 

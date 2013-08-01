@@ -56,7 +56,7 @@ FactoryGirl.define do
 
     skip_create
 
-    sequence(:id)  { |n| "#{n+1}#{n+2}#{n+3}" } #github's uid
+    sequence(:id)  { |n| "#{n+1}#{n+2}" } #github's uid
     login       'new-user-nickname'
     avatar_url  'http://new-user.avatar-url.com'
 

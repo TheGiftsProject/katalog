@@ -13,6 +13,7 @@ describe GithubPagesController do
     let(:page_name) { example.example_group.parent.description }
     let(:action_name) { "github_#{page_name}".to_sym }
 
+    let(:page_title) { page_name.to_s }
     let(:page_content) { "#{page_name}-html-content" }
 
     before do
@@ -25,7 +26,7 @@ describe GithubPagesController do
     end
 
     it 'sets the page title to be the current action' do
-      expect(assigns[:github_page_title]).to eq action_name.to_s
+      expect(assigns[:github_page_title]).to eq page_title
     end
 
   end

@@ -16,7 +16,7 @@ class window.PostView
 
     @ui.markdownText.fileupload(
       dropZone: @ui.markdownText
-      url: 'https://s3.amazonaws.com/katalog-images/'
+      url: S3Storage.bucketUrl
       type: 'POST'
       autoUpload: true
       dataType: 'xml'
@@ -45,15 +45,16 @@ class window.PostView
   _uploadCompleted: (ev, data) ->
     file = data.result.getElementsByTagName('Location')[0].firstChild.nodeValue
     text = @ui.markdownText.val()
-    text = text.replace(@_placeholderForFile(data.files[0].name), @_markdownForImage(file))
+    originalFilename = data.files[0].name
+    text = text.replace(@_placeholderForFile(originalFilename), @_markdownForImage(file, originalFilename))
     @ui.markdownText.val(text)
     @ui.markdownText.change()
 
   _placeholderForFile: (filename) ->
     "![Uploading #{filename} ...]()"
 
-  _markdownForImage: (file) ->
-    "![](#{file})"
+  _markdownForImage: (file, originalFilename) ->
+    "![#{originalFilename}](#{file})"
 
 $(document).on 'ready', PostView.registerViews
 $(document).on 'page:load', PostView.registerViews

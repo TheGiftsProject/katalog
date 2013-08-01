@@ -1,6 +1,7 @@
 class window.S3Storage
 
   @formFields: null
+  @bucketUrl: null
 
   @generateFormData: ->
     data = []

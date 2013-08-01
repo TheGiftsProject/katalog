@@ -2,7 +2,7 @@
 
 module S3FormHelper
 
-  def s3_form_data_fields
+  def configure_s3_storage
     fields = {
         :utf8 => '✓',
         :key => key,
@@ -16,6 +16,7 @@ module S3FormHelper
 
     javascript_tag <<-END
       S3Storage.formFields = #{fields.to_json}
+      S3Storage.bucketUrl = "https://s3.amazonaws.com/#{S3Storage.bucket}/"
     END
   end
 

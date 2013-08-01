@@ -39,7 +39,7 @@ class GithubSyncer
   end
 
   def sync_demo_url
-    project.demo_url &&= github_grabber.website
+    project.demo_url = github_grabber.website
   end
 
   def sync_last_commit_date

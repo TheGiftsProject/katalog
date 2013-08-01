@@ -81,7 +81,7 @@ describe GithubSyncer do
       let(:existing_user) { create(:github_contributor, id: user.uid) }
 
       before do
-        allow(subject).to receive(:contributors).and_return([existing_user])
+        allow(github_grabber).to receive(:contributors).and_return([existing_user])
       end
 
       it "doesn't add any new users" do
@@ -97,7 +97,7 @@ describe GithubSyncer do
       let(:new_user) { create(:github_contributor) }
 
       before do
-        allow(subject).to receive(:contributors).and_return([new_user])
+        allow(github_grabber).to receive(:contributors).and_return([new_user])
       end
 
       it 'adds the new contributor to the project' do

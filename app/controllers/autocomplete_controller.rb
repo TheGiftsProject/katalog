@@ -1,7 +1,7 @@
 class AutocompleteController < ApplicationController
 
   before_filter :sign_in_required
-  before_action :load_query, :only => [:projects]
+  before_action :load_query, :only => [:projects, :repositories]
 
   def tags
     render :json => Tag.all
@@ -14,7 +14,7 @@ class AutocompleteController < ApplicationController
   end
 
   def repositories
-    render :json => GithubSearch.new(@query).to_json
+    render :json => Github::RepoSeach.new.search(@query).to_json
   end
 
   private

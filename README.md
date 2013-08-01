@@ -33,6 +33,7 @@ The Katalog app requires an AWS S3 account for image uploading:
 
 * `KATALOG_AWS_ID` - AWS access key id.
 * `KATALOG_AWS_ACCESS_KEY` - AWS secret access key id.
+* `KATALOG_AWS_BUCKET_NAME` - The S3 bucket the images will be uploaded to.
 
 __Look-and-feel__
 

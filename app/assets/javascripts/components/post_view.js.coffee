@@ -1,3 +1,13 @@
+emojiExtension = (converter) ->
+    [
+      {
+        type    : 'lang',
+        regex   : '\\B:([\\S]+):',
+        replace : (match, prefix, content, suffix) ->
+              return "<img src='/assets/emojis/#{prefix}.png' height=20 width=20/>"
+      }
+    ]
+
 class window.PostView
 
   @registerViews: ->
@@ -5,7 +15,7 @@ class window.PostView
 
   constructor: (options) ->
     @$el = options.el
-    @converter = new Showdown.converter()
+    @converter = new Showdown.converter(extensions: [emojiExtension])
     @_initUI()
     @_bindEvents()
 
@@ -13,6 +23,9 @@ class window.PostView
     @ui =
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
+      statusUpdateCheckbox: @$el.find('.checkbox.update')
+      changeStatusRadio: @$el.find('.radio-group')
+      form: $('#new_post')
 
     @ui.markdownText.fileupload(
       dropZone: @ui.markdownText
@@ -29,10 +42,23 @@ class window.PostView
     )
 
   _bindEvents: ->
-    _.bindAll(@, '_onChange', '_uploadCompleted', '_fileAdded')
+    _.bindAll(@, '_onChange', '_uploadCompleted', '_fileAdded', '_statusUpdateChange', '_submit')
     @ui.markdownText.bind('fileuploadadd', @_fileAdded)
     @ui.markdownText.bind('fileuploaddone', @_uploadCompleted)
     @ui.markdownText.change(@_onChange)
+    @ui.statusUpdateCheckbox.change(@_statusUpdateChange)
+    @ui.form.submit(@_submit)
+
+  _submit: (ev) ->
+    ev.preventDefault()
+    jQuery.post(@ui.form.attr('action'), @ui.form.serialize(), (suc) =>
+      if (suc.refresh)
+        Turbolinks.visit(suc.url)
+      else
+        @ui.markdownText.val('')
+        @ui.statusUpdateCheckbox.prop('checked', false)
+        @ui.form.before(suc)
+    )
 
   _onChange: ->
     text = @ui.markdownText.val()
@@ -55,6 +81,9 @@ class window.PostView
 
   _markdownForImage: (file, originalFilename) ->
     "![#{originalFilename}](#{file})"
+
+  _statusUpdateChange: ->
+    @ui.changeStatusRadio.toggle()
 
 $(document).on 'ready', PostView.registerViews
 $(document).on 'page:load', PostView.registerViews

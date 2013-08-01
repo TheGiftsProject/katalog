@@ -1,10 +1,9 @@
-= cache(project) do
-  .project-row
-    .title
-      = link_to project do
-        = status_icon(project)
-        = project.title
-      = render 'projects/tags', :project => project
-    .subtitle= project.subtitle
-    .last-update= t('project.last_updated', :time => time_ago_in_words(project.updated_at))
-    = render 'projects/contributors', :project => project
+.project-row
+  .title
+    = link_to project do
+      = status_icon(project)
+      = project.title
+    = render 'projects/tags', :project => project
+  .subtitle= project.subtitle
+  .last-update= t('project.last_updated', :time => time_ago_in_words(project.updated_at))
+  = render 'projects/contributors', :project => project, :allow_delete => false

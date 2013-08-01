@@ -17,6 +17,10 @@ gem 'haml'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'octokit'
+gem 'redcarpet'
+gem 'rouge'
+gem 'md_emoji'
+gem 'paranoia'
 
 gem 'hogan_assets'
 

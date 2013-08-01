@@ -1,7 +1,8 @@
 Katalog::Application.routes.draw do
 
   resources :projects do
-    resources :posts, :only => [:create]
+    resources :posts, :only => [:create, :destroy]
+    resources :users, :only => [:destroy]
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do
@@ -17,6 +18,7 @@ Katalog::Application.routes.draw do
 
   root :to => 'application#root'
 
+  get 'zen', :to => 'static#zen'
   get '404', :to => 'static#not_found'
   get '401', :to => 'static#not_found'
   get '403', :to => 'static#forbidden'

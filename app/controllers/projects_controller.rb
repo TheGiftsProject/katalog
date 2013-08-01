@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  DEFAULT_FILTER = :idea
+  DEFAULT_FILTER = :all
 
   include ProjectSupport
 
@@ -11,25 +11,12 @@ class ProjectsController < ApplicationController
   after_filter :set_viewed_cookie, :only => [:create, :show]
 
   def index
-    if params[:tag].present?
-      @tag = Tag.find_caseless(params[:tag]).first
-      if @tag
-        @projects = @tag.projects.latest_first
-      else
-        @projects = []
-      end
-    else
-      @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
-      case(@filter)
-        when :all then @projects = Project.latest_first
-        when :mine then @projects = current_user.projects.latest_first
-        else @projects = Project.where(:status => @filter).latest_first
-      end
-    end
+    filter_by_tag || filter_by_status
   end
 
   def show
     @post = current_project.posts.build
+    @show_statuses = params.include? :statuses
   end
 
   def new
@@ -73,7 +60,36 @@ class ProjectsController < ApplicationController
   def build_project
     project = current_user.projects.build(project_params)
     project.posts.first.user = current_user
+    project.users = [current_user]
     project
+  end
+
+
+  def filter_by_tag
+    if params[:tag].present?
+      @tag = Tag.find_caseless(params[:tag]).first
+      if @tag
+        @projects = @tag.projects.latest_first
+      else
+        @projects = []
+      end
+      true
+    else
+      false
+    end
+  end
+
+
+  def filter_by_status
+    @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
+    case (@filter)
+      when :all then
+        @projects = Project.not_dead.latest_first
+      when :mine then
+        @projects = current_user.projects.latest_first
+      else
+        @projects = Project.where(:status => @filter).latest_first
+    end
   end
 
 end

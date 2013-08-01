@@ -10,17 +10,6 @@
     line-height: 200%;
   }
 
-  .contributors{
-    overflow: hidden;
-    height: 50px;
-  }
-  .avatar{
-    height: 50px;
-    width: 50px;
-    float: right;
-    margin-left: 5px;
-  }
-
   .page-header{
     position: relative;
   }
@@ -29,6 +18,12 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+
+  .contributors{
+    .avatar{
+      width: 50px;
+    }
   }
 
   .tags{

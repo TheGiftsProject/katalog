@@ -6,7 +6,6 @@ POST:
     * MD preview should be the same preview as the final result (maybe by server request?).
 
 UI:
-    * Zen 2.0
     * Mobile UI.
     * Projects with new posts should be bumped to top of index / have a 'UPDATED' tag.
     * Add elipssis to project title/subtitle in index page.

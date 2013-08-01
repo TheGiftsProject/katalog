@@ -7,7 +7,7 @@ POST:
 
 UI:
     * Zen 2.0
-    * Mobile UI for show page (rest is working).
+    * Mobile UI.
     * Projects with new posts should be bumped to top of index / have a 'UPDATED' tag.
     * Add elipssis to project title/subtitle in index page.
 

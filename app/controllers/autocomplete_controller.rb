@@ -13,6 +13,10 @@ class AutocompleteController < ApplicationController
     end
   end
 
+  def repositories
+    render :json => GithubSearch.new(@query).to_json
+  end
+
   private
 
   def load_query

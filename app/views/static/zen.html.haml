@@ -1,2 +1,2 @@
 .centered-container
-  = image_tag('logo/logo-big.png', :class => 'logo')
+  = render 'static/zen/zen_group', :klass => "wip", :projects => Project.wip.last(5)

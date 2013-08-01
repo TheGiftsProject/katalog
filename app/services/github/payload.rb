@@ -1,6 +1,6 @@
 
 # see: https://help.github.com/articles/post-receive-hooks
-class GithubPayload
+class Github::Payload
 
   class InvalidPayloadExcpetion < StandardError; end
 

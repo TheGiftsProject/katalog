@@ -1,8 +1,8 @@
-require 'github_grabber'
-require 'github_syncer'
+require 'github/grabber'
+require 'github/syncer'
 
 # see: https://help.github.com/articles/post-receive-hooks
-class GithubServiceHook
+class Github::ServiceHook
 
   attr_accessor :payload, :project
 
@@ -38,7 +38,7 @@ class GithubServiceHook
   end
 
   def github_syncer
-    @github_syncer ||= GithubSyncer.new(project)
+    @github_syncer ||= Github::Syncer.new(project)
   end
 
 end

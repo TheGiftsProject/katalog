@@ -1,6 +1,6 @@
 require 'octokit'
 
-class GithubGrabber
+class Github::Grabber
 
   RAW_ACCEPT = 'application/vnd.github.raw'
   HTML_ACCEPT = 'application/vnd.github.html'
@@ -50,12 +50,12 @@ class GithubGrabber
 
   # Subscribe to push events to the project's repository
   def subscribe_to_service_hook
-    client.subscribe(subscribe_topic, GithubGrabber.hook_callback_url)
+    client.subscribe(subscribe_topic, Github::Grabber.hook_callback_url)
   end
 
   # Unsubscribe to push events to the project's repository
   def unsubscribe_to_service_hook
-    client.unsubscribe(subscribe_topic, GithubGrabber.hook_callback_url)
+    client.unsubscribe(subscribe_topic, Github::Grabber.hook_callback_url)
   end
 
   private

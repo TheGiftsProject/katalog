@@ -1,6 +1,6 @@
 require 'octokit'
 
-class GithubSyncer
+class Github::Syncer
 
   attr_accessor :project
 
@@ -56,7 +56,7 @@ class GithubSyncer
   private
 
   def github_grabber
-    @github_grabber ||= GithubGrabber.new(project)
+    @github_grabber ||= Github::Grabber.new(project)
   end
 
   def assign_contributor(contributor)

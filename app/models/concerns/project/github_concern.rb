@@ -29,7 +29,7 @@ module Project::GithubConcern
   private
 
   def github_grabber
-    @github_grabber ||= GithubGrabber.new(self)
+    @github_grabber ||= Github::Grabber.new(self)
   end
 
 end

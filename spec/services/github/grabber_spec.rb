@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe GithubGrabber do
+describe Github::Grabber do
 
-  subject { GithubGrabber.new(project_name) }
+  subject { Github::Grabber.new(project_name) }
 
   describe 'fetch info files from a project' do
 
@@ -77,7 +77,7 @@ describe GithubGrabber do
     let(:client) { subject.send(:client) }
 
     before do
-      GithubGrabber.hook_callback_url = post_callback_url
+      Github::Grabber.hook_callback_url = post_callback_url
     end
 
     it 'subscribes to service hook', :vcr do

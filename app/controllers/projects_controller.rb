@@ -1,4 +1,4 @@
-require 'github_syncer'
+require 'github/syncer'
 
 class ProjectsController < ApplicationController
 
@@ -71,7 +71,7 @@ class ProjectsController < ApplicationController
   end
 
   def github_syncer
-    @github_syncer ||= GithubSyncer.new(current_project)
+    @github_syncer ||= Github::Syncer.new(current_project)
   end
 
   def filter_by_tag

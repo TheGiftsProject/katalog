@@ -10,3 +10,10 @@
 .well{
   margin: 0;
 }
+
+.radio-group{
+  @include inline-block;
+  input[type='radio']{
+    display: none;
+  }
+}

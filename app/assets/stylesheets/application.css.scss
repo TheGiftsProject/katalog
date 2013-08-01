@@ -1,5 +1,3 @@
-//= require s3_direct_upload_progress_bars
-
 // frameworks
 @import 'compass';
 @import 'animation';
@@ -10,9 +8,13 @@
 @import "components/avatars";
 @import "components/tags";
 @import 'components/post';
+@import 'components/comments';
+@import 'components/contributors';
+@import 'code';
 
 // application
 @import 'bootstrap-overides';
 @import 'layout';
 @import 'project/all';
 @import 'pages/all';
+@import 'mobile';

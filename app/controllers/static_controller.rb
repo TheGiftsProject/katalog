@@ -12,10 +12,14 @@ class StaticController < ApplicationController
     render_error(500)
   end
 
+  def zen
+    @no_background = true
+  end
+
   private
 
   def render_error(code)
-
+    @no_background = true
     render :file => 'static/error', :locals => {:code => code}
   end
 end

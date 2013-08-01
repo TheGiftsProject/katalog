@@ -3,11 +3,12 @@
   background: #FFF;
   @include border-radius(10px);
   text-align: center;
-  & > img, & > a{
+  .a-link{
     display: block;
   }
   & > img{
+    display: block;
     width: 200px;
-    height: 150px;
+    max-height: 300px;
   }
 }

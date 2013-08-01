@@ -1,3 +1,13 @@
+emojiExtension = (converter) ->
+    [
+      {
+        type    : 'lang',
+        regex   : '\\B:([\\S]+):',
+        replace : (match, prefix, content, suffix) ->
+              return "<img src='/assets/emojis/#{prefix}.png' height=20 width=20/>"
+      }
+    ]
+
 class window.PostView
 
   @registerViews: ->
@@ -5,7 +15,7 @@ class window.PostView
 
   constructor: (options) ->
     @$el = options.el
-    @converter = new Showdown.converter()
+    @converter = new Showdown.converter(extensions: [emojiExtension])
     @_initUI()
     @_bindEvents()
 
@@ -13,24 +23,68 @@ class window.PostView
     @ui =
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
-      fileUploadForm: @$el.find('#file-upload-form')
-    @ui.fileUploadForm.S3Uploader()
+      statusUpdateCheckbox: @$el.find('.checkbox.update')
+      changeStatusRadio: @$el.find('.radio-group')
+      form: $('#new_post')
+
+    @ui.markdownText.fileupload(
+      dropZone: @ui.markdownText
+      url: S3Storage.bucketUrl
+      type: 'POST'
+      autoUpload: true
+      dataType: 'xml'
+      paramName: 'file'
+      formData: -> # this method is binded to fileupload component and must not be binded to this class
+        data = S3Storage.generateFormData()
+        fileType = if 'type' of @files[0] then @files[0].type else ''
+        data.push(name: 'Content-Type', value: fileType)
+        data
+    )
 
   _bindEvents: ->
-    _.bindAll(@, '_onChange', '_uploadCompleted')
+    _.bindAll(@, '_onChange', '_uploadCompleted', '_fileAdded', '_statusUpdateChange', '_submit')
+    @ui.markdownText.bind('fileuploadadd', @_fileAdded)
+    @ui.markdownText.bind('fileuploaddone', @_uploadCompleted)
     @ui.markdownText.change(@_onChange)
-    @ui.fileUploadForm.bind('s3_upload_complete', @_uploadCompleted)
+    @ui.statusUpdateCheckbox.change(@_statusUpdateChange)
+    @ui.form.submit(@_submit)
+
+  _submit: (ev) ->
+    ev.preventDefault()
+    jQuery.post(@ui.form.attr('action'), @ui.form.serialize(), (suc) =>
+      if (suc.refresh)
+        Turbolinks.visit(suc.url)
+      else
+        @ui.markdownText.val('')
+        @ui.markdownText.change()
+        @ui.statusUpdateCheckbox.prop('checked', false)
+        @ui.form.before(suc)
+    )
 
   _onChange: ->
     text = @ui.markdownText.val()
     html = @converter.makeHtml(text)
     @ui.markdownPreview.html(html)
 
-  _uploadCompleted: (ev, content) ->
+  _fileAdded: (ev, data) ->
+    @ui.markdownText.insertAtCaret(@_placeholderForFile(data.files[0].name))
+
+  _uploadCompleted: (ev, data) ->
+    file = data.result.getElementsByTagName('Location')[0].firstChild.nodeValue
     text = @ui.markdownText.val()
-    text += "![Alt text](#{content.url})"
+    originalFilename = data.files[0].name
+    text = text.replace(@_placeholderForFile(originalFilename), @_markdownForImage(file, originalFilename))
     @ui.markdownText.val(text)
     @ui.markdownText.change()
+
+  _placeholderForFile: (filename) ->
+    "![Uploading #{filename} ...]()"
+
+  _markdownForImage: (file, originalFilename) ->
+    "![#{originalFilename}](#{file})"
+
+  _statusUpdateChange: ->
+    @ui.changeStatusRadio.toggle()
 
 $(document).on 'ready', PostView.registerViews
 $(document).on 'page:load', PostView.registerViews

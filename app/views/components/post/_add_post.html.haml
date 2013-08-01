@@ -1,5 +1,3 @@
 = form_for [project, post], :html => {:class => 'form-horizontal'} do |f|
   .control-group
-    = render 'components/post/post_fields', :f => f
-  .control-group
-    = f.submit "Add post"
+    = render 'components/post/post_fields', :f => f, :project => project

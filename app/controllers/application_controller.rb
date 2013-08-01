@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   include UserSupport
   include BackgroundSupport
+  include MarkdownSupport
 
   def root
     if user_signed_in?

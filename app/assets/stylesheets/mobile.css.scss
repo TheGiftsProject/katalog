@@ -1,0 +1,42 @@
+@media screen and (max-width: 480px) {
+
+  .container, .centered-container {
+    width: 100%;
+    @include box-sizing(border-box);
+  }
+
+  .container {
+    margin: 0;
+    border-radius: 0px;
+    @include box-shadow(none);
+    background: white;
+
+    .navbar-search {
+      display: none;
+    }
+
+    .navbar .nav > li > a {
+      padding: 10px 5px 10px;
+    }
+  }
+
+  .centered-container {
+    top: 60px;
+
+    .logo {
+      width: 80px;
+    }
+
+    h1.grand-title {
+      font-size: 55px;
+    }
+  }
+
+  .background-wrapper {
+    display: none;
+
+    &.blank {
+      display: block;
+    }
+  }
+}

@@ -5,7 +5,9 @@ startSearch = ->
   $('.search-query').typeahead([
     {
       name: 'prefetched_tags'
-      prefetch: '/autocomplete/tags.json'
+      prefetch:
+        url: '/autocomplete/tags.json'
+        ttl: 500
       valueKey: 'name'
       engine: Hogan
       template: "<p><span class='tag'>{{name}}</span></p>"

@@ -1,0 +1,5 @@
+.comments
+  - current_project.posts.each do |post|
+    - if post.persisted? and ((@show_statuses and post.updated?) or !@show_statuses)
+      = render 'projects/show/comment', :post => post
+  = render 'components/post/add_post', :project => current_project, :post => @post

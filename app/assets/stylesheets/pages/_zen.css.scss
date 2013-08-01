@@ -40,3 +40,22 @@
     @include animation-delay($delay4);
   }
 }
+
+.zen-group {
+  position: absolute;
+
+  &.idea {
+    top: 190px;
+    left: -120px;
+  }
+
+  &.wip {
+    left: 150px;
+    top: 0px;
+  }
+
+  &.sunset {
+    top: -100px;
+    left: 480px;
+  }
+}

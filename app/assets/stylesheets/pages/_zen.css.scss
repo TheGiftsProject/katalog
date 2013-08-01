@@ -47,15 +47,19 @@
   &.idea {
     top: 190px;
     left: -120px;
+    @include scale(1.25);
   }
 
   &.wip {
-    left: 150px;
+    left: 170px;
     top: 0px;
+    @include filter(brightness(0.9) sepia(0.25));
   }
 
   &.sunset {
     top: -100px;
     left: 480px;
+    @include scale(0.6);
+    @include filter(blur(3px) brightness(0.75) sepia(0.5));
   }
 }

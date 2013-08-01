@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe GithubServiceHook do
+describe Github::ServiceHook do
 
   let(:repository_url) { 'some repo url' }
   let(:contributors_email) { 'test.email.com' }
@@ -17,7 +17,7 @@ describe GithubServiceHook do
                          contributors_emails: contributors_emails)
   }
 
-  subject { GithubServiceHook.new(project) }
+  subject { Github::ServiceHook.new(project) }
 
   describe :process_payload do
 

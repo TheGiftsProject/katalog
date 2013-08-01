@@ -1,4 +1,4 @@
-require 'github_grabber'
+require 'github/grabber'
 
 class GithubPagesController < ApplicationController
 

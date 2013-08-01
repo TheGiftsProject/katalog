@@ -1,4 +1,4 @@
-require 'github_grabber'
+require 'github/grabber'
 
 module GithubSupport
   extend ControllerSupport::Base
@@ -11,7 +11,7 @@ module GithubSupport
 
   # this is a hack so we can pass a full url to the Github service
   def set_github_grabber_host
-    GithubGrabber.hook_callback_url = project_post_receive_hook_url(current_project)
+    Github::Grabber.hook_callback_url = project_post_receive_hook_url(current_project)
   end
 
 end

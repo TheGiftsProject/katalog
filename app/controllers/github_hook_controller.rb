@@ -1,5 +1,5 @@
-require 'github_payload'
-require 'github_service_hook'
+require 'github/payload'
+require 'github/service_hook'
 
 class GithubHookController < ApplicationController
 
@@ -16,11 +16,11 @@ class GithubHookController < ApplicationController
   private
 
   def github_service
-    @github_service ||= GithubServiceHook.new(current_project)
+    @github_service ||= Github::ServiceHook.new(current_project)
   end
 
   def payload
-    @payload ||= GithubPayload.new(params[:payload])
+    @payload ||= Github::Payload.new(params[:payload])
   end
 
 end

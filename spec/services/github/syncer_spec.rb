@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe GithubSyncer do
+describe Github::Syncer do
 
   let(:user) { create(:user, :isc_ci) }
   let(:project) { create(:project, :with_repo, users: [user]) }
   let(:github_grabber) { subject.send(:github_grabber) }
 
-  subject { GithubSyncer.new(project) }
+  subject { Github::Syncer.new(project) }
 
   describe :sync do
 

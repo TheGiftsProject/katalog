@@ -6,7 +6,7 @@ describe 'GithubSupport', :controller do
     include GithubSupport
 
     def index
-      @hook_callback_url = GithubGrabber.hook_callback_url
+      @hook_callback_url = Github::Grabber.hook_callback_url
       render :nothing => true
     end
   end

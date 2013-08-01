@@ -8,10 +8,7 @@
           %a{:href => '#preview', :data => {:toggle => 'tab'}}= t('post.tabs.preview')
       .tab-content
         #text.tab-pane.active
-          = f.text_area :text, :rows => 3, :placeholder => t('post.placeholder'), :class => 'markdown-text'
-          -#!= s3_uploader_form :id => 'file-upload-form' do
-          -#  != hidden_field_tag 'Content-Type', ''
-          -#  != file_field_tag :file, :multiple => true
+          = f.text_area :text, :rows => 3, :placeholder => 'Enter markdown text', :class => 'markdown-text'
         #preview.tab-pane
           .markdown-preview
     - unless project.new_record?

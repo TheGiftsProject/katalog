@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.widget
+//= require jquery.fileupload
 //= require turbolinks
 //= require showdown
+//= require jquery.insertatcaret
 //= require underscore
-//= require s3_direct_upload
 //= require bootstrap
 //= require_tree .

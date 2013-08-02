@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Github::RepoSeachResult do
+describe Github::RepoSearchResult do
 
   let(:repo_id) { '123456' }
   let(:repo_url) { 'https://github.com/iic-ninjas/MyAwesomeKataRepo' }
@@ -8,7 +8,7 @@ describe Github::RepoSeachResult do
   let(:description) { 'repository_description' }
   let(:language) { 'repository_language' }
 
-  subject { Github::RepoSeachResult.new(raw_json) }
+  subject { Github::RepoSearchResult.new(raw_json) }
 
   its(:repo_id) { should eq repo_id }
   its(:repo_url) { should eq repo_url }

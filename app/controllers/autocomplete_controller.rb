@@ -1,3 +1,5 @@
+require 'services/github/repo_searcher'
+
 class AutocompleteController < ApplicationController
 
   before_filter :sign_in_required
@@ -14,7 +16,7 @@ class AutocompleteController < ApplicationController
   end
 
   def repositories
-    render :json => Github::RepoSeach.new.search(@query).to_json
+    render :json => Github::RepoSearcher.search(@query).to_json
   end
 
   private

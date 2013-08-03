@@ -3,6 +3,7 @@ POST:
    * Emoji autocomplete.
    * Edit post.
    * MD preview should be the same preview as the final result (maybe by server request?).
+   * Threads (1-level nesting?).
     
 PROJECT:
    * Allows creating initial post with status (for older projects).

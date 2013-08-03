@@ -24,7 +24,7 @@ class Github::RepoSearcher
   private
 
   def search_results
-    @search_results ||= client.search_repositories(@query, self.class.search_options)
+    @search_results ||= client.search_repositories(search_query, self.class.search_options)
   end
 
   def valid_results?
@@ -32,7 +32,7 @@ class Github::RepoSearcher
   end
 
   def parse_results
-    search_results.items.first(SEARCH_RESULTS_LIMIT).map do |repo|
+      search_results.items.first(SEARCH_RESULTS_LIMIT).map do |repo|
       RepoSearchResult.new(repo)
     end
   end
@@ -43,8 +43,12 @@ class Github::RepoSearcher
     @client ||= Octokit::Client.new
   end
 
+  def search_query
+    "#{organization_filter} #{query}"
+  end
+
   def self.search_options
-    {:repositories => organization_filter}
+    {:per_page => SEARCH_RESULTS_LIMIT}
   end
 
   def self.organization_filter

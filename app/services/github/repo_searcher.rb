@@ -13,8 +13,7 @@ class Github::RepoSearcher
     @query = query
   end
 
-  def self.search(query)
-    self.new(query)
+  def search
     if valid_results?
       parse_results
     else

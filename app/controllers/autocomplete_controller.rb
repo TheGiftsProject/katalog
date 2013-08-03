@@ -1,4 +1,4 @@
-require 'services/github/repo_searcher'
+require 'github/repo_searcher'
 
 class AutocompleteController < ApplicationController
 

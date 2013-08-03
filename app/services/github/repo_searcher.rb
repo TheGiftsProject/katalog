@@ -1,5 +1,5 @@
 require 'octokit'
-require 'services/github/repo_search_result'
+require 'github/repo_search_result'
 
 class Github::RepoSearcher
 
@@ -7,7 +7,7 @@ class Github::RepoSearcher
 
   SEARCH_RESULTS_LIMIT = 4
 
-  attr_accessor :client, :query, :search_results
+  attr_accessor :client, :query
 
   def initialize(query)
     @query = query
@@ -24,11 +24,11 @@ class Github::RepoSearcher
   private
 
   def search_results
-    @search_results ||= client.search_repositories(query, search_options)
+    @search_results ||= client.search_repositories(@query, self.class.search_options)
   end
 
   def valid_results?
-    search_results.present? and search_results.total_count > 0
+    search_results.present? and search_results.count > 0
   end
 
   def parse_results
@@ -44,7 +44,7 @@ class Github::RepoSearcher
   end
 
   def self.search_options
-    "#{organization_filter}"
+    {:repositories => organization_filter}
   end
 
   def self.organization_filter

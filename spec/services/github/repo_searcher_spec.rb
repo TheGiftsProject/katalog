@@ -110,7 +110,7 @@ describe Github::RepoSearcher do
   describe :parse do
 
     let(:parsed_results) { subject.send(:parse_results) }
-    let(:repo_name) { 'iic-ninjas/MyAwesomeKataRepo' }
+    let(:repo_name) { 'MyAwesomeKataRepo' }
 
     before do
       subject.send(:search_results)

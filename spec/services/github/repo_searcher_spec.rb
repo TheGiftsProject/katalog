@@ -109,14 +109,8 @@ describe Github::RepoSearcher do
 
   describe :parse do
 
-    let(:max_search_limit) { Github::RepoSearcher::SEARCH_RESULTS_LIMIT }
     let(:parsed_results) { subject.send(:parse_results) }
-
-    let(:repo_id) { 11636484 }
-    let(:repo_url) { 'https://github.com/iic-ninjas/MyAwesomeKataRepo' }
     let(:repo_name) { 'iic-ninjas/MyAwesomeKataRepo' }
-    let(:description) { 'My Awesome Kata Repo' }
-    let(:language) { 'Ruby' }
 
     before do
       subject.send(:search_results)
@@ -126,6 +120,7 @@ describe Github::RepoSearcher do
       parsed_results.should have(1).item
       repo_result = parsed_results.first
       repo_result.should be_an_instance_of(Github::RepoSearchResult)
+      repo_result.name.should eq repo_name
     end
 
   end

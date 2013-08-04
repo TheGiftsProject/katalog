@@ -4,7 +4,7 @@ describe Github::RepoSearchResult, :vcr do
 
   let(:repo_id) { 11636484 }
   let(:repo_url) { 'https://github.com/iic-ninjas/MyAwesomeKataRepo' }
-  let(:repo_name) { 'iic-ninjas/MyAwesomeKataRepo' }
+  let(:repo_name) { 'MyAwesomeKataRepo' }
   let(:description) { 'My Awesome Kata Repo' }
   let(:language) { 'Ruby' }
 

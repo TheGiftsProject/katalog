@@ -32,9 +32,7 @@ class Github::RepoSearcher
   end
 
   def parse_results
-      search_results.items.first(SEARCH_RESULTS_LIMIT).map do |repo|
-      RepoSearchResult.new(repo)
-    end
+    search_results.items.map{ |repo| RepoSearchResult.new(repo) }
   end
 
   # we create a client to handle Github's Rate Limiting
@@ -54,9 +52,5 @@ class Github::RepoSearcher
   def self.organization_filter
     "@#{GITHUB_ORGANIZATION_NAME}"
   end
-
-  #def repository_info
-  #  @repository_info ||= client.repository(@repository, :accept => RAW_ACCEPT)
-  #end
 
 end

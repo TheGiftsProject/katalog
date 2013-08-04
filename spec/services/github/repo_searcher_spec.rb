@@ -54,13 +54,10 @@ describe Github::RepoSearcher do
   describe :search_results do
 
     let(:github_client) { subject.send(:github_client) }
-    let(:expected_repo_name) { 'iic-ninjas/MyAwesomeKataRepo' }
 
     it "searches for Github repositories using Github's API", :vcr do
       results = subject.send(:search_results)
-      results.total_count.should eq 1
       results.items.should have(1).item
-      results.items.first.full_name.should eq expected_repo_name
     end
 
     it "searches for Github repositories with the given query and the default search options" do
@@ -110,19 +107,25 @@ describe Github::RepoSearcher do
 
   end
 
-  describe :parse, :focus do
+  describe :parse do
 
     let(:max_search_limit) { Github::RepoSearcher::SEARCH_RESULTS_LIMIT }
     let(:parsed_results) { subject.send(:parse_results) }
+
+    let(:repo_id) { 11636484 }
+    let(:repo_url) { 'https://github.com/iic-ninjas/MyAwesomeKataRepo' }
+    let(:repo_name) { 'iic-ninjas/MyAwesomeKataRepo' }
+    let(:description) { 'My Awesome Kata Repo' }
+    let(:language) { 'Ruby' }
 
     before do
       subject.send(:search_results)
     end
 
     it 'creates an array of respo search results for the search response items', :vcr do
-      expect(parsed_results).to include do |repo_result|
-        repo_result.should be_an_instance_of(Github::RepoSearchResult)
-      end
+      parsed_results.should have(1).item
+      repo_result = parsed_results.first
+      repo_result.should be_an_instance_of(Github::RepoSearchResult)
     end
 
   end

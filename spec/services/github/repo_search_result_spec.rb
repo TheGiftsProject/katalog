@@ -1,18 +1,25 @@
 require 'spec_helper'
 
-describe Github::RepoSearchResult do
+describe Github::RepoSearchResult, :vcr do
 
+  let(:repo_id) { 11636484 }
   let(:repo_url) { 'https://github.com/iic-ninjas/MyAwesomeKataRepo' }
-  let(:name) { 'repository_name' }
-  let(:owner) { 'repository_owner' }
-  let(:description) { 'repository_description' }
-  let(:language) { 'repository_language' }
+  let(:repo_name) { 'iic-ninjas/MyAwesomeKataRepo' }
+  let(:description) { 'My Awesome Kata Repo' }
+  let(:language) { 'Ruby' }
 
-  subject { Github::RepoSearchResult.new(raw_json) }
+  let(:repo_data) { load_repo_data }
 
+  def load_repo_data
+    result = Octokit::Client.new.search_repositories('@iic-ninjas myawesome')
+    result.items.first
+  end
+
+  subject { Github::RepoSearchResult.new(repo_data) }
+
+  its(:repo_id) { should eq repo_id }
   its(:repo_url) { should eq repo_url }
-  its(:name) { should eq name }
-  its(:name) { should eq owner }
+  its(:name) { should eq repo_name }
   its(:description) { should eq description }
   its(:language) { should eq language }
 

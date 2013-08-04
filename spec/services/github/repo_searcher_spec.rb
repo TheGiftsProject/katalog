@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Github::RepoSearcher do
 
-  let(:given_query) { 'katalog' }
+  let(:given_query) { 'myawesome' }
+  let(:search_query) { subject.send(:search_query) }
   let(:search_results) {}
 
   subject { Github::RepoSearcher.new(given_query) }
@@ -33,31 +34,35 @@ describe Github::RepoSearcher do
 
   end
 
-  describe :search_results, :focus do
+  describe :search_results do
 
     let(:github_client) { subject.send(:github_client) }
-    #let(:search_options) { subject.class.search_options }
+    let(:search_options) { subject.class.search_options }
     let(:raw_search_results) { 'raw_search_results' }
 
     it "searches for Github repositories using Github's API", :vcr do
-      subject.send(:search_results).count.should eq 1
+      subject.send(:search_results).total_count.should eq 1
     end
 
+    it "searches for Github from the given query with the default search options" do
+      allow(github_client).to receive(:search_repositories).with(search_query, search_options)
+      subject.send(:search_results)
+      expect(github_client).to have_received(:search_repositories).with(search_query, search_options)
+    end
 
-    #it "searches for Github from the given query with the default search options" do
-    #  allow(github_client).to receive(:search_repositories).with(given_query, search_options)
-    #  subject.seach(:search_results)
-    #  expect(github_client).to have_received(:search_repositories).with(given_query, search_options)
-    #end
+    describe 'search setup', :focus do
+      let(:organization_filter){ subject.class.organization_filter }
+      let(:search_options){ subject.class.search_options }
 
-    #describe :search_options do
-    #  let(:organization_filter){ subject.class.organization_filter }
-    #  subject { subject.class.search_options }
-    #
-    #  it 'limits the search to our organization' do
-    #    should include organization_filter
-    #  end
-    #end
+      it "limits the search to the #{Github::RepoSearcher::GITHUB_ORGANIZATION_NAME} organization" do
+        search_query.should include organization_filter
+      end
+
+      it "limits the number of search results to #{Github::RepoSearcher::SEARCH_RESULTS_LIMIT}" do
+        search_options[:per_page].should eq Github::RepoSearcher::SEARCH_RESULTS_LIMIT
+      end
+      
+    end
 
   end
 
@@ -83,10 +88,6 @@ describe Github::RepoSearcher do
       expect(parsed_results).to include do |repo_result|
         repo_result.should be_an_instance_of(Github::RepoSearchResult)
       end
-    end
-
-    it "limits the search results array to #{Github::RepoSearcher::SEARCH_RESULTS_LIMIT}" do
-      expect(parsed_results).to have_at_most(max_search_limit).results
     end
 
   end

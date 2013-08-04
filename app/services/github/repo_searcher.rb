@@ -24,7 +24,7 @@ class Github::RepoSearcher
   private
 
   def search_results
-    @search_results ||= client.search_repositories(search_query, self.class.search_options)
+    @search_results ||= github_client.search_repositories(search_query, self.class.search_options)
   end
 
   def valid_results?
@@ -37,12 +37,12 @@ class Github::RepoSearcher
 
   # we create a client to handle Github's Rate Limiting
   # see: http://developer.github.com/v3/#rate-limiting
-  def client
+  def github_client
     @client ||= Octokit::Client.new
   end
 
   def search_query
-    "#{organization_filter} #{query}"
+    "#{self.class.organization_filter} #{query}"
   end
 
   def self.search_options

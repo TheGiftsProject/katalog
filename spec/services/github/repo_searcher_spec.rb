@@ -10,14 +10,8 @@ describe Github::RepoSearcher do
 
   describe :search do
 
-    let(:search_results) {
-      double('MockSearchResults',
-        :total_count => 1
-      )
-    }
-
     before do
-      allow(subject).to receive(:search_results).and_return(search_results)
+      allow(subject).to receive(:search_results)
       allow(subject).to receive(:valid_results?)
     end
 
@@ -91,25 +85,41 @@ describe Github::RepoSearcher do
 
   end
 
-  describe :validate_results do
+  describe :valid_results? do
+
+    let(:search_results) { double('MockSearchResults', :total_count => number_of_results) }
+    let(:valid_results?) { subject.send(:valid_results?) }
+
+    before do
+      allow(subject).to receive(:search_results).and_return(search_results)
+    end
 
     context 'when the result contains matching repositories' do
-      it 'is valid'
+      let(:number_of_results) { 1 }
+      it 'is valid' do
+        valid_results?.should be_true
+      end
     end
 
     context 'when the response has no items' do
-      it 'is invalid'
+      let(:number_of_results) { 0 }
+      it 'is invalid' do
+        valid_results?.should be_false
+      end
     end
 
   end
 
-  describe :parse do
+  describe :parse, :focus do
 
     let(:max_search_limit) { Github::RepoSearcher::SEARCH_RESULTS_LIMIT }
-
     let(:parsed_results) { subject.send(:parse_results) }
 
-    it 'creates an array of respo search results for the search response items' do
+    before do
+      subject.send(:search_results)
+    end
+
+    it 'creates an array of respo search results for the search response items', :vcr do
       expect(parsed_results).to include do |repo_result|
         repo_result.should be_an_instance_of(Github::RepoSearchResult)
       end

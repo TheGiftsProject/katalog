@@ -65,6 +65,8 @@ def initialize_testing_environment
 
     config.include FactoryGirl::Syntax::Methods # Don't need to write FactoryGirl.create => create
 
+    config.extend VCR::RSpec::Macros
+
     VCR.configure do |config|
       config.allow_http_connections_when_no_cassette = true
       config.default_cassette_options = { :record => :new_episodes}

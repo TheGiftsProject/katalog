@@ -1,6 +1,8 @@
 require 'spec_helper'
 
-describe Github::RepoSearchResult, :vcr do
+describe Github::RepoSearchResult do
+
+  use_vcr_cassette 'Github_RepoSearchResult/repo_data'
 
   let(:repo_id) { 11636484 }
   let(:repo_url) { 'https://github.com/iic-ninjas/MyAwesomeKataRepo' }

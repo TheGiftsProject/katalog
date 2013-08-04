@@ -14,6 +14,7 @@ class Github::RepoSearcher
   end
 
   def search
+    search_results
     if valid_results?
       parse_results
     else
@@ -28,7 +29,7 @@ class Github::RepoSearcher
   end
 
   def valid_results?
-    search_results.present? and search_results.count > 0
+    search_results.present? and search_results.total_count > 0
   end
 
   def parse_results

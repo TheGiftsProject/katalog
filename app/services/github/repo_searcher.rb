@@ -10,11 +10,8 @@ module Github
 
     attr_accessor :client, :query
 
-    def initialize(query)
+    def search(query)
       @query = query
-    end
-
-    def search
       search_results
       if valid_results?
         parse_results

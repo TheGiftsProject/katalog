@@ -6,7 +6,7 @@ describe Github::RepoSearcher do
   let(:search_query) { subject.send(:search_query) }
   let(:search_options) { subject.class.search_options }
 
-  subject { Github::RepoSearcher.new(given_query) }
+  subject { Github::RepoSearcher.new }
 
   describe :search do
 
@@ -16,12 +16,12 @@ describe Github::RepoSearcher do
     end
 
     it 'searches for Github repositories the results' do
-      subject.search
+      subject.search(given_query)
       expect(subject).to have_received(:search_results)
     end
 
     it 'validates the results' do
-      subject.search
+      subject.search(given_query)
       expect(subject).to have_received(:valid_results?)
     end
 
@@ -33,7 +33,7 @@ describe Github::RepoSearcher do
       end
 
       it 'parses the result items' do
-        subject.search
+        subject.search(given_query)
         expect(subject).to have_received(:parse_results)
       end
     end
@@ -45,7 +45,7 @@ describe Github::RepoSearcher do
       end
 
       it 'returns an empty result' do
-        subject.search.should be_empty
+        subject.search(given_query).should be_empty
       end
     end
 
@@ -56,6 +56,7 @@ describe Github::RepoSearcher do
     let(:github_client) { subject.send(:github_client) }
 
     it "searches for Github repositories using Github's API", :vcr do
+      subject.query = given_query
       results = subject.send(:search_results)
       results.items.should have(1).item
     end
@@ -113,6 +114,7 @@ describe Github::RepoSearcher do
     let(:repo_name) { 'MyAwesomeKataRepo' }
 
     before do
+      subject.query = given_query
       subject.send(:search_results)
     end
 

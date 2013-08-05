@@ -16,7 +16,8 @@ class AutocompleteController < ApplicationController
   end
 
   def repositories
-    render :json => Github::RepoSearcher.search(@query).to_json
+    found_repos = repo_searcher.search(@query)
+    render :json => found_repos.to_json
   end
 
   private
@@ -26,5 +27,8 @@ class AutocompleteController < ApplicationController
     render :json => [] if @query.blank?
   end
 
+  def repo_searcher
+    @repo_search ||= Github::RepoSearcher.new
+  end
 
 end

@@ -4,18 +4,24 @@ describe AutocompleteController do
 
   describe :repositories do
 
-    let(:given_query) { 'backbone' }
-    let(:search_results) { 'json_result' }
+    before do
+      controller.stub(:sign_in_required)
+    end
+
+    let(:given_query) { 'myawesome' }
+    let(:search_results) { [{:repo_info => 'repo1'},{:repo_info => 'repo2'}] }
+    let(:repo_searcher) { controller.send(:repo_searcher) }
 
     it 'searches Github repository for the given query' do
-      allow(controller.repo_search).to receive(:search).with(given_query).and_return(search_results)
+      allow(repo_searcher).to receive(:search)
       post :repositories, :q => given_query
-      expect(controller.repo_search).to have_received(:search).with(given_query).and_return(search_results)
+      expect(repo_searcher).to have_received(:search).with(given_query)
     end
 
     it 'renders the repository search results as json' do
+      allow(repo_searcher).to receive(:search).with(given_query).and_return(search_results)
       post :repositories, :q => given_query
-      expect(response.body).to search_results.to_json
+      expect(response.body).to eq search_results.to_json
     end
 
   end

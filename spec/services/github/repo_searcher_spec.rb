@@ -4,7 +4,6 @@ describe Github::RepoSearcher do
 
   let(:given_query) { 'myawesome' }
   let(:search_query) { subject.send(:search_query) }
-  let(:search_options) { subject.class.search_options }
 
   subject { Github::RepoSearcher.new }
 
@@ -54,6 +53,7 @@ describe Github::RepoSearcher do
   describe :search_results do
 
     let(:github_client) { subject.send(:github_client) }
+    let(:search_options){ subject.send(:search_options) }
 
     it "searches for Github repositories using Github's API", :vcr do
       subject.query = given_query
@@ -69,7 +69,6 @@ describe Github::RepoSearcher do
 
     describe 'search setup' do
       let(:organization_filter){ subject.class.organization_filter }
-      let(:search_options){ subject.class.search_options }
 
       it "limits the search to the #{Github::RepoSearcher::GITHUB_ORGANIZATION_NAME} organization" do
         search_query.should include organization_filter

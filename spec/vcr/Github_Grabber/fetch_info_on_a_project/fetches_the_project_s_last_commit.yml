@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/emberjs/ember-rails/branches/master
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Octokit Ruby Gem 1.25.0
+      Accept:
+      - application/vnd.github.raw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        R2l0SHViLmNvbQ==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        V2VkLCAyNCBKdWwgMjAxMyAxMjo1Njo0NiBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "U3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NjA=
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NDU=
+      !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
+      - !binary |-
+        MTM3NDY3MzI5Ng==
+      !binary "WC1HaXRodWItTWVkaWEtVHlwZQ==":
+      - !binary |-
+        Z2l0aHViLmJldGE7IHBhcmFtPXJhdw==
+      !binary "WC1Db250ZW50LVR5cGUtT3B0aW9ucw==":
+      - !binary |-
+        bm9zbmlmZg==
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctQ3JlZGVudGlhbHM=":
+      - !binary |-
+        dHJ1ZQ==
+      !binary "QWNjZXNzLUNvbnRyb2wtRXhwb3NlLUhlYWRlcnM=":
+      - !binary |-
+        RVRhZywgTGluaywgWC1SYXRlTGltaXQtTGltaXQsIFgtUmF0ZUxpbWl0LVJl
+        bWFpbmluZywgWC1SYXRlTGltaXQtUmVzZXQsIFgtT0F1dGgtU2NvcGVzLCBY
+        LUFjY2VwdGVkLU9BdXRoLVNjb3Blcw==
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "RXRhZw==":
+      - !binary |-
+        Ijg4YWZkNTI3YTQzNzBlYzU2MGU5NTliNzdjNTgzMDUzIg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bWF4LWFnZT0wLCBwcml2YXRlLCBtdXN0LXJldmFsaWRhdGU=
+      !binary "VmFyeQ==":
+      - !binary |-
+        QWNjZXB0LUVuY29kaW5n
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+1XTY/bNhD9K4KC3GJLFKkvA0FboOktQJCmlzbBgqRGMhuJ
+        Uklqg9Twf+9QWjvOOvCuHORQYE8mZL55j08zo+Eu1LyDcBN23Dow4YtQ9l2n
+        XLjZhXbL8Y+Ml3GdJVSKTDJZy6yEOMlzKtNYyjomQiaM0VJ8BeWj2/bGB7kL
+        /7uDmuvgDWg9sUDHVYvRkRSfr4fp+c+Nf7pGBbij4s7rSmJCV3G+Ssg7QjZp
+        uqHpn+H+INNL/oEkHVjLGy/jNZgGgmFs28DAPyNYFzxLEhrUpu8CKbkxo0Ix
+        fWSAVx281+81r6pA9L2zzvAhaAAPyF1vgn5wqtc2UDp4++qXX1+/wsM6A8hy
+        sLyoCiBoegaMJZBWMk8ESxkTGUkl5FXKRSbqtELgaLyLW+cGu4kiPqh1o9x2
+        FN5E1DL0NoJOgPn77ndl0GEb4abIc9ro0Vzo+XeQzVllo4XZBNrdyH7UmI/x
+        9QKuIN+6rr35+rwnxn7L0pnkigPaezyPfolLjxV5ADpqMW++FGjbN0ofK3Eu
+        RNygqnBDaJ7j1lvuuLkn0oIcDawbM/87pdu8jAopQQhJq6Soy5hWqUwIg7qi
+        jOVc5uSn6uUxXxNWrGHNP3Is/LUGF3FrwdmTJH6e/KY6rEGLiwPb6Xo1WjAr
+        lsTrQTeo+7Dnxh8gfEjLQxXkg9toblJHay7nxr3Ndd+2/SeMcvktnxNFRySK
+        nNdKN1dGQeQu6t0W8D3ikfbeKGXdclETaof9wzp02MexmBwGqsXC7nAo6xN2
+        xv1u6lZTwFFYadTcJZeHPUVjtN40XKt/+dRzF0dDtK+WqZEuBk8oRMOtL7rF
+        8Bm2iwajbrn87K0xIEHdotlXhryHx4ju8+A/b39gUpx9VZ86w4Vv63nBoptP
+        neGpM5xNYeeZMg9m/6/OMHAzjQ6bvw5TalXTvCRZQtKUsJgDLSERQMqipMBJ
+        FqdlLCRL/cXgysHxMOAsYLpcgRfmtkdz7F8cDACWg6BlnNZFzUpRZDSNy5Lz
+        mkMhWU7LOs4Jzcj3G7CA6WoDHs2x/4CT+E2r9EfMBvQC2vqaK4gwXMst3kCO
+        N08v/STSA/O2v74csPv9f8MZWPTIDgAA
+    http_version: 
+  recorded_at: Wed, 24 Jul 2013 12:56:48 GMT
+recorded_with: VCR 2.5.0

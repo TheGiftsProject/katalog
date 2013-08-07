@@ -3,11 +3,20 @@ Katalog::Application.routes.draw do
   resources :projects do
     resources :posts, :only => [:create, :destroy]
     resources :users, :only => [:destroy]
+    scope :controller => :github_hook do
+      post :post_receive_hook
+    end
+    scope :controller => :github_pages do
+      get :readme
+      get :changelog
+      get :todo
+    end
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do
     get :tags
     get :projects
+    get :repositories
   end
 
   # authentication

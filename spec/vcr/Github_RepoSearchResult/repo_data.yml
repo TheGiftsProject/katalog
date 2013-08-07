@@ -1,0 +1,106 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/search/repositories?q=@iic-ninjas%20myawesome
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.preview
+      User-Agent:
+      - Octokit Ruby Gem 2.0.0.rc2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "U2VydmVy":
+      - !binary |-
+        R2l0SHViLmNvbQ==
+      !binary "RGF0ZQ==":
+      - !binary |-
+        U3VuLCAwNCBBdWcgMjAxMyAyMTo1MDoxNiBHTVQ=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
+      !binary "VHJhbnNmZXItRW5jb2Rpbmc=":
+      - !binary |-
+        Y2h1bmtlZA==
+      !binary "U3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        NQ==
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        NA==
+      !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
+      - !binary |-
+        MTM3NTY1MzA3Ng==
+      !binary "WC1HaXRodWItTWVkaWEtVHlwZQ==":
+      - !binary |-
+        Z2l0aHViLnByZXZpZXc=
+      !binary "WC1Db250ZW50LVR5cGUtT3B0aW9ucw==":
+      - !binary |-
+        bm9zbmlmZg==
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctQ3JlZGVudGlhbHM=":
+      - !binary |-
+        dHJ1ZQ==
+      !binary "QWNjZXNzLUNvbnRyb2wtRXhwb3NlLUhlYWRlcnM=":
+      - !binary |-
+        RVRhZywgTGluaywgWC1SYXRlTGltaXQtTGltaXQsIFgtUmF0ZUxpbWl0LVJl
+        bWFpbmluZywgWC1SYXRlTGltaXQtUmVzZXQsIFgtT0F1dGgtU2NvcGVzLCBY
+        LUFjY2VwdGVkLU9BdXRoLVNjb3Blcw==
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "RXRhZw==":
+      - !binary |-
+        IjdiY2JmMWRmMTkxYjJhNmQyZTJkNjdkZDZiZjE4OWJlIg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bWF4LWFnZT0wLCBwcml2YXRlLCBtdXN0LXJldmFsaWRhdGU=
+      !binary "VmFyeQ==":
+      - !binary |-
+        QWNjZXB0LUVuY29kaW5n
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA62Y34+jNhDH/5UVUp+aYEjIL6TTtS99qapKp3tqdYocMOBb
+        sJFtEu2i/O8d2xBIGm3IwssuBM/HX49n7LFrR3GF833EK6ac0J85VJFCOuG/
+        tUNj+MFfL9fBNpg5DBfECZ2/3n4/EckL8idW+BspuTNzkirP9813SqM5o+wn
+        luheU35iRDhh7eQ8pQx4XXsA6R5X3mYX7EAIPkIPYl+JHJplSpUyREiSqBLE
+        TYX96ka8QPYRbZJl4q9WeLf2D4tks4y8XRAH6zXxVsluEyVf4y8tBS+CrUtc
+        /IoLTF1GFMJSEiXdlKqsOmjqL4s/aIFTIuGh7a3/POcinQcLzy1ZCsrbJns9
+        BOeRFDC4HhYuaa9vVEkiJLpyTaaK/MYXndjrpgnPc34Cwk37B52gi52eUsOg
+        LP0UA+xqxFVGYPpgKGftICrVs4KMTY30P/CrpkiICEHiJ0U1ViBJR9+5RgLi
+        1uCqg4wELRXl7FlxV7bAgnjAjL7jz7DAVgJCy3pWhrEBW3Ik7GkHW6MalYIe
+        cfSmXSJIROgRXPwp4I018NRbqZeNv3vecc4zx/So4EuCc0lmkN/DwvvuohKT
+        yyyaFeqlWaJe9Br10i5SXLxeuvsw+4xLeyl1t88EcA/m6jEHUg4o4KVX8jYe
+        piE1gr9NskSQw/jABVb80VowQOoVrUb9Vx03iuBi/BAMBWgZ5xN411CARqWs
+        yKCAHuAHA5OoTR1WFQe7wg1JmAF8iwHVsCXRlBEy3qsXUm12Fj1dB4FZlE3A
+        bkE1sk8mFnA6XrSGaKE5P4yHwVaJDKlGMsN2P1L7SXRqtAZdkQVJphGtQRey
+        ElNEgxGsSRcu7I8KAmO84haE6sbLOWZppauoj3fsAWlxIUFM6P08xe8PK5wB
+        2A4F3IgzJeihmmi97GBasy01YK0Y74seqyObIma0m/tVjfFIUdBHZcUANzec
+        qxyZiq3j+Zav3x/XQwOFa1CNuoXebidNF6M93uwnrWJUdx3peJxoFBaE6l9L
+        rDK9/kF/JRZktPyGg+oDluTsum6dEWxq9YKIKRLfYoCHRZRBZTpacd2CoPgq
+        sDLHgUQLjuF4kHMcj0/QCwmodn5Hq7aYfhiWcOoeL9VQ+tiC5kQqziZYsztU
+        vwPGFU1oNOSgNCBBr2j1V0lZRGY4z2cQ3YpGFOIdTqN6eqEWJhM4zGJgQHAf
+        YhJJEDjIxHsM1yfOwvOXc28zXwTf/SD0N2Gw/QfaVGV822Y794LvCz/0d6G3
+        0G3KSmbXmH4TTzeBla6JI3iCy5C7FwD/P63omwWwljLrrH/rbMOPrmwa2yiH
+        gLiJ4Sd7P95uTgPtQXkG100lVBFOyCBaYST0HZ7X25lzwgqqWNhSm/srT0+z
+        LTlgNr5VhzdtjuXepo8TKlHp0yb80uVo78cTfaVtI3vC68AFFYI391FWBy8J
+        a8g9AfZMF4KU3ndHv7dqzUuBpYL7EVs1g1j7DnJjkuAqV3e+yIgLGLjvLldr
+        319tzj/O/wH5uG7YwBMAAA==
+    http_version: 
+  recorded_at: Sun, 04 Aug 2013 21:50:19 GMT
+recorded_with: VCR 2.5.0

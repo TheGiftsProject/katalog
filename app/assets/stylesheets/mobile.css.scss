@@ -22,6 +22,30 @@
       }
     }
 
+    .comments {
+      width: 100%;
+    }
+
+
+    .project-row {
+      .title {
+        .text {
+          width: 175px;
+          @include ellipsis;
+        }
+      }
+    }
+
+    .expanded_info, .info-box {
+      display: none;
+    }
+
+    .title {
+      .subtitle {
+        line-height: 20px;
+      }
+    }
+
     .tags {
       line-height: 12px;
       display: block;

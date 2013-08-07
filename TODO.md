@@ -17,6 +17,3 @@ ZEN PAGE:
 
 GENERAL UI:
    * Prevent from posting new posts or submitting project if empty fields (title/subtitle/post itself) by disabling button.
-
-BUGS:
-   * Fix header buttons padding in Project show page - only in production.

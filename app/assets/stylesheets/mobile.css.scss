@@ -40,9 +40,15 @@
       display: none;
     }
 
-    .title {
-      .subtitle {
-        line-height: 20px;
+    .page-header {
+      .title {
+        .subtitle {
+          line-height: 20px;
+        }
+
+        .btn-small {
+          display: none;
+        }
       }
     }
 

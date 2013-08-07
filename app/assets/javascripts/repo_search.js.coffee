@@ -2,7 +2,7 @@
 #= require twitter/typeahead
 
 startRepoSearch = ->
-  $('.repo-search-query').typeahead([
+  $('#repo_url').typeahead([
     {
       name: 'repositories'
       valueKey: 'repo_url'
@@ -12,7 +12,7 @@ startRepoSearch = ->
         '<p class="repo-name">{{name}}</p>',
         '<p class="repo-description">{{description}}</p>'
       ].join('')
-      prefetch:'/autocomplete/repositories.json?latest=true'
+#      prefetch:'/autocomplete/repositories.json?latest=true'
       remote:'/autocomplete/repositories.json?q=%QUERY'
     }
   ]

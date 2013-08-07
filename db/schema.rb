@@ -31,9 +31,10 @@ ActiveRecord::Schema.define(version: 20130731084038) do
     t.string   "subtitle"
     t.string   "repo_url"
     t.string   "demo_url"
-    t.string   "status",     default: "idea"
+    t.string   "status",           default: "idea"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "last_commit_date"
   end
 
   create_table "projects_tags", force: true do |t|

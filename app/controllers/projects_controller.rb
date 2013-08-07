@@ -1,8 +1,11 @@
+require 'github/syncer'
+
 class ProjectsController < ApplicationController
 
   DEFAULT_FILTER = :all
 
   include ProjectSupport
+  include GithubSupport
 
   before_filter :sign_in_required
   before_filter :has_project, :only => [:show, :edit, :update, :destroy]
@@ -27,6 +30,7 @@ class ProjectsController < ApplicationController
   def create
     @project = build_project
     if @project.save
+      github_syncer.creation_sync
       redirect_to @project, notice: t('notices.created')
     else
       flash[:error] = @project.errors.full_messages.join(', ')
@@ -40,6 +44,7 @@ class ProjectsController < ApplicationController
 
   def update
     if current_project.update(project_params)
+      github_syncer.update_sync
       redirect_to current_project, notice: t('notices.updated')
     else
       render action: 'edit'
@@ -47,6 +52,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    github_syncer.destruction_sync
     current_project.destroy
     redirect_to projects_path, notice: t('notices.destroyed')
   end
@@ -64,6 +70,9 @@ class ProjectsController < ApplicationController
     project
   end
 
+  def github_syncer
+    @github_syncer ||= Github::Syncer.new(current_project)
+  end
 
   def filter_by_tag
     if params[:tag].present?
@@ -78,7 +87,6 @@ class ProjectsController < ApplicationController
       false
     end
   end
-
 
   def filter_by_status
     @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym

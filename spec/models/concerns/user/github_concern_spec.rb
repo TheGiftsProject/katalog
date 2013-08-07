@@ -23,8 +23,8 @@ describe User::GithubConcern do
 
       let(:uid) { '1234563' }
       let(:login) { 'my-new-user-login' }
-      let(:avatar_url) { 'http://some-avatar.url.com' }
-      let(:new_contributor) { create(:github_contributor, id: uid, login: login, avatar_url: avatar_url) }
+      let(:gravatar_id) { '5d38ab152e1e3e219512a9859fcd93af' }
+      let(:new_contributor) { create(:github_contributor, id: uid, login: login, gravatar_id: gravatar_id) }
 
       let(:github_contributor) { new_contributor }
 
@@ -35,7 +35,8 @@ describe User::GithubConcern do
       its(:uid){ should eq uid }
       its(:name){ should eq login }
       its(:nickname){ should eq login }
-      its(:image){ should eq avatar_url }
+      its(:gravatar_id){ should eq gravatar_id }
+      its(:image){ should eq subject.gravatar }
 
     end
 

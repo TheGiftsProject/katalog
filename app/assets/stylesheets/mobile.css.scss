@@ -30,8 +30,17 @@
     .project-row {
       .title {
         .text {
-          width: 175px;
+          max-width: 100%;
           @include ellipsis;
+        }
+
+        .contributors {
+          float: none;
+        }
+
+        .tags {
+          clear: both;
+          margin-left: 0;
         }
       }
     }

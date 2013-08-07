@@ -15,6 +15,8 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :subtitle, :title
 
+  include Project::GithubConcern
+
   def to_param
     slug
   end
@@ -33,6 +35,11 @@ class Project < ActiveRecord::Base
     end
 
     self.tags = real_tags
+  end
+
+  def last_commit_date=(date)
+    date = date.to_datetime if date.is_a? String
+    self[:last_commit_date] = date
   end
 
   private

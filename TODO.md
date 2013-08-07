@@ -16,11 +16,7 @@ ZEN PAGE:
    * Do not limit to 5. More randomness. Titles!
 
 GENERAL UI:
-   * Mobile UI (bootstrap-responsive messes things up). Lacking index/show page mostly.
-   * Add ellipsis to project title/subtitle in index page.
    * Prevent from posting new posts or submitting project if empty fields (title/subtitle/post itself) by disabling button.
-   * Repo and demo url links should be side by side and not one under the other.
 
 BUGS:
    * Fix header buttons padding in Project show page - only in production.
-   * Status updates filtering should be moved back under the image

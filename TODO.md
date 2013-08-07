@@ -3,10 +3,6 @@ POST:
    * Emoji autocomplete.
    * Edit post.
    * MD preview should be the same preview as the final result (maybe by server request?).
-   * Threads (1-level nesting?).
-    
-PROJECT:
-   * Allows creating initial post with status (for older projects).
 
 ACTIVITY FEED:
    * Should be the default page. Should have a 'pill' at the top of the index page as well.

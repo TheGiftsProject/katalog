@@ -15,8 +15,40 @@
       display: none;
     }
 
-    .navbar .nav > li > a {
-      padding: 10px 5px 10px;
+    .filter {
+      a {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+
+    .tags {
+      line-height: 12px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .last-update {
+      display: none;
+    }
+
+    .control-group {
+      .control-label {
+        float: none;
+        text-align: left;
+      }
+
+      .controls {
+        margin-left: 0;
+
+        .input-xlarge, .twitter-typeahead, .tt-hint, .tt-query {
+          width: 100%;
+          @include box-sizing(border-box);
+          height: 32px;
+        }
+      }
+
+      margin-bottom: 5px;
     }
   }
 

@@ -45,7 +45,7 @@ FactoryGirl.define do
 
     sequence(:id)  { |n| "#{n+1}#{n+2}" } #github's uid
     login       'new-user-nickname'
-    avatar_url  'http://new-user.avatar-url.com'
+    gravatar_id '5d38ab152e1e3e219512a9859fcd93af'
 
     initialize_with { Hashie::Mash.new(attributes) }
   end

@@ -16,8 +16,8 @@ class AutocompleteController < ApplicationController
   end
 
   def repositories
-    found_repos = repo_searcher.search(@query)
-    render :json => found_repos.to_json
+    repos = if params[:latest] then repo_searcher.latest else repo_searcher.search(@query) end
+    render :json => repos.to_json
   end
 
   private

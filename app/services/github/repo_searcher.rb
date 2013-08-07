@@ -6,11 +6,19 @@ module Github
 
     GITHUB_ORGANIZATION_NAME = 'iic-ninjas'
 
+    LATEST_RESULTS_SORT_BY = :updated
+    LATEST_RESULTS_LIMIT = 20
+
     SEARCH_RESULTS_LIMIT = 4
 
-    attr_accessor :client, :query
+    attr_accessor :client, :query, :search_options
 
-    def search(query)
+    def latest
+      @search_options = self.class.latest_search_options
+      search
+    end
+
+    def search(query = '')
       @query = query
       search_results
       if valid_results?
@@ -23,7 +31,7 @@ module Github
     private
 
     def search_results
-      @search_results ||= github_client.search_repositories(search_query, self.class.search_options)
+      @search_results ||= github_client.search_repositories(search_query, search_options)
     end
 
     def valid_results?
@@ -44,7 +52,15 @@ module Github
       "#{self.class.organization_filter} #{query}"
     end
 
-    def self.search_options
+    def search_options
+      @search_options ||= self.class.default_search_options
+    end
+
+    def self.latest_search_options
+      {:per_page => SEARCH_RESULTS_LIMIT, :sort => LATEST_RESULTS_SORT_BY}
+    end
+
+    def self.default_search_options
       {:per_page => SEARCH_RESULTS_LIMIT}
     end
 

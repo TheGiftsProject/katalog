@@ -5,8 +5,6 @@ module GithubSupport
 
   include ProjectSupport
 
-  before_filter :set_github_grabber_host
-
   private
 
   # this is a hack so we can pass a full url to the Github service

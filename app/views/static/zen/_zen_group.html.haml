@@ -1,0 +1,4 @@
+.zen-group{:class => "zep-group #{klass}"}
+  - projects.each_with_index do |project, i|
+    %a{:href => project_path(project)}
+      = image_tag('logo/logo-big.png', :class => "logo zen_balloon balloon#{i}")

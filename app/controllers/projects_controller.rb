@@ -92,7 +92,7 @@ class ProjectsController < ApplicationController
     @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
     case (@filter)
       when :all then
-        @projects = Project.not_dead.latest_first
+        @projects = Project.not_dead.not_done.latest_first
       when :mine then
         @projects = current_user.projects.latest_first
       else

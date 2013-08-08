@@ -15,7 +15,7 @@ module Github
     attr_accessor :client, :query, :search_options
 
     def latest
-      @search_options = self.class.latest_search_options
+      set_search_options self.class.latest_search_options
       search
     end
 
@@ -53,12 +53,15 @@ module Github
       "#{self.class.organization_filter} #{query}"
     end
 
+    def set_search_options(new_search_options)
+      @search_options = new_search_options
+    end
     def search_options
       @search_options ||= self.class.default_search_options
     end
 
     def self.latest_search_options
-      {:per_page => SEARCH_RESULTS_LIMIT, :sort => LATEST_RESULTS_SORT_BY}
+      {:per_page => LATEST_RESULTS_LIMIT, :sort => LATEST_RESULTS_SORT_BY}
     end
 
     def self.default_search_options

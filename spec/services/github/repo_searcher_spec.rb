@@ -7,6 +7,26 @@ describe Github::RepoSearcher do
 
   subject { Github::RepoSearcher.new }
 
+  describe :latest do
+
+    let(:latest_search_options) { subject.class.send(:latest_search_options) }
+    let(:search_options) { subject.send(:search_options) }
+
+    it 'sets the search options to the latest search options' do
+      subject.latest
+      expect(search_options).to eq latest_search_options
+    end
+
+    it 'runs the search after setting the search options' do
+      allow(subject).to receive(:set_search_options).ordered
+      allow(subject).to receive(:search).ordered
+      subject.latest
+      expect(subject).to have_received(:set_search_options)
+      expect(subject).to have_received(:search)
+    end
+
+  end
+
   describe :search do
 
     before do

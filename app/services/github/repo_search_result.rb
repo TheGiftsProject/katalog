@@ -17,9 +17,8 @@ module Github
     private
 
     def self.keep_only_defined_properties(raw_data)
-      raw_data = raw_data.to_hash
       selected_properties = self.properties + self.translations
-      filtered_data = raw_data.keep_if { |k,v| selected_properties.include?(k) }
+      filtered_data = raw_data.keep_if { |k,v| selected_properties.include?(k.to_sym) }
     end
 
     def self.name_to_url(repo_name)

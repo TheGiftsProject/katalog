@@ -13,7 +13,7 @@ describe Github::RepoSearchResult do
   let(:repo_data) { load_repo_data }
 
   def load_repo_data
-    result = Octokit::Client.new.search_repositories('@iic-ninjas myawesome')
+    result = Octokit::Client.new.new_search_repositories('@iic-ninjas myawesome')
     result.items.first
   end
 

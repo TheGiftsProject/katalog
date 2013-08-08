@@ -1,4 +1,5 @@
 require 'octokit'
+require 'octokit_hotfix'
 require 'github/repo_search_result'
 
 module Github
@@ -31,7 +32,7 @@ module Github
     private
 
     def search_results
-      @search_results ||= github_client.search_repositories(search_query, search_options)
+      @search_results ||= github_client.new_search_repositories(search_query, search_options)
     end
 
     def valid_results?

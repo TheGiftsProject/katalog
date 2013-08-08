@@ -62,9 +62,9 @@ describe Github::RepoSearcher do
     end
 
     it "searches for Github repositories with the given query and the default search options" do
-      allow(github_client).to receive(:search_repositories).with(search_query, search_options)
+      allow(github_client).to receive(:new_search_repositories).with(search_query, search_options)
       subject.send(:search_results)
-      expect(github_client).to have_received(:search_repositories).with(search_query, search_options)
+      expect(github_client).to have_received(:new_search_repositories).with(search_query, search_options)
     end
 
     describe 'search setup' do

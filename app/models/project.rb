@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
 
   enum :status, [:idea, :wip, :done, :dead]
 
-  scope :latest_first, -> { order(:updated_at => :desc) }
+  scope :latest_first, -> { includes(:posts).order('posts.created_at DESC') }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
 
   validates_presence_of :subtitle, :title

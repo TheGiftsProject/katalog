@@ -10,8 +10,12 @@ class AutocompleteController < ApplicationController
   end
 
   def projects
-    render :json => Project.search(@query).map do |project|
-      {:value => project.title, :tokens => project.title.split(' ') }
+    if @query.blank?
+      render :json => []
+    else
+      render :json => Project.search(@query).map do |project|
+        {:value => project.title, :tokens => project.title.split(' ') }
+      end
     end
   end
 
@@ -24,7 +28,6 @@ class AutocompleteController < ApplicationController
 
   def load_query
     @query = params[:q]
-    render :json => [] if @query.blank?
   end
 
   def repo_searcher

@@ -2,7 +2,14 @@
 #= require twitter/typeahead
 
 startRepoSearch = ->
-  $('#repo_url').typeahead([
+
+  filterResponse = (parsedResponse)->
+    _.each(parsedResponse, (repo)->
+      repo.description = repo.description.substring(0, 50) + '...'
+    )
+    parsedResponse
+
+  $('#project_repo_url').typeahead([
     {
       name: 'repositories'
       valueKey: 'repo_url'
@@ -12,8 +19,12 @@ startRepoSearch = ->
         '<p class="repo-name">{{name}}</p>',
         '<p class="repo-description">{{description}}</p>'
       ].join('')
-#      prefetch:'/autocomplete/repositories.json?latest=true'
-      remote:'/autocomplete/repositories.json?q=%QUERY'
+      prefetch:
+        url: '/autocomplete/repositories.json?latest=true'
+        filter: filterResponse
+      remote:
+        url: '/autocomplete/repositories.json?q=%QUERY'
+        filter: filterResponse
     }
   ]
   ).on('typeahead:selected', (ev, selected, dataset) ->

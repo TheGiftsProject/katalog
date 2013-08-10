@@ -4,8 +4,11 @@
 startRepoSearch = ->
 
   filterResponse = (parsedResponse)->
+    maxDescLength = 43
     _.each(parsedResponse, (repo)->
-      repo.description = repo.description.substring(0, 50) + '...'
+      repo.tokens = [repo.name]
+      if repo.description?.length > maxDescLength
+        repo.description = repo.description.substring(0, maxDescLength) + '...'
     )
     parsedResponse
 

@@ -1,0 +1,26 @@
+.repo_search {
+
+  .tt-dropdown-menu {
+    width: 283px;
+  }
+  .tt-suggestion {
+    padding: 8px 20px;
+  }
+
+  .tt-suggestion + .tt-suggestion {
+    border-top: 1px solid #ccc;
+  }
+
+  .repo-language {
+    float: right;
+    font-style: italic;
+  }
+
+  .repo-name {
+    font-weight: bold;
+  }
+
+  .repo-description {
+    font-size: 12px;
+  }
+}

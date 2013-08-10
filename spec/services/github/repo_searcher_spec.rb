@@ -17,6 +17,12 @@ describe Github::RepoSearcher do
       expect(search_options).to eq latest_search_options
     end
 
+    it 'sets an empty search query to load all the latest repos' do
+      allow(subject).to receive(:search_results)
+      subject.latest
+      expect(subject.query).to be_blank
+    end
+
     it 'runs the search after setting the search options' do
       allow(subject).to receive(:set_search_options).ordered
       allow(subject).to receive(:search).ordered

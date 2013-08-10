@@ -6,6 +6,7 @@ startRepoSearch = ->
   filterResponse = (parsedResponse)->
     maxDescLength = 43
     _.each(parsedResponse, (repo)->
+      # collection of single-word strings that aid typeahead.js in matching datums with a given query.
       repo.tokens = [repo.name]
       if repo.description?.length > maxDescLength
         repo.description = repo.description.substring(0, maxDescLength) + '...'
@@ -16,6 +17,7 @@ startRepoSearch = ->
     {
       name: 'repositories'
       valueKey: 'repo_url'
+      limit: 4
       engine: Hogan
       template: [
         '<p class="repo-language">{{language}}</p>',

@@ -26,10 +26,14 @@ module Project::GithubConcern
     current_repo.slug == other_repo.slug
   end
 
+  def has_a_repo?
+    self.repo_url.present?
+  end
+
   private
 
   def github_grabber
-    @github_grabber ||= Github::Grabber.new(self)
+    @github_grabber ||= Github::Grabber.new(self) if has_a_repo?
   end
 
 end

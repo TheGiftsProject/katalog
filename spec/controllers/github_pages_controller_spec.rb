@@ -21,12 +21,31 @@ describe GithubPagesController do
       get page_name, :project_id => current_project.id
     end
 
-    it "fetchs the file from Github" do
-      expect(assigns[:github_page]).to eq page_content
+    context "when the project doesn't have a Github repository"  do
+
+      it 'redircts back to project page'
+
     end
 
-    it 'sets the page title to be the current action' do
-      expect(assigns[:github_page_title]).to eq page_title
+    context 'when the project has a Github repository' do
+
+      context "when the project doesn't contain the file" do
+
+        it "shows a notice that the page doesn't exists yet"
+
+      end
+
+      context 'when the project contains the file' do
+
+        it "fetchs the file from Github" do
+          expect(assigns[:github_page]).to eq page_content
+        end
+
+        it 'sets the page title to be the current action' do
+          expect(assigns[:github_page_title]).to eq page_title
+        end
+
+      end
     end
 
   end

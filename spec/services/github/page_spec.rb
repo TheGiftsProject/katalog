@@ -2,18 +2,16 @@ require 'rspec'
 
 describe Github::Page do
 
-  subject { Github::Page.new(project) }
-
   let(:page_name) { :readme }
   #let(:page_name) { example.example_group.parent.description }
 
   context "when the project doesn't have a Github repository"  do
 
-    let(:project) { create(:project, :repo_url => nil) }
+    let(:project_without_a_repo) { create(:project, :repo_url => nil) }
 
     it 'raises an invalid project error' do
       expect {
-
+        Github::Page.new(project_without_a_repo)
       }.to raise_error Github::Page::InvalidProjectError
     end
 
@@ -22,6 +20,8 @@ describe Github::Page do
   context 'when the project has a Github repository' do
 
     let(:project) { create(:project, :with_repo) }
+
+    subject { Github::Page.new(project) }
 
     context "when the project doesn't contain the file" do
 

@@ -17,7 +17,11 @@ class GithubPagesController < ApplicationController
     end
   end
 
-  #private
+  def github_page
+    @github_page ||= Github::Page.new(current_project)
+  end
+
+  private
 
   def setup_github_page
     @github_page_title = action_name.to_s
@@ -29,10 +33,6 @@ class GithubPagesController < ApplicationController
     rescue Github::Page::InvalidProjectError
       redirect_to project_path(current_project)
     end
-  end
-
-  def github_page
-    @github_page ||= Github::Page.new(current_project)
   end
 
 end

@@ -9,19 +9,21 @@
       = link_to current_project.demo_url, :class => 'a-link' do
         %i.icon-desktop
         %span= t('pages.show.urls.demo')
-  %br
-  %div
-    = link_to project_readme_path(current_project), :class => 'a-link' do
-      %i.icon-book
-      %span= t('pages.show.urls.readme')
-    %br
-    = link_to project_todo_path(current_project), :class => 'a-link' do
-      %i.icon-check
-      %span= t('pages.show.urls.todo')
 
-    = link_to project_changelog_path(current_project), :class => 'a-link' do
-      %i.icon-edit
-      %span= t('pages.show.urls.changelog')
+  - if current_project.has_a_repo?
+    %br
+    %div
+      = link_to project_readme_path(current_project), :class => 'a-link' do
+        %i.icon-book
+        %span= t('pages.show.urls.readme')
+      %br
+      = link_to project_todo_path(current_project), :class => 'a-link' do
+        %i.icon-check
+        %span= t('pages.show.urls.todo')
+
+      = link_to project_changelog_path(current_project), :class => 'a-link' do
+        %i.icon-edit
+        %span= t('pages.show.urls.changelog')
 
   .well-small
     - if @show_statuses

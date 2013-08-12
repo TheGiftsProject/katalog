@@ -4,14 +4,17 @@
 startRepoSearch = ->
 
   filterResponse = (parsedResponse)->
-    maxDescLength = 43
     _.each(parsedResponse, (repo)->
-      # collection of single-word strings that aid typeahead.js in matching datums with a given query.
-      repo.tokens = [repo.name]
-      if repo.description?.length > maxDescLength
-        repo.description = repo.description.substring(0, maxDescLength) + '...'
+      # aid typeahead.js in matching data with a given query.
+      repo.tokens = repo.name.split(/[_-]/)
     )
     parsedResponse
+
+  repoTemplate = [
+    '<p class="repo-language">{{language}}</p>',
+    '<p class="repo-name">{{name}}</p>',
+    '<p class="repo-description">{{description}}</p>'
+  ].join('')
 
   $('#project_repo_url').typeahead([
     {
@@ -19,11 +22,7 @@ startRepoSearch = ->
       valueKey: 'repo_url'
       limit: 4
       engine: Hogan
-      template: [
-        '<p class="repo-language">{{language}}</p>',
-        '<p class="repo-name">{{name}}</p>',
-        '<p class="repo-description">{{description}}</p>'
-      ].join('')
+      template: repoTemplate
       prefetch:
         url: '/autocomplete/repositories.json?latest=true'
         filter: filterResponse
@@ -31,10 +30,7 @@ startRepoSearch = ->
         url: '/autocomplete/repositories.json?q=%QUERY'
         filter: filterResponse
     }
-  ]
-  ).on('typeahead:selected', (ev, selected, dataset) ->
-    # update url form
-  )
+  ])
 
 $(document).on 'ready', startRepoSearch
 $(document).on 'page:load', startRepoSearch

@@ -1,7 +1,9 @@
 .repo_search {
 
+  $width: 283px;
+
   .tt-dropdown-menu {
-    width: 283px;
+    width: $width;
   }
   .tt-suggestion {
     padding: 8px 20px;
@@ -22,5 +24,8 @@
 
   .repo-description {
     font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

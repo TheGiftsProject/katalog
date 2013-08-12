@@ -9,6 +9,10 @@ describe Github::RepoSearcher do
 
   describe :latest do
 
+    before do
+      allow(subject).to receive(:perform_search)
+    end
+
     let(:latest_search_options) { subject.class.send(:latest_search_options) }
     let(:search_options) { subject.send(:search_options) }
 
@@ -18,17 +22,9 @@ describe Github::RepoSearcher do
     end
 
     it 'sets an empty search query to load all the latest repos' do
-      allow(subject).to receive(:search_results)
+      allow(subject).to receive(:perform_search)
       subject.latest
       expect(subject.query).to be_blank
-    end
-
-    it 'runs the search after setting the search options' do
-      allow(subject).to receive(:set_search_options).ordered
-      allow(subject).to receive(:search).ordered
-      subject.latest
-      expect(subject).to have_received(:set_search_options)
-      expect(subject).to have_received(:search)
     end
 
   end
@@ -36,13 +32,35 @@ describe Github::RepoSearcher do
   describe :search do
 
     before do
-      allow(subject).to receive(:search_results)
+      allow(subject).to receive(:perform_search)
       allow(subject).to receive(:valid_results?)
+    end
+
+    context 'when specifying the search options' do
+
+      let(:given_search_options) { double(:given_search_options) }
+
+      it 'sets the search options' do
+        subject.search(given_query, given_search_options)
+        expect(subject.send(:search_options)).to eq given_search_options
+      end
+
+    end
+
+    context 'when not specifying any search options' do
+
+      let(:default_search_options) { subject.class.default_search_options }
+
+      it 'sets the search options to defaults' do
+        subject.search(given_query)
+        expect(subject.send(:search_options)).to eq default_search_options
+      end
+
     end
 
     it 'searches for Github repositories the results' do
       subject.search(given_query)
-      expect(subject).to have_received(:search_results)
+      expect(subject).to have_received(:perform_search)
     end
 
     it 'validates the results' do
@@ -76,20 +94,20 @@ describe Github::RepoSearcher do
 
   end
 
-  describe :search_results do
+  describe :perform_search do
 
     let(:github_client) { subject.send(:github_client) }
     let(:search_options){ subject.send(:search_options) }
 
     it "searches for Github repositories using Github's API", :vcr do
       subject.query = given_query
-      results = subject.send(:search_results)
+      results = subject.send(:perform_search)
       results.items.should have(1).item
     end
 
     it "searches for Github repositories with the given query and the default search options" do
       allow(github_client).to receive(:new_search_repositories).with(search_query, search_options)
-      subject.send(:search_results)
+      subject.send(:perform_search)
       expect(github_client).to have_received(:new_search_repositories).with(search_query, search_options)
     end
 
@@ -140,7 +158,7 @@ describe Github::RepoSearcher do
 
     before do
       subject.query = given_query
-      subject.send(:search_results)
+      subject.send(:perform_search)
     end
 
     it 'creates an array of respo search results for the search response items', :vcr do

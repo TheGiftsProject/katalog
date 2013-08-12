@@ -12,16 +12,16 @@ module Github
 
     SEARCH_RESULTS_LIMIT = 4
 
-    attr_accessor :client, :query, :search_options
+    attr_accessor :client, :query, :search_options, :search_results
 
     def latest
-      set_search_options self.class.latest_search_options
-      search
+      search('', self.class.latest_search_options)
     end
 
-    def search(query = '')
+    def search(query = '', options = nil)
+      set_search_options(options) if options.present?
       @query = query
-      search_results
+      perform_search
       if valid_results?
         parse_results
       else
@@ -31,7 +31,7 @@ module Github
 
     private
 
-    def search_results
+    def perform_search
       @search_results ||= github_client.new_search_repositories(search_query, search_options)
     end
 
@@ -53,9 +53,10 @@ module Github
       "#{self.class.organization_filter} #{query}"
     end
 
-    def set_search_options(new_search_options)
+    def set_search_options(new_search_options = self.class.default_search_options)
       @search_options = new_search_options
     end
+
     def search_options
       @search_options ||= self.class.default_search_options
     end

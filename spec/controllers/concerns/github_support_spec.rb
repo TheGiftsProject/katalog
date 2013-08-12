@@ -4,7 +4,7 @@ describe 'GithubSupport', :controller do
 
   controller do
     include GithubSupport
-
+    before_filter :set_github_grabber_host
     def index
       @hook_callback_url = Github::Grabber.hook_callback_url
       render :nothing => true

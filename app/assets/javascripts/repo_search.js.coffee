@@ -6,7 +6,7 @@ startRepoSearch = ->
   filterResponse = (parsedResponse)->
     _.each(parsedResponse, (repo)->
       # aid typeahead.js in matching data with a given query.
-      repo.tokens = repo.name.split(/[_-]/)
+      repo.tokens = _.compact(repo.name.split(/[_-]/))
     )
     parsedResponse
 

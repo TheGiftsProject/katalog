@@ -1,5 +1,5 @@
 
-module Project::GithubConcern
+module ProjectGithubConcern
   extend ActiveSupport::Concern
 
   # Goes into Project

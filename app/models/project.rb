@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :subtitle, :title
 
-  include Project::GithubConcern
+  include ProjectGithubConcern
 
   def to_param
     slug

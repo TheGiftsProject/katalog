@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Project::GithubConcern do
+describe ProjectGithubConcern do
 
   describe :includes_contributors? do
 

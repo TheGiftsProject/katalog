@@ -1,4 +1,4 @@
-module User::GithubConcern
+module UserGithubConcern
   extend ActiveSupport::Concern
 
   # Goes into User

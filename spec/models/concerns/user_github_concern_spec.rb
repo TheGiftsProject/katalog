@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User::GithubConcern do
+describe UserGithubConcern do
 
   let(:user) { create(:user, :isc_ci) }
 

@@ -57,6 +57,9 @@ en:
         readme: 'README'
       filter_updates: "Status updates"
 
+    github_page:
+      not_found: "%{page_name} page doesn't exists yet"
+
     errors:
       code-404: "The page you're looking for isn't here"
       code-500: "OH NO! an unexpected error has occurred"
@@ -68,7 +71,6 @@ en:
       text: "Text"
       preview: "Preview"
     placeholder: "Enter markdown text"
-
 
   project:
     last_updated: "Last Updated %{time} ago"

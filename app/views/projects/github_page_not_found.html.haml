@@ -5,7 +5,4 @@
 
   = render 'projects/show/page_header'
 
-  %h2.title= @github_page_title.upcase
-
-  != @github_page_content.html_safe
-
+  %h4.title= t('pages.github_page.not_found', :page_name => @github_page_title.upcase)

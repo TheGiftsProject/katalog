@@ -1,4 +1,4 @@
-require 'github/grabber'
+require 'github/page'
 
 class GithubPagesController < ApplicationController
 
@@ -17,12 +17,22 @@ class GithubPagesController < ApplicationController
     end
   end
 
-  #private
+  def github_page
+    @github_page ||= Github::Page.new(current_project)
+  end
+
+  private
 
   def setup_github_page
     @github_page_title = action_name.to_s
-    @github_page = current_project.send("github_#{action_name}")
-    render 'projects/github_page'
+    begin
+      @github_page_content = self.github_page.send(action_name)
+      render 'projects/github_page'
+    rescue Github::Page::FileNotFoundError
+      render 'projects/github_page_not_found'
+    rescue Github::Page::InvalidProjectError
+      redirect_to project_path(current_project)
+    end
   end
 
 end

@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   before_filter :save_referer, :only => [:show]
   before_filter :reset_referer, :only => [:index]
   after_filter :set_viewed_cookie, :only => [:create, :show]
-  before_filter :set_github_grabber_host, :only => [:create, :update, :destroy]
+  before_filter :set_github_grabber_host, :only => [:update, :destroy]
 
   def index
     filter_by_tag || filter_by_status
@@ -31,6 +31,8 @@ class ProjectsController < ApplicationController
   def create
     @project = build_project
     if @project.save
+      set_current_project(@project)
+      set_github_grabber_host
       github_syncer.creation_sync
       redirect_to @project, notice: t('notices.created')
     else

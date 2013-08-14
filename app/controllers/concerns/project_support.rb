@@ -10,6 +10,10 @@ module ProjectSupport
     @_current_project ||= load_project
   end
 
+  def set_current_project(project)
+    @_current_project ||= project
+  end
+
   def has_project
     forbidden if current_project.nil?
     set_background(current_project.status)

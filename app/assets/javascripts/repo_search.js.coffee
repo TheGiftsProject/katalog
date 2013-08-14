@@ -30,7 +30,9 @@ startRepoSearch = ->
         url: '/autocomplete/repositories.json?q=%QUERY'
         filter: filterResponse
     }
-  ])
+  ]).on('typeahead:initialized', (ev, selected, dataset) ->
+    $(this).siblings('.tt-hint').addClass('input-xlarge')
+  )
 
 $(document).on 'ready', startRepoSearch
 $(document).on 'page:load', startRepoSearch

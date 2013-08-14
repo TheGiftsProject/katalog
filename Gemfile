@@ -34,6 +34,7 @@ gem 'sass', '3.3.0.alpha.149'
 gem 'animation'
 gem 'font-awesome-rails'
 gem 'twitter-typeahead-rails'
+gem 'bootstrap-typeahead-rails'
 
 group :production do
   gem 'rails_12factor'

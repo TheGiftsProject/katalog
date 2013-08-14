@@ -39,6 +39,7 @@ en:
       filters:
         all: 'ALL PROJECTS'
         mine: 'MY PROJECTS'
+        recent: "RECENT"
         idea: "IDEA"
         wip: "WIP"
         done: 'SUNSET'

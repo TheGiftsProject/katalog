@@ -1,7 +1,7 @@
 module FilterHelper
 
   def all_filters
-    [:all, :mine] + Project::STATUSES
+    [:all, :recent, :mine] + Project::STATUSES
   end
 
   def current_filter?(filter)

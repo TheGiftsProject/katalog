@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def create
     post = build_post
     if post.save
+      current_project.touch
       add_user_to_project
       project_changed = update_project_status
 

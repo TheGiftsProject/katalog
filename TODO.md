@@ -1,3 +1,12 @@
+VALIDATIONS:
+ * Project Uniqueness by repo-url + title
+
+CREATION FORM:
+ * when choosing URL the name and desc should auto upadte the other fields
+ * move repo url to top
+ * disable form submtion when choosing url with ENTER
+ * after creation the redirect is blank although the project is created (check erros)
+
 POST:
    * Default code format recognition in the server.
    * Emoji autocomplete.

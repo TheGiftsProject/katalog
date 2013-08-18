@@ -1,3 +1,7 @@
+MODLE CONCERN HELPERS
+ * check https://github.com/josevalim/inherited_resources
+ * or build generic helper
+
 VALIDATIONS:
  * Project Uniqueness by repo-url + title
 

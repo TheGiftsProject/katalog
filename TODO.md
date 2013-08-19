@@ -1,4 +1,10 @@
-MODLE CONCERN HELPERS
+BUGS:
+ * Fix create project with repo failure.
+ * Don't show icons of TODO/Readme etc if not exist.
+ * Last commit does not update our project.
+ * TODO/Readme etc transition is too violent. It also changes the background which it shouldn't.
+
+MODEL CONCERN HELPERS
  * check https://github.com/josevalim/inherited_resources
  * or build generic helper
 
@@ -16,10 +22,6 @@ POST:
    * Emoji autocomplete.
    * Edit post.
    * MD preview should be the same preview as the final result (maybe by server request?).
-
-ACTIVITY FEED:
-   * Should be the default page. Should have a 'pill' at the top of the index page as well.
-   * Create a page with recent posts / new projects.
 
 ZEN PAGE:
    * Do not limit to 5. More randomness. Titles!

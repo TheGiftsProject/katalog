@@ -2,7 +2,7 @@ require 'github/syncer'
 
 class ProjectsController < ApplicationController
 
-  DEFAULT_FILTER = :all
+  DEFAULT_FILTER = :recent
 
   include ProjectSupport
   include GithubSupport

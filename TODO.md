@@ -3,19 +3,15 @@ BUGS:
  * Don't show icons of TODO/Readme etc if not exist.
  * Last commit does not update our project.
  * TODO/Readme etc transition is too violent. It also changes the background which it shouldn't.
+ * Repo url input field background is buggy.
+ * Tags autocomplete in project form has a UI weirdness.
 
 MODEL CONCERN HELPERS
  * check https://github.com/josevalim/inherited_resources
  * or build generic helper
 
-VALIDATIONS:
- * Project Uniqueness by repo-url + title
-
 CREATION FORM:
- * when choosing URL the name and desc should auto upadte the other fields
- * move repo url to top
- * disable form submtion when choosing url with ENTER
- * after creation the redirect is blank although the project is created (check erros)
+ * Disable form submtion when choosing url with ENTER
 
 POST:
    * Default code format recognition in the server.

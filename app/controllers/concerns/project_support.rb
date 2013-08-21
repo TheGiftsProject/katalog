@@ -11,7 +11,7 @@ module ProjectSupport
   end
 
   def set_current_project(project)
-    @_current_project ||= project
+    @_current_project = project
   end
 
   def has_project

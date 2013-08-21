@@ -5,6 +5,10 @@ BUGS:
  * TODO/Readme etc transition is too violent. It also changes the background which it shouldn't.
  * Repo url input field background is buggy.
  * Tags autocomplete in project form has a UI weirdness.
+  
+Project Page
+ * Add project name to title **Hubot @ Katalog**
+ * Add a nice page like UI for github pages (readme, todo ...)
 
 MODEL CONCERN HELPERS
  * check https://github.com/josevalim/inherited_resources

@@ -63,7 +63,7 @@ class Github::Syncer
     new_contributor = User.find_or_init_by_contributor(contributor)
 
     # if the user already exists then just add it to his projects
-    new_contributor.projects << project
+    new_contributor.projects << project unless new_contributor.projects.include?(project)
     new_contributor.save!
   end
 

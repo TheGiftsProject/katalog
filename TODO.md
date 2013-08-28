@@ -4,7 +4,7 @@ BUGS:
  * Last commit does not update our project.
  * TODO/Readme etc transition is too violent. It also changes the background which it shouldn't.
  * Repo url input field background is buggy.
- * Tags auto-complete in project form has a UI weirdness.
+ * Tags autocomplete in project form has a UI weirdness.
   
 Project Page
  * Add project name to title **Hubot @ Katalog**

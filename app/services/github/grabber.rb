@@ -19,18 +19,6 @@ class Github::Grabber
     end
   end
 
-  def readme
-    client.readme(@repository, :accept => HTML_ACCEPT)
-  end
-
-  def changelog
-    client.contents(@repository, :path => 'CHANGELOG.md', :accept => HTML_ACCEPT)
-  end
-
-  def todo
-    client.contents(@repository, :path => 'TODO.md', :accept => HTML_ACCEPT)
-  end
-
   def last_commit
     last_commit = master_branch.commit
     Hashie::Mash.new(

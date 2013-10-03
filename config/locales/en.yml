@@ -54,7 +54,6 @@ en:
         changelog: 'CHANGELOG'
         todo: 'TODO'
         readme: 'README'
-      filter_updates: "Status updates"
 
     github_page:
       not_found: "%{page_name} page doesn't exists yet"

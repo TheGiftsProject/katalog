@@ -20,7 +20,6 @@ class ProjectsController < ApplicationController
 
   def show
     @post = current_project.posts.build
-    @show_statuses = params.include? :statuses
   end
 
   def new

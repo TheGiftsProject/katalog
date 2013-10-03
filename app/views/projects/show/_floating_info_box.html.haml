@@ -18,12 +18,3 @@
       = link_to '', project_readme_path(current_project), :class => 'a-link icon-book', :title => t('pages.show.urls.readme')
       = link_to '', project_todo_path(current_project), :class => 'a-link icon-check', :title => t('pages.show.urls.todo')
       = link_to '', project_changelog_path(current_project), :class => 'a-link icon-edit', :title => t('pages.show.urls.changelog')
-
-  .well-small
-    - if @show_statuses
-      = link_to project_path(current_project), :class => 'btn btn-mini btn-warning' do
-        = t('pages.show.filter_updates')
-        %i.icon-remove
-    - else
-      = link_to project_path(current_project, :statuses => true), :class => 'btn btn-mini btn-success' do
-        = t('pages.show.filter_updates')

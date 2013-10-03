@@ -8,7 +8,7 @@ projectFormValidation = ->
 
   checkIfCanSubmit = ->
     canSubmit = _.any(ui.titleField.val()) && _.any(ui.subtitleField.val()) && (ui.postField.length == 0 || _.any(ui.postField.val()))
-    ui.submitButton.addClass('disabled') unless canSubmit
+    ui.submitButton.toggleClass('disabled', !canSubmit)
     canSubmit
 
   checkIfCanSubmit()
@@ -16,6 +16,10 @@ projectFormValidation = ->
   $('.project-form').on('keypress keydown keyup', (e) ->
     e.preventDefault() if e.keyCode == 13 && !checkIfCanSubmit()
   )
+
+  ui.titleField.change(checkIfCanSubmit)
+  ui.subtitleField.change(checkIfCanSubmit)
+  ui.postField.change(checkIfCanSubmit)
 
 $(document).on 'ready', projectFormValidation
 $(document).on 'page:load', projectFormValidation

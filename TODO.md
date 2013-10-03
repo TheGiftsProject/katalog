@@ -9,10 +9,6 @@ PROJECT PAGE:
  * Don't show icons of TODO/Readme etc if not exist.
  * Hey "X", what's up with project X? (if no update for a 2-weeks?).
 
-CREATION FORM:
- * Disable form submission when choosing url with ENTER.
- * Disable submission (create/edit) a project when not all fields are filled/validated.
-
 POST:
    * Default code format recognition in the server.
    * Emoji autocomplete.

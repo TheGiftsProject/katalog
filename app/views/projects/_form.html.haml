@@ -7,6 +7,12 @@
     = f.label :subtitle, :class => 'control-label'
     .controls
       = f.text_field :subtitle, :placeholder => t('pages.form.placeholders.subtitle'), :class => 'input-xlarge'
+  - if project.new_record?
+    .control-group
+      = f.label :posts, t('pages.form.initial_post'), :class => 'control-label'
+      .controls
+        = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
+          = render 'components/post/post_fields', :f => post_form, :project => project
   .control-group
     = f.label :repo_url, :class => 'control-label'
     .controls.repo_search
@@ -15,12 +21,6 @@
     = f.label :demo_url, :class => 'control-label'
     .controls
       = f.url_field :demo_url, :placeholder => t('pages.form.placeholders.demo_url'), :class => 'input-xlarge'
-  - if project.new_record?
-    .control-group
-      = f.label :posts, t('pages.form.initial_post'), :class => 'control-label'
-      .controls
-        = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
-          = render 'components/post/post_fields', :f => post_form, :project => project
 
   .control-group
     .controls

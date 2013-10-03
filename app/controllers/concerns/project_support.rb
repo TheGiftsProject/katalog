@@ -50,7 +50,7 @@ module ProjectSupport
     return if referer.nil?
 
     # if came from a filtered index, save it.
-    session[:referer] = referer if (referer['tag'] || referer['filter'])
+    session[:referer] = referer if (referer['filter'])
   end
 
   def reset_referer

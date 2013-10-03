@@ -14,7 +14,6 @@ Katalog::Application.routes.draw do
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do
-    get :tags
     get :projects
     get :repositories
   end

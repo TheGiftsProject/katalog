@@ -5,10 +5,6 @@ class AutocompleteController < ApplicationController
   before_filter :sign_in_required
   before_action :load_query, :only => [:projects, :repositories]
 
-  def tags
-    render :json => Tag.all
-  end
-
   def projects
     if @query.blank?
       render :json => []

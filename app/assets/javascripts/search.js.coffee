@@ -4,15 +4,6 @@
 startSearch = ->
   $('.search-query').typeahead([
     {
-      name: 'prefetched_tags'
-      prefetch:
-        url: '/autocomplete/tags.json'
-        ttl: 500
-      valueKey: 'name'
-      engine: Hogan
-      template: "<p><span class='tag'>{{name}}</span></p>"
-    }
-    {
       name: 'projects'
       valueKey: 'title'
       engine: Hogan
@@ -21,12 +12,8 @@ startSearch = ->
         url: '/autocomplete/projects?q=%QUERY'
     }
   ]
-  ).on('typeahead:selected', (ev, selected, dataset) ->
-    if selected.title
-      path = "/projects/#{selected.id}"
-    else
-      path = "/projects?tag=#{selected.name}"
-    Turbolinks.visit(path)
+  ).on('typeahead:selected', (ev, selected) ->
+    Turbolinks.visit("/projects/#{selected.id}")
   )
 
 $(document).on 'ready', startSearch

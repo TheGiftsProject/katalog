@@ -7,13 +7,6 @@
       %i.icon-plus-sign
       %span= t('pages.index.new')
 
--if @tag
-  .filtered
-    = t('pages.index.filtered')
-    = link_to projects_path do
-      .tag
-        %i.icon-remove
-        = @tag.name
 .projects
   - if @projects.empty?
     .well

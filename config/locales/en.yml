@@ -5,7 +5,7 @@ en:
 
   layout:
     header:
-      search_placeholder: 'Search for Project or Tag'
+      search_placeholder: 'Search for Project'
       links:
         projects: 'All Projects'
         zen: 'Moment of Zen'
@@ -29,7 +29,6 @@ en:
       placeholders:
         title: 'Project Title'
         subtitle: 'Project Subtitle'
-        tags: 'Tags'
         repo_url: 'https://github.com/TheGiftsProject/repo'
         demo_url: 'http://demo.example.com'
       initial_post: 'Initial post'
@@ -44,7 +43,6 @@ en:
         wip: "WIP"
         done: 'SUNSET'
         dead: 'KATAKOMB'
-      filtered: "Filtered for tag"
 
     show:
       back: 'All Projects'

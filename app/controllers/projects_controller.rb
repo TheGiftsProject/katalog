@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   before_filter :set_github_grabber_host, :only => [:update, :destroy]
 
   def index
-    filter_by_tag || filter_by_status
+    filter_by_status
   end
 
   def show
@@ -63,7 +63,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :string_tags => [], :posts_attributes => [:text]])
+    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text]])
   end
 
   def build_project
@@ -75,20 +75,6 @@ class ProjectsController < ApplicationController
 
   def github_syncer
     @github_syncer ||= Github::Syncer.new(current_project)
-  end
-
-  def filter_by_tag
-    if params[:tag].present?
-      @tag = Tag.find_caseless(params[:tag]).first
-      if @tag
-        @projects = @tag.projects.latest_first
-      else
-        @projects = []
-      end
-      true
-    else
-      false
-    end
   end
 
   def filter_by_status

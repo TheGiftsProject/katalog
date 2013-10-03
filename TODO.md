@@ -1,7 +1,8 @@
 BUGS:
  * Last commit does not update a project (Github hooks problem?).
- * Tags autocomplete in project form has a UI weirdness.
-  
+ * Duplicated project created?
+ * Cannot delete new projects?
+
 PROJECT PAGE:
  * Allow to change status not only with post. 
  * Allow to change image not only by post.
@@ -10,8 +11,8 @@ PROJECT PAGE:
  * Don't show icons of TODO/Readme etc if not exist.
 
 CREATION FORM:
- * Disable form submtion when choosing url with ENTER.
- * Disable submiting (create/edit) a project when not all fields are filled/validated.
+ * Disable form submission when choosing url with ENTER.
+ * Disable submission (create/edit) a project when not all fields are filled/validated.
 
 POST:
    * Default code format recognition in the server.
@@ -21,7 +22,3 @@ POST:
 
 ZEN PAGE:
    * Better. More random? Only recent? With people? UGH.
-
-INTERNALS:
- * Check https://github.com/josevalim/inherited_resources or build generic helper
- * Move filters methods from ProjectsController to support class

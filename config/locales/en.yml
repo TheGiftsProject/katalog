@@ -32,6 +32,7 @@ en:
         repo_url: 'https://github.com/TheGiftsProject/repo'
         demo_url: 'http://demo.example.com'
       initial_post: 'Initial post'
+      optional: '(optional)'
 
     index:
       new: 'Add'

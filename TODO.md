@@ -1,7 +1,5 @@
 BUGS:
  * Last commit does not update a project (Github hooks problem?).
- * Duplicated project created?
- * Cannot delete new projects?
 
 PROJECT PAGE:
  * Allow to change status not only with post. 
@@ -9,6 +7,7 @@ PROJECT PAGE:
  * Add project name to title **Hubot @ Katalog**
  * Add a nice page like UI for github pages (readme, todo ...). Currently their transition is too violent and the backround is wrong.
  * Don't show icons of TODO/Readme etc if not exist.
+ * Hey "X", what's up with project X? (if no update for a 2-weeks?).
 
 CREATION FORM:
  * Disable form submission when choosing url with ENTER.

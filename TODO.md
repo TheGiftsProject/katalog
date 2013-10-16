@@ -6,6 +6,7 @@ GITHUB BUGS:
  * Updating repo doesn't update committers as contributors.
 
 PROJECT PAGE:
+ * Add 'bump' button to make the project appear in 'Recents'.
  * Allow to change status not only with post. 
  * Allow to change image not only by post.
  * Add project name to title **Hubot @ Katalog**

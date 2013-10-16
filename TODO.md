@@ -1,5 +1,6 @@
 BUGS:
  * Sometimes project duplicates are created. Also cannot destroy the duplicated.
+ * Recents should be 2 weeks.
 
 GITHUB BUGS:
  * Last commit does not update a project (Github hooks problem?).

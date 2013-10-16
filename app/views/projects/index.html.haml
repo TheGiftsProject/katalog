@@ -8,6 +8,10 @@
       %span= t('pages.index.new')
 
 .projects
+  - if @viewing_projects_of
+    .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
+      %i.icon-download-alt
+      %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)
   - if @projects.empty?
     .well
       %h1.text-center.text-info

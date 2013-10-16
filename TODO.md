@@ -1,5 +1,4 @@
 USERS:
- * Allows to view all user's projects by clicking on him.
  * Autocomplete should find users as well.
 
 GITHUB BUGS:

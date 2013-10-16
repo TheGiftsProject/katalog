@@ -35,6 +35,7 @@ en:
       optional: '(optional)'
 
     index:
+      viewing_projects_of: 'Projects by %{user_name}:'
       new: 'Add'
       filters:
         all: 'ALL PROJECTS'

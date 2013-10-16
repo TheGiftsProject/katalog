@@ -13,8 +13,8 @@ projectFormValidation = ->
 
   checkIfCanSubmit()
 
-  $('.project-form').on('keypress keydown keyup', (e) ->
-    e.preventDefault() if e.keyCode == 13 && !checkIfCanSubmit()
+  $('.project-form').on('submit', (e) ->
+    e.preventDefault() !checkIfCanSubmit()
   )
 
   ui.titleField.change(checkIfCanSubmit)

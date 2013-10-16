@@ -49,6 +49,7 @@ en:
       back: 'All Projects'
       edit: 'Edit'
       delete: 'Delete'
+      contribute: "I'm a contributor!"
       bump: 'Bump'
       urls:
         repo: 'Repo URL'
@@ -78,6 +79,7 @@ en:
 
   notices:
     bumped: "Your project will now appear under 'Recents'"
+    contribute: "You were added to the Project's contributors"
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'

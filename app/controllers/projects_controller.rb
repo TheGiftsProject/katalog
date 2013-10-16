@@ -64,7 +64,17 @@ class ProjectsController < ApplicationController
     redirect_to current_project, notice: t('notices.bumped')
   end
 
+  def contribute
+    add_user_to_project
+    redirect_to current_project, notice: t('notices.contribute')
+  end
+
   private
+
+  def add_user_to_project
+    current_project.users << current_user unless current_project.users.include? current_user
+  end
+
 
   def project_params
     params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text]])

@@ -1,5 +1,13 @@
 .page-header {
+  .expanded_info {
+    .actions {
+      margin-top: 14px;
+      float: left;
+    }
+  }
+
   .contributors {
+    float: left;
     height: 50px;
 
     .contributor {

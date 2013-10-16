@@ -10,7 +10,6 @@ class PostsController < ApplicationController
     post = build_post
     if post.save
       current_project.touch
-      add_user_to_project
       project_changed = update_project_status
 
       respond_to_post(post, project_changed)
@@ -45,10 +44,6 @@ class PostsController < ApplicationController
     else
       redirect_to current_project
     end
-  end
-
-  def add_user_to_project
-    current_project.users << current_user unless current_project.users.include? current_user
   end
 
   def post_params

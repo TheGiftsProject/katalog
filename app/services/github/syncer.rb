@@ -10,14 +10,20 @@ class Github::Syncer
 
   def creation_sync
     sync
+  rescue
+    # do nothing.
   end
 
   def update_sync
     sync if should_update_sync?
+  rescue
+    # do nothing.
   end
 
   def destruction_sync
     github_grabber.unsubscribe_to_service_hook if should_sync?
+  rescue
+    # do nothing.
   end
 
   def sync

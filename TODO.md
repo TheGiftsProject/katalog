@@ -1,7 +1,3 @@
-BUGS:
- * Sometimes project duplicates are created. Also cannot destroy the duplicated.
- * Recents should be 2 weeks.
-
 GITHUB BUGS:
  * Last commit does not update a project (Github hooks problem?).
  * Updating repo doesn't update committers as contributors.
@@ -16,7 +12,6 @@ PROJECT PAGE:
  * Hey "X", what's up with project X? (if no update for a 2-weeks?).
  * Submit screenshot without having it to be in a post.
  * Add yourself as a user to a project manually ("I CONTRIBUTED TO THIS").
- * Don't add yourself as a contributor if you post.
  * Add "did you start working on it already?" after creating a project.
 
 POST:

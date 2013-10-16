@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
 
   enum :status, [:idea, :wip, :done, :dead]
 
-  scope :recent, -> { where(:updated_at => 1.week.ago..DateTime.now) }
+  scope :recent, -> { where(:updated_at => 2.week.ago..DateTime.now) }
   scope :latest_first, -> { order('updated_at DESC') }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
 

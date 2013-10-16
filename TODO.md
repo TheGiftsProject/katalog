@@ -1,3 +1,6 @@
+BUGS:
+ * Sometimes project duplicates are created. Also cannot destroy the duplicated.
+
 GITHUB BUGS:
  * Last commit does not update a project (Github hooks problem?).
  * Updating repo doesn't update committers as contributors.

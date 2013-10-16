@@ -7,7 +7,11 @@
       %i.icon-edit
       %span= t('pages.show.edit')
 
-    = link_to current_project, :method => :delete, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-small btn-danger' do
+    = link_to project_bump_path(current_project), :class => 'production-btn-fix btn btn-small btn-info' do
+      %i.icon-arrow-up
+      %span= t('pages.show.bump')
+
+    = link_to current_project, :method => :delete, :data => {:confirm => 'Are you sure?'}, :class => 'production-btn-fix btn btn-small btn-danger' do
       %i.icon-remove
       %span= t('pages.show.delete')
 

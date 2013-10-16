@@ -59,6 +59,11 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, notice: t('notices.destroyed')
   end
 
+  def bump
+    current_project.touch
+    redirect_to current_project, notice: t('notices.bumped')
+  end
+
   private
 
   def project_params

@@ -11,6 +11,7 @@ Katalog::Application.routes.draw do
       get :changelog
       get :todo
     end
+    get :bump
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do

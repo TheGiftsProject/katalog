@@ -48,6 +48,8 @@ en:
     show:
       back: 'All Projects'
       edit: 'Edit'
+      delete: 'Delete'
+      bump: 'Bump'
       urls:
         repo: 'Repo URL'
         demo: 'Demo URL'
@@ -75,6 +77,7 @@ en:
     new_tag: "new"
 
   notices:
+    bumped: "Your project will now appear under 'Recents'"
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'

@@ -1,5 +1,7 @@
-USERS:
+__PIPELINE:__
  * Autocomplete should find users as well.
+ * Don't show `I'm a contributor` if you already are.
+ * Add "did you start working on it already?" after creating a project.
 
 GITHUB BUGS:
  * Last commit does not update a project (Github hooks problem?).
@@ -13,7 +15,6 @@ PROJECT PAGE:
  * Add a nice page like UI for github pages (readme, todo ...). Currently their transition is too violent and the backround is wrong.
  * Don't show icons of TODO/Readme etc if not exist.
  * Hey "X", what's up with project X? (if no update for a 2-weeks?).
- * Add "did you start working on it already?" after creating a project.
 
 POST:
    * Default code format recognition in the server.

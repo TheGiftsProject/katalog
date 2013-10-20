@@ -14,7 +14,7 @@ projectFormValidation = ->
   checkIfCanSubmit()
 
   $('.project-form').on('submit', (e) ->
-    e.preventDefault() !checkIfCanSubmit()
+    e.preventDefault() if !checkIfCanSubmit()
   )
 
   ui.titleField.change(checkIfCanSubmit)

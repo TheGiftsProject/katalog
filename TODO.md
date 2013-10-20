@@ -13,9 +13,12 @@ PROJECT PAGE:
  * Allow to change status not only with post.
  * Allow to change image not only by post.
  * Add project name to title **Hubot @ Katalog**
- * Add a nice page like UI for github pages (readme, todo ...). Currently their transition is too violent and the backround is wrong.
- * Don't show icons of TODO/Readme etc if not exist.
  * Hey "X", what's up with project X? (if no update for a 2-weeks?).
+
+TODO/README/CHANGELOG PAGES:
+ * Don't show icons of TODO/Readme etc if not exist.
+ * Add a nice page like UI for github pages (readme, todo ...). Currently their transition is too violent and the backround is wrong.
+ * `Back` link should redirect to project page, not to `All projects`.
 
 POST:
    * Default code format recognition in the server.

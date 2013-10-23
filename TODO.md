@@ -1,8 +1,6 @@
 __PIPELINE:__
  * Fix long contributors list (limit to 3-4 and limit title).
  * Autocomplete should find users as well.
- * Don't show `I'm a contributor` if you already are.
- * Bump should redirect to Recents.
  * Add "did you start working on it already?" after creating a project.
 
 GITHUB BUGS:

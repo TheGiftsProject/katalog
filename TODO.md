@@ -15,6 +15,7 @@ PROJECT PAGE:
  * Allow to change image not only by post.
  * Add project name to title **Hubot @ Katalog**
  * Hey "X", what's up with project X? (if no update for a 2-weeks?).
+ * Display last commit update date on project page - if a page is bumped because of a commit I don't see it
 
 TODO/README/CHANGELOG PAGES:
  * Don't show icons of TODO/Readme etc if not exist.

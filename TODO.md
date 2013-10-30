@@ -1,3 +1,6 @@
+SUPER IMPORTANT P1 ISSUE:
+ * Users are being added through adam's github thingie which gives them access to view Katalog.
+
 __PIPELINE:__
  * Fix long contributors list (limit to 3-4 and limit title).
  * Autocomplete should find users as well.
@@ -25,3 +28,6 @@ POST:
    * Emoji autocomplete.
    * MD preview should be the same preview as the final result (maybe by server request?).
    * Edit post.
+   * 
+Nice To Have:
+  * Add a feedback tab that redirect people to - https://github.com/TheGiftsProject/katalog/edit/master/TODO.md

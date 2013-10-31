@@ -22,6 +22,7 @@ TODO/README/CHANGELOG PAGES:
  * Don't show icons of TODO/Readme etc if not exist.
  * Add a nice page like UI for github pages (readme, todo ...). Currently their transition is too violent and the backround is wrong.
  * `Back` link should redirect to project page, not to `All projects`.
+ * Link to github view
 
 POST:
    * Default code format recognition in the server.
@@ -31,3 +32,5 @@ POST:
    * 
 Nice To Have:
   * Add a feedback tab that redirect people to - https://github.com/TheGiftsProject/katalog/edit/master/TODO.md
+  * Add the image of the project to the table view
+

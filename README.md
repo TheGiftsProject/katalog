@@ -66,7 +66,7 @@ In order to test this feature you can do one of two things:
   your server, so this can be a bit tricky to test in development.
 
 ## Version
-0.1
+0.2
 
 
 ## License

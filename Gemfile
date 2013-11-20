@@ -21,6 +21,7 @@ gem 'redcarpet'
 gem 'rouge'
 gem 'md_emoji'
 gem 'paranoia'
+gem 'postmark-mitt', '0.0.8'
 
 gem 'hogan_assets'
 

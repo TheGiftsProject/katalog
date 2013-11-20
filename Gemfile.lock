@@ -127,6 +127,7 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    json_pure (1.8.1)
     jwt (0.1.8)
       multi_json (>= 1.5)
     listen (0.7.3)
@@ -169,6 +170,9 @@ GEM
       activerecord (~> 4.0)
     pg (0.16.0)
     polyglot (0.3.3)
+    postmark-mitt (0.0.8)
+      json_pure
+      multi_json
     powder (0.2.0)
       thor (>= 0.11.5)
     pry (0.9.12.2)
@@ -291,6 +295,7 @@ DEPENDENCIES
   omniauth-github
   paranoia
   pg
+  postmark-mitt (= 0.0.8)
   powder
   quiet_assets
   rails (= 4.0.0)

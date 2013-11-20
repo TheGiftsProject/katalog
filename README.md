@@ -62,7 +62,7 @@ In order to test this feature you can do one of two things:
 `
 * Setup an account on https://postmarkapp.com and configure the inbound hook URL 
   to http://serverhost/postmark. Note that postmarkapp.com will need access to
-  your server so, this can be a bit tricky to test in development.
+  your server, so this can be a bit tricky to test in development.
 
 ## Version
 0.1

@@ -6,13 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-tags = [
-    Tag.where(:name => 'Ruby').first_or_create,
-    Tag.where(:name => 'Rails').first_or_create,
-    Tag.where(:name => 'Bootstrap').first_or_create
-]
-
 users = [
     User.where(:uid => 'lighthawky@gmail.com', :email => 'lighthawky@gmail.com', :name => 'Yonatan Bergman', :nickname => 'yonbergman', :image => 'https://secure.gravatar.com/avatar/a9d448bfe50a5452f6f17362b1febc07?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png').first_or_create,
     User.where(:uid => 'shay.h.davidson@gmail.com', :email => 'shay.h.davidson@gmail.com', :name => 'Shay Davidson', :nickname => 'shaydavidson', :image => 'https://secure.gravatar.com/avatar/93bfc73f376fc86692cdf8bd084c29b7?s=60&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png').first_or_create
@@ -23,14 +16,5 @@ Project.where(:title => 'Katalog',
               :repo_url => 'https://github.com/TheGiftsProject/katalog'
               ).first_or_create(
               :status => :wip,
-              :users => users,
-              :tags => tags
+              :users => users
               )
-
-Project.where(
-              :title => 'Quad Copter',
-              :subtitle => 'A flying killing-machine',
-              ).first_or_create(
-                :tags => [
-                  Tag.where(:name => 'IOIO').first_or_create
-                ])

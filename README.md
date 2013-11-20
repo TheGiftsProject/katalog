@@ -39,13 +39,15 @@ __Look-and-feel__
 
 If you wish to edit the look-and-feel of Katalog, feel free to edit the images and `en.yml` files.
 
-## Post a project through email
+## Email Posting
 
 You can create a project from email if you configure an app in postmarkapp.com, 
-and map it's inbound web hook to http://host/postmark
+and map it's inbound web hook to `http://host/postmark`
 In order to test this feature you can do one of two things:
 * A curl POST command like the following:
-  `curl -X POST "127.0.0.1/postmark" \
+
+``` 
+  curl -X POST "127.0.0.1/postmark" \
   {
     "From" : "sender@example.com",
     "To" : "receiver@example.com",
@@ -58,10 +60,9 @@ In order to test this feature you can do one of two things:
     "ReplyTo" : "reply@example.com",
     "Headers" : [{ "Name" : "CUSTOM-HEADER", "Value" : "value" }]
   }
-  '
-`
-* Setup an account on https://postmarkapp.com and configure the inbound hook URL 
-  to http://serverhost/postmark. Note that postmarkapp.com will need access to
+```
+* Setup an account on `https://postmarkapp.com` and configure the inbound hook URL 
+  to `http://<HOST>/postmark`. Note that postmarkapp.com will need access to
   your server, so this can be a bit tricky to test in development.
 
 ## Version

@@ -1,9 +1,9 @@
 __CRUCIAL PIPELINE:__
- * All Projects -> Projects
  * Fix long contributors list (limit to 3-4 and limit title).
  * Allow to change status not only with post.
  * NEGGERS: Old ideas, random ideas, is project dead/sunset, did you start working on new ideas.
  * Add a feedback tab that redirect people to - https://github.com/TheGiftsProject/katalog/edit/master/TODO.md
+ * Likes.
 
 GITHUB BUGS:
  * Last commit does not update a project (Github hooks problem?).

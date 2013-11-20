@@ -7,7 +7,7 @@ en:
     header:
       search_placeholder: 'Search for Project'
       links:
-        projects: 'All Projects'
+        projects: 'Projects'
         zen: 'Moment of Zen'
         sign_in: 'Sign In'
         sign_out: 'Sign Out'
@@ -47,7 +47,7 @@ en:
         dead: 'KATAKOMB'
 
     show:
-      back: 'All Projects'
+      back: 'Projects'
       edit: 'Edit'
       delete: 'Delete'
       contribute: "I'm a contributor!"

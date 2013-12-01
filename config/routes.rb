@@ -26,6 +26,8 @@ Katalog::Application.routes.draw do
   get '/auth/failure', :to => 'session#failure'
   get '/auth/:provider', :to => 'session#nothing', :as => 'sign_in', :defaults => {:provider => :github}
 
+  post '/postmark', to: 'postmark#update'
+
   root :to => 'application#root'
 
   get 'zen', :to => 'static#zen'

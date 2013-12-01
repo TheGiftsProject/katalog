@@ -21,11 +21,12 @@ gem 'redcarpet'
 gem 'rouge'
 gem 'md_emoji'
 gem 'paranoia'
+gem 'postmark-mitt', '0.0.8'
 
 gem 'hogan_assets'
 
 # compass-rails is kinda dead and doesn't work on Rails4, use this until there's a proper fix.
-gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
+gem "compass-rails", "~> 2.0.alpha.0"
 
 # This seem to help keep compass-rails alive, see:
 # http://stackoverflow.com/questions/16877028/why-does-compass-watch-say-it-cannot-load-sass-script-node-loaderror

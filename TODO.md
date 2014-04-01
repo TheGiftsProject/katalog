@@ -4,6 +4,7 @@ __CRUCIAL PIPELINE:__
  * NEGGERS: Old ideas, random ideas, is project dead/sunset, did you start working on new ideas.
  * Add a feedback tab that redirect people to - https://github.com/TheGiftsProject/katalog/edit/master/TODO.md
  * Likes.
+ * Sort "my" projects by type (idea / WIP etc).
 
 GITHUB BUGS:
  * Last commit does not update a project (Github hooks problem?).

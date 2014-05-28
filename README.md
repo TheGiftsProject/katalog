@@ -3,7 +3,6 @@ __The place to share and work on ideas and side-projects__
 
 Katalog is a side-projects and ideas tracking web app. It allows your development team to suggest ideas for side-project, discuss about them, and kickstart them into live projects.
 
-
 ## Setup
 
 Katalog requires several environment variables to be set in order to work.
@@ -21,10 +20,8 @@ Set up a new Github application under your account and add these corresponding e
 
 __Github User Credentials__
 
-A single Katalog app only allows users of a certain Github organization to sign in. Katalog requires the credentials of a user with access to this organization:
+A single Katalog app only allows users of a certain Github organization to sign in, Katalog requires the name of that organization:
 
-* `GITHUB_USER` - The email of the Github user.
-* `GITHUB_USER_TOKEN` - The oauth token of the Github user.
 * `AUTHORIZED_GITHUB_ORGANIZATION` - The name of the authorized Github organization.
 
 __AWS Credentials__
@@ -39,12 +36,13 @@ __Look-and-feel__
 
 If you wish to edit the look-and-feel of Katalog, feel free to edit the images and `en.yml` files.
 
-## Email Posting
+## Post a project by e-mail
 
 You can create a project from email if you configure an app in postmarkapp.com, 
 and map it's inbound web hook to `http://host/postmark`
 In order to test this feature you can do one of two things:
-* A curl POST command like the following:
+
+* A curl POST command similar to this:
 
 ``` 
   curl -X POST "127.0.0.1/postmark" \
@@ -66,8 +64,7 @@ In order to test this feature you can do one of two things:
   your server, so this can be a bit tricky to test in development.
 
 ## Version
-0.2
-
+0.9
 
 ## License
 

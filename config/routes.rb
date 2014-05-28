@@ -1,16 +1,10 @@
 Katalog::Application.routes.draw do
 
+  root :to => 'application#root'
+
   resources :projects do
     resources :posts, :only => [:create, :destroy]
     resources :users, :only => [:destroy]
-    scope :controller => :github_hook do
-      post :post_receive_hook
-    end
-    scope :controller => :github_pages do
-      get :readme
-      get :changelog
-      get :todo
-    end
     get :bump
     get :contribute
   end
@@ -27,10 +21,8 @@ Katalog::Application.routes.draw do
   get '/auth/:provider', :to => 'session#nothing', :as => 'sign_in', :defaults => {:provider => :github}
 
   post '/postmark', to: 'postmark#update'
-
-  root :to => 'application#root'
-
   get 'zen', :to => 'static#zen'
+
   get '404', :to => 'static#not_found'
   get '401', :to => 'static#not_found'
   get '403', :to => 'static#forbidden'

@@ -1,8 +1,8 @@
 __CRUCIAL PIPELINE:__
- * Remove github stuff (readme/todo as well). Remove mail stuff. Migrate to bootstrap 3.0.
+ * Migrate to bootstrap 3.0.
  * Likes and arrange by likes/date.
  * Allow to submit without first post.
- * Allow to change status not only with post.
+ * Allow to change status not only with post (Remove status updates css). 
  * Add a feedback tab that redirect people to - https://github.com/TheGiftsProject/katalog/edit/master/TODO.md
  * Cogs (badges): Open source / Katalog / Completed / Viral / Tools / Languages (frameworks).
  * Mobile friendlier.

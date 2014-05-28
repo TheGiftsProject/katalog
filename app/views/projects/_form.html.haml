@@ -14,10 +14,6 @@
         = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
           = render 'components/post/post_fields', :f => post_form, :project => project
   .control-group
-    = f.label :repo_url, :class => 'control-label'
-    .controls.repo_search
-      = f.url_field :repo_url, :placeholder => t('pages.form.placeholders.repo_url'), :class => 'input-xlarge'
-  .control-group
     = f.label :demo_url, :class => 'control-label'
     .controls
       = f.url_field :demo_url, :placeholder => t('pages.form.placeholders.demo_url'), :class => 'input-xlarge'

@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-  include UserGithubConcern
-
   has_and_belongs_to_many :projects
   has_many :posts, :dependent => :destroy
 

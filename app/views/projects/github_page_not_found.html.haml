@@ -1,8 +1,0 @@
-.project-page
-  = link_to projects_path ,:class => 'back' do
-    %i.icon-chevron-left
-    %span= t('pages.show.back')
-
-  = render 'projects/show/page_header'
-
-  %h4.title= t('pages.github_page.not_found', :page_name => @github_page_title.upcase)

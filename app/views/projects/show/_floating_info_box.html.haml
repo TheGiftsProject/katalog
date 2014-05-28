@@ -12,9 +12,3 @@
           = link_to current_project.demo_url, :class => 'a-link' do
             %i.icon-desktop
               %span= t('pages.show.urls.demo')
-
-  - if current_project.has_a_repo?
-    %h4.github_pages_icons
-      = link_to '', project_readme_path(current_project), :class => 'a-link icon-book', :title => t('pages.show.urls.readme')
-      = link_to '', project_todo_path(current_project), :class => 'a-link icon-check', :title => t('pages.show.urls.todo')
-      = link_to '', project_changelog_path(current_project), :class => 'a-link icon-edit', :title => t('pages.show.urls.changelog')

@@ -1,9 +1,7 @@
-require 'github/repo_searcher'
-
 class AutocompleteController < ApplicationController
 
   before_filter :sign_in_required
-  before_action :load_query, :only => [:projects, :repositories]
+  before_action :load_query, :only => [:projects]
 
   def projects
     if @query.blank?
@@ -15,19 +13,10 @@ class AutocompleteController < ApplicationController
     end
   end
 
-  def repositories
-    repos = if params[:latest] then repo_searcher.latest else repo_searcher.search(@query) end
-    render :json => repos.to_json
-  end
-
   private
 
   def load_query
     @query = params[:q]
-  end
-
-  def repo_searcher
-    @repo_search ||= Github::RepoSearcher.new
   end
 
 end

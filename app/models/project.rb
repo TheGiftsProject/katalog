@@ -15,8 +15,6 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :subtitle, :title
 
-  include ProjectGithubConcern
-
   def to_param
     slug
   end
@@ -27,11 +25,6 @@ class Project < ActiveRecord::Base
 
   def less_than_week_old?
     self.created_at > 1.week.ago
-  end
-
-  def last_commit_date=(date)
-    date = date.to_datetime if date.is_a? String
-    self[:last_commit_date] = date
   end
 
   private

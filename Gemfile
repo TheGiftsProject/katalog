@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'sass-rails', '~> 4.0.0'
@@ -7,7 +7,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'slim'
 gem 'pg'
 gem 'textacular', '~> 3.0', require: 'textacular/rails'
 gem 'bootstrap-sass'
@@ -22,16 +21,8 @@ gem 'rouge'
 gem 'md_emoji'
 gem 'paranoia'
 gem 'postmark-mitt', '0.0.8'
-
 gem 'hogan_assets'
-
-# compass-rails is kinda dead and doesn't work on Rails4, use this until there's a proper fix.
-gem "compass-rails", "~> 2.0.alpha.0"
-
-# This seem to help keep compass-rails alive, see:
-# http://stackoverflow.com/questions/16877028/why-does-compass-watch-say-it-cannot-load-sass-script-node-loaderror
-gem 'sass', '3.3.0.alpha.149'
-
+gem "compass-rails", '~> 1.1.7'
 gem 'animation'
 gem 'font-awesome-rails'
 gem 'twitter-typeahead-rails'
@@ -41,7 +32,6 @@ group :production do
 end
 
 group :development, :test do
-  gem 'debugger'
   gem 'awesome_print'
 end
 

@@ -1,7 +1,12 @@
-.container{
-  background: rgba(white, 0.85);
-  padding: 10px;
-  margin: 10px auto;
-  @include border-radius(4px);
-  @include box-shadow(0 1px 4px rgba(0, 0, 0, 0.15));
+.container {
+
+  $border-radius: 20px;
+  $container-alpha: 0.75;
+  $margin-top: 5px;
+
+  & .full {
+    background: rgba(white, $container-alpha);
+  }
+
+  @include border-bottom-radius($border-radius);
 }

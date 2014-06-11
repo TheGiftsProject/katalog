@@ -9,4 +9,12 @@
 @import 'typeahead-bootstrap';
 @import "font-awesome";
 
-//= require bootstrap-typeahead.css
+// layout
+@import 'layout/base';
+@import 'layout/header';
+@import 'layout/background';
+@import 'layout/container';
+@import 'layout/flash';
+
+// pages
+@import 'pages/root';

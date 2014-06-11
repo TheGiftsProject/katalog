@@ -4,16 +4,17 @@
     %meta{:charset => 'utf-8'}
     %title= t('site.title')
     %meta{:name => 'description', :content => t('site.description')}
-    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1'}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, user-scalable=no'}
     %link{:href => '/favicon.ico', :rel => 'shortcut icon'}
     = csrf_meta_tags
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, :media => 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
   %body
     = render 'layouts/components/background'
-    .container
-      = render 'layouts/components/header'
-      = render 'layouts/components/messages'
+    .container{:class => container_class }
+      - unless headless_page?
+        = render 'layouts/components/header'
+        = render 'layouts/components/messages'
       = yield
     - yield :bottom_javascripts
     = configure_s3_storage

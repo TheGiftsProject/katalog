@@ -1,7 +1,7 @@
 en:
   site:
     title: 'Katalog'
-    description: 'THE place to manage your ideas and side projects'
+    description: 'The place to manage your passion projects'
 
   layout:
     header:
@@ -14,7 +14,7 @@ en:
   pages:
     root:
       title: 'Katalog'
-      text: 'THE place to share and work on ideas and side-projects'
+      text: 'The place to manage your passion projects'
       sign_in: 'Sign in with GitHub'
 
     new:

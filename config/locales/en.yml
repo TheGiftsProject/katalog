@@ -15,7 +15,7 @@ en:
     root:
       title: 'Katalog'
       text: 'The place to manage your passion projects'
-      sign_in: 'Sign in with GitHub'
+      sign_in: 'Sign in with'
 
     new:
       title: 'New Project'

@@ -1,8 +1,11 @@
 .root.text-center
-  %h1.uppercase= t('pages.root.title')
-  %p= t('pages.root.text')
-  %p
-    = link_to sign_in_path, :class => 'btn btn-lg' do
-      %i.icon-github
-      %span= t('pages.root.sign_in')
+  .row
+    %h1.uppercase= t('pages.root.title')
+  .row
+    %p= t('pages.root.text')
+  .row
+    = link_to sign_in_path do
+      %button{:class => 'btn btn-default'}
+        %span= t('pages.root.sign_in')
+        %i.fa.fa-github-alt
   = image_tag('logo/logo-big.png', :class => 'animated-big-logo')

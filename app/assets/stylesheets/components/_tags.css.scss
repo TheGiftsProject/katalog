@@ -9,10 +9,10 @@
 }
 
 .tag{
-  @extend .label;
+//  @extend .label;
   vertical-align: middle;
 
   &.new {
-    @extend .label-important;
+//    @extend .label-important;
   }
 }

@@ -4,7 +4,7 @@
 }
 
 header .tt-hint{
-    @extend .search-query;
+    /*@extend .search-query;*/
 }
 
 .tt-dropdown-menu {

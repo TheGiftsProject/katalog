@@ -1,23 +1,23 @@
 = form_for project , :html => {:class => 'project-form form-horizontal'} do |f|
-  .control-group
+  .form-group
     = f.label :title, :class => 'control-label'
     .controls
       = f.text_field :title, :placeholder => t('pages.form.placeholders.title'), :class => 'input-xlarge'
-  .control-group
+  .form-group
     = f.label :subtitle, :class => 'control-label'
     .controls
       = f.text_field :subtitle, :placeholder => t('pages.form.placeholders.subtitle'), :class => 'input-xlarge'
   - if project.new_record?
-    .control-group
+    .form-group
       = f.label :posts, t('pages.form.initial_post'), :class => 'control-label'
       .controls
         = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
           = render 'components/post/post_fields', :f => post_form, :project => project
-  .control-group
+  .form-group
     = f.label :demo_url, :class => 'control-label'
     .controls
       = f.url_field :demo_url, :placeholder => t('pages.form.placeholders.demo_url'), :class => 'input-xlarge'
 
-  .control-group
+  .form-group
     .controls
       = f.submit :class => 'btn btn-primary', :id => 'project-submit-button'

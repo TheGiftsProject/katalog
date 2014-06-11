@@ -1,8 +1,8 @@
 .centered-container
-  %h1.grand-title= t('pages.root.title')
+  %h1= t('pages.root.title')
   %p= t('pages.root.text')
   %p
-    = link_to sign_in_path, :class => 'btn btn-large' do
+    = link_to sign_in_path, :class => 'btn btn-lg' do
       %i.icon-github
       %span= t('pages.root.sign_in')
   = image_tag('logo/logo-big.png', :class => 'logo')

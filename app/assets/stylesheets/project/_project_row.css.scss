@@ -14,7 +14,7 @@
   }
 
   a{
-    color: $textColor;
+    color: black;
     text-decoration: none;
   }
 
@@ -31,7 +31,7 @@
   .subtitle{
     font-size: 16px;
     line-height: normal;
-    color: $grayLight;
+    color: #d3d3d3;
     clear: both;
   }
 
@@ -40,7 +40,7 @@
     bottom: 7px;
     right: 17px;
     font-size: 11px;
-    color: $gray;
+    color: gray;
   }
 
   .avatar{

@@ -21,7 +21,6 @@ Katalog::Application.routes.draw do
   get '/auth/:provider', :to => 'session#nothing', :as => 'sign_in', :defaults => {:provider => :github}
 
   post '/postmark', to: 'postmark#update'
-  get 'zen', :to => 'static#zen'
 
   get '404', :to => 'static#not_found'
   get '401', :to => 'static#not_found'

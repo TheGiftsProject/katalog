@@ -10,11 +10,10 @@
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, :media => 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
   %body
-    = render 'layouts/background'
-    - if blank_page?
-      = render 'layouts/blank_page'
-    - else
-      = render 'layouts/page'
+    = render 'layouts/components/background'
+    .container
+      = render 'layouts/components/header'
+      = render 'layouts/components/messages'
+      = yield
     - yield :bottom_javascripts
-
     = configure_s3_storage

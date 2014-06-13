@@ -1,0 +1,56 @@
+.btn-gray {
+  background-color: $lighter-gray;
+  color: $gray;
+
+  &:hover {
+    background-color: $light-gray;
+    color: $gray;
+  }
+}
+
+
+.btn-red {
+  background-color: $red;
+  color: $white;
+
+  &:hover {
+    background-color: $dark-red;
+    color: $white;
+  }
+}
+
+.btn-blue {
+  background-color: $blue;
+  color: $white;
+
+  &:hover {
+    background-color: $dark-blue;
+    color: $white;
+  }
+}
+
+.btn-yellow {
+  background-color: $yellow;
+  color: $gray;
+
+  &:hover {
+    background-color: $dark-yellow;
+    color: $gray;
+  }
+}
+
+.btn-green {
+  background-color: $green;
+  color: $gray;
+
+  &:hover {
+    background-color: $dark-green;
+    color: $gray;
+  }
+}
+
+.btn {
+  border: none;
+  font-weight: 100;
+  @include box-shadow(1px 1px $gray);
+}

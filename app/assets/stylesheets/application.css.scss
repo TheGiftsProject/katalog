@@ -10,13 +10,14 @@
 @import 'font-awesome';
 
 // layout
-@import 'layout/base';
+@import 'layout/colors';
+@import 'layout/extensions';
 @import 'layout/header';
 @import 'layout/background';
 @import 'layout/container';
 @import 'layout/flash';
 @import 'layout/fonts';
-@import 'layout/overrides';
+@import 'layout/buttons';
 
 // pages
 @import 'pages/root';

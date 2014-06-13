@@ -10,7 +10,7 @@
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, :media => 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
   %body
-    = render 'layouts/components/background'
+    .background
     .container{:class => container_class }
       - unless headless_page?
         = render 'layouts/components/header'

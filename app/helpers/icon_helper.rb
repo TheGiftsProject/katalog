@@ -9,8 +9,7 @@ module IconHelper
     {
       :idea => 'icon-lightbulb',
       :wip  => 'icon-cogs',
-      :done => 'icon-check-sign', #icon-sun ,
-      :dead => 'icon-trash',
+      :done => 'icon-check-sign'
     }[status]
   end
 end

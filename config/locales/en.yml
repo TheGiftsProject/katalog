@@ -40,10 +40,9 @@ en:
         all: 'ALL PROJECTS'
         mine: 'MY PROJECTS'
         recent: "RECENT"
-        idea: "IDEA"
-        wip: "WIP"
-        done: 'SUNSET'
-        dead: 'KATAKOMB'
+        idea: 'IDEA'
+        wip: 'WIP'
+        done: 'DONE'
 
     show:
       back: 'Projects'

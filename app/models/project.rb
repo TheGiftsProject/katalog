@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :posts
 
-  enum :status, [:idea, :wip, :done, :dead]
+  enum :status, [:idea, :wip, :done]
 
   scope :recent, -> { where(:updated_at => 2.week.ago..DateTime.now) }
   scope :latest_first, -> { order('updated_at DESC') }

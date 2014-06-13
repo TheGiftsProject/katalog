@@ -2,15 +2,31 @@
   padding: 15% 0;
 
   .animated-big-logo {
-    margin-top: 15px;
+    margin: 30px 0;
     position: relative;
     @include animation(balloon 2s ease-in-out alternate infinite);
+  }
+
+  h1 {
+    font-size: 60px;
+    margin-bottom: 0;
+    line-height: 40px;
+    color: #32a3e0;
+    text-shadow: 1px 1px white;
+  }
+
+  p {
+    color: #443f38;
+  }
+
+  button {
+    width: 244px;
   }
 
 }
 
 @include keyframes(balloon) {
-   $delta: 50px;
+   $delta: 20px;
      0% { top: 0 }
    100% { top: $delta; }
 }

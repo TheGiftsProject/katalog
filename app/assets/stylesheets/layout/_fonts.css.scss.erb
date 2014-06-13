@@ -1,0 +1,16 @@
+@import "compass/css3/font-face";
+
+$normal-weight: 100;
+$medium-weight: 200;
+$bold-weight:   300;
+
+$basic-font-family: KlavikaBasic;
+
+@include font-face($basic-font-family, inline-font-files('KlavikaWebBasicRegular.woff', woff), false, $normal-weight);
+@include font-face($basic-font-family, inline-font-files('KlavikaWebBasicMedium.woff', woff), false, $medium-weight);
+@include font-face($basic-font-family, inline-font-files('KlavikaWebBasicBold.woff', woff), false, $bold-weight);
+
+body {
+    font-family: $basic-font-family, Arial, sans-serif;
+    font-weight: 100;
+}

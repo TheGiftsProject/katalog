@@ -1,4 +1,5 @@
 .root.text-center
+  = image_tag('logo/logo-big.png', :class => 'animated-big-logo')
   .row
     %h1.uppercase= t('pages.root.title')
   .row
@@ -8,4 +9,3 @@
       %button{:class => 'btn btn-default'}
         %span= t('pages.root.sign_in')
         %i.fa.fa-github-alt
-  = image_tag('logo/logo-big.png', :class => 'animated-big-logo')

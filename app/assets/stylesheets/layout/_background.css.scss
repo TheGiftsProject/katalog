@@ -23,6 +23,7 @@
   }
 
   .background-image {
+
     position: absolute;
     top: 0;
     left: 0;
@@ -34,3 +35,18 @@
     z-index:1;
   }
 }
+//
+//.home-bg-img{
+//  @include background-image(image-url('bg.png'));
+//  background-repeat: no-repeat;
+//
+//  position: fixed;
+//  z-index: -1;
+//  top: 0;
+//  left: 0;
+//  height: 100%;
+//  width: 100%;
+//  overflow: hidden;
+//  background-size: cover;
+//  background-position: center;
+//}

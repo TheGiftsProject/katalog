@@ -1,14 +1,16 @@
-%nav.navbar.navbar-default
+%nav.navbar.navbar-default{:role => 'navigation'}
   .navbar-header
     = link_to projects_path do
       .navbar-brand.uppercase
         %span
           = image_tag('logo/logo-small.png', :class => 'logo')
         = t('site.title')
-  -#.navbar-inner
-  -#
-  -#  %form.navbar-search
-  -#    = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'input-long search-query', :autocomplete => :off
+
+  .collapse.navbar-collapse
+    %form.navbar-form.navbar-left{:role => 'search'}
+      .form-group
+        = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
+
   -#  %ul.user-dashboard.nav.pull-right
   -#    - if user_signed_in?
   -#      %li.dropdown

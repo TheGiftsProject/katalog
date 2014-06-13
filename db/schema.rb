@@ -16,17 +16,6 @@ ActiveRecord::Schema.define(version: 20140613074921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "badges", force: true do |t|
-    t.string "name"
-    t.string "icon"
-  end
-
-  create_table "badges_users", force: true do |t|
-    t.integer "badge_id"
-    t.integer "user_id"
-    t.integer "count",    default: 0
-  end
-
   create_table "likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "project_id"

@@ -15,6 +15,7 @@ gem 'controller_support'
 gem 'haml'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'octokit' # Simple Ruby wrapper for the GitHub API
 gem 'redcarpet'
 gem 'rouge'
 gem 'md_emoji'

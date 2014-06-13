@@ -1,12 +1,16 @@
 .container {
 
-  $border-radius: 20px;
-  $container-alpha: 0.75;
+  $container-alpha: 0.65;
   $margin-top: 5px;
 
-  & .full {
+  &.full {
     background: rgba(white, $container-alpha);
   }
 
-  @include border-bottom-radius($border-radius);
+  @include border-bottom-radius($container-border-radius);
+
+  @media screen and (max-width: 480px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

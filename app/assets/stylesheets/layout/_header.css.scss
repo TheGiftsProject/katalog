@@ -1,28 +1,36 @@
-header{
+nav.navbar {
+  @include border-top-radius(0px);
+  @include border-bottom-radius($container-border-radius);
+  border: none;
+
   .logo {
-    float: left;
-    width: 15px;
-    padding: 10px 6px 10px;
+    width: 13px;
+    margin-top: -4px;
+    margin-right: 2px;
   }
 
-  .avatar-in-header-wrapper {
-    //display: inline !important;
-    //vertical-align: middle !important;
+  .navbar-brand {
+    font-size: 20px;
   }
-
-  .avatar{
-    height: 16px;
-    width: 16px;
-  }
-
-  .navbar-inner {
-    padding-right: 0;
-    padding-left: 0;
-
-    .navbar-search {
-      .input-long {
-        line-height: 15px;
-      }
-    }
-  }
+//
+//  .avatar-in-header-wrapper {
+//    //display: inline !important;
+//    //vertical-align: middle !important;
+//  }
+//
+//  .avatar{
+//    height: 16px;
+//    width: 16px;
+//  }
+//
+//  .navbar-inner {
+//    padding-right: 0;
+//    padding-left: 0;
+//
+//    .navbar-search {
+//      .input-long {
+//        line-height: 15px;
+//      }
+//    }
+//  }
 }

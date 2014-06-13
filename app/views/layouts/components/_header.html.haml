@@ -1,23 +1,27 @@
-%header.navbar
-  .navbar-inner
+%nav.navbar.navbar-default
+  .navbar-header
     = link_to projects_path do
-      = image_tag('logo/logo-small.png', :class => 'logo')
-      .brand= t('site.title')
-    %form.navbar-search
-      = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'input-long search-query', :autocomplete => :off
-    %ul.user-dashboard.nav.pull-right
-      - if user_signed_in?
-        %li.dropdown
-          %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
-            - if current_user.image.present?
-              = render 'users/avatar_img', :user => current_user
-            %strong= current_user.nickname
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              = link_to t('layout.header.links.projects'), projects_path
-            %li
-              = link_to t('layout.header.links.sign_out'), sign_out_path
-      - else
-        %li
-          = link_to t('layout.header.links.sign_in'), sign_in_path
+      .navbar-brand.uppercase
+        %span
+          = image_tag('logo/logo-small.png', :class => 'logo')
+        = t('site.title')
+  -#.navbar-inner
+  -#
+  -#  %form.navbar-search
+  -#    = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'input-long search-query', :autocomplete => :off
+  -#  %ul.user-dashboard.nav.pull-right
+  -#    - if user_signed_in?
+  -#      %li.dropdown
+  -#        %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
+  -#          - if current_user.image.present?
+  -#            = render 'users/avatar_img', :user => current_user
+  -#          %strong= current_user.nickname
+  -#          %b.caret
+  -#        %ul.dropdown-menu
+  -#          %li
+  -#            = link_to t('layout.header.links.projects'), projects_path
+  -#          %li
+  -#            = link_to t('layout.header.links.sign_out'), sign_out_path
+  -#    - else
+  -#      %li
+  -#        = link_to t('layout.header.links.sign_in'), sign_in_path

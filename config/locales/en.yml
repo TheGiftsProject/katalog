@@ -6,10 +6,7 @@ en:
   layout:
     header:
       search_placeholder: 'Search for Project'
-      links:
-        projects: 'Projects'
-        sign_in: 'Sign In'
-        sign_out: 'Sign Out'
+      sign_out: 'Sign Out'
 
   pages:
     root:

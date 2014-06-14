@@ -14,3 +14,13 @@
     padding-right: 0;
   }
 }
+
+.dropdown-menu {
+  border: none;
+
+  li {
+    a {
+      font-weight: 100;
+    }
+  }
+}

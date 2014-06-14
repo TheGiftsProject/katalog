@@ -14,10 +14,13 @@
 @import 'layout/extensions';
 @import 'layout/header';
 @import 'layout/background';
-@import 'layout/container';
+@import 'layout/overrides';
 @import 'layout/flash';
 @import 'layout/fonts';
 @import 'layout/buttons';
+
+// components
+@import 'components/avatars';
 
 // pages
 @import 'pages/root';

@@ -15,11 +15,11 @@
 
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
-        %a{:href => '#', :class => 'dropdown-toggle', :data => {:toggle => 'dropdown'}}
-          %b.caret
+        %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
+          %span.caret
           = current_user.nickname
           =render 'users/avatar_img', :user => current_user, :type => 'tiny'
-          %ul.dropdown-menu
+          %ul.dropdown-menu{:style => 'min-width: 100%;'}
             %li
               %a{:href => sign_out_path}
                 %i.fa.fa-sign-out

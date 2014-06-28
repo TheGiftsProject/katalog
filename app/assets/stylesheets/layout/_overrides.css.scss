@@ -19,6 +19,11 @@
   border: none;
 
   li {
+
+    .dropdown-toggle {
+      display: none;
+    }
+
     a {
       font-weight: 100;
     }

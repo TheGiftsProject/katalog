@@ -1,23 +1,23 @@
--#%ul.nav.nav-pills
--#  - all_filters.each do |filter|
--#    %li.filter{ active_class_if_current(filter) }
--#      = link_to t(filter, :scope => 'pages.index.filters'), projects_path(:filter => filter)
--#  %li.pull-right
--#    = link_to new_project_path, :class => ['btn', 'btn-mini'] do
--#      %i.icon-plus-sign
--#      %span= t('pages.index.new')
--#
--#.projects
--#  - if @viewing_projects_of
--#    .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
--#      %i.icon-download-alt
--#      %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)
--#  - if @projects.empty?
--#    .well
--#      %h1.text-center.text-info
--#        %i.icon-list-ul
--#        = t('pages.index.no_projects')
--#  - else
--#    .well.paddingless
--#      - @projects.each do |project|
--#        = render 'projects/project_row', :project => project
+%ul.nav.nav-pills
+  - all_filters.each do |filter|
+    %li.filter{ active_class_if_current(filter) }
+      = link_to t(filter, :scope => 'pages.index.filters'), projects_path(:filter => filter)
+  %li.pull-right
+    = link_to new_project_path, :class => ['btn', 'btn-mini'] do
+      %i.icon-plus-sign
+      %span= t('pages.index.new')
+
+.projects
+  - if @viewing_projects_of
+    .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
+      %i.icon-download-alt
+      %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)
+  - if @projects.empty?
+    .well
+      %h1.text-center.text-info
+        %i.icon-list-ul
+        = t('pages.index.no_projects')
+  - else
+    .well.paddingless
+      - @projects.each do |project|
+        = render 'projects/project_row', :project => project

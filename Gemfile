@@ -15,11 +15,10 @@ gem 'controller_support'
 gem 'haml'
 gem 'omniauth'
 gem 'omniauth-github'
-gem 'octokit' # Simple Ruby wrapper for the GitHub API
+gem 'octokit'
 gem 'redcarpet'
 gem 'rouge'
 gem 'md_emoji'
-gem 'paranoia'
 gem 'hogan_assets'
 gem "compass-rails", '~> 1.1.7'
 gem 'animation'
@@ -36,5 +35,4 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'powder'
-  gem 'quiet_assets'
 end

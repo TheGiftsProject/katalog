@@ -1,7 +1,12 @@
 nav.navbar {
   @include border-top-radius(0px);
-  @include border-bottom-radius($container-border-radius);
   border: none;
+
+  @media screen and (max-width: 480px) {
+    @include border-bottom-radius(0);
+  }
+
+  @include border-bottom-radius($container-border-radius);
 
   .logo {
     width: 13px;

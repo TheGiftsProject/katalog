@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613074921) do
+ActiveRecord::Schema.define(version: 20140628140218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "badges", force: true do |t|
+    t.string "name"
+    t.string "icon"
+  end
+
+  create_table "badges_users", force: true do |t|
+    t.integer "badge_id"
+    t.integer "user_id"
+    t.integer "count",    default: 0
+  end
 
   create_table "likes", force: true do |t|
     t.integer  "user_id"
@@ -30,7 +41,6 @@ ActiveRecord::Schema.define(version: 20140613074921) do
     t.boolean  "updated",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "deleted_at"
   end
 
   create_table "projects", force: true do |t|

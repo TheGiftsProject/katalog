@@ -34,8 +34,8 @@ en:
       viewing_projects_of: 'Projects by %{user_name}:'
       new: 'Add'
       filters:
-        all: 'ALL PROJECTS'
-        mine: 'MY PROJECTS'
+        all: 'ALL'
+        mine: 'MINE'
         recent: "RECENT"
         idea: 'IDEA'
         wip: 'WIP'

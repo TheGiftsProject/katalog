@@ -32,12 +32,11 @@ en:
 
     index:
       viewing_projects_of: 'Projects by %{user_name}:'
-      new: 'Add'
+      new: 'ADD'
       filters:
         all: 'ALL'
         mine: 'MINE'
-        recent: "RECENT"
-        idea: 'IDEA'
+        idea: 'IDEAS'
         wip: 'WIP'
         done: 'DONE'
 
@@ -68,7 +67,7 @@ en:
     new_tag: "new"
 
   notices:
-    bumped: "Your project will now appear under 'Recents'"
+    bumped: "Your project was bumped up"
     contribute: "You were added to the Project's contributors"
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'

@@ -1,23 +1,23 @@
 %ul.nav.nav-pills
-  - all_filters.each do |filter|
-    %li.filter{ active_class_if_current(filter) }
-      = link_to t(filter, :scope => 'pages.index.filters'), projects_path(:filter => filter)
+  = render 'projects/index/pill', :filter => :all,  :icon => 'fa-list'
+  = render 'projects/index/pill', :filter => :mine, :icon => 'fa-hand-o-right'
+  = render 'projects/index/pill', :filter => :idea, :icon => 'fa-lightbulb-o'
+  = render 'projects/index/pill', :filter => :wip,  :icon => 'fa-cog'
+  = render 'projects/index/pill', :filter => :done, :icon => 'fa-check'
   %li.pull-right
     = link_to new_project_path, :class => ['btn', 'btn-mini'] do
-      %i.icon-plus-sign
-      %span= t('pages.index.new')
-
-.projects
-  - if @viewing_projects_of
-    .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
-      %i.icon-download-alt
-      %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)
-  - if @projects.empty?
-    .well
-      %h1.text-center.text-info
-        %i.icon-list-ul
-        = t('pages.index.no_projects')
-  - else
-    .well.paddingless
-      - @projects.each do |project|
-        = render 'projects/project_row', :project => project
+      %i.fa.fa-plus-square
+      %span.hidden-xs= t('pages.index.new')
+-#
+-#- if @viewing_projects_of
+-#  .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
+-#    %i.icon-download-alt
+-#    %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)
+-#- if @projects.empty?
+-#  %h1.text-center.text-info
+-#    %i.icon-list-ul
+-#    = t('pages.index.no_projects')
+-#- else
+-#  .paddingless
+-#    - @projects.each do |project|
+-#      = render 'projects/project_row', :project => project

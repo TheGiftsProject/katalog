@@ -1,5 +1,5 @@
 .background {
-  @include background-image(image-url('/backgrounds/landing.jpg'));
+  @include background-image(image-url('background.jpg'));
   background-repeat: no-repeat;
 
   position: fixed;

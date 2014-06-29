@@ -2,7 +2,6 @@ module ProjectSupport
 
   extend ControllerSupport::Base
   include ErrorSupport
-  include BackgroundSupport
 
   helper_method :current_project
 

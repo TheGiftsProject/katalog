@@ -1,7 +1,7 @@
 __CRUCIAL PIPELINE:__
  * Ideated by.
+ * Quicky ideas.
  * Likes and arrange by likes/date/type.
- * Consider removing backgrounds besides landing.
  * Allow to submit without first post.
  * Allow to change status not only with post (Remove status updates css). 
  * Allow to change image not only by post.

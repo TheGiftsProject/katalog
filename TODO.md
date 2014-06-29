@@ -9,7 +9,7 @@ __CRUCIAL PIPELINE:__
  * Autocomplete should find users as well.
  * Add the image of the project to the table view.
  * Sweep code and remove old.
- * Add specs ot controllers / models.
+ * Add specs to controllers / models.
  * Edit post.
 
 __FUN TO DO:__

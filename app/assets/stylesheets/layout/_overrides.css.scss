@@ -30,5 +30,14 @@
 }
 
 .navbar {
-  margin-bottom: 10px;
+  margin-bottom: $pills-padding;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: $blue;
+  color: $white;
+}
+
+.nav-pills > li > a, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
+  color: $gray;
 }

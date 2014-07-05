@@ -76,6 +76,7 @@ class ProjectsController < ApplicationController
     project = current_user.projects.build(project_params)
     project.posts.first.user = current_user
     project.users = [current_user]
+    project.ideator = current_user
     project
   end
 
@@ -83,7 +84,7 @@ class ProjectsController < ApplicationController
     @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
     case (@filter)
       when :all then
-        @projects = Project.not_done.latest_first
+        @projects = Project.latest_first
       when :mine then
         @projects = current_user.projects.latest_first
       when :user then

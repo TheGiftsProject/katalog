@@ -15,6 +15,6 @@ Project.where(:title => 'Katalog',
               :subtitle => 'A place where you can write and talk about ideas and side-projects',
               :repo_url => 'https://github.com/TheGiftsProject/katalog'
               ).first_or_create(
-              :status => :wip,
+              :status => :lifted,
               :users => users
               )

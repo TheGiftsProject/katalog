@@ -2,13 +2,14 @@ class Project < ActiveRecord::Base
 
   DEFAULT_IMAGE = 'http://placehold.it/200x150'
 
+  has_one :ideator, :class_name => 'User'
   has_and_belongs_to_many :users
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
 
   accepts_nested_attributes_for :posts
 
-  enum :status, [:idea, :wip, :done]
+  enum :status, [:idea, :lifted]
 
   scope :latest_first, -> { order('updated_at DESC') }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}

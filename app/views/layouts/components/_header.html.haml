@@ -13,6 +13,12 @@
           .form-group
             = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
 
+    %ul.nav.navbar-nav
+      = render 'projects/index/pill', :filter => :all,    :icon => 'fa-list'
+      = render 'projects/index/pill', :filter => :mine,   :icon => 'fa-child'
+      = render 'projects/index/pill', :filter => :idea,   :icon => 'fa-lightbulb-o'
+      = render 'projects/index/pill', :filter => :lifted, :icon => 'fa-paper-plane'
+
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}

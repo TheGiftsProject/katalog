@@ -1,16 +1,12 @@
-%ul.nav.nav-pills.projects-pills
-  = render 'projects/index/pill', :filter => :all,  :icon => 'fa-list'
-  = render 'projects/index/pill', :filter => :mine, :icon => 'fa-child'
-  = render 'projects/index/pill', :filter => :idea, :icon => 'fa-lightbulb-o'
-  = render 'projects/index/pill', :filter => :wip,  :icon => 'fa-cog'
-  = render 'projects/index/pill', :filter => :done, :icon => 'fa-check'
-
-  %li.pull-right
-    = link_to new_project_path, :class => ['btn', 'btn-mini', 'btn-green'] do
-      %i.fa.fa-plus-square
-      %span.hidden-xs= t('pages.index.new')
+-#%ul.nav.nav-pills.projects-pills
+-#  %li.pull-right
+-#    = link_to new_project_path, :class => ['btn', 'btn-mini', 'btn-green'] do
+-#      %i.fa.fa-plus-square
+-#      %span.hidden-xs= t('pages.index.new')
 
 .panel
+  %form.form-inline{:role => 'form'}
+
 -#
 -#- if @viewing_projects_of
 -#  .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}

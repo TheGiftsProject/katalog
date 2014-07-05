@@ -37,8 +37,7 @@ en:
         all: 'ALL'
         mine: 'MINE'
         idea: 'IDEAS'
-        wip: 'WIP'
-        done: 'DONE'
+        lifted: 'LIFTED'
 
     show:
       back: 'Projects'

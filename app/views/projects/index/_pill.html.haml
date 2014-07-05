@@ -1,4 +1,4 @@
 %li{ active_class_if_current(filter) }
   = link_to projects_path(:filter => filter) do
     %i.fa{:class => icon}
-    %span.hidden-sm= t(filter, :scope => 'pages.index.filters')
+    %span.hidden-xs= t(filter, :scope => 'pages.index.filters')

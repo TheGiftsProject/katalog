@@ -26,7 +26,7 @@
                 %i.fa.fa-sign-out
                 %span= t('layout.header.sign_out')
 
-  .navbar-header.pull-right.no-collapse
+  .navbar-header.pull-right.no-collapse.nav-pills
     %ul.nav.navbar-nav
       = render 'projects/index/pill', :filter => :all,    :icon => 'fa-list'
       = render 'projects/index/pill', :filter => :mine,   :icon => 'fa-child'

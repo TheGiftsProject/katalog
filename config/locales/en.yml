@@ -16,7 +16,7 @@ en:
 
     index:
       create:
-        title_placeholder: 'Quick idea'
+        title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
       viewing_projects_of: 'Projects by %{user_name}:'
       new: 'ADD'

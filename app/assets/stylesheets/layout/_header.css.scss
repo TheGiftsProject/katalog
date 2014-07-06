@@ -4,11 +4,17 @@ nav.navbar {
 
   @media screen and (max-width: 480px) {
     @include border-bottom-radius(0);
+    margin-bottom: 0;
   }
 
   @include border-bottom-radius($container-border-radius);
 
   .logo {
+
+    @media screen and (max-width: 480px) {
+      width: 23px;
+    }
+
     margin-top: -4px;
     margin-right: 2px;
     @include filter(drop-shadow(0 1px rgba($gray, 0.5)))
@@ -18,9 +24,19 @@ nav.navbar {
     color: $blue;
     text-shadow: 0 1px rgba($darker-blue, 0.2);
     font-size: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 
   .search-query {
     width: 185px;
+  }
+
+  .nav-pills {
+    padding-right: 10px;
+
+    @media screen and (max-width: 480px) {
+      padding-right: 0;
+    }
   }
 }

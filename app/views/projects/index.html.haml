@@ -1,13 +1,4 @@
-
-= form_for Project.new, :html => {:role => 'form', :class => 'quick-creation-form'} do |f|
-  .input-group
-    .input-group-addon.mobile-unborder
-      %i.fa.fa-lightbulb-o
-    = f.text_field :title, :class => 'form-control', :placeholder => t('pages.index.create.title_placeholder'),    :style => 'width:50%'
-    = f.text_field :subtitle, :class => 'form-control', :placeholder => t('pages.index.create.subtitle_placeholder'), :style => 'margin-left: -1px; width:50%'
-    .input-group-btn
-      %button.btn.btn-green.mobile-unborder{:type => 'submit'}
-        %i.fa.fa-plus{:style => 'vertical-align:middle'}
+= render 'projects/index/quick_create'
 
 .panel
 

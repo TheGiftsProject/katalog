@@ -49,3 +49,9 @@
     border-radius: 0;
   }
 }
+
+.panel {
+  @media screen and (max-width: 480px) {
+    background-color: rgba($white, 0.5);
+  }
+}

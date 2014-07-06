@@ -11,9 +11,9 @@
 .well.hidden-xs
   = form_for Project.new, :html => {:role => 'form', :class => 'quick-creation-form'} do |f|
     .form-group
-      = f.label :title, :class => 'hidden-xs' do
+      = f.label :title, :class => 'hidden-xs uppercase' do
         %i.fa.fa-lightbulb-o
-        %span= 'Quick idea'
+        %span= t('pages.index.create.title')
       = f.text_field :title, :class => 'form-control', :placeholder => t('pages.index.create.title_placeholder')
       .input-group{:style => 'margin-top: 6px;'}
         = f.text_field :subtitle, :class => 'form-control', :placeholder => t('pages.index.create.subtitle_placeholder')

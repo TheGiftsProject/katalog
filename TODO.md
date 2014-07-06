@@ -1,4 +1,5 @@
 __CRUCIAL PIPELINE:__
+ * Organize CSS.
  * Add search icon to search field.
  * Ideated by.
  * Likes and arrange by likes/date/type.

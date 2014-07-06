@@ -1,3 +1,6 @@
+// overrides
+@import 'layout/variables';
+
 // frameworks
 @import 'compass';
 @import 'animation';
@@ -10,7 +13,6 @@
 @import 'font-awesome';
 
 // layout
-@import 'layout/variables';
 @import 'layout/extensions';
 @import 'layout/header';
 @import 'layout/background';

@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   after_filter :set_viewed_cookie, :only => [:create, :show]
 
   def index
+    @random_project = Project.idea.to_a.sample
     filter_by_status
   end
 

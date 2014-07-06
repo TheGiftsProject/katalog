@@ -2,11 +2,15 @@
   $container-alpha: 0.65;
   $margin-top: 5px;
 
+  margin-bottom: 50px;
+
   &.full {
     background: rgba(white, $container-alpha);
   }
 
   @include border-bottom-radius($container-border-radius);
+  padding: $container-padding;
+  padding-top: 0;
 
   @media screen and (max-width: 480px) {
     padding: 0;
@@ -41,6 +45,7 @@
   background-color: $white;
   border: 1px solid transparent;
   @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+  margin-bottom: $container-padding;
 }
 
 .alert {

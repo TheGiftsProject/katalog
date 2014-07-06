@@ -2,6 +2,7 @@
   padding: 10% 0;
 
   .animated-big-logo {
+    width: 250px;
     margin: 20px 0;
     position: relative;
     @include animation(balloon 2s ease-in-out alternate infinite);

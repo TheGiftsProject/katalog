@@ -18,6 +18,9 @@ en:
       create:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
+        title: 'Quick idea'
+      random:
+        title: 'Random idea'
       viewing_projects_of: 'Projects by %{user_name}:'
       new: 'ADD'
       filters:

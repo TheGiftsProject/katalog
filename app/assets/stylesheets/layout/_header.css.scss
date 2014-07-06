@@ -11,10 +11,16 @@ nav.navbar {
   .logo {
     margin-top: -4px;
     margin-right: 2px;
+    @include filter(drop-shadow(0 1px rgba($gray, 0.5)))
   }
 
   .navbar-brand {
     color: $blue;
+    text-shadow: 0 1px rgba($darker-blue, 0.2);
     font-size: 20px;
+  }
+
+  .search-query {
+    width: 185px;
   }
 }

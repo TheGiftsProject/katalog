@@ -7,6 +7,10 @@
   }
 
   @include border-bottom-radius($container-border-radius);
+
+  @media screen and (max-width: 480px) {
+    padding: 0;
+  }
 }
 
 .dropdown-menu {
@@ -26,9 +30,4 @@
 
 .navbar {
   margin-bottom: $pills-padding;
-
-  @media screen and (max-width: 480px) {
-    margin-left: -$container-padding;
-    margin-right: -$container-padding;
-  }
 }

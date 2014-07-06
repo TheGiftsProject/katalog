@@ -18,11 +18,6 @@ class ProjectsController < ApplicationController
     @post = current_project.posts.build
   end
 
-  def new
-    @project = Project.new
-    @initial_post = @project.posts.build
-  end
-
   def create
     @project = build_project
     if @project.save
@@ -74,9 +69,8 @@ class ProjectsController < ApplicationController
 
   def build_project
     project = current_user.projects.build(project_params)
-    project.posts.first.user = current_user
     project.users = [current_user]
-    project.ideator = current_user
+    project.ideator_id = current_user.id
     project
   end
 

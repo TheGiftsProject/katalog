@@ -2,7 +2,7 @@ Katalog::Application.routes.draw do
 
   root :to => 'application#root'
 
-  resources :projects do
+  resources :projects, :only => [:create, :show, :index, :edit, :update, :destroy] do
     resources :posts, :only => [:create, :destroy]
     resources :users, :only => [:destroy]
     get :bump

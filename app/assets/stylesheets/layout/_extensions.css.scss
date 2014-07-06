@@ -31,3 +31,9 @@
     float: right!important;
   }
 }
+
+.mobile-unborder {
+  @media screen and (max-width: 480px) {
+    border-radius: 0 !important;
+  }
+}

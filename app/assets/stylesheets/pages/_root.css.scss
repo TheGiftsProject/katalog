@@ -8,18 +8,21 @@
   }
 
   h1 {
-    font-size: 60px;
-    margin-bottom: 0;
+    font-size: 70px;
+    margin-bottom: 5px;
     line-height: 40px;
     color: #32a3e0;
+    text-shadow: 0 1px $darker-blue;
   }
 
   p {
     color: #443f38;
+    font-size: 16px;
   }
 
   button {
-    width: 244px;
+    width: 281px;
+    font-size: 16px;
   }
 
 }

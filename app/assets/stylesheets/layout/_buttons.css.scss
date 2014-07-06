@@ -22,6 +22,7 @@
 .btn-blue {
   background-color: $blue;
   color: $white;
+  box-shadow: 0 1px $darker-blue;
 
   &:hover {
     background-color: $dark-blue;
@@ -32,6 +33,7 @@
 .btn-yellow {
   background-color: $yellow;
   color: $gray;
+  box-shadow: 0 1px $darker-yellow;
 
   &:hover {
     background-color: $dark-yellow;
@@ -39,17 +41,11 @@
   }
 }
 
-.btn-green {
-  background-color: $green;
-  color: $gray;
-
-  &:hover {
-    background-color: $dark-green;
-    color: $gray;
-  }
-}
-
 .btn {
   border: none;
   font-weight: 100;
+
+  &.unshadowed {
+    box-shadow: none;
+  }
 }

@@ -1,10 +1,12 @@
 
 = form_for Project.new, :html => {:role => 'form'} do |f|
   .input-group
-    -#%span.input-group-addon.fa.fa-lightbulb-o
+    .input-group-addon
+      %i.fa.fa-lightbulb-o
     = f.text_field :title, :class => 'form-control', :placeholder => t('pages.index.create.title_placeholder')
     .input-group-btn
-      = f.submit :class => 'btn btn-green', :value => 'Create idea'
+      %button.btn.btn-green{:type => 'submit'}
+        %i.fa.fa-plus{:style => 'vertical-align:middle'}
   -#.row
   -#  .col-xs-6
 

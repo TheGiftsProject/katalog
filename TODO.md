@@ -1,6 +1,6 @@
 __CRUCIAL PIPELINE:__
+ * Change color scheme.
  * Ideated by.
- * Quicky ideas.
  * Likes and arrange by likes/date/type.
  * Allow to submit without first post.
  * Allow to change status not only with post (Remove status updates css). 

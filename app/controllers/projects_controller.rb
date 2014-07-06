@@ -22,10 +22,10 @@ class ProjectsController < ApplicationController
     @project = build_project
     if @project.save
       set_current_project(@project)
-      redirect_to @project, notice: t('notices.created')
+      redirect_to :back, notice: t('notices.created')
     else
       flash[:error] = @project.errors.full_messages.join(', ')
-      redirect_to new_project_path
+      redirect_to :back
     end
   end
 

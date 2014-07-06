@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   include PostSupport
 
   before_filter :sign_in_required
-  before_filter :has_project
+  before_filter :project_required
 
   def create
     post = build_post

@@ -13,9 +13,8 @@ module ProjectSupport
     @_current_project = project
   end
 
-  def has_project
+  def project_required
     forbidden if current_project.nil?
-    set_background(current_project.status)
   end
 
   private

@@ -1,40 +1,16 @@
-= render 'projects/index/quick_create'
+.row
+  .col-xs-12.col-sm-3.pull-right
+    = render 'projects/index/quick_create'
 
-.panel
+  .col-xs-12.col-sm-9
+    .panel
+      - if @projects.empty?
+        = render 'projects/index/no_projects'
+      - else
+        - @projects.each do |project|
+          = render 'projects/index/project_row', :project => project
 
-
--#  .form-group
--#    = f.label :subtitle, :class => 'control-label'
--#    .controls
--#      = f.text_field :subtitle, :placeholder => t('pages.form.placeholders.subtitle'), :class => 'input-xlarge'
--#  - if project.new_record?
--#    .form-group
--#      = f.label :posts, t('pages.form.initial_post'), :class => 'control-label'
--#      .controls
--#        = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
--#          = render 'components/post/post_fields', :f => post_form, :project => project
--#  .form-group
--#    = f.label :demo_url, :class => 'control-label'
--#    .controls
--#      = f.url_field :demo_url, :placeholder => t('pages.form.placeholders.demo_url'), :class => 'input-xlarge'
--#
--#  .form-group
--#    .controls
--#      = f.submit :class => 'btn btn-primary', :id => 'project-submit-button'
--#%form.form-inline{:role => 'form'}
--#  .form-group
--#    %input
-
--#
 -#- if @viewing_projects_of
 -#  .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
 -#    %i.icon-download-alt
 -#    %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)
--#- if @projects.empty?
--#  %h1.text-center.text-info
--#    %i.icon-list-ul
--#    = t('pages.index.no_projects')
--#- else
--#  .paddingless
--#    - @projects.each do |project|
--#      = render 'projects/project_row', :project => project

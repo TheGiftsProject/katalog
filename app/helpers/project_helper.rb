@@ -15,6 +15,10 @@ module ProjectHelper
     content_tag :i, nil, :class => [icon_class(status), 'fa']
   end
 
+  def back_to_index_url
+    session[:referer] || projects_path
+  end
+
   private
 
   def icon_class(status)

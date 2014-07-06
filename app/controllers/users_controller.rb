@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   include ProjectSupport
 
   before_action :sign_in_required
-  before_action :has_project
+  before_action :project_required
 
   def destroy
     current_project.users.delete(selected_user)

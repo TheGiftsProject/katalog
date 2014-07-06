@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   include ProjectSupport
 
   before_filter :sign_in_required
-  before_filter :has_project, :only => [:show, :edit, :update, :destroy]
+  before_filter :project_required, :only => [:show, :edit, :update, :destroy]
   before_filter :save_referer, :only => [:show]
   before_filter :reset_referer, :only => [:index]
   after_filter :set_viewed_cookie, :only => [:create, :show]

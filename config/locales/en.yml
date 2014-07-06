@@ -14,6 +14,19 @@ en:
       text: 'The place to manage your passion projects'
       sign_in: 'Sign in with'
 
+    index:
+      create:
+        title_placeholder: 'Got an awesome idea?'
+        subtitle_placeholder: 'Add more details'
+      viewing_projects_of: 'Projects by %{user_name}:'
+      new: 'ADD'
+      filters:
+        all: 'ALL'
+        mine: 'MINE'
+        idea: 'IDEAS'
+        lifted: 'LIFTED'
+
+
     new:
       title: 'New Project'
 
@@ -29,15 +42,6 @@ en:
         demo_url: 'http://demo.example.com'
       initial_post: 'Initial post'
       optional: '(optional)'
-
-    index:
-      viewing_projects_of: 'Projects by %{user_name}:'
-      new: 'ADD'
-      filters:
-        all: 'ALL'
-        mine: 'MINE'
-        idea: 'IDEAS'
-        lifted: 'LIFTED'
 
     show:
       back: 'Projects'

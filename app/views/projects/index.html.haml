@@ -1,11 +1,46 @@
--#%ul.nav.nav-pills.projects-pills
--#  %li.pull-right
--#    = link_to new_project_path, :class => ['btn', 'btn-mini', 'btn-green'] do
--#      %i.fa.fa-plus-square
--#      %span.hidden-xs= t('pages.index.new')
 
+= form_for Project.new, :html => {:role => 'form'} do |f|
+  .input-group
+    -#%span.input-group-addon.fa.fa-lightbulb-o
+    = f.text_field :title, :class => 'form-control', :placeholder => t('pages.index.create.title_placeholder')
+    .input-group-btn
+      = f.submit :class => 'btn btn-green', :value => 'Create idea'
+  -#.row
+  -#  .col-xs-6
+
+  -#  .col-xs-6
+  -#    = f.text_field :title, :class => 'form-control', :placeholder => t('pages.index.create.subtitle_placeholder')
+  -#  .col-xs-12
+  -#
+  -#  -#.col-sm-4
+  -#  -#
+
+
+%br
 .panel
-  %form.form-inline{:role => 'form'}
+
+
+-#  .form-group
+-#    = f.label :subtitle, :class => 'control-label'
+-#    .controls
+-#      = f.text_field :subtitle, :placeholder => t('pages.form.placeholders.subtitle'), :class => 'input-xlarge'
+-#  - if project.new_record?
+-#    .form-group
+-#      = f.label :posts, t('pages.form.initial_post'), :class => 'control-label'
+-#      .controls
+-#        = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
+-#          = render 'components/post/post_fields', :f => post_form, :project => project
+-#  .form-group
+-#    = f.label :demo_url, :class => 'control-label'
+-#    .controls
+-#      = f.url_field :demo_url, :placeholder => t('pages.form.placeholders.demo_url'), :class => 'input-xlarge'
+-#
+-#  .form-group
+-#    .controls
+-#      = f.submit :class => 'btn btn-primary', :id => 'project-submit-button'
+-#%form.form-inline{:role => 'form'}
+-#  .form-group
+-#    %input
 
 -#
 -#- if @viewing_projects_of

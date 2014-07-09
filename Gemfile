@@ -20,7 +20,7 @@ gem 'redcarpet'
 gem 'rouge'
 gem 'md_emoji'
 gem 'hogan_assets'
-gem "compass-rails", '~> 1.1.7'
+gem 'compass-rails', '~> 1.1.7'
 gem 'animation', '~> 0.1.alpha.3'
 gem 'font-awesome-rails', '~> 4.1.0.0'
 gem 'twitter-typeahead-rails', '~> 0.10.2'
@@ -31,6 +31,7 @@ group :production do
 end
 
 group :development do
+  gem 'quiet_assets'
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'

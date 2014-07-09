@@ -4,8 +4,7 @@ class UserConnector
 
   def self.connect_from_omniauth(auth_hash)
     case auth_hash.provider.to_sym
-      when :developer then UserConnector::Developer.connect(auth_hash)
-      when :github    then UserConnector::GitHub.connect(auth_hash)
+      when :github then UserConnector::GitHub.connect(auth_hash)
       else raise UnsupportedProviderError, auth_hash.provider
     end
   end
@@ -19,22 +18,21 @@ class UserConnector
 
   class GitHub
 
-    class UnauthorizedGithubUser < StandardError; end
-
     def self.connect(auth_hash)
-      raise UnauthorizedGithubUser unless authorized?(auth_hash.uid)
+      ActiveRecord::Base.transaction do
+        user = User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
+                                                                 :name     => auth_hash.info.name,
+                                                                 :nickname => auth_hash.info.nickname,
+                                                                 :image    => auth_hash.info.image)
 
-      User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
-                                                        :name     => auth_hash.info.name,
-                                                        :nickname => auth_hash.info.nickname,
-                                                        :image    => auth_hash.info.image)
-    end
+        unless user.default_organization.present?
+          organizations = Octokit::Client.new.organizations(user.nickname)
+          Organization.where(:github_id => organizations)
 
-    def self.authorized?(uid)
-      return true if User.find_by_uid(uid)
-
-      members = Octokit::Client.new.organization_members(ENV['AUTHORIZED_GITHUB_ORGANIZATION'])
-      members.find { |member| member.id.to_s == uid }
+          # todo merge with existing organizations of users and uniq
+          # check what happens when deleting organization.
+        end
+      end
     end
   end
 

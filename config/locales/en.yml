@@ -3,6 +3,10 @@ en:
     title: 'Katalog'
     description: 'The place to manage your passion projects'
 
+  session:
+    create:
+      sign_in_error: 'Failed to sign-in'
+
   layout:
     header:
       search_placeholder: 'Search for a project or user'

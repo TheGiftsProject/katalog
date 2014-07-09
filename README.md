@@ -1,7 +1,8 @@
 # Katalog
-__The place to share and work on ideas and side-projects__
+__The place to manage your passion projects__
+![logo](https://github.com/TheGiftsProject/katalog/master/public/images/logo-big.png)
 
-Katalog is a side-projects and ideas tracking web app. It allows your development team to suggest ideas for side-project, discuss about them, and kickstart them into live projects.
+Katalog is a passion-projects and ideas tracking web app. It allows your development team to suggest ideas for side-project, discuss about them, and kickstart them into live projects.
 
 ## Setup
 
@@ -18,12 +19,6 @@ Set up a new Github application under your account and add these corresponding e
 * `GITHUB_KEY` - The app public key.
 * `GITHUB_SECRET` - The app secret key.
 
-__Github User Credentials__
-
-A single Katalog app only allows users of a certain Github organization to sign in, Katalog requires the name of that organization:
-
-* `AUTHORIZED_GITHUB_ORGANIZATION` - The name of the authorized Github organization.
-
 __AWS Credentials__
 
 The Katalog app requires an AWS S3 account for image uploading:
@@ -38,33 +33,14 @@ If you wish to edit the look-and-feel of Katalog, feel free to edit the images a
 
 ## Post a project by e-mail
 
-You can create a project from email if you configure an app in postmarkapp.com, 
-and map it's inbound web hook to `http://host/postmark`
-In order to test this feature you can do one of two things:
+You can create a project from email if you configure an app in postmarkapp.com, and map it's inbound web hook to `http://host/postmark`.
+In order to setup this feature, setup an account on `https://postmarkapp.com` and configure the inbound hook URL to `http://<HOST>/postmark`. 
 
-* A curl POST command similar to this:
-
-``` 
-  curl -X POST "127.0.0.1/postmark" \
-  {
-    "From" : "sender@example.com",
-    "To" : "receiver@example.com",
-    "Cc" : "copied@example.com",
-    "Bcc": "blank-copied@example.com",
-    "Subject" : "Test",
-    "Tag" : "Invitation",
-    "HtmlBody" : "<b>Hello</b>",
-    "TextBody" : "Hello",
-    "ReplyTo" : "reply@example.com",
-    "Headers" : [{ "Name" : "CUSTOM-HEADER", "Value" : "value" }]
-  }
-```
-* Setup an account on `https://postmarkapp.com` and configure the inbound hook URL 
-  to `http://<HOST>/postmark`. Note that postmarkapp.com will need access to
-  your server, so this can be a bit tricky to test in development.
+Note that postmarkapp.com will need access to your server, so this can be tricky to test in development.
 
 ## Version
-0.9
+
+0.5.1
 
 ## License
 

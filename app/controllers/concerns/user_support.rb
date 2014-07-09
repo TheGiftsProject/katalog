@@ -12,7 +12,7 @@ module UserSupport
   end
 
   def user_signed_in?
-    current_user.present?
+    current_user.present? && current_user.default_organization.present?
   end
 
   def sign_out

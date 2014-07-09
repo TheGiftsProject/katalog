@@ -3,7 +3,7 @@ nav.navbar {
   border: none;
   margin-bottom: $container-padding;
 
-  @media screen and (max-width: 480px) {
+  @include mobile {
     @include border-bottom-radius(0);
     margin-bottom: 0;
   }
@@ -14,7 +14,7 @@ nav.navbar {
 
     width: 30px;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       width: 23px;
     }
 
@@ -30,7 +30,7 @@ nav.navbar {
     padding-left: 6px;
     padding-right: 6px;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       font-size: 17px;
     }
   }
@@ -42,7 +42,7 @@ nav.navbar {
   .nav-pills {
     padding-right: 10px;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       padding-right: 0;
     }
   }

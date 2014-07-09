@@ -1,5 +1,7 @@
 __CRUCIAL PIPELINE:__
- * Organize CSS.
+ * Change organization at nav (+mobile), and sign in (+default organization).
+ * Paper plane 3d.
+ * Different name?
  * Add search icon to search field.
  * Ideated by.
  * Likes and arrange by likes/date/type.
@@ -12,7 +14,5 @@ __CRUCIAL PIPELINE:__
  * Sweep code and remove old.
  * Add specs to controllers / models.
  * Edit post.
-
-__FUN TO DO:__
  * Emoji autocomplete in post component.
  * Working github activity.

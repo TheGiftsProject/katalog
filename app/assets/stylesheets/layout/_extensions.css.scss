@@ -2,12 +2,6 @@
   text-transform: uppercase;
 }
 
-.hidden-xxs {
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-}
-
 .no-collapse {
   .navbar-nav {
     margin: 0;
@@ -33,7 +27,7 @@
 }
 
 .mobile-unborder {
-  @media screen and (max-width: 480px) {
+  @include mobile {
     border-radius: 0 !important;
   }
 }

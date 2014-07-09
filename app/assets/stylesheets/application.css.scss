@@ -1,5 +1,6 @@
-// overrides
-@import 'layout/variables';
+// setup
+@import 'variables';
+@import 'mixins';
 
 // frameworks
 @import 'compass';
@@ -17,7 +18,6 @@
 @import 'layout/header';
 @import 'layout/background';
 @import 'layout/overrides';
-@import 'layout/flash';
 @import 'layout/fonts';
 @import 'layout/buttons';
 

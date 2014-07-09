@@ -16,8 +16,13 @@ $container-border-radius: 4px;
 $container-padding: 15px;
 
 $mobile-width: 480px;
+$font-weight: 100;
+
+// bootstrap variable overrides.
+$btn-font-weight: $font-weight;
 
 $grid-gutter-width: $container-padding;
+
 $text-color: $gray;
 
 $brand-primary: $blue   !default;

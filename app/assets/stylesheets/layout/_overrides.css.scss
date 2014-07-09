@@ -1,16 +1,11 @@
 .container {
-  $container-alpha: 0.65;
-  $margin-top: 5px;
-
   margin-bottom: 50px;
+  padding: 0 $container-padding $container-padding $container-padding;
+  @include border-bottom-radius($container-border-radius);
 
   &.full {
-    background: rgba(white, $container-alpha);
+    background: rgba(white, 0.65);
   }
-
-  @include border-bottom-radius($container-border-radius);
-  padding: $container-padding;
-  padding-top: 0;
 
   @include mobile {
     padding: 0;
@@ -21,7 +16,6 @@
   border: none;
 
   li {
-
     .dropdown-toggle {
       display: none;
     }
@@ -32,31 +26,23 @@
   }
 }
 
-.navbar {
-  margin-bottom: $pills-padding;
-}
-
-.text-danger {
-  color: $red;
-}
-
 .well {
   border: none;
-  background-color: $white;
+  background-color: white;
   border: 1px solid transparent;
   @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
   margin-bottom: $container-padding;
+}
+
+.panel {
+  @include mobile {
+    background-color: rgba(white, 0.5);
+  }
 }
 
 .alert {
   @include mobile {
     margin: 0;
     border-radius: 0;
-  }
-}
-
-.panel {
-  @include mobile {
-    background-color: rgba($white, 0.5);
   }
 }

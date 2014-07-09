@@ -1,7 +1,4 @@
-$lighter-gray:  #dbddd5;
-$light-gray:    #c8cac2;
 $gray:          #443f38;
-$white:         #ffffff;
 
 $yellow:        #fdd94b;
 $dark-yellow:   #e6c02a;
@@ -16,7 +13,6 @@ $dark-blue:     #3375e3;
 $darker-blue:   #245bc2;
 
 $container-border-radius: 4px;
-$pills-padding: 10px;
 $container-padding: 15px;
 
 $mobile-width: 480px;
@@ -27,3 +23,7 @@ $text-color: $gray;
 $brand-primary: $blue   !default;
 $brand-warning: $yellow !default;
 $brand-danger:  $red    !default;
+
+$state-danger-primary: $blue;
+$state-danger-warning: $yellow;
+$state-danger-text: $red;

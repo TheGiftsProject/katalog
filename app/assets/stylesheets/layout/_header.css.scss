@@ -1,6 +1,8 @@
 nav.navbar {
   @include border-top-radius(0px);
+  @include border-bottom-radius($container-border-radius);
   border: none;
+
   margin-bottom: $container-padding;
 
   @include mobile {
@@ -8,10 +10,7 @@ nav.navbar {
     margin-bottom: 0;
   }
 
-  @include border-bottom-radius($container-border-radius);
-
   .logo {
-
     width: 30px;
 
     @include mobile {

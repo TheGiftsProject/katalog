@@ -1,32 +1,21 @@
-.btn-gray {
-  background-color: $lighter-gray;
-  color: $gray;
-
-  &:hover {
-    background-color: $light-gray;
-    color: $gray;
-  }
-}
-
-
 .btn-red {
   background-color: $red;
-  color: $white;
+  color: white;
 
   &:hover {
     background-color: $dark-red;
-    color: $white;
+    color: white;
   }
 }
 
 .btn-blue {
   background-color: $blue;
-  color: $white;
+  color: white;
   box-shadow: 0 1px $darker-blue;
 
   &:hover {
     background-color: $dark-blue;
-    color: $white;
+    color: white;
   }
 }
 

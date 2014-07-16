@@ -16,3 +16,8 @@ __CRUCIAL PIPELINE:__
  * Edit post.
  * Emoji autocomplete in post component.
  * Working github activity.
+
+
+
+##Yons Stuff
+* viewed ideas should be saved (maybe add redis?) 

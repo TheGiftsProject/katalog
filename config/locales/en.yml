@@ -25,6 +25,7 @@ en:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
         title: 'Quick idea'
+        create: 'Create'
       random:
         title: 'Random idea'
       new: 'ADD'

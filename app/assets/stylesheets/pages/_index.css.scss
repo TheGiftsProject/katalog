@@ -1,13 +1,4 @@
-.quick-creation-form {
-  margin-bottom: $container-padding;
-
-  @include mobile {
-    margin-bottom: 0;
-  }
-}
-
 .project-row{
-//  padding: 15px;
   @extend .media;
   padding-left: 15px;
   padding-right: 15px;
@@ -31,10 +22,11 @@
     font-weight: bold;
   }
   .project-meta{
-//    @extend small;
+
     .fa {
       @extend .text-muted;
     }
+
     @include not-mobile{
       position: absolute;
       top: 5px;
@@ -49,11 +41,10 @@
     display: inline;
   }
 
-//  padding: 10px;
+  .tags{
 
-//  padding-bottom: 15px;
-
-//  margin-bottom: 10px;
-
+    top: -3px;
+    position: relative;
+  }
 
 }

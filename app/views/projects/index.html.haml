@@ -1,22 +1,14 @@
 .row
-  .col-xs-12
-    %h1= t(@filter, scope: 'pages.index.title', user: @filter_user)
-
-.row
   .col-xs-12.col-sm-4.pull-right
+    %h1.hidden-xs &nbsp;
     = render 'projects/index/quick_idea'
     = render 'projects/index/random_idea', :project => @random_project
 
   .col-xs-12.col-sm-8
+    %h1= t(@filter, scope: 'pages.index.title', user: @filter_user)
     .panel
       - if @projects.empty?
         = render 'projects/index/no_projects'
       - else
         - @projects.each do |project|
           = render 'projects/index/project_row', :project => project
-
-
--#- if @viewing_projects_of
--#  .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
--#    %i.icon-download-alt
--#    %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)

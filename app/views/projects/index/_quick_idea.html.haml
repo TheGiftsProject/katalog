@@ -1,22 +1,13 @@
-= form_for Project.new, :html => {:role => 'form', :class => 'hidden-sm hidden-md hidden-lg quick-creation-form'} do |f|
-  .input-group
-    .input-group-addon.mobile-unborder
-      %i.fa.fa-lightbulb-o
-    = f.text_field :title, :class => 'form-control', :placeholder => t('pages.index.create.title_placeholder'), :style => 'width:50%'
-    = f.text_field :subtitle, :class => 'form-control', :placeholder => t('pages.index.create.subtitle_placeholder'), :style => 'margin-left: -1px; width:50%'
-    .input-group-btn
-      %button.btn.btn-primary.mobile-unborder{:type => 'submit'}
-        %i.fa.fa-plus-circle{:style => 'padding-top:4px'}
-
-.well.hidden-xs
+.well
   = form_for Project.new, :html => {:role => 'form', :class => 'quick-creation-form'} do |f|
+    = f.label :title, :class => 'uppercase text-left' do
+      %i.fa.fa-lightbulb-o
+      %span= t('pages.index.create.title')
     .form-group
-      = f.label :title, :class => 'hidden-xs uppercase' do
-        %i.fa.fa-lightbulb-o
-        %span= t('pages.index.create.title')
       = f.text_field :title, :class => 'form-control', :placeholder => t('pages.index.create.title_placeholder')
-      .input-group{:style => 'margin-top: 6px;'}
-        = f.text_field :subtitle, :class => 'form-control', :placeholder => t('pages.index.create.subtitle_placeholder')
-        .input-group-btn
-          %button.btn.btn-primary.mobile-unborder{:type => 'submit'}
-            %i.fa.fa-plus-circle{:style => 'padding-top:4px'}
+    .input-group
+      = f.text_field :subtitle, :class => 'form-control', :placeholder => t('pages.index.create.subtitle_placeholder')
+      .input-group-btn
+        %button.btn.btn-primary{:type => 'submit'}
+          %i.fa.fa-plus-circle
+          = t('pages.index.create.create')

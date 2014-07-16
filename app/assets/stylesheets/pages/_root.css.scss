@@ -1,4 +1,6 @@
 .root {
+  $form-size: 281px;
+
   padding: 10% 0;
 
   .animated-big-logo {
@@ -19,10 +21,19 @@
   p {
     color: $gray;
     font-size: 16px;
+
+    &.select {
+      margin: 0;
+    }
+  }
+
+  select {
+    width: $form-size;
+    margin: 0 auto;
   }
 
   button {
-    width: 281px;
+    width: $form-size;
     font-size: 16px;
   }
 

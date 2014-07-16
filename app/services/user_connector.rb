@@ -27,7 +27,7 @@ class UserConnector
                                                                :image    => auth_hash.info.image)
 
       organizations = Octokit::Client.new.organizations(user.nickname) unless user.default_organization.present?
-
+      organizations.map! { |org| org[:login] }
       ConnectionResponse.new(:user => user, :organizations => organizations)
 
     end

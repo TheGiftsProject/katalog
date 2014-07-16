@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       redirect_to projects_url
     else
       @organizations = session.delete(:organizations)
-      flash[:errror] = t('pages.root.no_orgs')# if !@organizations.nil? && @organizations.blank?
+      flash[:error] = t('pages.root.no_orgs') if !@organizations.nil? && @organizations.blank?
     end
   end
 end

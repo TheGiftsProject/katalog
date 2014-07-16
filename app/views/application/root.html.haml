@@ -9,8 +9,18 @@
     .col-xs-12
       %p= t('pages.root.text')
   .row
-    .col-xs-12
+    - if @organizations.present?
+      %p.select= t('pages.root.select_org')
+      %form.centered{:role => 'form'}
+        .form-group
+          = select_tag(:organization, options_for_select(@organizations, @organizations.first), :class => 'form-control')
       = link_to sign_in_path do
         %button{:class => 'btn btn-warning'}
-          %span= t('pages.root.sign_in')
-          %i.fa.fa-github-alt
+          %span= t('pages.root.continue')
+          %i.fa.fa-arrow-circle-right
+    - else
+      .col-xs-12
+        = link_to sign_in_path do
+          %button{:class => 'btn btn-warning'}
+            %span= t('pages.root.sign_in')
+            %i.fa.fa-github-alt

@@ -16,7 +16,8 @@ en:
     root:
       title: 'Katalog'
       text: 'The place to manage your passion projects'
-      sign_in: 'Sign in with'
+      sign_in: 'Sign in with Github'
+      continue: 'Continue'
       no_orgs: 'You have to be a public member in a Github organization before using Katalog'
       select_org: 'Select a public Github organization'
 

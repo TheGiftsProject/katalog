@@ -1,5 +1,13 @@
 module ProjectHelper
 
+  def class_for_quick_idea
+    hide_quick_idea? ? 'hidden-xs' : ''
+  end
+
+  def hide_quick_idea?
+    params[:filter].presence
+  end
+
   def new_for_current_user?(project)
     project.less_than_week_old? and not viewed_by_current_user?(project)
   end

@@ -19,7 +19,7 @@ en:
       sign_in: 'Sign in with Github'
       continue: 'Continue'
       no_orgs: 'You have to be a public member in a Github organization before using Katalog'
-      select_org: 'Select a public Github organization'
+      select_org: 'Choose a public Github organization for a Katalog'
 
     index:
       create:

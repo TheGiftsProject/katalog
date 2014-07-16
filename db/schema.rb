@@ -16,17 +16,6 @@ ActiveRecord::Schema.define(version: 20140709135943) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "badges", force: true do |t|
-    t.string "name"
-    t.string "icon"
-  end
-
-  create_table "badges_users", force: true do |t|
-    t.integer "badge_id"
-    t.integer "user_id"
-    t.integer "count",    default: 0
-  end
-
   create_table "likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
@@ -37,6 +26,13 @@ ActiveRecord::Schema.define(version: 20140709135943) do
   create_table "organizations", force: true do |t|
     t.string   "name"
     t.string   "github_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organizations_users", force: true do |t|
+    t.integer  "organization_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,14 +71,7 @@ ActiveRecord::Schema.define(version: 20140709135943) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "default_organization"
-  end
-
-  create_table "users_organizations", force: true do |t|
-    t.integer  "organizations_id"
-    t.integer  "users_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "default_organization_id"
   end
 
 end

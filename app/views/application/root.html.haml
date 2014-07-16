@@ -10,12 +10,11 @@
       %p= t('pages.root.text')
   .row
     - if @organizations.present?
-      %p.select= t('pages.root.select_org')
-      %form.centered{:role => 'form'}
+      %span.select= t('pages.root.select_org')
+      = form_tag organization_path, :method => :POST , :html => {:role => 'form'} do
         .form-group
-          = select_tag(:organization, options_for_select(@organizations, @organizations.first), :class => 'form-control')
-      = link_to sign_in_path do
-        %button{:class => 'btn btn-warning'}
+          = select_tag(:org_id, options_for_select(options_for_organizations(@organizations)), :class => 'form-control')
+        %button{:class => 'btn btn-warning', :type => 'submit'}
           %span= t('pages.root.continue')
           %i.fa.fa-arrow-circle-right
     - else

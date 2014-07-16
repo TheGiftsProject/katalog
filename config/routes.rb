@@ -19,6 +19,7 @@ Katalog::Application.routes.draw do
   get '/auth/destroy', :to => 'session#destroy', :as => 'sign_out'
   get '/auth/failure', :to => 'session#failure'
   get '/auth/:provider', :to => 'session#nothing', :as => 'sign_in', :defaults => {:provider => :github}
+  post '/auth/organization', :to => 'session#organization', :as => 'organization', :via => [:post]
 
   post '/postmark', to: 'postmark#update'
 

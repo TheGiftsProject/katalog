@@ -2,45 +2,48 @@ require 'hashie'
 
 class UserConnector
 
-  class UnsupportedProviderError < StandardError; end
+  class InvalidOrganizationError < StandardError; end
 
   def self.connect_from_omniauth(auth_hash)
-    case auth_hash.provider.to_sym
-      when :github then UserConnector::GitHub.connect(auth_hash)
-      else raise UnsupportedProviderError, auth_hash.provider
-    end
+    user = user_from_auth_hash(auth_hash)
+
+    organizations = user_organizations(user) unless user.default_organization.present?
+    organizations.map! { |org| {:name => org[:login], :id => org[:id]} }
+
+    ConnectionResponse.new(:user => user, :organizations => organizations)
   end
 
-  class Developer
-    def self.connect(auth_hash)
-      User.where(:uid => auth_hash.uid).first_or_create(:email => auth_hash.info.email,
-                                                        :name  => auth_hash.info.name)
-    end
+  def self.connect_organization_to_user(org_id, user)
+    organizations = user_organizations(user)
+    matching_org = organizations.find { |org| org[:login] = org_id }
+
+    raise InvalidOrganizationError if matching_org.nil?
+
+    organization = Organization.where(:github_id => org_id).first_or_create(:name => matching_org[name])
+    user.organizations << organization
+    user.update!(:default_organization_id => organization.id)
+
+    ConnectionResponse.new(:user => user)
   end
 
-  class GitHub
+  def self.user_from_auth_hash(auth_hash)
+    User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
+                                                      :name     => auth_hash.info.name,
+                                                      :nickname => auth_hash.info.nickname,
+                                                      :image    => auth_hash.info.image)
+  end
 
-    def self.connect(auth_hash)
-      user = User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
-                                                               :name     => auth_hash.info.name,
-                                                               :nickname => auth_hash.info.nickname,
-                                                               :image    => auth_hash.info.image)
+  def self.user_organizations(user)
+    Octokit::Client.new.organizations(user.nickname)
+  end
 
-      organizations = Octokit::Client.new.organizations(user.nickname) unless user.default_organization.present?
-      organizations.map! { |org| org[:login] }
-      ConnectionResponse.new(:user => user, :organizations => organizations)
+  class ConnectionResponse < Hashie::Dash
+    property :user, :require => true
+    property :organizations
 
+    def requires_organization?
+      user.default_organization.nil?
     end
-
-    class ConnectionResponse < Hashie::Dash
-      property :user, :require => true
-      property :organizations
-
-      def requires_organization?
-        user.default_organization.nil?
-      end
-    end
-
   end
 
 end

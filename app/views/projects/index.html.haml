@@ -1,6 +1,6 @@
 .row
   .col-xs-12
-    %h1= t('pages.index.title')
+    %h1= t(@filter, scope: 'pages.index.title', user: @filter_user)
 
 .row
   .col-xs-12.col-sm-4.pull-right

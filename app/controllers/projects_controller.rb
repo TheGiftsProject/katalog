@@ -84,7 +84,7 @@ class ProjectsController < ApplicationController
         @projects = current_user.projects.latest_first
       when :user then
         user = User.find(params[:user])
-        @viewing_projects_of = user
+        @filter_user = user.shortname
         @projects = user.projects.latest_first
       else
         @projects = Project.where(:status => @filter).latest_first

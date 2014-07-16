@@ -15,14 +15,18 @@ en:
       sign_in: 'Sign in with'
 
     index:
-      title: 'Trending ideas this week'
+      title:
+        all: 'Trending projects'
+        idea: 'Trending ideas'
+        mine: 'My projects'
+        lifted: 'Trending lifted projects'
+        user: "%{user}'s ideas & projects"
       create:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
         title: 'Quick idea'
       random:
         title: 'Random idea'
-      viewing_projects_of: 'Projects by %{user_name}:'
       new: 'ADD'
       filters:
         all: 'ALL'

@@ -4,8 +4,12 @@ class User < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
 
-    def nickname
+  def nickname
     self[:nickname] || self[:name]
+  end
+
+  def shortname
+    (self.name.presence || self.nickname).split(' ').first
   end
 
 end

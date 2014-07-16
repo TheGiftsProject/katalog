@@ -1,18 +1,4 @@
 nav.navbar {
-//  @include border-top-radius(0px);
-//  @include border-bottom-radius($container-border-radius);
-//  border: none;
-
-//  margin-bottom: $container-padding;
-//  background-color: $blue;
-//  border-bottom: 5px solid $dark-blue;
-//  color: white;
-
-//  @include border-bottom-radius(0);
-
-//  @include mobile {
-//    margin-bottom: 0;
-//  }
 
   .logo {
     width: 30px;
@@ -23,46 +9,22 @@ nav.navbar {
     margin-right: 2px;
     @include filter(drop-shadow(0 1px rgba($gray, 0.5)))
   }
+
   .search-query {
-    width: 185px;
+    min-width: 185px;
+    @include mobile{
+      width: 303px;
+    }
   }
-//
-//
-//  }
-//
-//
-//  .navbar-brand {
-////    color: white;
-////    text-shadow: 0 1px rgba($darker-blue, 0.2);
-//    font-size: 20px;
-//    padding-left: 6px;
-//    padding-right: 6px;
-//
-//    @include mobile {
-//      font-size: 17px;
+
+  .fa{
+    @extend .fa-fw;
+  }
+
+//  .navbar-toggle{
+//    border-color: white;
+//    .icon-bar{
+//      background-color: white;
 //    }
 //  }
-//
-//  a {
-//    color: white;
-//
-//  }
-//
-//  li{
-//    &.active, a:hover {
-//      background-color: $highlight-blue;
-//    }
-//  }
-//
-
-
-//  .nav-pill s {
-//    padding-right: 10px;
-//
-//    @include mobile {
-//      padding-right: 0;
-//    }
-//  }
-
-
 }

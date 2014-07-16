@@ -1,4 +1,4 @@
 %li.nav-pill{ active_class_if_current(filter) }
   = link_to projects_path(:filter => filter) do
-    %i.fa{:class => icon}
+    %i.fa.fa-fw{:class => icon}
     %span= t(filter, :scope => 'pages.index.filters')

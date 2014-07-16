@@ -13,8 +13,8 @@
     .background
     .container{:class => container_class }
       - unless headless_page?
-        = render 'layouts/components/header'
         = render 'layouts/components/messages'
+        = render 'layouts/components/header'
       = yield
     - yield :bottom_javascripts
     = configure_s3_storage

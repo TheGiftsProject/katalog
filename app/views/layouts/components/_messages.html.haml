@@ -1,5 +1,11 @@
 - flash.each do |name, msg|
   - if msg.is_a?(String)
-    %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+    %div{:class => "alert alert-#{name == :notice ? "success" : "danger"}"}
       %a.close{'data-dismiss' => 'alert'} ×
       = content_tag :div, msg, :id => "flash_#{name}"
+
+- unless headless_page?
+  :coffee
+    setTimeout ->
+      $(".alert").fadeTo(250, 0).slideUp(500, -> $(this.remove()))
+    , 3000

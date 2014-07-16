@@ -26,6 +26,13 @@
     font-size: 16px;
   }
 
+  .text-danger {
+    a {
+      color: $dark-red;
+      text-decoration: underline;
+    }
+  }
+
 }
 
 @include keyframes(balloon) {

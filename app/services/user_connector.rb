@@ -1,3 +1,5 @@
+require 'hashie'
+
 class UserConnector
 
   class UnsupportedProviderError < StandardError; end
@@ -19,21 +21,26 @@ class UserConnector
   class GitHub
 
     def self.connect(auth_hash)
-      ActiveRecord::Base.transaction do
-        user = User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
-                                                                 :name     => auth_hash.info.name,
-                                                                 :nickname => auth_hash.info.nickname,
-                                                                 :image    => auth_hash.info.image)
+      user = User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
+                                                               :name     => auth_hash.info.name,
+                                                               :nickname => auth_hash.info.nickname,
+                                                               :image    => auth_hash.info.image)
 
-        unless user.default_organization.present?
-          organizations = Octokit::Client.new.organizations(user.nickname)
-          Organization.where(:github_id => organizations)
+      organizations = Octokit::Client.new.organizations(user.nickname) unless user.default_organization.present?
 
-          # todo merge with existing organizations of users and uniq
-          # check what happens when deleting organization.
-        end
+      ConnectionResponse.new(:user => user, :organizations => organizations)
+
+    end
+
+    class ConnectionResponse < Hashie::Dash
+      property :user, :require => true
+      property :organizations
+
+      def requires_organization?
+        user.default_organization.nil?
       end
     end
+
   end
 
 end

@@ -1,20 +1,28 @@
-__CRUCIAL PIPELINE:__
- * Change organization at nav (+mobile), and sign in (+default organization).
- * Paper plane 3d.
- * Add search icon to search field.
- * Ideated by.
- * Test error pages.
- * Test sign in errors.
- * Likes and arrange by likes/date/type.
- * Allow to submit without first post.
- * Allow to change status not only with post (Remove status updates css). 
- * Allow to change image not only by post.
+__PROJECT PAGE:__
+ * Upload image/s of project.
+ * Posts are a lesser thing now. Allow also to edit them.
+ * Change status from idea to lifted (and back?).
+
+__FEATURES:__
+ * Likes + arrange by likes/date.
  * Random ideas.
  * Autocomplete should find users as well.
- * Add the image of the project to the table view.
- * Sweep code and remove old.
- * Add specs to controllers / models.
- * Edit post.
- * Emoji autocomplete in post component.
- * Working github activity.
- * Translations scopes.
+ 
+__BUGS:__
+ * Fix autocomplete.
+
+__DESIGN:__
+ * New design (also for root) by Yon.
+ * Add search icon to search field.
+ 
+__SANITY CHECKS:__
+ * Error pages.
+ * Sign in errors.
+ * Sweep code base and remove old stuff.
+ * Use translations scopes like a boss.
+ * Specs.
+ 
+__NICE TO HAVE:__
+ * Paper plane 3d.
+ * Emoji autocomplete in posts.
+ * Github activity and project-neggers.

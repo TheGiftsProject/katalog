@@ -3,8 +3,9 @@ class SessionController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
-    user = UserConnector.connect_from_omniauth(auth_hash)
-    sign_in(user)
+    response = UserConnector.connect_from_omniauth(auth_hash)
+    sign_in(response.user)
+    session[:organizations] = response.organizations if response.requires_organization?
   rescue
     flash[:error] = t('.sign_in_error')
   ensure

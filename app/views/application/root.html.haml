@@ -1,11 +1,16 @@
 .root.text-center
+  .row
+    = render 'layouts/components/messages'
   = image_tag('logo-big.png', :class => 'animated-big-logo')
   .row
-    %h1.uppercase= t('pages.root.title')
+    .col-xs-12
+      %h1.uppercase= t('pages.root.title')
   .row
-    %p= t('pages.root.text')
+    .col-xs-12
+      %p= t('pages.root.text')
   .row
-    = link_to sign_in_path do
-      %button{:class => 'btn btn-warning'}
-        %span= t('pages.root.sign_in')
-        %i.fa.fa-github-alt
+    .col-xs-12
+      = link_to sign_in_path do
+        %button{:class => 'btn btn-warning'}
+          %span= t('pages.root.sign_in')
+          %i.fa.fa-github-alt

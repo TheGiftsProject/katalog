@@ -1,8 +1,6 @@
 class MergeSunsetAndKatakomb < ActiveRecord::Migration
   def up
-    execute "UPDATE projects SET status = 'lifted' WHERE status = 'wip'"
-    execute "UPDATE projects SET status = 'lifted' WHERE status = 'done'"
-    execute "UPDATE projects SET status = 'lifted' WHERE status = 'dead'"
+    execute "UPDATE projects SET status='lifted' WHERE status != 'idea'"
   end
 
   def down

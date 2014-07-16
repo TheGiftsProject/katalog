@@ -12,8 +12,8 @@
     font-size: 70px;
     margin-bottom: 5px;
     line-height: 40px;
-    color: #32a3e0;
-    text-shadow: 0 1px $darker-blue;
+    color: $dark-blue;
+//    text-shadow: 0 1px $darker-blue;
   }
 
   p {
@@ -21,9 +21,15 @@
     font-size: 16px;
   }
 
-  button {
+  .btn-sign-in{
     width: 281px;
     font-size: 16px;
+    background: white;
+    color: $dark-blue;
+    &:hover{
+      background-color: #f5f5f5;
+    }
+
   }
 
 }

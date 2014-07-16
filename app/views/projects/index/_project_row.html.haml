@@ -3,4 +3,10 @@
   .project-details
     = link_to project.title, project, class: 'project-title'
     .project-subtitle= project.subtitle
-    .last-updated= t('project.last_updated', :time => time_ago_in_words(project.updated_at))
+    .project-meta
+      .project-contributors
+        %i.fa.fa-users.fa-fw
+        = t('project.collaborators', :count => project.users.count)
+      .project-last-updated
+        %i.fa.fa-clock-o.fa-fw
+        = t('project.last_updated', :time => time_ago_in_words(project.updated_at))

@@ -71,6 +71,9 @@ en:
 
   project:
     last_updated: "Updated %{time} ago"
+    collaborators:
+      one: '1'
+      other: '%{count}'
     new_tag: "new"
 
   notices:

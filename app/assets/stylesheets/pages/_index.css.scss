@@ -30,14 +30,23 @@
     font-size: 18px;
     font-weight: bold;
   }
-  .last-updated{
-    @extend small;
-    @extend .text-muted;
+  .project-meta{
+//    @extend small;
+    .fa {
+      @extend .text-muted;
+    }
     @include not-mobile{
       position: absolute;
       top: 5px;
       right: 0;
     }
+  }
+  .project-contributors{
+    display: inline;
+    margin-right: 5px;
+  }
+  .project-last-updated {
+    display: inline;
   }
 
 //  padding: 10px;

@@ -15,6 +15,7 @@ en:
       sign_in: 'Sign in with'
 
     index:
+      title: 'Trending ideas this week'
       create:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
@@ -69,7 +70,7 @@ en:
     placeholder: "Enter markdown text"
 
   project:
-    last_updated: "Last Updated %{time} ago"
+    last_updated: "Updated %{time} ago"
     new_tag: "new"
 
   notices:

@@ -1,7 +1,9 @@
 .avatar{
   background: white;
   border: 1px solid #e3e3e3;
-  width: 30px;
+  width: 44px;
+
+  @extend .img-rounded;
 
   &.tiny {
     width: 19px;

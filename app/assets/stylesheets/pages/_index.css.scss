@@ -5,3 +5,46 @@
     margin-bottom: 0;
   }
 }
+
+.project-row{
+//  padding: 15px;
+  @extend .media;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  &:first-child{
+    padding-top: 15px;
+  }
+  &:last-child{
+    border-bottom: none;
+  }
+  .avatar-container{
+    @extend .pull-left;
+  }
+  .project-details{
+    @extend .media-body;
+    position: relative;
+  }
+  .project-title{
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .last-updated{
+    @extend small;
+    @extend .text-muted;
+    @include not-mobile{
+      position: absolute;
+      top: 5px;
+      right: 0;
+    }
+  }
+
+//  padding: 10px;
+
+//  padding-bottom: 15px;
+
+//  margin-bottom: 10px;
+
+
+}

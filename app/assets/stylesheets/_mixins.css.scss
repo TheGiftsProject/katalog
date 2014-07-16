@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin not-mobile {
+  @media screen and (min-width: $mobile-width) {
+    @content;
+  }
+}

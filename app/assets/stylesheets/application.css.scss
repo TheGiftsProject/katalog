@@ -23,25 +23,7 @@
 //
 //// components
 @import 'components/avatars';
-//
+
 //// pages
 //@import 'pages/root';
-//@import 'pages/index';
-//
-//.navbar{
-//  .nav-pills{
-//    margin-top: 0;
-//    margin-bottom: 0;
-//    .nav-pill{
-//      a{
-//        min-height: $navbar-height;
-//        line-height: $navbar-height;
-//        padding-top: 0;
-//        padding-bottom: 0;
-//        > *{
-//          vertical-align: middle;
-//        }
-//      }
-//    }
-//  }
-//}
+@import 'pages/index';

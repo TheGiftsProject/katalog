@@ -11,7 +11,7 @@
       %li
         %form.navbar-form{:role => 'search'}
           .form-group
-            = text_field_tag :query, nil, :placeholder => t('layout.header.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
+            = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
 
   .navbar-header.pull-right.hidden-sm.hidden-xs
     %ul.nav.navbar-nav
@@ -24,7 +24,7 @@
             %li
               %a{:href => sign_out_path}
                 %i.fa.fa-sign-out
-                %span= t('layout.header.sign_out')
+                %span= t('.sign_out')
 
   .navbar-header.pull-right.no-collapse.nav-pills
     %ul.nav.navbar-nav

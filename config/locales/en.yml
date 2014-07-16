@@ -3,42 +3,44 @@ en:
     title: 'Katalog'
     description: 'The place to manage your passion projects'
 
+  layouts:
+    components:
+      header:
+        search_placeholder: 'Search for a project or user'
+        sign_out: 'Sign Out'
+      pills:
+        all: 'All'
+        mine: 'Mine'
+
   session:
-    create:
-      sign_in_error: 'Failed to sign-in'
+      create:
+        sign_in_error: 'Failed to sign-in'
 
-  layout:
-    header:
-      search_placeholder: 'Search for a project or user'
-      sign_out: 'Sign Out'
-
-  pages:
+  application:
     root:
       title: 'Katalog'
-      text: 'The place to manage your passion projects'
+      subtitle: 'The place to manage your passion projects'
       sign_in: 'Sign in with Github'
       continue: 'Continue'
       no_orgs: 'You have to be a public member in a Github organization before using Katalog'
       select_org: 'Choose a public Github organization for a Katalog'
 
+  projects:
     index:
-      create:
+      ideas: 'Ideas'
+      lifted: 'Lifted Projects'
+      quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
         title: 'Quick idea'
-      random:
+      random_idea:
         title: 'Random idea'
-      viewing_projects_of: 'Projects by %{user_name}:'
-      new: 'ADD'
-      filters:
-        all: 'ALL'
-        mine: 'MINE'
-        idea: 'IDEAS'
-        lifted: 'LIFTED'
+      no_projects:
+        title: 'No projects'
 
 
-    new:
-      title: 'New Project'
+
+
 
     edit:
       back: 'View Project'
@@ -87,7 +89,6 @@ en:
     destroyed: 'Project was removed.'
 
   errors:
-    sign_in: 'Sign-in failed'
     unauthorized: 'You are not authorized to view Katalog'
     post_fail: 'Failed to post'
     cant_delete: "You can't delete a post you didn't post"

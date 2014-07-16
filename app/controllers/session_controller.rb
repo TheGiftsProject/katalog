@@ -6,28 +6,28 @@ class SessionController < ApplicationController
     response = UserConnector.connect_from_omniauth(auth_hash)
     sign_in_with_connection_response(response)
   rescue
-    flash[:error] = t('.sign_in_error')
+    set_error_flash
   ensure
-    redirect_to root_url(:port => nil)
+    redirect_to_root
   end
 
   def organization
     response = UserConnector.connect_organization_to_user(params[:org_id], current_user)
     sign_in_with_connection_response(response)
   rescue
-    flash[:error] = t('.sign_in_error')
+    set_error_flash
   ensure
-    redirect_to root_url(:port => nil)
+
   end
 
   def destroy
     sign_out
-    redirect_to root_url
+    redirect_to_root
   end
 
   def failure
-    flash[:error] = t('errors.sign_in')
-    redirect_to root_url
+    set_error_flash
+    redirect_to_root
   end
 
   protected
@@ -35,6 +35,14 @@ class SessionController < ApplicationController
   def sign_in_with_connection_response(response)
     sign_in(response.user)
     session[:organizations] = response.organizations if response.requires_organization?
+  end
+
+  def redirect_to_root
+    redirect_to root_url(:port => nil)
+  end
+
+  def set_error_flash
+    flash[:error] = t('.sign_in_error')
   end
 
   def auth_hash

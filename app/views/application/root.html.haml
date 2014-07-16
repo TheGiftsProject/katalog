@@ -4,22 +4,22 @@
   = image_tag('logo-big.png', :class => 'animated-big-logo')
   .row
     .col-xs-12
-      %h1.uppercase= t('pages.root.title')
+      %h1.uppercase= t('.title')
   .row
     .col-xs-12
-      %p= t('pages.root.text')
+      %p= t('.subtitle')
   .row
     - if @organizations.present?
-      %span.select= t('pages.root.select_org')
+      %span.select= t('.select_org')
       = form_tag organization_path, :method => :POST , :html => {:role => 'form'} do
         .form-group
           = select_tag(:org_id, options_for_select(options_for_organizations(@organizations)), :class => 'form-control')
         %button{:class => 'btn btn-warning', :type => 'submit'}
-          %span= t('pages.root.continue')
+          %span= t('.continue')
           %i.fa.fa-arrow-circle-right
     - else
       .col-xs-12
         = link_to sign_in_path do
           %button{:class => 'btn btn-warning'}
-            %span= t('pages.root.sign_in')
+            %span= t('.sign_in')
             %i.fa.fa-github-alt

@@ -1,3 +1,7 @@
+__PROJECTS PAGE:__
+ * Layouting.
+ * Filtering by recent / user.
+
 __PROJECT PAGE:__
  * Upload image/s of project.
  * Posts are a lesser thing now. Allow also to edit them.
@@ -19,7 +23,6 @@ __DESIGN:__
 __SANITY CHECKS:__
  * Error pages.
  * Sweep code base and remove old stuff.
- * Use translations scopes like a boss.
  * Specs.
  * What happens when organization is deleted? Merge users organization with existing one (only when changing organization).
  

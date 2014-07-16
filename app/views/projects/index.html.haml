@@ -5,7 +5,7 @@
 
   .col-xs-12.col-sm-4
     %i.fa.fa-lightbulb-o
-    %span.uppercase= 'Ideas'
+    %span.uppercase= t('.ideas')
     .panel
       - if @projects.empty?
         = render 'projects/index/no_projects'
@@ -15,16 +15,10 @@
 
   .col-xs-12.col-sm-4
     %i.fa.fa-paper-plane-o
-    %span.uppercase= 'Lifted Projects'
+    %span.uppercase= t('.lifted_projects')
     .panel
       - if @projects.empty?
         = render 'projects/index/no_projects'
       - else
         - @projects.each do |project|
           = render 'projects/index/project_row', :project => project
-
-
--#- if @viewing_projects_of
--#  .project-by{:style => 'margin-bottom: 5px; margin-left: 2px;'}
--#    %i.icon-download-alt
--#    %h5{:style => 'display:inline;'}= t('pages.index.viewing_projects_of', :user_name => @viewing_projects_of.name)

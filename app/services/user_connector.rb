@@ -7,10 +7,13 @@ class UserConnector
   def self.connect_from_omniauth(auth_hash)
     user = user_from_auth_hash(auth_hash)
 
-    organizations = user_organizations(user) unless user.default_organization.present?
-    organizations.map! { |org| {:name => org[:login], :id => org[:id]} }
-
-    ConnectionResponse.new(:user => user, :organizations => organizations)
+    if user.default_organization.present?
+      ConnectionResponse.new(:user => user)
+    else
+      organizations = user_organizations(user)
+      organizations.map! { |org| {:name => org[:login], :id => org[:id]} }
+      ConnectionResponse.new(:user => user, :organizations => organizations)
+    end
   end
 
   def self.connect_organization_to_user(org_id, user)
@@ -23,7 +26,7 @@ class UserConnector
     user.organizations << organization
     user.update!(:default_organization_id => organization.id)
 
-    ConnectionResponse.new(:user => user)
+
   end
 
   def self.user_from_auth_hash(auth_hash)

@@ -18,7 +18,6 @@ __DESIGN:__
  
 __SANITY CHECKS:__
  * Error pages.
- * Sign in errors.
  * Sweep code base and remove old stuff.
  * Use translations scopes like a boss.
  * Specs.

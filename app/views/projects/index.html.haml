@@ -3,7 +3,19 @@
     = render 'projects/index/quick_idea'
     = render 'projects/index/random_idea', :project => @random_project
 
-  .col-xs-12.col-sm-8
+  .col-xs-12.col-sm-4
+    %i.fa.fa-lightbulb-o
+    %span.uppercase= 'Ideas'
+    .panel
+      - if @projects.empty?
+        = render 'projects/index/no_projects'
+      - else
+        - @projects.each do |project|
+          = render 'projects/index/project_row', :project => project
+
+  .col-xs-12.col-sm-4
+    %i.fa.fa-paper-plane-o
+    %span.uppercase= 'Lifted Projects'
     .panel
       - if @projects.empty?
         = render 'projects/index/no_projects'

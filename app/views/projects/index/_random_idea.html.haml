@@ -2,3 +2,4 @@
   = label_tag do
     %i.fa.fa-random
     %span.uppercase= t('pages.index.random.title')
+  = render 'projects/index/project_row', :project => @random_project

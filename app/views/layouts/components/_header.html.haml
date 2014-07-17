@@ -27,5 +27,9 @@
             %ul.dropdown-menu{:style => 'min-width: 100%;'}
               %li
                 %a{:href => sign_out_path}
+                  %i.fa.fa-github
+                  %span= t('.change_organization')
+              %li
+                %a{:href => sign_out_path}
                   %i.fa.fa-sign-out
                   %span= t('.sign_out')

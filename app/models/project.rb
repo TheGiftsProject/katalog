@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  DEFAULT_IMAGE = 'http://placehold.it/200x150'
+  DEFAULT_IMAGE = 'http://placehold.it/300x300'
 
   # has_one :ideator, :class_name => 'User'
   has_and_belongs_to_many :users
@@ -31,6 +31,10 @@ class Project < ActiveRecord::Base
 
   def ideator
     users.first
+  end
+
+  def lifted_at
+    posts.where(updated: true).minimum(:created_at)
   end
 
   private

@@ -1,0 +1,48 @@
+.comments{
+  img{
+    max-width: 100%;
+  }
+}
+.comment{
+  .body{
+    img{
+      @extend .img-responsive;
+    }
+  }
+  .when{
+    position: relative;
+    top: 7px;
+  }
+  pre {
+    overflow-x: auto;
+    white-space: pre;
+    word-wrap: normal;
+  }
+  hr:last-child{
+    border-color: #ccc;
+  }
+}
+
+.post {
+
+  textarea, .markdown-preview {
+    border: 1px solid #ccc;
+    @include border-radius(4px);
+    @include border-top-radius(0);
+    @include box-sizing(border-box);
+    @include min-height(70px);
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  textarea {
+//    @include box-sizing(border-box);
+    resize:vertical;
+    width: 100%;
+  }
+
+  form {
+    margin-top: 30px;
+  }
+
+}

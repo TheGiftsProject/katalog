@@ -1,14 +1,2 @@
 .status-fields
-  %label.checkbox.update
-    = f.check_box(:updated)
-    = t('post.status_update')
-
   = f.submit :class => 'btn btn-primary pull-right'
-
-  .btn-group.radio-group{:data => {:toggle => 'buttons-radio'}}
-    - Project::STATUSES.each do |status|
-      %label.btn{ class_if('active', current_project.status == status )}
-        = radio_button 'project', :status, status, :checked => current_project.status == status
-        %span
-          = status_icon(status)
-          = t(status, scope: 'pages.index.filters')

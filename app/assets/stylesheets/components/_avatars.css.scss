@@ -4,9 +4,10 @@
   width: 44px;
 
   @extend .img-rounded;
+  border: none;
 
   &.tiny {
     width: 19px;
-    margin-top: -1px
+    margin-top: -3px;
   }
 }

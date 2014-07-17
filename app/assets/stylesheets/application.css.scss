@@ -17,13 +17,14 @@
 @import 'layout/extensions';
 @import 'layout/header';
 @import 'layout/background';
-@import 'layout/overrides';
 @import 'layout/fonts';
-@import 'layout/buttons';
-
-// components
+//@import 'layout/overrides';
+//@import 'layout/buttons';
+//
+//// components
 @import 'components/avatars';
+@import 'components/tags';
 
-// pages
+//// pages
 @import 'pages/root';
 @import 'pages/index';

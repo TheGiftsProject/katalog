@@ -1,4 +1,4 @@
-%li{ active_class_if_current(filter) }
+%li.nav-pill{ active_class_if_current(filter) }
   = link_to projects_path(:filter => filter) do
-    %i.fa{:class => icon}
-    %span.uppercase.hidden-xs= t(filter, :scope => 'layouts.header.pills')
+    %i.fa.fa-fw{:class => icon}
+    %span.uppercase= t(filter, :scope => 'layouts.header.pills')

@@ -13,8 +13,7 @@ en:
         mine: 'Mine'
 
   session:
-      create:
-        sign_in_error: 'Failed to sign-in'
+    sign_in_error: 'Failed to sign-in'
 
   application:
     root:
@@ -27,20 +26,21 @@ en:
 
   projects:
     index:
-      ideas: 'Ideas'
-      lifted: 'Lifted Projects'
+      title:
+        all: 'Trending projects'
+        idea: 'Trending ideas'
+        mine: 'My projects'
+        lifted: 'Trending lifted projects'
+        user: "%{user}'s ideas & projects"
       quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
         title: 'Quick idea'
+        create: 'Create'
       random_idea:
         title: 'Random idea'
       no_projects:
         title: 'No projects'
-
-
-
-
 
     edit:
       back: 'View Project'
@@ -78,7 +78,10 @@ en:
     placeholder: "Enter markdown text"
 
   project:
-    last_updated: "Last Updated %{time} ago"
+    last_updated: "Updated %{time} ago"
+    collaborators:
+      one: '1'
+      other: '%{count}'
     new_tag: "new"
 
   notices:

@@ -16,5 +16,4 @@ startSearch = ->
     Turbolinks.visit("/projects/#{selected.id}")
   )
 
-$(document).on 'ready', startSearch
-$(document).on 'page:load', startSearch
+$(document).on 'ready page:load', startSearch

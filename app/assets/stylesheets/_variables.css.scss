@@ -1,16 +1,21 @@
 $gray:          #443f38;
 
-$yellow:        #fdd94b;
-$dark-yellow:   #e6c02a;
-$darker-yellow: #d19428;
+$yellow:            #ffeb3b;
+$dark-yellow:       #fdd835;
+$darker-yellow:     #f9a825;
+$lighter-yellow:    #fff59d;
+$background-yellow: #fff9c4;
 
-$red:           #e62536;
-$dark-red:      #c12837;
-$darker-red:    #a52330;
+$red:           #e51c23;
+$dark-red:      #dd191d;
+$darker-red:    #c41411;
 
-$blue:          #418eff;
-$dark-blue:     #3375e3;
-$darker-blue:   #245bc2;
+$blue:            #03a9f4;
+$dark-blue:       #0288d1;
+$darker-blue:     #01579b;
+$lighter-blue:    #81d4fa;
+$background-blue: #b3e5fc;
+$highlight-blue:  #29b6f6;
 
 $container-border-radius: 4px;
 $container-padding: 15px;
@@ -32,3 +37,16 @@ $brand-danger:  $red    !default;
 $state-danger-primary: $blue;
 $state-danger-warning: $yellow;
 $state-danger-text: $red;
+
+
+$navbar-border-radius: 0;
+$navbar-default-bg: $blue;
+$navbar-default-color: white;
+$navbar-default-link-color: white;
+$navbar-default-link-hover-color: white;
+$navbar-default-link-hover-bg: $highlight-blue;
+$navbar-default-link-active-color: white;
+$navbar-default-link-active-bg: $dark-blue;
+$navbar-default-toggle-icon-bar-bg: white;
+
+$nav-pills-border-radius: 0;

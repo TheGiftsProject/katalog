@@ -1,32 +1,31 @@
 %nav.navbar.navbar-default{:role => 'navigation'}
-  .navbar-header.pull-left
-    = link_to projects_path do
-      .navbar-brand.uppercase
-        %span
-          = image_tag('logo-small.png', :class => 'logo')
+  .container
+    .navbar-header
+      %button.navbar-toggle{type: :button, data: {toggle: :collapse, target: "#navbar-collapse"}}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to projects_path, class: 'navbar-brand uppercase' do
+        = image_tag('logo-small.png', :class => 'logo')
         = t('site.title')
 
-  .navbar-header.pull-left.hidden-xs
-    %ul.nav.navbar-nav
-      %li
-        %form.navbar-form{:role => 'search'}
-          .form-group
-            = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
+    .navbar-collapse.collapse#navbar-collapse
+      %form.navbar-form.navbar-left{:role => 'search'}
+        .form-group
+          = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
 
-  .navbar-header.pull-right.hidden-sm.hidden-xs
-    %ul.nav.navbar-nav
-      %li.dropdown
-        %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
-          =render 'users/avatar_img', :user => current_user, :type => 'tiny'
-          = current_user.nickname
-          %span.caret
-          %ul.dropdown-menu{:style => 'min-width: 100%;'}
-            %li
-              %a{:href => sign_out_path}
-                %i.fa.fa-sign-out
-                %span= t('.sign_out')
-
-  .navbar-header.pull-right.no-collapse.nav-pills
-    %ul.nav.navbar-nav
-      = render 'projects/index/pill', :filter => :all,    :icon => 'fa-list'
-      = render 'projects/index/pill', :filter => :mine,   :icon => 'fa-child'
+      %ul.nav.navbar-nav.navbar-right
+        = render 'projects/index/pill', :filter => :all,    :icon => 'fa-list'
+        = render 'projects/index/pill', :filter => :mine,   :icon => 'fa-child'
+        = render 'projects/index/pill', :filter => :ideas,  :icon => 'fa-lightbulb-o'
+        = render 'projects/index/pill', :filter => :lifted, :icon => 'fa-paper-plane'
+        %li.dropdown
+          %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
+            = render 'users/avatar_img', :user => current_user, :type => 'tiny'
+            = current_user.nickname
+            %span.caret
+            %ul.dropdown-menu{:style => 'min-width: 100%;'}
+              %li
+                %a{:href => sign_out_path}
+                  %i.fa.fa-sign-out
+                  %span= t('.sign_out')

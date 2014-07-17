@@ -1,7 +1,62 @@
-.quick-creation-form {
-  margin-bottom: $container-padding;
+#random-idea {
+  .project-meta {
+    display: none;
+  }
+}
 
-  @include mobile {
-    margin-bottom: 0;
+.project-row{
+  @extend .media;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+
+  &:first-child{
+    padding-top: 15px;
+  }
+
+  &:last-child{
+    border-bottom: none;
+  }
+
+  .avatar-container{
+    @extend .pull-left;
+  }
+
+  .project-details{
+    @extend .media-body;
+    position: relative;
+  }
+
+  .project-title{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .project-meta{
+
+    .fa {
+      @extend .text-muted;
+    }
+
+    @include not-mobile{
+      position: absolute;
+      top: 5px;
+      right: 0;
+    }
+  }
+
+  .project-contributors{
+    display: inline;
+    margin-right: 5px;
+  }
+  .project-last-updated {
+    display: inline;
+  }
+
+  .tags{
+
+    top: -3px;
+    position: relative;
   }
 }

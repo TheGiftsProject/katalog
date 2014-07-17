@@ -1,10 +1,13 @@
 .project-row
-  .title
-    .text
-      = link_to project do
-        = status_icon(project)
-        = project.title
-    = render 'projects/contributors', :project => project, :allow_delete => false
+  = render 'users/avatar', :user => project.ideator
+  .project-details
+    = link_to project.title, project, class: 'project-title'
     = render 'projects/tags', :project => project
-  .subtitle= project.subtitle
-  .last-update= t('project.last_updated', :time => time_ago_in_words(project.updated_at))
+    .project-subtitle= project.subtitle
+    .project-meta
+      .project-contributors
+        %i.fa.fa-users.fa-fw
+        = t('project.collaborators', :count => project.users.count)
+      .project-last-updated
+        %i.fa.fa-clock-o.fa-fw
+        = t('project.last_updated', :time => time_ago_in_words(project.updated_at))

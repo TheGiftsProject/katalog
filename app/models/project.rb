@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
   DEFAULT_IMAGE = 'http://placehold.it/200x150'
 
-  has_one :ideator, :class_name => 'User'
+  # has_one :ideator, :class_name => 'User'
   has_and_belongs_to_many :users
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
@@ -26,6 +26,10 @@ class Project < ActiveRecord::Base
 
   def less_than_week_old?
     self.created_at > 1.week.ago
+  end
+
+  def ideator
+    users.first
   end
 
   private

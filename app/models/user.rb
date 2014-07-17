@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     self[:nickname] || self[:name]
   end
 
+  def shortname
+    (self.name.presence || self.nickname).split(' ').first
+  end
+
 end

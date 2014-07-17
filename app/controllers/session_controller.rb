@@ -17,7 +17,7 @@ class SessionController < ApplicationController
   rescue
     set_error_flash
   ensure
-
+    redirect_to_root
   end
 
   def destroy
@@ -42,7 +42,7 @@ class SessionController < ApplicationController
   end
 
   def set_error_flash
-    flash[:error] = t('.sign_in_error')
+    flash[:error] = t('session.sign_in_error')
   end
 
   def auth_hash

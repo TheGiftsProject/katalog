@@ -5,7 +5,7 @@
     = render 'projects/index/random_idea', :project => @random_project
 
   .col-xs-12.col-sm-8
-    %h1= t(@filter, scope: 'index.title', user: @filter_user)
+    %h1= t(@filter, scope: 'projects.index.title', user: @filter_user)
     .panel
       - if @projects.empty?
         = render 'projects/index/no_projects'

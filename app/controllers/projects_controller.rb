@@ -78,6 +78,8 @@ class ProjectsController < ApplicationController
   def filter_by_status
     @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
     case (@filter)
+      when :all then
+        @projects = Project.latest_first
       when :mine then
         @projects = current_user.projects.latest_first
       when :user then
@@ -85,7 +87,7 @@ class ProjectsController < ApplicationController
         @filter_user = user.shortname
         @projects = user.projects.latest_first
       else
-        @projects = Project.latest_first
+        @projects = Project.where(:status => @filter).latest_first
     end
   end
 

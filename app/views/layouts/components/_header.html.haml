@@ -10,7 +10,7 @@
         = t('site.title')
 
     .navbar-collapse.collapse#navbar-collapse
-      %form.navbar-form.navbar-left{:role => 'search'}
+      %form.navbar-form.navbar-left.hidden-sm{:role => 'search'}
         .form-group
           = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
 

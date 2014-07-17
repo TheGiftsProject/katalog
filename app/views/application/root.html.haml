@@ -14,12 +14,12 @@
       = form_tag organization_path, :method => :POST , :html => {:role => 'form'} do
         .form-group
           = select_tag(:org_id, options_for_select(options_for_organizations(@organizations)), :class => 'form-control')
-        %button{:class => 'btn btn-warning', :type => 'submit'}
+        %button{:class => 'btn btn-white', :type => 'submit'}
           %span= t('.continue')
           %i.fa.fa-arrow-circle-right
     - else
       .col-xs-12
         = link_to sign_in_path do
-          %button{:class => 'btn btn-warning'}
+          %button{:class => 'btn btn-white'}
             %span= t('.sign_in')
             %i.fa.fa-github-alt{:alt => 'GitHub'}

@@ -10,10 +10,30 @@ class ProjectsController < ApplicationController
   before_filter :reset_referer, :only => [:index]
   after_filter :set_viewed_cookie, :only => [:create, :show]
 
+  before_filter :random_idea, only: [:index, :mine, :sync]
+
   def index
-    @random_project = Project.idea.to_a.sample
-    filter_by_status
+    set_project_and_ideas(Project.all)
   end
+
+  def mine
+    set_project_and_ideas(current_user.projects)
+    render action: :index
+  end
+
+  def user
+    @user = User.find_by(nickname: params[:username])
+    redirect_to root_path and return unless @user.present?
+    set_project_and_ideas(@user.projects)
+    render action: :index
+  end
+
+  def sync
+    @user_projects = users_projects
+  end
+
+
+  #########
 
   def show
     @post = current_project.posts.build
@@ -63,7 +83,6 @@ class ProjectsController < ApplicationController
     current_project.users << current_user unless current_project.users.include? current_user
   end
 
-
   def project_params
     params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :posts_attributes => [:text]])
   end
@@ -75,20 +94,22 @@ class ProjectsController < ApplicationController
     project
   end
 
-  def filter_by_status
-    @filter = (params[:filter].presence || DEFAULT_FILTER).to_sym
-    case (@filter)
-      when :all then
-        @projects = Project.latest_first
-      when :mine then
-        @projects = current_user.projects.latest_first
-      when :user then
-        user = User.find(params[:user])
-        @filter_user = user.shortname
-        @projects = user.projects.latest_first
-      else
-        @projects = Project.where(:status => @filter).latest_first
+  def set_project_and_ideas(scope)
+    @ideas = scope.idea.latest_first
+    @projects = scope.lifted.latest_first
+  end
+
+  def random_idea
+    @random_project = Project.idea.to_a.sample
+  end
+
+  def users_projects
+    users_projects = User.all.map do |user|
+      projects = user.projects.trending.latest_first.limit(4)
+      [user, projects.presence]
     end
+    users_projects.delete_if { |arr| arr.second.blank? }
+    users_projects.sort_by {|arr| arr.second.first.updated_at }.reverse
   end
 
 end

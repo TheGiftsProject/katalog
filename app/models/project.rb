@@ -12,6 +12,7 @@ class Project < ActiveRecord::Base
   enum :status, [:idea, :lifted]
 
   scope :latest_first, -> { order('updated_at DESC') }
+  scope :trending, -> { where(updated_at: ((Date.today-1.month)..Date.today)) }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
 
   validates_presence_of :subtitle, :title

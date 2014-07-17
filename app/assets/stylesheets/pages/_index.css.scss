@@ -2,6 +2,9 @@
   .project-meta {
     display: none;
   }
+  .project-row{
+    padding: 0;
+  }
 }
 
 .project-row{
@@ -40,9 +43,9 @@
     }
 
     @include not-mobile{
-      position: absolute;
-      top: 5px;
-      right: 0;
+//      position: absolute;
+//      top: 5px;
+//      right: 0;
     }
   }
 

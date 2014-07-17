@@ -15,10 +15,19 @@
           = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
 
       %ul.nav.navbar-nav.navbar-right
-        = render 'projects/index/pill', :filter => :all,    :icon => 'fa-list'
-        = render 'projects/index/pill', :filter => :mine,   :icon => 'fa-child'
-        = render 'projects/index/pill', :filter => :idea,  :icon => 'fa-lightbulb-o'
-        = render 'projects/index/pill', :filter => :lifted, :icon => 'fa-paper-plane'
+        %li.nav-pill
+          = link_to projects_path do
+            %i.fa.fa-fw.fa-list
+            %span.uppercase= t(:all, :scope => 'layouts.header.pills')
+        %li.nav-pill
+          = link_to mine_projects_path do
+            %i.fa.fa-fw.fa-child
+            %span.uppercase= t(:mine, :scope => 'layouts.header.pills')
+        %li.nav-pill
+          = link_to sync_projects_path do
+            %i.fa.fa-fw.fa-refresh
+            %span.uppercase= t(:sync, :scope => 'layouts.header.pills')
+
         %li.dropdown
           %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
             = render 'users/avatar_img', :user => current_user, :type => 'tiny'

@@ -1,0 +1,7 @@
+%h2= title
+.panel
+  - if projects.empty?
+    = render 'projects/index/no_projects'
+  - else
+    - projects.each do |project|
+      = render 'projects/index/project_row', :project => project

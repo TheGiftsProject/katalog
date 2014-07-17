@@ -1,2 +1,2 @@
-= link_to projects_path(:filter => :user, :user => user.id), :class => 'avatar-container' do
+= link_to smart_user_projects_path(user), :class => 'avatar-container' do
   = render 'users/avatar_img', :user => user, :type => 'normal'

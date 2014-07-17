@@ -3,6 +3,14 @@ Katalog::Application.routes.draw do
   root :to => 'application#root'
 
   resources :projects, :only => [:create, :show, :index, :edit, :update, :destroy] do
+
+    root to: 'projects#index'
+    collection do
+      get :mine
+      get :sync
+      get '/user/:username', to: :user, as: :user
+    end
+
     resources :posts, :only => [:create, :destroy]
     resources :users, :only => [:destroy]
     get :bump

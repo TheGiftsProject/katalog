@@ -1,14 +1,10 @@
 .row
-  .col-xs-12.col-sm-4.pull-right
-    %h1.hidden-xs &nbsp;
-    = render 'projects/index/quick_idea'
-    = render 'projects/index/random_idea', :project => @random_project
+  = render 'projects/index/sidebar'
 
-  .col-xs-12.col-sm-8
-    %h1= t(@filter, scope: 'projects.index.title', user: @filter_user)
-    .panel
-      - if @projects.empty?
-        = render 'projects/index/no_projects'
-      - else
-        - @projects.each do |project|
-          = render 'projects/index/project_row', :project => project
+  .col-sm-9
+    .row
+      .col-xs-12.col-sm-6
+        = render 'projects/index/project_list', projects: @ideas, title: title_for_column('ideas')
+
+      .col-xs-12.col-sm-6
+        = render 'projects/index/project_list', projects: @projects, title: title_for_column('projects')

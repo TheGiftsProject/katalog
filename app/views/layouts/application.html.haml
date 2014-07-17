@@ -12,8 +12,8 @@
   %body
     - unless headless_page?
       = render 'layouts/components/header'
+    .container
       = render 'layouts/components/messages'
-    .container{:class => container_class }
       = yield
     - yield :bottom_javascripts
     = configure_s3_storage

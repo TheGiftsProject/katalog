@@ -28,11 +28,16 @@ en:
   projects:
     index:
       title:
-        all: 'Trending projects'
-        idea: 'Trending ideas'
-        mine: 'My projects'
-        lifted: 'Trending lifted projects'
-        user: "%{user}'s ideas & projects"
+        mine:
+          ideas: 'My ideas'
+          projects: 'My projects'
+        index:
+          ideas: "Trending ideas"
+          projects: "Trending projects"
+        user:
+          ideas: "%{user}'s ideas"
+          projects: "%{user}'s projects"
+
       quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'

@@ -1,0 +1,9 @@
+.row
+  = render 'projects/index/sidebar'
+
+  .col-sm-9
+    - @user_projects.each_slice(2) do |slice|
+      .row
+        - slice.each do |user, projects|
+          .col-xs-12.col-sm-6
+            = render 'projects/index/project_list', title: user.shortname, projects: projects

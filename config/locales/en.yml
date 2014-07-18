@@ -42,7 +42,7 @@ en:
       quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
-        title: 'Quick idea'
+        title: 'Add an idea'
         create: 'Create'
       random_idea:
         title: 'Random idea'

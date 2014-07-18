@@ -10,21 +10,31 @@ class ProjectsController < ApplicationController
   before_filter :reset_referer, :only => [:index]
   after_filter :set_viewed_cookie, :only => [:create, :show]
 
-  before_filter :random_idea, only: [:index, :mine, :sync]
+  before_filter :random_idea, only: [:index, :mine, :sync, :ideas, :lifted]
 
   def index
-    set_project_and_ideas(Project.all)
+    set_projects_for_scope(Project.all)
   end
 
   def mine
-    set_project_and_ideas(current_user.projects)
+    set_projects_for_scope(current_user.projects)
+    render action: :index
+  end
+
+  def lifted
+    set_projects_for_scope(Project.lifted)
+    render action: :index
+  end
+
+  def ideas
+    set_projects_for_scope(Project.idea)
     render action: :index
   end
 
   def user
     @user = User.find_by(nickname: params[:username])
     redirect_to root_path and return unless @user.present?
-    set_project_and_ideas(@user.projects)
+    set_projects_for_scope(@user.projects)
     render action: :index
   end
 
@@ -94,9 +104,8 @@ class ProjectsController < ApplicationController
     project
   end
 
-  def set_project_and_ideas(scope)
-    @ideas = scope.idea.latest_first
-    @projects = scope.lifted.latest_first
+  def set_projects_for_scope(scope)
+    @projects = scope.latest_first
   end
 
   def random_idea

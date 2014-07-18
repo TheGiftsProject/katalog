@@ -39,7 +39,9 @@ class ProjectsController < ApplicationController
   end
 
   def sync
-    @user_projects = users_projects
+    seed = Time.now.beginning_of_day.to_i
+    rand = Random.new(seed)
+    @user_projects = users_projects.shuffle(:random => rand)
   end
 
   def random

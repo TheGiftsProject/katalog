@@ -2,6 +2,7 @@ __FEATURES:__
  * Ideator - use db column or remove.
  * Likes.
  * Add user role to collaborator list in show.
+ * Return to referrer in project page.
  
  * Collapsable onboarding with invites.
  * Upload logo image.

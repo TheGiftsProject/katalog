@@ -1,4 +1,5 @@
 __FEATURES:__
+ * Randomize random.
  * Actions for project page: Lift - bump - delete - like - collaborate. 
  * Upload image/s of project.
  * Different project rows for ideas/projects. 

@@ -7,7 +7,7 @@ en:
     components:
       header:
         search_placeholder: 'Search for a project or user'
-        change_organization: 'Change Organization'
+        change_organization: 'Change Organization (%{name})'
         sign_out: 'Sign Out'
       pills:
         all: 'All'

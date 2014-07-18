@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
   scope :latest_first, -> { order('updated_at DESC') }
   scope :trending, -> { where(updated_at: ((Date.today-1.month)..Date.today)) }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
-  scope :of_organization_id, lambda { |organization_id| where(:organization_id => organization_id) }
+  scope :of_user_org, lambda { |user| where(:organization_id => user.default_organization_id) }
 
   validates_presence_of :subtitle, :title
 

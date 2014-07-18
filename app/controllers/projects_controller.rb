@@ -107,7 +107,7 @@ class ProjectsController < ApplicationController
 
   def set_projects_for_scope(scope)
     Rails.logger.info current_user.default_organization_id
-    @projects = scope.latest_first.of_organization_id(current_user.default_organization_id)
+    @projects = scope.latest_first.of_user_org(current_user)
   end
 
   def random_idea
@@ -116,7 +116,7 @@ class ProjectsController < ApplicationController
 
   def users_projects
     users_projects = User.all.map do |user|
-      projects = user.projects.trending.latest_first.limit(4)
+      projects = user.projects.trending.of_user_org(user).latest_first.limit(4)
       [user, projects.presence]
     end
     users_projects.delete_if { |arr| arr.second.blank? }

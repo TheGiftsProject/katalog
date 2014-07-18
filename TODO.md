@@ -1,4 +1,6 @@
 __FEATURES:__
+ * Collapsable onboarding with invites.
+ * Remove bump / make recent in sync.
  * Randomize random.
  * Actions for project page: Lift - bump - delete - like - collaborate. 
  * Upload logo image.

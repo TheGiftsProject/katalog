@@ -1,26 +1,25 @@
 __PROJECT PAGE:__
  * Upload image/s of project.
- * Change status from idea to lifted (and back?).
+ * Actions: Lift - bump - delete - like - collaborate. 
 
 __FEATURES:__
+ * Different project rows for ideas/projects. 
  * Likes + arrange by likes/date.
- * Random ideas.
  * Autocomplete should find users as well.
- * Change organization.
  
 __BUGS:__
- * Fix autocomplete.
+ * Ideator - use db column or remove.
  * Fix tags.
-
-__DESIGN:__
- * New design (also for root) by Yon.
+ * Associate projects to org (dependent destroy +)
+ * Fix autocomplete.
  * Add search icon to search field.
- 
+
 __SANITY CHECKS:__
- * Error pages.
- * Sweep code base and remove old stuff.
- * Specs.
+ * Sweep i18n, clean it and use proper scopes.
+ * Error pages work?
+ * Specs - add for basic control flows.
  * What happens when organization is deleted? Merge users organization with existing one (only when changing organization).
+ * Sweep code base and remove old stuff.
  
 __NICE TO HAVE:__
  * Paper plane 3d.

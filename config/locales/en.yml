@@ -98,7 +98,7 @@ en:
     destroyed: 'Project was removed.'
 
   errors:
-    unauthorized: 'You are not authorized to view Katalog'
+    unauthorized: 'You are not authorized to view this Katalog'
     post_fail: 'Failed to post'
     cant_delete: "You can't delete a post you didn't post"
 

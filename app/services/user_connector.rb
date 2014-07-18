@@ -11,22 +11,33 @@ class UserConnector
       ConnectionResponse.new(:user => user)
     else
       organizations = user_organizations(user)
-      organizations.map! { |org| {:name => org[:login], :id => org[:id]} }
-      ConnectionResponse.new(:user => user, :organizations => organizations)
+      if organizations.count == 1
+        org = organizations.first
+        set_default_organization(user, org[:id], org[:login])
+        ConnectionResponse.new(:user => user)
+      else
+        organizations.map! { |org| {:name => org[:login], :id => org[:id]} }
+        ConnectionResponse.new(:user => user, :organizations => organizations)
+      end
     end
   end
 
   def self.connect_organization_to_user(org_id, user)
     organizations = user_organizations(user)
-    matching_org = organizations.find { |org| org[:login] = org_id }
+    matching_org = organizations.find { |org| org[:id] = org_id }
 
     raise InvalidOrganizationError if matching_org.nil?
 
-    organization = Organization.where(:github_id => org_id).first_or_create(:name => matching_org[name])
+    set_default_organization(user, org_id, matching_org[:login])
+    ConnectionResponse.new(:user => user)
+  end
+
+  private
+
+  def self.set_default_organization(user, org_id, org_name)
+    organization = Organization.where(:github_id => org_id.to_s).first_or_create(:name => org_name)
     user.organizations << organization
     user.update!(:default_organization_id => organization.id)
-
-
   end
 
   def self.user_from_auth_hash(auth_hash)

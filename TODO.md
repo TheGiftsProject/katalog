@@ -1,10 +1,5 @@
-__PROJECTS PAGE:__
- * Layouting.
- * Filtering by recent / user.
-
 __PROJECT PAGE:__
  * Upload image/s of project.
- * Posts are a lesser thing now. Allow also to edit them.
  * Change status from idea to lifted (and back?).
 
 __FEATURES:__
@@ -15,6 +10,7 @@ __FEATURES:__
  
 __BUGS:__
  * Fix autocomplete.
+ * Fix tags.
 
 __DESIGN:__
  * New design (also for root) by Yon.

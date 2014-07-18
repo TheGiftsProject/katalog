@@ -101,6 +101,7 @@ class ProjectsController < ApplicationController
     project = current_user.projects.build(project_params)
     project.users = [current_user]
     project.ideator_id = current_user.id
+    project.organization_id = current_user.default_organization_id
     project
   end
 

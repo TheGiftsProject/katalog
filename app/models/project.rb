@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
   DEFAULT_IMAGE = 'http://placehold.it/300x300'
 
-  # has_one :ideator, :class_name => 'User'
+  belongs_to :ideator, :class_name => 'User'
   belongs_to :organization
   has_and_belongs_to_many :users
   has_many :posts, :dependent => :destroy
@@ -14,11 +14,11 @@ class Project < ActiveRecord::Base
 
   enum :status, [:idea, :lifted]
 
-  scope :latest_first, -> { order('updated_at DESC') }
+  scope :latest_first, -> { order('projects.updated_at DESC') }
   scope :trending, -> { where(updated_at: ((Date.today-1.month)..(Date.today+1.day))) }
   scope :search, -> (query) { query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
-  scope :in_org, -> (organization) { where(organization: organization) }
+  scope :of_user, -> (user) { includes(:users).where(:users => {:id => user.id}) }
 
   validates_presence_of :subtitle, :title
 
@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
   end
 
   def ideator
-    users.first
+    self[:ideator].presence || users.first
   end
 
   def lift!

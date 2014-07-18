@@ -5,8 +5,8 @@ class SessionController < ApplicationController
   def create
     response = UserConnector.connect_from_omniauth(auth_hash)
     sign_in_with_connection_response(response)
-  rescue
-    set_error_flash
+  rescue => error
+    set_error_flash(error)
   ensure
     redirect_to_root
   end
@@ -14,8 +14,8 @@ class SessionController < ApplicationController
   def organization
     response = UserConnector.connect_organization_to_user(params[:org_id], current_user)
     sign_in_with_connection_response(response)
-  rescue
-    set_error_flash
+  rescue => error
+    set_error_flash(error)
   ensure
     redirect_to_root
   end
@@ -46,7 +46,8 @@ class SessionController < ApplicationController
     redirect_to root_url(:port => nil)
   end
 
-  def set_error_flash
+  def set_error_flash(error)
+    Rails.logger.error(error)
     flash[:error] = t('session.sign_in_error')
   end
 

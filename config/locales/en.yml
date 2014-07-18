@@ -42,7 +42,7 @@ en:
       quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
-        title: 'Quick idea'
+        title: 'Add an idea'
         create: 'Create'
       random_idea:
         title: 'Random idea'
@@ -63,11 +63,12 @@ en:
       optional: '(optional)'
 
     show:
+      project_siderbar:
+        ideator: 'Ideator'
       back: 'Projects'
       edit: 'Edit'
       delete: 'Delete'
       contribute: "I'm a contributor!"
-      bump: 'Bump'
       urls:
         repo: 'Repo URL'
         demo: 'Demo URL'
@@ -92,7 +93,6 @@ en:
     new_tag: "new"
 
   notices:
-    bumped: "Your project was bumped up"
     contribute: "You were added to the Project's contributors"
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'

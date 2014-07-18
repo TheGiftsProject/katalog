@@ -8,38 +8,39 @@ class ProjectsController < ApplicationController
   before_filter :project_required, :only => [:show, :edit, :update, :destroy]
   before_filter :save_referer, :only => [:show]
   before_filter :reset_referer, :only => [:index]
+  before_filter :random_idea, only: [:index, :mine, :sync, :ideas, :lifted]
   after_filter :set_viewed_cookie, :only => [:create, :show]
 
-  before_filter :random_idea, only: [:index, :mine, :sync, :ideas, :lifted]
-
   def index
-    set_projects_for_scope(Project.all)
+    set_projects_for_scope(scoped_projects)
   end
 
   def mine
-    set_projects_for_scope(current_user.projects)
+    set_projects_for_scope(scoped_projects.of_user(current_user))
     render action: :index
   end
 
   def lifted
-    set_projects_for_scope(Project.lifted)
+    set_projects_for_scope(scoped_projects.lifted)
     render action: :index
   end
 
   def ideas
-    set_projects_for_scope(Project.idea)
+    set_projects_for_scope(scoped_projects.idea)
     render action: :index
   end
 
   def user
     @user = current_organization.users.find_by(nickname: params[:username])
     redirect_to root_path and return unless @user.present?
-    set_projects_for_scope(@user.projects)
+    set_projects_for_scope(scoped_projects.of_user(@user))
     render action: :index
   end
 
   def sync
-    @user_projects = users_projects
+    seed = Time.now.beginning_of_day.to_i
+    rand = Random.new(seed)
+    @user_projects = users_projects.shuffle(:random => rand)
   end
 
   def random
@@ -53,7 +54,7 @@ class ProjectsController < ApplicationController
     @post = current_project.posts.build
   end
 
-  def creat
+  def create
     @project = build_project
     if @project.save
       set_current_project(@project)
@@ -110,7 +111,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_projects_for_scope(scope)
-    @projects = scope.latest_first.in_org(current_organization).paginate(:page => params[:page])
+    @projects = scope.latest_first.paginate(:page => params[:page])
   end
 
   def random_idea
@@ -119,7 +120,7 @@ class ProjectsController < ApplicationController
 
   def users_projects
     users_projects = current_organization.users.map do |user|
-      projects = user.projects.in_org(current_organization).latest_first.limit(3)
+      projects = scoped_projects.of_user(user).latest_first.limit(3)
       [user, projects.presence]
     end
     users_projects.delete_if { |arr| arr.second.blank? }

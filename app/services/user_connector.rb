@@ -36,7 +36,7 @@ class UserConnector
 
   def self.set_default_organization(user, org_id, org_name)
     organization = Organization.where(:github_id => org_id.to_s).first_or_create(:name => org_name)
-    user.organizations << organization
+    user.organizations << organization unless user.organizations.include?(organization)
     user.update!(:default_organization_id => organization.id)
   end
 

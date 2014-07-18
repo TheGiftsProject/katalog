@@ -8,7 +8,15 @@
 }
 
 .project-page{
+  position: relative;
   hr{
     border-color: $highlight-blue;
+  }
+  .project-toolbar{
+    @include not-mobile{
+      position: absolute;
+      right: 0;
+      top: 16px;
+    }
   }
 }

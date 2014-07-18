@@ -1,10 +1,11 @@
 __FEATURES:__
- * Randomize random.
  * Actions for project page: Lift - bump - delete - like - collaborate. 
  * Upload image/s of project.
- * Different project rows for ideas/projects. 
+ * Differentiate project rows for ideas/projects. 
  * Likes + arrange by likes/date.
  * Autocomplete should find users as well.
+ * Add user role to collaborator list in show
+ * Edit pages
  
 __BUGS:__
  * Add search icon to search field.

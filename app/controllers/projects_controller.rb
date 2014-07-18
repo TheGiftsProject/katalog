@@ -42,6 +42,10 @@ class ProjectsController < ApplicationController
     @user_projects = users_projects
   end
 
+  def random
+    random_idea
+    render partial: 'projects/index/random_idea', layout: false
+  end
 
   #########
 

@@ -1,8 +1,9 @@
 .well.hidden-xs#random-idea
-  = label_tag do
-    %i.fa.fa-random
-    %span.uppercase= t('.title')
-  - if @random_project.present?
-    = render 'projects/index/project_row', :project => @random_project
-  - else
-    = render 'projects/index/no_projects'
+  .content
+    = label_tag do
+      %i.fa.fa-random
+      %span.uppercase= t('.title')
+    - if @random_project.present?
+      = render 'projects/index/project_row', :project => @random_project
+    - else
+      = render 'projects/index/no_projects'

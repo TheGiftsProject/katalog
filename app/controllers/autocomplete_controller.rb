@@ -4,13 +4,11 @@ class AutocompleteController < ApplicationController
   before_action :load_query, :only => [:projects]
 
   def projects
-    if @query.blank?
-      render :json => []
-    else
-      render :json => Project.search(@query).map do |project|
-        {:value => project.title, :tokens => project.title.split(' ') }
-      end
-    end
+    render json: found_projects, each_serializer: Autocomplete::ProjectSerializer, root: false
+  end
+
+  def found_projects
+    Project.search(@query)
   end
 
   private

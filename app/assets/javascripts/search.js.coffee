@@ -1,19 +1,28 @@
-#= require hogan.js
 #= require twitter/typeahead
 
 startSearch = ->
-  $('.search-query').typeahead([
+  window.el = $('.search-query')
+  projects = new Bloodhound(
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: '/autocomplete/projects?q=%QUERY'
+  )
+  projects.initialize()
+
+  $('.search-query').typeahead(
+    {
+#      hint: true,
+      highlight: true,
+      minLength: 1,
+    },
     {
       name: 'projects'
-      valueKey: 'title'
-      engine: Hogan
-      template: "<p><strong>{{title}}</strong></p>"
-      remote:
-        url: '/autocomplete/projects?q=%QUERY'
+      displayKey: 'title'
+      valueKey: 'url'
+      source: projects.ttAdapter()
     }
-  ]
   ).on('typeahead:selected', (ev, selected) ->
-    Turbolinks.visit("/projects/#{selected.id}")
+    Turbolinks.visit(selected.url)
   )
 
 $(document).on 'ready page:load', startSearch

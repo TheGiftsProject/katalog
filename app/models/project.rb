@@ -13,7 +13,8 @@ class Project < ActiveRecord::Base
 
   scope :latest_first, -> { order('updated_at DESC') }
   scope :trending, -> { where(updated_at: ((Date.today-1.month)..Date.today)) }
-  scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
+  scope :search, lambda { |query| query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
+                                                              "#{query.downcase}%", "% #{query.downcase}%")}
 
   validates_presence_of :subtitle, :title
 

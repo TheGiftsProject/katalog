@@ -23,8 +23,11 @@ gem 'hogan_assets'
 gem 'compass-rails', '~> 1.1.7'
 gem 'animation', '~> 0.1.alpha.3'
 gem 'font-awesome-rails', '~> 4.1.0.0'
-gem 'twitter-typeahead-rails', '~> 0.10.2'
 gem 'postmark-mitt', '0.0.8'
+
+gem 'twitter-typeahead-rails'
+
+gem 'active_model_serializers'
 
 group :production do
   gem 'rails_12factor'

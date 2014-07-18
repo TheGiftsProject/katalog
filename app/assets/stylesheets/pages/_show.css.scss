@@ -8,7 +8,20 @@
 }
 
 .project-page{
+  position: relative;
   hr{
     border-color: $highlight-blue;
+  }
+  .project-toolbar{
+    z-index: 2;
+    @include mobile{
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    @include not-mobile{
+      position: absolute;
+      right: 0;
+      top: 16px;
+    }
   }
 }

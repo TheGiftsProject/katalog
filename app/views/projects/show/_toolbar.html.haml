@@ -1,0 +1,11 @@
+.project-toolbar
+  - unless current_project.lifted?
+    %button.btn.btn-primary
+      %i.fa.fa-paper-plane
+      Lift
+  %button.btn.btn-default
+    %i.fa.fa-thumbs-o-up
+    Like
+  = link_to edit_project_path(current_project), class: 'btn btn-default' do
+    %i.fa.fa-edit
+    Edit

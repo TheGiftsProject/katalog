@@ -1,4 +1,6 @@
 __FEATURES:__
+ * Add user role to collaborator list in show
+ * Edit pages
  * Collapsable onboarding with invites.
  * Remove bump / make recent in sync.
  * Randomize random.
@@ -8,6 +10,7 @@ __FEATURES:__
  * Likes + arrange by likes/date.
  * Autocomplete should find users as well.
  * Bring back the postmark thingy.
+ 
  
 __BUGS:__
  * Add search icon to search field.

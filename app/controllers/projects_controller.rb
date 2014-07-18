@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
   end
 
   def user
-    @user = User.find_by(nickname: params[:username])
+    @user = current_organization.users.find_by(nickname: params[:username])
     redirect_to root_path and return unless @user.present?
     set_projects_for_scope(@user.projects)
     render action: :index
@@ -42,6 +42,10 @@ class ProjectsController < ApplicationController
     @user_projects = users_projects
   end
 
+  def random
+    random_idea
+    render partial: 'projects/index/random_idea', layout: false
+  end
 
   #########
 
@@ -110,7 +114,7 @@ class ProjectsController < ApplicationController
   end
 
   def random_idea
-    @random_project = Project.idea.to_a.sample
+    @random_project = scoped_projects.idea.to_a.sample
   end
 
   def users_projects

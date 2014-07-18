@@ -13,12 +13,12 @@ class Project < ActiveRecord::Base
   enum :status, [:idea, :lifted]
 
   scope :latest_first, -> { order('updated_at DESC') }
-  scope :trending, -> { where(updated_at: ((Date.today-1.month)..Date.today)) }
+  scope :trending, -> { where(updated_at: ((Date.today-1.month)..(Date.today+1.day))) }
   scope :search, lambda { |query| query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
   scope :of_user_org, lambda { |user| where(:organization_id => user.default_organization_id) }
 
-  validates_presence_of :subtitle, :tit
+  validates_presence_of :subtitle, :title
 
   def to_param
     slug

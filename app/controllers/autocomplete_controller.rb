@@ -1,5 +1,6 @@
 class AutocompleteController < ApplicationController
 
+  include ProjectSupport
   before_filter :sign_in_required
   before_action :load_query, :only => [:projects]
 
@@ -8,7 +9,7 @@ class AutocompleteController < ApplicationController
   end
 
   def found_projects
-    Project.search(@query)
+    scoped_projects.search(@query)
   end
 
   private

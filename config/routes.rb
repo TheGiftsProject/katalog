@@ -11,6 +11,7 @@ Katalog::Application.routes.draw do
       get :lifted
       get :sync
       get '/user/:username', to: :user, as: :user
+      get :random
     end
 
     resources :posts, :only => [:create, :destroy]

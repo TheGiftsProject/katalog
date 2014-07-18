@@ -1,5 +1,8 @@
 __FEATURES:__
+ * Ideator - use db column or remove.
+ * Likes.
  * Add user role to collaborator list in show.
+ 
  * Collapsable onboarding with invites.
  * Upload logo image.
  * Differentiate project rows for ideas/projects. 
@@ -7,10 +10,6 @@ __FEATURES:__
  * Autocomplete should find users as well.
  * Bring back the postmark thingy.
  
-__BUGS:__
- * Add search icon to search field.
- * Ideator - use db column or remove.
-
 __SANITY CHECKS:__
  * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).
  * Sweep i18n, clean it and use proper scopes.

@@ -12,3 +12,4 @@
 .DS_Store
 .sass_cache
 .powenv
+*.dump

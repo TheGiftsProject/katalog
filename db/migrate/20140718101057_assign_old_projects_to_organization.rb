@@ -5,7 +5,6 @@ class AssignOldProjectsToOrganization < ActiveRecord::Migration
   end
 
   def down
-    Organization.where(:name => 'iic-ninjas', :github_id => '5079491').destroy_all
     Project.update_all(:organization_id => nil)
   end
 end

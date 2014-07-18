@@ -11,6 +11,7 @@ __BUGS:__
  * Ideator - use db column or remove.
 
 __SANITY CHECKS:__
+ * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).
  * Sweep i18n, clean it and use proper scopes.
  * Error pages work?
  * Specs - add for basic control flows.

@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
 
   DEFAULT_IMAGE = 'http://placehold.it/300x300'
 
-  # has_one :ideator, :class_name => 'User'
+  belongs_to :ideator, :class_name => 'User'
   belongs_to :organization
   has_and_belongs_to_many :users
   has_many :posts, :dependent => :destroy
@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
   end
 
   def ideator
-    users.first
+    self[:ideator].presence || users.first
   end
 
   def lift!

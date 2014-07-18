@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
     @post = current_project.posts.build
   end
 
-  def creat
+  def create
     @project = build_project
     if @project.save
       set_current_project(@project)

@@ -3,10 +3,11 @@ __FEATURES:__
  * Likes.
  * Add user role to collaborator list in show.
  * Return to referrer in project page.
+ * Differentiate project rows for ideas/projects. 
  
+ * Have the 'no projects' thingy in sync as well.
  * Collapsable onboarding with invites.
  * Upload logo image.
- * Differentiate project rows for ideas/projects. 
  * Likes + arrange by likes/date.
  * Autocomplete should find users as well.
  * Bring back the postmark thingy.
@@ -20,6 +21,7 @@ __SANITY CHECKS:__
  * Sweep code base and remove old stuff.
  
 __NICE TO HAVE:__
+ * Vector clouds in root.
  * Paper plane 3d.
  * Emoji autocomplete in posts.
  * Github activity and project-neggers.

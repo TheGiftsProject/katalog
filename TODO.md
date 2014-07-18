@@ -1,11 +1,12 @@
 __FEATURES:__
  * Actions: Lift 
  * Add user role to collaborator list in show
- * Edit pages
+ * Add myself as collaborator in contributors list.
+ * Edit pages (with delete).
  * Collapsable onboarding with invites.
  * Remove bump / make recent in sync.
- * Randomize random.
- * Actions for project page: Lift - bump - delete - like - collaborate. 
+ * Like in project page.
+ * Like in project row.
  * Upload logo image.
  * Different project rows for ideas/projects. 
  * Likes + arrange by likes/date.

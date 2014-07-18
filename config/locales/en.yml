@@ -67,7 +67,6 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       contribute: "I'm a contributor!"
-      bump: 'Bump'
       urls:
         repo: 'Repo URL'
         demo: 'Demo URL'
@@ -92,7 +91,6 @@ en:
     new_tag: "new"
 
   notices:
-    bumped: "Your project was bumped up"
     contribute: "You were added to the Project's contributors"
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'

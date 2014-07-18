@@ -14,11 +14,11 @@ class Project < ActiveRecord::Base
 
   enum :status, [:idea, :lifted]
 
-  scope :latest_first, -> { order('updated_at DESC') }
+  scope :latest_first, -> { order('projects.updated_at DESC') }
   scope :trending, -> { where(updated_at: ((Date.today-1.month)..(Date.today+1.day))) }
   scope :search, -> (query) { query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
-  scope :in_org, -> (organization) { where(organization: organization) }
+  scope :of_user, -> (user) { includes(:users).where(:users => {:id => user.id}) }
 
   validates_presence_of :subtitle, :title
 

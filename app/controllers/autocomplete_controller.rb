@@ -9,7 +9,7 @@ class AutocompleteController < ApplicationController
   end
 
   def users
-    render json: User.all, each_serializer: Autocomplete::UserSerializer, root: false
+    render json: current_organization.users.all, each_serializer: Autocomplete::UserSerializer, root: false
   end
 
   def found_projects

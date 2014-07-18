@@ -10,7 +10,8 @@ __FEATURES:__
  
 __SANITY CHECKS:__
  * Error when submitting subtitle longer than 255. Show flash.
- * n+1 checks (e.g. likes)
+ * n+1 checks (e.g. likes).
+ * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
  * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).
  * Sweep i18n, clean it and use proper scopes.
  * Error pages work (also when not in organization scope).
@@ -21,7 +22,7 @@ __SANITY CHECKS:__
  
 __NICE TO HAVE:__
  * Edit posts.
- * Vector clouds in root.
+ * Plain clouds in root.
  * Paper plane 3d.
  * Emoji autocomplete in posts.
  * Github activity and project-neggers.

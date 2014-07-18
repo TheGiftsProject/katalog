@@ -1,10 +1,4 @@
 .row
   = render 'projects/index/sidebar'
-
   .col-sm-9
-    .row
-      .col-xs-12.col-sm-6
-        = render 'projects/index/project_list', projects: @ideas, title: title_for_column('ideas')
-
-      .col-xs-12.col-sm-6
-        = render 'projects/index/project_list', projects: @projects, title: title_for_column('projects')
+    = render 'projects/index/project_list', projects: @projects, title: title_for_column('shared')

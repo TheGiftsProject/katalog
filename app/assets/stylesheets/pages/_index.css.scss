@@ -43,9 +43,9 @@
     }
 
     @include not-mobile{
-//      position: absolute;
-//      top: 5px;
-//      right: 0;
+      position: absolute;
+      top: 5px;
+      right: 0;
     }
   }
 
@@ -61,5 +61,14 @@
 
     top: -3px;
     position: relative;
+  }
+}
+.half-column{
+  @extend .col-xs-12;
+  @extend .col-sm-6;
+  .project-meta{
+    position: relative;
+    top: auto;
+    right: auto;
   }
 }

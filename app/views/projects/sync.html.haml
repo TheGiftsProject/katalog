@@ -5,5 +5,5 @@
     - @user_projects.each_slice(2) do |slice|
       .row
         - slice.each do |user, projects|
-          .col-xs-12.col-sm-6
+          .half-column
             = render 'projects/index/project_list', title: user.shortname, projects: projects

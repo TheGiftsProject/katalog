@@ -15,18 +15,11 @@
           = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
 
       %ul.nav.navbar-nav.navbar-right
-        %li.nav-pill
-          = link_to projects_path do
-            %i.fa.fa-fw.fa-list
-            %span.uppercase= t(:all, :scope => 'layouts.header.pills')
-        %li.nav-pill
-          = link_to mine_projects_path do
-            %i.fa.fa-fw.fa-child
-            %span.uppercase= t(:mine, :scope => 'layouts.header.pills')
-        %li.nav-pill
-          = link_to sync_projects_path do
-            %i.fa.fa-fw.fa-refresh
-            %span.uppercase= t(:sync, :scope => 'layouts.header.pills')
+        = render 'layouts/components/header_pill', path: projects_path, icon: 'fa-list', text: :all
+        = render 'layouts/components/header_pill', path: mine_projects_path, icon: 'fa-child', text: :mine
+        = render 'layouts/components/header_pill', path: ideas_projects_path, icon: 'fa-lightbulb-o', text: :ideas
+        = render 'layouts/components/header_pill', path: lifted_projects_path, icon: 'fa-paper-plane', text: :lifted
+        = render 'layouts/components/header_pill', path: sync_projects_path, icon: 'fa-refresh', text: :sync
 
         %li.dropdown
           %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}

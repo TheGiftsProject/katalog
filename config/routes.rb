@@ -7,6 +7,8 @@ Katalog::Application.routes.draw do
     root to: 'projects#index'
     collection do
       get :mine
+      get :ideas
+      get :lifted
       get :sync
       get '/user/:username', to: :user, as: :user
     end

@@ -1,0 +1,4 @@
+%li.nav-pill{ active_class_if_page(path) }
+  = link_to path do
+    %i.fa.fa-fw{class: icon}
+    %span.uppercase= t(text, :scope => 'layouts.header.pills')

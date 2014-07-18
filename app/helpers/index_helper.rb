@@ -11,4 +11,8 @@ module IndexHelper
       user_projects_path(:username => user.nickname)
     end
   end
+
+  def active_class_if_page(page)
+    current_page?(page) ? {class: 'active'} : {}
+  end
 end

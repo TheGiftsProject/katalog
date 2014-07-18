@@ -29,14 +29,15 @@ en:
     index:
       title:
         mine:
-          ideas: 'My ideas'
-          projects: 'My projects'
+          shared: 'My projects'
         index:
-          ideas: "Trending ideas"
-          projects: "Trending projects"
+          shared: "Trending projects"
+        ideas:
+          shared: "Trending ideas"
+        lifted:
+          shared: "Trending lifted projects"
         user:
-          ideas: "%{user}'s ideas"
-          projects: "%{user}'s projects"
+          shared: "%{user}'s projects"
 
       quick_idea:
         title_placeholder: 'Title'

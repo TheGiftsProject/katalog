@@ -1,7 +1,8 @@
 __FEATURES:__
  * Likes + arrange by likes logic.
  
- * Return to referrer in project page.
+ * Force logo images to be 300x300 (center them otherwise), otherwise it looks weird (eifo-ani as an example).
+ * Return to referrer in project page (we already have helpers for these in the controller - 'referrer').
  * Find a way to hide users from sync who aren't participating in kata anymore (e.g. Adam, Maxim).
  * Have the 'no projects' thingy in sync as well.
  * Collapsable onboarding with invites.

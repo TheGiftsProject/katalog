@@ -25,6 +25,10 @@ module UserSupport
     @_current_user = load_user
   end
 
+  def current_organization
+    current_user.default_organization
+  end
+
   # before filters
 
   def sign_in_required

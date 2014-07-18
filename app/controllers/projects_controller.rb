@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
   end
 
   def user
-    @user = User.find_by(nickname: params[:username])
+    @user = current_organization.users.find_by(nickname: params[:username])
     redirect_to root_path and return unless @user.present?
     set_projects_for_scope(@user.projects)
     render action: :index

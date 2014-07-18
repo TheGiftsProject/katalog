@@ -18,14 +18,14 @@ module ProjectSupport
   end
 
   def scoped_projects
-    current_user.default_organization.projects
+    current_organization.projects
   end
 
   private
 
   def load_project
     project_id = params[:project_id] || params[:id]
-    Project.find(project_id.to_i)
+    scoped_projects.find(project_id.to_i)
   end
 
   # cookies

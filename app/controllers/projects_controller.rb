@@ -77,7 +77,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    current_project.destroy
+    # current_project.destroy
     redirect_to projects_path, notice: t('notices.destroyed')
   end
 

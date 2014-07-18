@@ -1,7 +1,7 @@
-= link_to current_project ,:class => 'back' do
-  %i.icon-chevron-left
-  %span= t('pages.edit.back')
-.page-header
-  %h1= t('pages.edit.title')
-  
-= render 'projects/form', :project => current_project
+.row
+  .col-sm-12.col-md-9.col-md-push-3
+    %h2= t('.title')
+    .well
+      = render 'projects/form', :project => current_project
+  .col-sm-12.col-md-3.col-md-pull-9
+    = render 'projects/show/project_sidebar'

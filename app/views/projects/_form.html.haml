@@ -2,22 +2,23 @@
   .form-group
     = f.label :title, :class => 'control-label'
     .controls
-      = f.text_field :title, :placeholder => t('pages.form.placeholders.title'), :class => 'input-xlarge'
+      = f.text_field :title, :placeholder => t('.placeholders.title'), :class => 'input-xlarge form-control'
   .form-group
     = f.label :subtitle, :class => 'control-label'
     .controls
-      = f.text_field :subtitle, :placeholder => t('pages.form.placeholders.subtitle'), :class => 'input-xlarge'
-  - if project.new_record?
-    .form-group
-      = f.label :posts, t('pages.form.initial_post'), :class => 'control-label'
-      .controls
-        = f.fields_for 'posts_attributes[]', @initial_post do |post_form|
-          = render 'components/post/post_fields', :f => post_form, :project => project
+      = f.text_field :subtitle, :placeholder => t('.placeholders.subtitle'), :class => 'input-xlarge form-control'
   .form-group
     = f.label :demo_url, :class => 'control-label'
     .controls
-      = f.url_field :demo_url, :placeholder => t('pages.form.placeholders.demo_url'), :class => 'input-xlarge'
+      = f.url_field :demo_url, :placeholder => t('.placeholders.demo_url'), :class => 'input-xlarge form-control'
+  .form-group
+    = f.label :repo_url, :class => 'control-label'
+    .controls
+      = f.url_field :repo_url, :placeholder => t('.placeholders.repo_url'), :class => 'input-xl form-control'
 
   .form-group
     .controls
+      = link_to project_path, class: 'btn btn-danger', confirm: 'Are you sure you want to delete this project?', method: 'DELETE' do
+        %i.fa.fa-times-circle
+        Delete Project
       = f.submit :class => 'btn btn-primary', :id => 'project-submit-button'

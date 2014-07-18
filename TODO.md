@@ -7,7 +7,6 @@ __FEATURES:__
  * Collapsable onboarding with invites.
  * Upload logo image.
  * Likes + arrange by likes/date.
- * Autocomplete should find users as well.
  * Bring back the postmark thingy.
  
 __SANITY CHECKS:__

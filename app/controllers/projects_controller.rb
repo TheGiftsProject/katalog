@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   DEFAULT_FILTER = :all
 
   include ProjectSupport
+  include LikeSupport
 
   before_filter :sign_in_required
   before_filter :project_required, :only => [:show, :edit, :update, :destroy]
@@ -66,7 +67,6 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-
   end
 
   def lift
@@ -85,6 +85,16 @@ class ProjectsController < ApplicationController
   def destroy
     current_project.destroy
     redirect_to projects_path, notice: t('notices.destroyed')
+  end
+
+  def like
+    if likes_current_project?
+      unlike_current_project
+    else
+      like_current_project
+    end
+
+    render :nothing => true
   end
 
   def contribute

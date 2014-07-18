@@ -29,9 +29,9 @@ en:
     index:
       title:
         mine:
-          shared: 'My projects'
+          shared: 'My projects and ideas'
         index:
-          shared: "Trending projects"
+          shared: "Trending projects and ideas"
         ideas:
           shared: "Trending ideas"
         lifted:
@@ -65,6 +65,10 @@ en:
     show:
       project_siderbar:
         ideator: 'Ideator'
+      toolbar:
+        like: 'Like'
+        unlike: 'Unlike'
+        edit: 'Edit'
       back: 'Projects'
       edit: 'Edit'
       delete: 'Delete'

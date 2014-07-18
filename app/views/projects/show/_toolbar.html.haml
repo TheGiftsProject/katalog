@@ -3,9 +3,14 @@
     = link_to lift_project_path, method: :post, class: 'btn btn-primary' do
       %i.fa.fa-paper-plane
       Lift
-  %button.btn.btn-default
-    %i.fa.fa-thumbs-o-up
-    Like
-  = link_to edit_project_path(current_project), class: 'btn btn-default' do
-    %i.fa.fa-edit
-    Edit
+  %button.btn.like-button{class: like_button_class(likes_current_project?)}
+    - if likes_current_project?
+      %i.fa.fa-thumbs-o-down
+      %span= t('.unlike')
+    - else
+      %i.fa.fa-thumbs-o-up
+      %span= t('.like')
+  - if current_project.users.include?(current_user)
+    = link_to edit_project_path(current_project), class: 'btn btn-default' do
+      %i.fa.fa-edit
+      = t('.edit')

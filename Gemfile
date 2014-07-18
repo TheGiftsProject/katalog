@@ -25,7 +25,7 @@ gem 'animation', '~> 0.1.alpha.3'
 gem 'font-awesome-rails', '~> 4.1.0.0'
 gem 'twitter-typeahead-rails'
 gem 'active_model_serializers'
-
+gem 'postmark-mitt', '0.0.8'
 gem 'will_paginate-bootstrap'
 
 group :production do

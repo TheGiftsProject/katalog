@@ -16,7 +16,9 @@ Katalog::Application.routes.draw do
 
     member do
       post :lift
+      post :like
     end
+
     resources :posts, :only => [:create, :destroy]
     resources :users, :only => [:destroy]
     get :contribute
@@ -25,8 +27,9 @@ Katalog::Application.routes.draw do
   resource :autocomplete, :controller => 'autocomplete', :only => [] do
     get :users
     get :projects
-    get :repositories
   end
+
+  post '/postmark', to: 'postmark#update'
 
   # authentication
   match '/auth/:provider/callback', :to => 'session#create', :via => [:get, :post]

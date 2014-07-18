@@ -1,12 +1,11 @@
 __FEATURES:__
- * Likes.
+ * Likes + arrange by likes logic.
  * Return to referrer in project page.
  * Differentiate project rows for ideas/projects. 
  
  * Have the 'no projects' thingy in sync as well.
  * Collapsable onboarding with invites.
  * Upload logo image.
- * Likes + arrange by likes/date.
  * Bring back the postmark thingy.
  
 __SANITY CHECKS:__

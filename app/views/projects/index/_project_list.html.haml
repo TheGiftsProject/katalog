@@ -5,3 +5,6 @@
   - else
     - projects.each do |project|
       = render 'projects/index/project_row', :project => project
+
+- if projects.respond_to? :current_page
+  = will_paginate projects, renderer: BootstrapPagination::Rails

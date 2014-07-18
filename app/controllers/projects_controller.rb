@@ -110,8 +110,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_projects_for_scope(scope)
-    Rails.logger.info current_user.default_organization_id
-    @projects = scope.latest_first.of_user_org(current_user)
+    @projects = scope.latest_first.of_user_org(current_user).paginate(:page => params[:page])
   end
 
   def random_idea
@@ -119,8 +118,8 @@ class ProjectsController < ApplicationController
   end
 
   def users_projects
-    users_projects = User.all.map do |user|
-      projects = user.projects.trending.of_user_org(user).latest_first.limit(4)
+    users_projects = current_organization.users.map do |user|
+      projects = user.projects.in_org(current_organization).latest_first.limit(3)
       [user, projects.presence]
     end
     users_projects.delete_if { |arr| arr.second.blank? }

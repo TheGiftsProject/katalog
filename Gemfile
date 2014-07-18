@@ -26,6 +26,8 @@ gem 'font-awesome-rails', '~> 4.1.0.0'
 gem 'twitter-typeahead-rails'
 gem 'active_model_serializers'
 
+gem 'will_paginate-bootstrap'
+
 group :production do
   gem 'rails_12factor'
 end

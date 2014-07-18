@@ -63,6 +63,9 @@
     position: relative;
   }
 }
+.panel + .pagination{
+  margin-top: 0;
+}
 .half-column{
   @extend .col-xs-12;
   @extend .col-sm-6;

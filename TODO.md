@@ -1,11 +1,12 @@
 __FEATURES:__
- * Actions for project page: Lift - bump - delete - like - collaborate. 
+ * Actions: Lift 
  * Upload image/s of project.
  * Differentiate project rows for ideas/projects. 
  * Likes + arrange by likes/date.
  * Autocomplete should find users as well.
  * Add user role to collaborator list in show
  * Edit pages
+ * pagination
  
 __BUGS:__
  * Add search icon to search field.

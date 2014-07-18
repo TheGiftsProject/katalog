@@ -1,17 +1,13 @@
-__PROJECT PAGE:__
- * Upload image/s of project.
- * Actions: Lift - bump - delete - like - collaborate. 
-
 __FEATURES:__
+ * Actions for project page: Lift - bump - delete - like - collaborate. 
+ * Upload image/s of project.
  * Different project rows for ideas/projects. 
  * Likes + arrange by likes/date.
  * Autocomplete should find users as well.
  
 __BUGS:__
- * Ideator - use db column or remove.
- * Fix tags.
- * Fix autocomplete.
  * Add search icon to search field.
+ * Ideator - use db column or remove.
 
 __SANITY CHECKS:__
  * Sweep i18n, clean it and use proper scopes.

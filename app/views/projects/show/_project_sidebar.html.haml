@@ -34,3 +34,6 @@
           = render 'users/avatar', user: user
         .media-body
           %strong.lead= user.name
+          - if current_project.ideator == user
+            &nbsp;
+            %span= t('.ideator')

@@ -63,6 +63,8 @@ en:
       optional: '(optional)'
 
     show:
+      project_siderbar:
+        ideator: 'Ideator'
       back: 'Projects'
       edit: 'Edit'
       delete: 'Delete'

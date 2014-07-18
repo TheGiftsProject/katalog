@@ -1,7 +1,5 @@
 __FEATURES:__
- * Ideator - use db column or remove.
  * Likes.
- * Add user role to collaborator list in show.
  * Return to referrer in project page.
  * Differentiate project rows for ideas/projects. 
  

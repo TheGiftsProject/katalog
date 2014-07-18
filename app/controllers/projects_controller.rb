@@ -105,7 +105,8 @@ class ProjectsController < ApplicationController
   end
 
   def set_projects_for_scope(scope)
-    @projects = scope.latest_first
+    Rails.logger.info current_user.default_organization_id
+    @projects = scope.latest_first.of_organization_id(current_user.default_organization_id)
   end
 
   def random_idea

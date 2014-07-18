@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   DEFAULT_IMAGE = 'http://placehold.it/300x300'
 
   # has_one :ideator, :class_name => 'User'
+  belongs_to :organization
   has_and_belongs_to_many :users
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
@@ -14,6 +15,7 @@ class Project < ActiveRecord::Base
   scope :latest_first, -> { order('updated_at DESC') }
   scope :trending, -> { where(updated_at: ((Date.today-1.month)..Date.today)) }
   scope :search, lambda {|query| where('lower(title) like ?', query.downcase + '%')}
+  scope :of_organization_id, lambda { |organization_id| where(:organization_id => organization_id) }
 
   validates_presence_of :subtitle, :title
 

@@ -32,8 +32,6 @@ Katalog::Application.routes.draw do
   post '/auth/organization', :to => 'session#organization', :as => 'organization'
   get '/auth/organization/change', :to => 'session#change_organization', :as => 'change_organization'
 
-  post '/postmark', to: 'postmark#update'
-
   get '404', :to => 'static#not_found'
   get '401', :to => 'static#not_found'
   get '403', :to => 'static#forbidden'

@@ -27,17 +27,6 @@ The Katalog app requires an AWS S3 account for image uploading:
 * `KATALOG_AWS_ACCESS_KEY` - AWS secret access key id.
 * `KATALOG_AWS_BUCKET_NAME` - The S3 bucket the images will be uploaded to.
 
-__Look-and-feel__
-
-If you wish to edit the look-and-feel of Katalog, feel free to edit the images and `en.yml` files.
-
-## Post a project by e-mail
-
-You can create a project from email if you configure an app in postmarkapp.com, and map it's inbound web hook to `http://host/postmark`.
-In order to setup this feature, setup an account on `https://postmarkapp.com` and configure the inbound hook URL to `http://<HOST>/postmark`. 
-
-Note that postmarkapp.com will need access to your server, so this can be tricky to test in development.
-
 ## Version
 
 0.5.1

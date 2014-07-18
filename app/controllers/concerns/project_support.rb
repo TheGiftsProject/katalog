@@ -17,6 +17,10 @@ module ProjectSupport
     forbidden if current_project.nil?
   end
 
+  def scoped_projects
+    current_user.default_organization.projects
+  end
+
   private
 
   def load_project

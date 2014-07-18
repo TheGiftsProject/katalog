@@ -111,7 +111,7 @@ class ProjectsController < ApplicationController
   end
 
   def random_idea
-    @random_project = Project.idea.to_a.sample
+    @random_project = scoped_projects.idea.to_a.sample
   end
 
   def users_projects

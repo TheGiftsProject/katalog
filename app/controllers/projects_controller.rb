@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   before_filter :project_required, :only => [:show, :edit, :update, :destroy]
   before_filter :save_referer, :only => [:show]
   before_filter :reset_referer, :only => [:index]
-  before_filter :random_idea, only: [:index, :mine, :sync, :ideas, :lifted]
+  before_filter :random_idea, only: [:index, :mine, :sync, :ideas, :lifted, :user]
   after_filter :set_viewed_cookie, :only => [:create, :show]
 
   def index

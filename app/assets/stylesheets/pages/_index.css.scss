@@ -29,6 +29,11 @@
   .project-details{
     @extend .media-body;
     position: relative;
+
+    .idea-icon {
+      font-size: 22px;
+      margin-right: 4px;
+    }
   }
 
   .project-title{

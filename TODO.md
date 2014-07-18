@@ -1,7 +1,5 @@
 __FEATURES:__
  * Likes + arrange by likes logic.
- * Differentiate project rows for ideas/projects. 
- * Show edit only if contributor.
  
  * Return to referrer in project page.
  * Find a way to hide users from sync who aren't participating in kata anymore (e.g. Adam, Maxim).
@@ -11,6 +9,7 @@ __FEATURES:__
  * Bring back delete posts.
  
 __SANITY CHECKS:__
+ * Error when submitting subtitle longer than 255. Show flash.
  * n+1 checks (e.g. likes)
  * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).
  * Sweep i18n, clean it and use proper scopes.

@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   DEFAULT_IMAGE = 'http://placehold.it/300x300'
 
   # has_one :ideator, :class_name => 'User'
+  belongs_to :organization
   has_and_belongs_to_many :users
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
@@ -15,8 +16,9 @@ class Project < ActiveRecord::Base
   scope :trending, -> { where(updated_at: ((Date.today-1.month)..Date.today)) }
   scope :search, lambda { |query| query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
+  scope :of_user_org, lambda { |user| where(:organization_id => user.default_organization_id) }
 
-  validates_presence_of :subtitle, :title
+  validates_presence_of :subtitle, :tit
 
   def to_param
     slug

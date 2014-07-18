@@ -28,9 +28,9 @@
             %span.caret
             %ul.dropdown-menu{:style => 'min-width: 100%;'}
               %li
-                %a{:href => sign_out_path}
+                %a{:href => change_organization_path}
                   %i.fa.fa-github
-                  %span= t('.change_organization')
+                  %span= t('.change_organization', :name => current_user.default_organization.name)
               %li
                 %a{:href => sign_out_path}
                   %i.fa.fa-sign-out

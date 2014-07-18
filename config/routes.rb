@@ -28,10 +28,9 @@ Katalog::Application.routes.draw do
   match '/auth/:provider/callback', :to => 'session#create', :via => [:get, :post]
   get '/auth/destroy', :to => 'session#destroy', :as => 'sign_out'
   get '/auth/failure', :to => 'session#failure'
-  get '/auth/:provider', :to => 'session#nothing', :as => 'sign_in', :defaults => {:provider => :github}
-  post '/auth/organization', :to => 'session#organization', :as => 'organization', :via => [:post]
-
-  post '/postmark', to: 'postmark#update'
+  get '/auth/github', :to => 'session#nothing', :as => 'sign_in'
+  post '/auth/organization', :to => 'session#organization', :as => 'organization'
+  get '/auth/organization/change', :to => 'session#change_organization', :as => 'change_organization'
 
   get '404', :to => 'static#not_found'
   get '401', :to => 'static#not_found'

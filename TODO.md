@@ -1,7 +1,5 @@
 __FEATURES:__
- * Actions: Lift 
  * Add user role to collaborator list in show
- * Edit pages
  * Collapsable onboarding with invites.
  * Upload logo image.
  * Differentiate project rows for ideas/projects. 

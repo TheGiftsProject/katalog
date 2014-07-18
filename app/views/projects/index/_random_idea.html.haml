@@ -4,6 +4,6 @@
       %i.fa.fa-random
       %span.uppercase= t('.title')
     - if @random_project.present?
-      = render 'projects/index/project_row', :project => @random_project
+      = render 'projects/index/project_row', :project => @random_project, :hide_icon => true
     - else
       = render 'projects/index/no_projects'

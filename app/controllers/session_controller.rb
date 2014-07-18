@@ -20,6 +20,11 @@ class SessionController < ApplicationController
     redirect_to_root
   end
 
+  def change_organization
+    current_user.update!(:default_organization_id => nil)
+    redirect_to sign_in_path
+  end
+
   def destroy
     sign_out
     redirect_to_root

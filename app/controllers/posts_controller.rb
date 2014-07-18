@@ -10,9 +10,7 @@ class PostsController < ApplicationController
     post = build_post
     if post.save
       current_project.touch
-      project_changed = update_project_status
-
-      respond_to_post(post, project_changed)
+      respond_to_post(post)
     else
       if request.xhr?
         flash[:alert] = t('errors.post_fail')
@@ -34,37 +32,22 @@ class PostsController < ApplicationController
 
   private
 
-  def respond_to_post(post, project_changed)
+  def respond_to_post(post)
     if request.xhr?
-      if project_changed
-        render :json => {:refresh => true, :url => project_path(current_project)}
-      else
-        render :partial => 'projects/show/comment', :locals => {:post => post}
-      end
+      render :partial => 'projects/show/comment', :locals => {:post => post}
     else
       redirect_to current_project
     end
   end
 
   def post_params
-    params.require(:post).permit(:text, :updated)
-  end
-
-  def project_params
-    params.require(:project).permit(:status)
+    params.require(:post).permit(:text)
   end
 
   def build_post
     post = current_project.posts.build(post_params)
     post.user = current_user
     post
-  end
-
-  def update_project_status
-    current_project.assign_attributes(project_params)
-    changed = current_project.changed?
-    current_project.save
-    changed
   end
 
 end

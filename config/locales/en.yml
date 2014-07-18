@@ -98,6 +98,7 @@ en:
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'
 
+    lifted: "Project has been lifted"
   errors:
     unauthorized: 'You are not authorized to view this Katalog'
     post_fail: 'Failed to post'

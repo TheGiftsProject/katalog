@@ -14,9 +14,11 @@ Katalog::Application.routes.draw do
       get :random
     end
 
+    member do
+      post :lift
+    end
     resources :posts, :only => [:create, :destroy]
     resources :users, :only => [:destroy]
-    get :bump
     get :contribute
   end
 

@@ -1,14 +1,8 @@
 __FEATURES:__
- * Actions: Lift 
- * Add user role to collaborator list in show
- * Add myself as collaborator in contributors list.
- * Edit pages (with delete).
+ * Add user role to collaborator list in show.
  * Collapsable onboarding with invites.
- * Remove bump / make recent in sync.
- * Like in project page.
- * Like in project row.
  * Upload logo image.
- * Different project rows for ideas/projects. 
+ * Differentiate project rows for ideas/projects. 
  * Likes + arrange by likes/date.
  * Autocomplete should find users as well.
  * Bring back the postmark thingy.

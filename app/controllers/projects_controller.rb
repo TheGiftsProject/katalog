@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
     @post = current_project.posts.build
   end
 
-  def create
+  def creat
     @project = build_project
     if @project.save
       set_current_project(@project)
@@ -68,6 +68,11 @@ class ProjectsController < ApplicationController
 
   end
 
+  def lift
+    current_project.lift!
+    redirect_to current_project, notice: t('notices.lifted')
+  end
+
   def update
     if current_project.update(project_params)
       redirect_to current_project, notice: t('notices.updated')
@@ -79,11 +84,6 @@ class ProjectsController < ApplicationController
   def destroy
     current_project.destroy
     redirect_to projects_path, notice: t('notices.destroyed')
-  end
-
-  def bump
-    current_project.touch
-    redirect_to current_project, notice: t('notices.bumped')
   end
 
   def contribute

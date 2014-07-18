@@ -14,8 +14,8 @@ class SessionController < ApplicationController
   def organization
     response = UserConnector.connect_organization_to_user(params[:org_id], current_user)
     sign_in_with_connection_response(response)
-  rescue
-    set_error_flash
+  # rescue
+  #   set_error_flash
   ensure
     redirect_to_root
   end

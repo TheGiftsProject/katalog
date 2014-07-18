@@ -10,7 +10,6 @@ __FEATURES:__
 __BUGS:__
  * Ideator - use db column or remove.
  * Fix tags.
- * Associate projects to org (dependent destroy +)
  * Fix autocomplete.
  * Add search icon to search field.
 

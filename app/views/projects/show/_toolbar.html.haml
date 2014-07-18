@@ -1,6 +1,6 @@
 .project-toolbar
   - unless current_project.lifted?
-    %button.btn.btn-primary
+    = link_to lift_project_path, method: :post, class: 'btn btn-primary' do
       %i.fa.fa-paper-plane
       Lift
   %button.btn.btn-default

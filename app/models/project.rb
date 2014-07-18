@@ -38,8 +38,11 @@ class Project < ActiveRecord::Base
     users.first
   end
 
-  def lifted_at
-    posts.where(updated: true).minimum(:created_at)
+  def lift!
+    update(
+        lifted_at: DateTime.now,
+        status: :lifted
+    )
   end
 
   private

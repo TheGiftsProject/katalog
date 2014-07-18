@@ -23,8 +23,6 @@ class window.PostView
     @ui =
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
-      statusUpdateCheckbox: @$el.find('.checkbox.update')
-      changeStatusRadio: @$el.find('.radio-group')
       form: $('#new_post')
 
     @ui.markdownText.fileupload(
@@ -42,12 +40,12 @@ class window.PostView
     )
 
   _bindEvents: ->
-    _.bindAll(@, '_onChange', '_uploadCompleted', '_fileAdded', '_statusUpdateChange', '_submit')
+    _.bindAll(@, '_onChange', '_uploadCompleted', '_fileAdded', '_submit', '_onKeyDown')
     @ui.markdownText.bind('fileuploadadd', @_fileAdded)
     @ui.markdownText.bind('fileuploaddone', @_uploadCompleted)
     @ui.markdownText.change(@_onChange)
-    @ui.statusUpdateCheckbox.change(@_statusUpdateChange)
     @ui.form.submit(@_submit)
+    @ui.markdownText.on('keydown', @_onKeyDown)
 
   _submit: (ev) ->
     ev.preventDefault()
@@ -57,7 +55,6 @@ class window.PostView
       else
         @ui.markdownText.val('')
         @ui.markdownText.change()
-        @ui.statusUpdateCheckbox.prop('checked', false)
         @ui.form.before(suc)
     )
 
@@ -83,8 +80,9 @@ class window.PostView
   _markdownForImage: (file, originalFilename) ->
     "![#{originalFilename}](#{file})"
 
-  _statusUpdateChange: ->
-    @ui.changeStatusRadio.toggle()
+  _onKeyDown: (ev) ->
+    if (ev.metaKey || ev.ctrlKey) and ev.which == 13 #enter
+      @_submit(ev)
 
 $(document).on 'ready', PostView.registerViews
 $(document).on 'page:load', PostView.registerViews

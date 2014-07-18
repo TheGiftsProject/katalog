@@ -8,6 +8,10 @@ class AutocompleteController < ApplicationController
     render json: found_projects, each_serializer: Autocomplete::ProjectSerializer, root: false
   end
 
+  def users
+    render json: User.all, each_serializer: Autocomplete::UserSerializer, root: false
+  end
+
   def found_projects
     scoped_projects.search(@query)
   end
@@ -15,7 +19,7 @@ class AutocompleteController < ApplicationController
   private
 
   def load_query
-    @query = params[:q]
+    @query = params.require(:q)
   end
 
 end

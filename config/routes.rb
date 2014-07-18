@@ -23,6 +23,7 @@ Katalog::Application.routes.draw do
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do
+    get :users
     get :projects
     get :repositories
   end

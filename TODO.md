@@ -3,11 +3,8 @@ __FEATURES:__
  * Add user role to collaborator list in show
  * Edit pages
  * Collapsable onboarding with invites.
- * Remove bump / make recent in sync.
- * Randomize random.
- * Actions for project page: Lift - bump - delete - like - collaborate. 
  * Upload logo image.
- * Different project rows for ideas/projects. 
+ * Differentiate project rows for ideas/projects. 
  * Likes + arrange by likes/date.
  * Autocomplete should find users as well.
  * Bring back the postmark thingy.

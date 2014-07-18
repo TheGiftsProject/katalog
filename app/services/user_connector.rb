@@ -24,7 +24,7 @@ class UserConnector
 
   def self.connect_organization_to_user(org_id, user)
     organizations = user_organizations(user)
-    matching_org = organizations.find { |org| Rails.logger.info(org[:id]); Rails.logger.info(org_id); org[:id] = org_id.to_s }
+    matching_org = organizations.find { |org| org[:id] = org_id.to_s }
 
     raise InvalidOrganizationError if matching_org.nil?
 

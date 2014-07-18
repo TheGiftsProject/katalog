@@ -35,5 +35,4 @@
         .media-body
           %strong.lead= user.name
           - if current_project.ideator == user
-            &nbsp;
-            %span= t('.ideator')
+            .text-muted= t('.ideator')

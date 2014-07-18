@@ -5,7 +5,7 @@ module ProjectHelper
   end
 
   def hide_quick_idea?
-    params[:filter].presence && params[:filter] != 'all'
+    !(current_page? projects_path)
   end
 
   def new_for_current_user?(project)

@@ -5,7 +5,9 @@
   overflow: hidden;
   background-color: white;
   @include border-radius(20px);
-
+  img {
+    border: none;
+  }
   .upload-image{
     position: absolute;
     top: 10px;

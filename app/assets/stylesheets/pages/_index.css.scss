@@ -59,6 +59,10 @@
 
   .project-likes {
     margin-right: 5px;
+
+    i:hover {
+      color: $gray;
+    }
   }
 
   .project-contributors{

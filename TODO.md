@@ -6,7 +6,6 @@ __FEATURES:__
  * Find a way to hide users from sync who aren't participating in kata anymore (e.g. Adam, Maxim).
  * Have the 'no projects' thingy in sync as well.
  * Collapsable onboarding with invites.
- * Upload logo image.
  * Bring back delete posts.
  
 __SANITY CHECKS:__

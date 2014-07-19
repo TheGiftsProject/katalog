@@ -1,4 +1,10 @@
 .project-image
+  = form_for current_project, html: {class: 'hidden' } do |f|
+    = f.text_field :image_url
+  = file_field :project, :image_url, accept: 'image/*', class: 'hidden file-field'
+  %btn.btn.btn-default.btn-sm.upload-image
+    %i.fa.fa-image
+    Upload Image
   = image_tag current_project.image
 %h1= current_project.title
 %p.lead= current_project.subtitle

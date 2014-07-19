@@ -1,10 +1,24 @@
 .project-image{
+  min-height: 100px;
+  position: relative;
   max-height: 274px;
   overflow: hidden;
   background-color: white;
   @include border-radius(20px);
   img{
     width: 100%;
+  }
+  .upload-image{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    @include opacity(0);
+    @include transition(opacity 600ms);
+  }
+  &:hover{
+    .upload-image{
+      @include opacity(1);
+    }
   }
 }
 
@@ -25,5 +39,35 @@
       right: 0;
       top: 16px;
     }
+  }
+}
+
+
+.syncing{
+  &:before{
+    content: '';
+    background-color: rgba(white, 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+  }
+  &:after{
+    @extend .fa;
+    @extend .fa-spin;
+    content: '\f110';
+    z-index: 101;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    $size: 60px;
+    font-size: $size;
+    margin-top: -1/2 * $size;
+    margin-left: -1/2 * $size;
+    color: rgba(0,0,0,0.5);
+
   }
 }

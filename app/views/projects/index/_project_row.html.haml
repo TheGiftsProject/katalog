@@ -4,16 +4,13 @@
     - if project.idea? && !local_assigns[:hide_icon]
       %i.fa.fa-lightbulb-o.idea-icon
     = link_to project.title, project, class: "project-title project-#{project.status}"
-    = render 'projects/tags', :project => project
+    = render 'projects/index/tags', :project => project
     .project-subtitle= project.subtitle
     .project-meta
-      .project-likes
-        = link_to like_project_path(project), :method => 'post' do
-          %i.fa.fa-thumbs-o-up{:title => t('.like'), class: like_icon_class(likes_project?(project))}
-        = project.likes.count
+      = render 'projects/index/like_button', :project => project
       .project-contributors{title: project.users.pluck(:nickname).to_sentence}
         %i.fa.fa-users.fa-fw
         = project.users.count
       .project-last-updated
         %i.fa.fa-clock-o
-        %span.text-muted= t('project.last_updated', :time => time_ago_in_words(project.updated_at))
+        %span.text-muted= t('.last_updated', :time => time_ago_in_words(project.updated_at))

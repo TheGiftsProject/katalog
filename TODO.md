@@ -1,6 +1,5 @@
 __FEATURES:__
  * Arrange by likes logic.
- * Like in random idea.
  
  * Return to referrer in project page (we already have helpers for these in the controller - 'referrer').
  * Find a way to hide users from sync who aren't participating in kata anymore (e.g. Adam, Maxim).

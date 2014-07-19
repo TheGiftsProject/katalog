@@ -3,6 +3,8 @@
     = label_tag do
       %i.fa.fa-random
       %span.uppercase= t('.title')
+    .pull-right
+      = render 'projects/index/like_button', :project => @random_project
     - if @random_project.present?
       = render 'projects/index/project_row', :project => @random_project, :hide_icon => true
     - else

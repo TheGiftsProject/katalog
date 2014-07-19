@@ -7,7 +7,7 @@ module LikeSupport
   helper_method :likes_current_project?, :likes_project?
 
   def likes_project?(project)
-    project.likes.find_by(:user => current_user)
+    project.likes.find_by(:user => current_user).present?
   end
 
   def likes_current_project?

@@ -38,10 +38,12 @@ en:
           shared: "Trending lifted projects"
         user:
           shared: "%{user}'s projects"
-
-      project_row:
+      tags:
+        new_tag: 'new'
+      like_button:
         like: 'Like this project'
-        collaborators:
+      project_row:
+        last_updated: 'Updated %{time} ago'
       quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
@@ -93,16 +95,11 @@ en:
       preview: "Preview"
     placeholder: "Enter markdown text"
 
-  project:
-    last_updated: "Updated %{time} ago"
-    new_tag: "new"
-
   notices:
     contribute: "You were added to the Project's contributors."
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'
-
     lifted: "Project has been lifted"
   errors:
     unauthorized: 'You are not authorized to view this Katalog'

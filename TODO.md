@@ -27,3 +27,6 @@ __NICE TO HAVE:__
  * Paper plane 3d.
  * Emoji autocomplete in posts.
  * Github activity and project-neggers.
+ 
+ __SMALL BUGS__
+ * Emoji in preview mode aren't always translate well ('dancer' works, '+1' doesn't).

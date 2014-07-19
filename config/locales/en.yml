@@ -66,6 +66,7 @@ en:
       project_siderbar:
         ideator: 'Ideator'
       toolbar:
+        lift: 'Lift'
         like: 'Like'
         unlike: 'Unlike'
         edit: 'Edit'
@@ -97,10 +98,12 @@ en:
     new_tag: "new"
 
   notices:
-    contribute: "You were added to the Project's contributors"
+    contribute: "You were added to the Project's contributors."
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'
+    liked: 'Project was liked.'
+    unliked: 'Project was unliked.'
 
     lifted: "Project has been lifted"
   errors:

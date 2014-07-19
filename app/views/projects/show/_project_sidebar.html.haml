@@ -9,33 +9,34 @@
 %h1= current_project.title
 %p.lead= current_project.subtitle
 %hr
-%dl.dl-horizontal
-  %dt Added on
-  %dd= current_project.created_at.strftime('%d/%m/%Y')
-  - if current_project.lifted_at.present?
-    %dt Lifted on
-    %dd= current_project.lifted_at.strftime('%d/%m/%Y')
-  %dt Last Updated on
-  %dd= current_project.updated_at.strftime('%d/%m/%Y')
-  %dt
-    Likes
-  %dd
-    = current_project.likes.count
-    %i.fa.fa-thumbs-o-up
-  - if current_project.repo_url.present?
+.project-details
+  %dl.dl-horizontal
+    %dt Added on
+    %dd= current_project.created_at.strftime('%d/%m/%Y')
+    - if current_project.lifted_at.present?
+      %dt Lifted on
+      %dd= current_project.lifted_at.strftime('%d/%m/%Y')
+    %dt Last updated on
+    %dd= current_project.updated_at.strftime('%d/%m/%Y')
     %dt
-      %i.fa.fa-github-square
-      Project Repo
+      Likes
     %dd
-      = link_to current_project.repo_url, :class => 'a-link' do
-        %span= t('pages.show.urls.repo')
-  - if current_project.demo_url.present?
-    %dt
-      %i.fa.fa-globe
-      Demo Site
-    %dd
-      = link_to current_project.demo_url, :class => 'a-link' do
-        %span= t('pages.show.urls.demo')
+      = current_project.likes.count
+      %i.fa.fa-thumbs-o-up
+    - if current_project.repo_url.present?
+      %dt
+        %i.fa.fa-github-square
+        Project Repo
+      %dd
+        = link_to current_project.repo_url, :class => 'a-link' do
+          %span= t('pages.show.urls.repo')
+    - if current_project.demo_url.present?
+      %dt
+        %i.fa.fa-globe
+        Demo Site
+      %dd
+        = link_to current_project.demo_url, :class => 'a-link' do
+          %span= t('pages.show.urls.demo')
 %hr
   %h4 Collaborators
   .collaborators

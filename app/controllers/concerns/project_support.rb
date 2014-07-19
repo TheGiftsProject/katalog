@@ -3,7 +3,7 @@ module ProjectSupport
   extend ControllerSupport::Base
   include ErrorSupport
 
-  helper_method :current_project
+  helper_method :current_project, :has_saved_referer?
 
   def current_project
     @_current_project ||= load_project
@@ -50,9 +50,11 @@ module ProjectSupport
   def save_referer
     referer = request.referer
     return if referer.nil?
+    session[:referer] = referer
+  end
 
-    # if came from a filtered index, save it.
-    session[:referer] = referer if (referer['filter'])
+  def has_saved_referer?
+    session[:referer].present?
   end
 
   def reset_referer

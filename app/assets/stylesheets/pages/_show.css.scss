@@ -30,11 +30,11 @@
   }
   .project-toolbar{
     z-index: 2;
-    @include mobile{
+    @include small-screen{
       margin-bottom: 10px;
       text-align: center;
     }
-    @include not-mobile{
+    @include not-small-screen{
       position: absolute;
       right: 0;
       top: 16px;

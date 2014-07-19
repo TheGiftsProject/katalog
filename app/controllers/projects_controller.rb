@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
   DEFAULT_FILTER = :all
+  SYNC_PROJECT_LIMIT = 3
   SYNC_LAST_UPDATE_THRESHOLD = 3.months
 
   include ProjectSupport
@@ -131,7 +132,7 @@ class ProjectsController < ApplicationController
 
   def users_projects
     users_projects = current_organization.users.map do |user|
-      projects = scoped_projects.of_user(user).latest_first.limit(3).up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD)
+      projects = scoped_projects.of_user(user).latest_first.limit(SYNC_PROJECT_LIMIT).up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD)
       [user, projects.presence]
     end
     users_projects.delete_if { |arr| arr.second.blank? }

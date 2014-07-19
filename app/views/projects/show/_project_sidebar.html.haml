@@ -11,6 +11,11 @@
     %dd= current_project.lifted_at.strftime('%d/%m/%Y')
   %dt Last Updated on
   %dd= current_project.updated_at.strftime('%d/%m/%Y')
+  %dt
+    Likes
+  %dd
+    = current_project.likes.count
+    %i.fa.fa-thumbs-o-up
   - if current_project.repo_url.present?
     %dt
       %i.fa.fa-github-square

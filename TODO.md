@@ -1,7 +1,7 @@
 __FEATURES:__
  * Sort by likes and updated_at heuristics.
  * Collapsable onboarding with invites.
- * Bring back delete posts.
+ * Plain clouds in root.
  
 __SANITY CHECKS:__
  * Error when submitting subtitle longer than 255. Show flash.
@@ -17,10 +17,6 @@ __SANITY CHECKS:__
  
 __NICE TO HAVE:__
  * Edit posts.
- * Plain clouds in root.
  * Paper plane 3d.
- * Emoji autocomplete in posts.
+ * Emoji autocomplete in posts and fixes in preview mode ('dancer' works, '+1' doesn't).
  * Github activity and project-neggers.
- 
- __SMALL BUGS__
- * Emoji in preview mode aren't always translate well ('dancer' works, '+1' doesn't).

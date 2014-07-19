@@ -3,13 +3,13 @@
     = render 'users/avatar_img', :user => post.user, type: :tiny
     = post.user.nickname
   .when.pull-right
-    = time_ago_in_words post.created_at
-    ago
+    %span.text-muted= t('.time_ago', :time_ago => time_ago_in_words(post.created_at))
+    - if current_user == post.user
+      .actions
+        %span.text-muted= '|'
+        = link_to [current_project, post], :method => :delete do
+          %i.fa.fa-times{:title => t('.delete_post')}
+
   .body
     ~ markdown.render(post.text).html_safe
   %hr
-  -#.top
-  -#  .who
-  -#  - if current_user == post.user
-  -#    .actions
-  -#      = link_to '', [current_project, post], :method => :delete, :class => 'icon-remove-sign action'

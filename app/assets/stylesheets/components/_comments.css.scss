@@ -13,6 +13,16 @@
     position: relative;
     top: 7px;
   }
+  .actions {
+    display: inline-block;
+      i {
+      @extend .text-muted;
+
+      &:hover {
+        color:$gray;
+      }
+    }
+  }
   pre {
     overflow-x: auto;
     white-space: pre;
@@ -36,7 +46,6 @@
   }
 
   textarea {
-//    @include box-sizing(border-box);
     resize:vertical;
     width: 100%;
   }

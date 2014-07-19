@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
   enum :status, [:idea, :lifted]
 
   scope :latest_first, -> { order('projects.updated_at DESC') }
-  scope :trending, -> { where(updated_at: ((Date.today-1.month)..(Date.today+1.day))) }
+  scope :up_to_time_ago, -> (time) { where(:updated_at => time.ago..DateTime.now) }
   scope :search, -> (query) { query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
   scope :of_user, -> (user) { includes(:users).where(:users => {:id => user.id}) }

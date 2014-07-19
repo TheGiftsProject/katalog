@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-  DEFAULT_IMAGE = 'http://placehold.it/300x300'
+  DEFAULT_IMAGE = 'http://placehold.it/220x220'
 
   belongs_to :ideator, :class_name => 'User'
   belongs_to :organization

@@ -9,7 +9,6 @@
       %span= t('.liked')
     - else
       %span= t('.like')
-  - if current_project.users.include?(current_user)
-    = link_to edit_project_path(current_project), class: 'btn btn-default' do
-      %i.fa.fa-edit
-      = t('.edit')
+  = link_to edit_project_path(current_project), class: 'btn btn-default' do
+    %i.fa.fa-edit
+    = t('.edit')

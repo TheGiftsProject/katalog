@@ -71,6 +71,7 @@ en:
       toolbar:
         lift: 'Lift'
         like: 'Like'
+        liked: 'Liked'
         unlike: 'Unlike'
         edit: 'Edit'
       back: 'Projects'

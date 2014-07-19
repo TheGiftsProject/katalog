@@ -22,8 +22,8 @@ module ProjectHelper
     session[:referer] || projects_path
   end
 
-  def like_button_class(liked)
-    liked ? 'btn-danger' : 'btn-success'
+  def like_icon_class(liked)
+    liked ? 'text-primary' : ''
   end
 
 end

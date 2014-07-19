@@ -4,7 +4,11 @@ module LikeSupport
   include UserSupport
   include ProjectSupport
 
-  helper_method :likes_current_project?
+  helper_method :likes_current_project?, :likes_project?
+
+  def likes_project?(project)
+    project.likes.find_by(:user => current_user)
+  end
 
   def likes_current_project?
     current_project_like.present?

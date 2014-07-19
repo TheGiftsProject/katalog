@@ -39,6 +39,9 @@ en:
         user:
           shared: "%{user}'s projects"
 
+      project_row:
+        like: 'Like this project'
+        collaborators:
       quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
@@ -92,9 +95,6 @@ en:
 
   project:
     last_updated: "Updated %{time} ago"
-    collaborators:
-      one: '1'
-      other: '%{count}'
     new_tag: "new"
 
   notices:
@@ -102,8 +102,6 @@ en:
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'
-    liked: 'Project was liked.'
-    unliked: 'Project was unliked.'
 
     lifted: "Project has been lifted"
   errors:

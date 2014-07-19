@@ -90,13 +90,11 @@ class ProjectsController < ApplicationController
   def like
     if likes_current_project?
       unlike_current_project
-      notice = t('notices.unliked')
     else
       like_current_project
-      notice = t('notices.liked')
     end
 
-    redirect_to project_path(current_project), notice: notice
+    redirect_to :back
   end
 
   def contribute

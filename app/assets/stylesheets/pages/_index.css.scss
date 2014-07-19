@@ -54,6 +54,15 @@
     }
   }
 
+  .project-likes{
+    display:inline;
+    margin-right: 5px;
+
+    i:hover {
+      color: $gray;
+    }
+  }
+
   .project-contributors{
     display: inline;
     margin-right: 5px;

@@ -7,9 +7,16 @@
     = render 'projects/tags', :project => project
     .project-subtitle= project.subtitle
     .project-meta
+      .project-likes
+        = link_to like_project_path(project), :method => 'post' do
+          - if likes_project?(project)
+            %i.fa.fa-thumbs-up{:title => t('.like')}
+          - else
+            %i.fa.fa-thumbs-o-up{:title => t('.like')}
+        = project.likes.count
       .project-contributors{title: project.users.pluck(:nickname).to_sentence}
         %i.fa.fa-users.fa-fw
-        = t('project.collaborators', :count => project.users.count)
+        = project.users.count
       .project-last-updated
         %i.fa.fa-clock-o
         %span.text-muted= t('project.last_updated', :time => time_ago_in_words(project.updated_at))

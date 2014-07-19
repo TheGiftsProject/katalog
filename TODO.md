@@ -1,7 +1,6 @@
 __FEATURES:__
  * Arrange by likes logic.
  
- * Return to referrer in project page (we already have helpers for these in the controller - 'referrer').
  * Have the 'no projects' thingy in sync as well.
  * Collapsable onboarding with invites.
  * Bring back delete posts.

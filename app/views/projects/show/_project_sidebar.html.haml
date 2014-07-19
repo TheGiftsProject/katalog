@@ -1,3 +1,9 @@
+- if has_saved_referer?
+  = link_to back_to_index_url, {:class => 'hidden-sm hidden-xs'} do
+    %h4
+      %i.fa.fa-long-arrow-left
+      %span= 'Return back'
+
 .project-image
   = form_for current_project, html: {class: 'hidden' } do |f|
     = f.text_field :image_url

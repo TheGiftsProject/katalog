@@ -9,10 +9,7 @@
     .project-meta
       .project-likes
         = link_to like_project_path(project), :method => 'post' do
-          - if likes_project?(project)
-            %i.fa.fa-thumbs-up{:title => t('.like')}
-          - else
-            %i.fa.fa-thumbs-o-up{:title => t('.like')}
+          %i.fa.fa-thumbs-o-up{:title => t('.like'), class: like_icon_class(likes_project?(project))}
         = project.likes.count
       .project-contributors{title: project.users.pluck(:nickname).to_sentence}
         %i.fa.fa-users.fa-fw

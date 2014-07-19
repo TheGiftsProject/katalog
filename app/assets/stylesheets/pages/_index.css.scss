@@ -45,6 +45,9 @@
 
     .fa {
       @extend .text-muted;
+      &.text-primary{
+        @extend .text-primary;
+      }
     }
 
     @include not-mobile{

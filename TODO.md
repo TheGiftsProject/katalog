@@ -1,7 +1,5 @@
 __FEATURES:__
- * Arrange by likes logic.
- 
- * Have the 'no projects' thingy in sync as well.
+ * Sort by likes and updated_at heuristics.
  * Collapsable onboarding with invites.
  * Bring back delete posts.
  

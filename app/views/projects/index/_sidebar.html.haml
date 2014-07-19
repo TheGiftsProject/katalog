@@ -1,4 +1,5 @@
 .col-xs-12.col-sm-3.pull-right
   %h2.hidden-xs &nbsp;
   = render 'projects/index/quick_idea'
-  = render 'projects/index/random_idea', :project => @random_project
+  - if @random_project.present?
+    = render 'projects/index/random_idea', :project => @random_project

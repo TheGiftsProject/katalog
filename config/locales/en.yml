@@ -38,6 +38,8 @@ en:
           shared: "Trending lifted projects"
         user:
           shared: "%{user}'s projects"
+        sync:
+          shared: "Sync session"
       tags:
         new_tag: 'new'
       like_button:
@@ -52,7 +54,7 @@ en:
       random_idea:
         title: 'Random idea'
       no_projects:
-        title: 'No projects'
+        title: 'No projects or ideas'
 
     edit:
       back: 'View Project'

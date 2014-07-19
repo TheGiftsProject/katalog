@@ -39,6 +39,9 @@ en:
         user:
           shared: "%{user}'s projects"
 
+      project_row:
+        like: 'Like this project'
+        collaborators:
       quick_idea:
         title_placeholder: 'Title'
         subtitle_placeholder: 'More details'
@@ -66,6 +69,7 @@ en:
       project_siderbar:
         ideator: 'Ideator'
       toolbar:
+        lift: 'Lift'
         like: 'Like'
         unlike: 'Unlike'
         edit: 'Edit'
@@ -91,13 +95,10 @@ en:
 
   project:
     last_updated: "Updated %{time} ago"
-    collaborators:
-      one: '1'
-      other: '%{count}'
     new_tag: "new"
 
   notices:
-    contribute: "You were added to the Project's contributors"
+    contribute: "You were added to the Project's contributors."
     created: 'Project was successfully created.'
     updated: 'Project was successfully updated.'
     destroyed: 'Project was removed.'

@@ -94,7 +94,7 @@ class ProjectsController < ApplicationController
       like_current_project
     end
 
-    render :nothing => true
+    redirect_to :back
   end
 
   def contribute

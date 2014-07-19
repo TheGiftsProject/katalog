@@ -2,8 +2,8 @@
   - unless current_project.lifted?
     = link_to lift_project_path, method: :post, class: 'btn btn-primary' do
       %i.fa.fa-paper-plane
-      Lift
-  %button.btn.like-button{class: like_button_class(likes_current_project?)}
+      %span= t('.lift')
+  = link_to like_project_path(current_project), :method => 'post', class: "btn #{like_button_class(likes_current_project?)}" do
     - if likes_current_project?
       %i.fa.fa-thumbs-o-down
       %span= t('.unlike')

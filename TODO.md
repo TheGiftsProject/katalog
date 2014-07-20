@@ -5,6 +5,7 @@ __FEATURES:__
  * Make the same project in random project when liking from random
  
 __SANITY CHECKS:__
+ * Move assets from public to app.
  * Don't load javascripts in root.
  * Error when submitting subtitle longer than 255. Show flash.
  * n+1 checks (e.g. likes).

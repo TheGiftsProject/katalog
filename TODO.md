@@ -1,15 +1,15 @@
 __FEATURES:__
  * Collapsable onboarding with invites.
  * Make the same project in random project when liking from random.
+ * Move assets from public to app.
  
 __SANITY CHECKS:__
- * Move assets from public to app.
+ * Sweep code base and remove old stuff (JS, Css, controllers, concerns, models, helpers, models).
  * n+1 checks (e.g. likes).
  * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
- * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).
- * Error pages work (also when not in organization scope). I18n for errors.
- * What happens when organization is deleted? Merge users organization with existing one (only when changing organization).
- * Sweep code base and remove old stuff (JS, Css, controllers, concerns, models, helpers, models).
+ * Check organizations/projects/users scopes throughout controllers and support.
+ * Error pages work? (also when not in organization scope - 404, rescue from record not found). I18n for errors.
+ * What happens when Github organization is deleted? Merge users organization with existing one (only when changing organization).
  * Make sure postmark works again after production.
  
 __NICE TO HAVE:__

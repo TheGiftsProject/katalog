@@ -1,8 +1,8 @@
 class ProjectFromEmail
   def self.create(email_data)
-    if User.exists?(email: email_data.from_email)
-      user = User.where(email: email_data.from_email).first
-      return nil if user.organization_id
+    user = User.find_by(email: email_data.from_email)
+    if user
+      return nil if user.default_organization
 
       title = email_data.subject
       subtitle = email_data.text_body.split("\n").first

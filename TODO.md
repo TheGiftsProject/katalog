@@ -2,6 +2,7 @@ __FEATURES:__
  * Collapsable onboarding with invites.
  * Fix long project title in row overlapping meta in thin screens. 
  * Prevent creation until title and subtitles are present.
+ * Make the same project in random project when liking from random
  
 __SANITY CHECKS:__
  * Don't load javascripts in root.

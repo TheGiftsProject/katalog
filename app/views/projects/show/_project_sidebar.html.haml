@@ -1,4 +1,4 @@
-- if has_saved_referer?
+- if has_saved_referer? and current_page? project_path
   = link_to back_to_index_url, {:class => 'hidden-sm hidden-xs'} do
     %h4
       %i.fa.fa-long-arrow-left

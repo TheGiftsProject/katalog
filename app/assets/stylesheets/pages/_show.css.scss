@@ -3,7 +3,6 @@
   position: relative;
   max-height: 274px;
   overflow: hidden;
-  background-color: white;
   @include border-radius(20px);
   img {
     border: none;
@@ -41,17 +40,16 @@
       top: 16px;
     }
   }
-
-  .project-details {
-    dt {
-      width: 120px;
-    }
-    dd {
-      margin-left: 140px;
-    }
-  }
 }
 
+.project-details {
+  dt {
+    width: 120px;
+  }
+  dd {
+    margin-left: 140px;
+  }
+}
 
 .syncing{
   &:before{

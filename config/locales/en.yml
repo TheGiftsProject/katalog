@@ -12,6 +12,9 @@ en:
       pills:
         all: 'All'
         mine: 'Mine'
+        sync: 'Sync'
+        ideas: 'Ideas'
+        lifted: 'Lifted'
 
   session:
     sign_in_error: 'Failed to sign-in'
@@ -56,8 +59,10 @@ en:
       no_projects:
         title: 'No projects or ideas'
 
+    sync:
+      title: 'Sync session'
+
     edit:
-      back: 'View Project'
       title: 'Edit Project'
 
     form:
@@ -66,8 +71,7 @@ en:
         subtitle: 'Project Subtitle'
         repo_url: 'https://github.com/TheGiftsProject/repo'
         demo_url: 'http://demo.example.com'
-      initial_post: 'Initial post'
-      optional: '(optional)'
+      delete_confirm: 'Are you sure you want to delete this project?'
 
     show:
       project_siderbar:
@@ -109,24 +113,3 @@ en:
   errors:
     unauthorized: 'You are not authorized to view this Katalog'
     post_fail: 'Failed to post'
-    cant_delete: "You can't delete a post you didn't post"
-
-  activerecord:
-    attributes:
-      project:
-        title: "Title"
-        subtitle: "Subtitle"
-      post:
-        text: "Post text"
-    errors:
-      models:
-        project:
-          attributes:
-            title:
-              blank: "is required"
-            subtitle:
-              blank: "is required"
-        post:
-          attributes:
-            text:
-              blank: "is required"

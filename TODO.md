@@ -1,6 +1,7 @@
 __FEATURES:__
  * I'm a collaborator.
  * Collapsable onboarding with invites.
+ * Prevent creation until title and subtitles are present.
  
 __SANITY CHECKS:__
  * Don't load javascripts in root.
@@ -8,7 +9,6 @@ __SANITY CHECKS:__
  * n+1 checks (e.g. likes).
  * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
  * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).
- * Sweep i18n, clean it and use proper scopes.
  * Error pages work (also when not in organization scope).
  * Specs - add for basic control flows.
  * What happens when organization is deleted? Merge users organization with existing one (only when changing organization).

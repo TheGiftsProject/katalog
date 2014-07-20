@@ -1,5 +1,5 @@
 .comments
-  %h2 Activity
+  %h2= t('.title')
   .well.well-sm
     - if current_project.posts.count==0
       .lead.text-center.well-lg
@@ -8,4 +8,4 @@
     - current_project.posts.each do |post|
       - if post.persisted?
         = render 'projects/show/comment', :post => post
-    = render 'components/post/add_post', :project => current_project, :post => @post
+    = render 'projects/show/add_post', :project => current_project, :post => @post

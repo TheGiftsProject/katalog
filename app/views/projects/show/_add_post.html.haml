@@ -1,0 +1,17 @@
+= form_for [project, post], :html => {:class => 'form-horizontal'} do |f|
+  .form-group
+    .post.col-sm-12
+      .tabbable
+        %ul.nav.nav-pills
+          %li.active
+            %a{:href => '#text', :data => {:toggle => 'tab'}}= t('.tabs.text')
+          %li
+            %a{:href => '#preview', :data => {:toggle => 'tab'}}= t('.tabs.preview')
+        .tab-content
+          #text.tab-pane.active
+            = f.text_area :text, :rows => 3, :placeholder => t('.placeholder'), :class => 'markdown-text'
+          #preview.tab-pane
+            .markdown-preview
+      - unless project.new_record?
+        .status-fields
+          = f.submit :class => 'btn btn-primary pull-right'

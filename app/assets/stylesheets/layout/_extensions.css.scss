@@ -14,3 +14,12 @@
     background: #f0f0f0;
   }
 }
+
+.btn-blue{
+  @extend .btn-primary;
+  &.disabled{
+    background-color: #AED3E4;
+    border-color: #8BAFBE;
+
+  }
+}

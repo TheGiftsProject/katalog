@@ -5,6 +5,13 @@
   .project-row{
     padding: 0;
   }
+  label{
+    cursor: pointer;
+    @include user-select(none);
+    &:hover{
+      color: $darker-blue;
+    }
+  }
 }
 
 .project-row{
@@ -97,15 +104,5 @@
 
   i:hover {
     color: $gray;
-  }
-}
-
-#random-idea{
-  label{
-    cursor: pointer;
-    @include user-select(none);
-    &:hover{
-      color: $darker-blue;
-    }
   }
 }

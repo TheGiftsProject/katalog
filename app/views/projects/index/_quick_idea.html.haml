@@ -4,10 +4,35 @@
       %i.fa.fa-lightbulb-o
       %span= t('.title')
     .form-group
-      = f.text_field :title, :class => 'form-control', :placeholder => t('.title_placeholder')
+      = f.text_field :title, :class => 'form-control', :id => 'create-project-title', :placeholder => t('.title_placeholder')
     .input-group
-      = f.text_field :subtitle, :class => 'form-control', :placeholder => t('.subtitle_placeholder')
+      = f.text_field :subtitle, :class => 'form-control', :id => 'create-project-subtitle', :placeholder => t('.subtitle_placeholder')
       .input-group-btn
-        %button.btn.btn-primary{:type => 'submit'}
+        %button.btn.btn-primary#create-project-button{:type => 'submit'}
           %i.fa.fa-plus-circle
           = t('.create')
+
+:coffee
+  projectFormValidation = ->
+
+    ui =
+     submitButton: $('#create-project-button')
+     titleField: $('#create-project-title')
+     subtitleField: $('#create-project-subtitle')
+
+    checkIfCanSubmit = ->
+     canSubmit = _.any(ui.titleField.val()) && _.any(ui.subtitleField.val())
+     ui.submitButton.toggleClass('disabled', !canSubmit)
+     canSubmit
+
+    checkIfCanSubmit()
+
+    $('.quick-creation-form').on('submit', (e) ->
+     e.preventDefault() if !checkIfCanSubmit()
+    )
+
+    ui.titleField.change(checkIfCanSubmit)
+    ui.subtitleField.change(checkIfCanSubmit)
+
+  $(document).on 'ready', projectFormValidation
+  $(document).on 'page:load', projectFormValidation

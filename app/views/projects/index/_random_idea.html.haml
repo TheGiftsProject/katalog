@@ -7,5 +7,9 @@
       = render 'projects/index/like_button', :project => @random_project
     - if @random_project.present?
       = render 'projects/index/project_row', :project => @random_project, :hide_icon => true
+      - if @random_project.image_url.present?
+        %br
+        .project-image
+          = image_tag @random_project.image
     - else
       = render 'projects/index/no_projects'

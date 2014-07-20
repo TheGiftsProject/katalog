@@ -30,4 +30,8 @@ module ProjectHelper
     current_project.users.include? current_user
   end
 
+  def project_image(project)
+    project.image_url || image_path('no-image.png')
+  end
+
 end

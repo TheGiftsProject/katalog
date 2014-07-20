@@ -67,7 +67,7 @@ en:
       placeholders:
         title: 'Project Title'
         subtitle: 'Project Subtitle'
-        repo_url: 'https://github.com/TheGiftsProject/repo'
+        repo_url: 'https://github.com/ORGANIZATION/REPO'
         demo_url: 'http://demo.example.com'
       delete_confirm: 'Are you sure you want to delete this project?'
 

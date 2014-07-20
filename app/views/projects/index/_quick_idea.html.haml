@@ -4,9 +4,9 @@
       %i.fa.fa-lightbulb-o
       %span= t('.title')
     .form-group
-      = f.text_field :title, :class => 'form-control', :id => 'create-project-title', :placeholder => t('.title_placeholder')
+      = f.text_field :title, :class => 'form-control', :id => 'create-project-title', :maxlength => 25, :placeholder => t('.title_placeholder')
     .input-group
-      = f.text_field :subtitle, :class => 'form-control', :id => 'create-project-subtitle', :placeholder => t('.subtitle_placeholder')
+      = f.text_field :subtitle, :class => 'form-control', :id => 'create-project-subtitle', :maxlength => 255, :placeholder => t('.subtitle_placeholder')
       .input-group-btn
         %button.btn.btn-blue#create-project-button{:type => 'submit'}
           %i.fa.fa-plus-circle

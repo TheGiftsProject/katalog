@@ -1,13 +1,10 @@
 __FEATURES:__
  * Collapsable onboarding with invites.
- * Fix long project title in row overlapping meta in thin screens. 
- * Prevent creation until title and subtitles are present.
  * Make the same project in random project when liking from random
  
 __SANITY CHECKS:__
  * Move assets from public to app.
  * Don't load javascripts in root.
- * Error when submitting subtitle longer than 255. Show flash.
  * n+1 checks (e.g. likes).
  * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
  * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).

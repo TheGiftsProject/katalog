@@ -123,7 +123,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_projects_for_scope(scope)
-    @projects = scope.latest_first.paginate(:page => params[:page]) 
+    @projects = scope.latest_first.paginate(:page => params[:page])
   end
 
   def random_idea

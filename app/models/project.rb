@@ -1,7 +1,5 @@
 class Project < ActiveRecord::Base
 
-  DEFAULT_IMAGE = 'http://placehold.it/225x225'
-
   belongs_to :ideator, :class_name => 'User'
   belongs_to :organization
   has_and_belongs_to_many :users
@@ -24,10 +22,6 @@ class Project < ActiveRecord::Base
 
   def to_param
     slug
-  end
-
-  def image
-    image_url || DEFAULT_IMAGE
   end
 
   def less_than_week_old?

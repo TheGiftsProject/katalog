@@ -3,12 +3,13 @@
   position: relative;
   max-height: 274px;
   overflow: hidden;
-  background-color: white;
   border-width: 0;
   @include border-radius(20px);
+  background-color: transparent;
   img {
     border: none;
     width: 100%;
+    background-color: #cbcbcb;
   }
   .upload-image{
     position: absolute;

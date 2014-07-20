@@ -10,6 +10,6 @@
       - if @random_project.image_url.present?
         %br
         .project-image
-          = image_tag @random_project.image
+          = image_tag project_image(@random_project)
     - else
       = render 'projects/index/no_projects'

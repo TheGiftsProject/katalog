@@ -2,55 +2,10 @@
   = link_to back_to_index_url, {:class => 'hidden-sm hidden-xs'} do
     %h4
       %i.fa.fa-long-arrow-left
-      %span= t('.return')
+      %span= t('.back')
 
-.project-image
-  = form_for current_project, html: {class: 'hidden' } do |f|
-    = f.text_field :image_url
-  = file_field :project, :image_url, accept: 'image/*', class: 'hidden file-field'
-  %btn.btn.btn-default.btn-sm.upload-image
-    %i.fa.fa-image
-    = t('.upload')
-  = image_tag current_project.image
+= render :partial => 'projects/show/project_sidebar/image'
 %h1= current_project.title
 %p.lead= current_project.subtitle
-%hr
-.project-details
-  %dl.dl-horizontal
-    %dt= t('.added_on')
-    %dd= current_project.created_at.strftime('%d/%m/%Y')
-    - if current_project.lifted_at.present?
-      %dt= t('.lifted_on')
-      %dd= current_project.lifted_at.strftime('%d/%m/%Y')
-    %dt Last updated on
-    %dd= current_project.updated_at.strftime('%d/%m/%Y')
-    %dt
-      = t('.likes')
-    %dd
-      = current_project.likes.count
-      %i.fa.fa-thumbs-o-up
-    - if current_project.repo_url.present?
-      %dt
-        %i.fa.fa-github-square
-        =t('.repo_label')
-      %dd
-        = link_to current_project.repo_url, :class => 'a-link' do
-          %span= t('.repo_url')
-    - if current_project.demo_url.present?
-      %dt
-        %i.fa.fa-globe
-        =t('.demo_label')
-      %dd
-        = link_to current_project.demo_url, :class => 'a-link' do
-          %span= t('.demo_url')
-%hr
-  %h4= t('.collaborators')
-  .collaborators
-    - current_project.users.each do |user|
-      .user.media
-        .avatar-contrainer.pull-left
-          = render 'users/avatar', user: user
-        .media-body
-          %strong.lead= user.name
-          - if current_project.ideator == user
-            .text-muted= t('.ideator')
+= render :partial => 'projects/show/project_sidebar/details'
+= render :partial => 'projects/show/project_sidebar/collaborators'

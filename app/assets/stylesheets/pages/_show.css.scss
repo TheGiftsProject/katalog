@@ -51,6 +51,19 @@
   }
 }
 
+.collaborators{
+  .btn-remove{
+    @include opacity(0);
+    @include transition(opacity 300ms); // OUT
+  }
+  .user:hover{
+    .btn-remove{
+      @include opacity(1);
+      @include transition(opacity 600ms); // IN
+    }
+  }
+}
+
 .syncing{
   &:before{
     content: '';

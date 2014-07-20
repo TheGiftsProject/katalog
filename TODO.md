@@ -1,6 +1,6 @@
 __FEATURES:__
- * I'm a collaborator.
  * Collapsable onboarding with invites.
+ * Fix long project title in row overlapping meta in thin screens. 
  * Prevent creation until title and subtitles are present.
  
 __SANITY CHECKS:__

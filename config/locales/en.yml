@@ -75,17 +75,24 @@ en:
 
     show:
       project_sidebar:
-        ideator: 'Ideator'
-        repo_url: 'Repo URL'
-        repo_label: 'Project repo'
-        demo_url: 'Demo URL'
-        demo_label: 'Demo site'
-        upload: 'Upload Image'
-        return: 'Return back'
-        added_on: 'Added on'
-        lifted_on: 'Lifted on'
-        likes: 'Likes'
-        collaborators: 'Collaborators'
+        back: 'Return back'
+        details:
+          repo_url: 'Repo URL'
+          repo_label: 'Project repo'
+          demo_url: 'Demo URL'
+          demo_label: 'Demo site'
+          upload: 'Upload Image'
+          added_on: 'Added on'
+          lifted_on: 'Lifted on'
+          likes: 'Likes'
+        image:
+          upload_image: "Upload Image"
+        collaborators:
+          ideator: 'Ideator'
+          collaborators: 'Collaborators'
+          im_collaborator: "I'm a collaborator"
+          remove: 'Remove'
+          are_you_sure_collaborators: 'Are you sure you want to remove from collaborators?'
       toolbar:
         lift: 'Lift'
         like: 'Like'

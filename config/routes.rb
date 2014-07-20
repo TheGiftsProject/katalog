@@ -21,7 +21,7 @@ Katalog::Application.routes.draw do
     end
 
     resources :posts, :only => [:create, :destroy]
-    resources :users, :only => [:destroy]
+    resources :users, :only => [:create, :destroy]
   end
 
   resource :autocomplete, :controller => 'autocomplete', :only => [] do

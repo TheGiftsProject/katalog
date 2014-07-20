@@ -26,4 +26,8 @@ module ProjectHelper
     liked ? 'text-primary' : 'text-muted'
   end
 
+  def collaborator?
+    current_project.users.include? current_user
+  end
+
 end

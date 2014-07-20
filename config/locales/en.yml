@@ -72,6 +72,18 @@ en:
     show:
       project_siderbar:
         ideator: 'Ideator'
+        back: "Return back"
+        upload_image: "Upload Image"
+        added_on: "Added on"
+        lifeted_on: "Lifted on"
+        updated_on: "Last updated on"
+        likes: "Likes"
+        repo: "Project Repo"
+        demo_site: "Demo Site"
+        collaborators: "Collaborators"
+        im_collaborator: "I'm a collaborator"
+        remove: "Remove"
+        are_you_sure_collaborators: "Are you sure you want to remove from collaborators?"
       toolbar:
         lift: 'Lift'
         like: 'Like'

@@ -20,7 +20,7 @@ Katalog::Application.routes.draw do
     end
 
     resources :posts, :only => [:create, :destroy]
-    resources :users, :only => [:destroy]
+    resources :users, :only => [:create, :destroy]
     get :contribute
   end
 

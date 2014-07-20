@@ -12,7 +12,7 @@ __SANITY CHECKS:__
  * Error pages work (also when not in organization scope).
  * Specs - add for basic control flows.
  * What happens when organization is deleted? Merge users organization with existing one (only when changing organization).
- * Sweep code base and remove old stuff.
+ * Sweep code base and remove old stuff (JS, Css, controllers, concerns, models, helpers, models, 
  * Make sure postmark works again after production.
  
 __NICE TO HAVE:__

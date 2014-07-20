@@ -5,13 +5,7 @@
   z-index: 1000;
   display: none;
   float: left;
-//  min-width: 160px;
-//  .search-query {
   min-width: 185px;
-//  @include mobile{
-//    width: 303px;
-//  }
-//  }
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
@@ -37,7 +31,6 @@
   strong{
     font-weight: bold;
   }
-//  margin-bottom: 0;
 }
 
 .tt-suggestion > p:hover,

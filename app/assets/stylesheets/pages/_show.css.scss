@@ -43,14 +43,14 @@
       top: 16px;
     }
   }
+}
 
-  .project-details {
-    dt {
-      width: 120px;
-    }
-    dd {
-      margin-left: 140px;
-    }
+.project-details {
+  dt {
+    width: 120px;
+  }
+  dd {
+    margin-left: 140px;
   }
 }
 
@@ -66,7 +66,6 @@
     }
   }
 }
-
 
 .syncing{
   &:before{

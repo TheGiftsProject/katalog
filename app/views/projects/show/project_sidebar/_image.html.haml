@@ -4,5 +4,5 @@
   = file_field :project, :image_url, accept: 'image/*', class: 'hidden file-field'
   %btn.btn.btn-default.btn-sm.upload-image
     %i.fa.fa-image
-    = t('projects.show.project_siderbar.upload_image')
-  = image_tag project_image(current_project)
+    = t('.upload_image')
+  = image_tag current_project.image

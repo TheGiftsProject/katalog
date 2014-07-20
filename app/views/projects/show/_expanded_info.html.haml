@@ -1,8 +1,0 @@
-.expanded_info
-  .actions
-    - if !current_project.users.include?(current_user)
-      = link_to project_contribute_path(current_project), :class => 'btn btn-mini btn-success production-btn-fix' do
-        %i.icon-hand-up
-        %span= t('pages.show.contribute')
-
-  = render 'projects/contributors', :project => current_project, :allow_delete => true

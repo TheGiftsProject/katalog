@@ -1,28 +1,29 @@
 %hr
 .project-details
   %dl.dl-horizontal
-    %dt= t('projects.show.project_siderbar.added_on')
+    %dt= t('.added_on')
     %dd= current_project.created_at.strftime('%d/%m/%Y')
     - if current_project.lifted_at.present?
-      %dt= t('projects.show.project_siderbar.lifeted_on')
+      %dt= t('.lifted_on')
       %dd= current_project.lifted_at.strftime('%d/%m/%Y')
-    %dt= t('projects.show.project_siderbar.updated_on')
+    %dt Last updated on
     %dd= current_project.updated_at.strftime('%d/%m/%Y')
-    %dt= t('projects.show.project_siderbar.likes')
+    %dt
+      = t('.likes')
     %dd
       = current_project.likes.count
       %i.fa.fa-thumbs-o-up
     - if current_project.repo_url.present?
       %dt
         %i.fa.fa-github-square
-        = t('projects.show.project_siderbar.repo')
+        =t('.repo_label')
       %dd
         = link_to current_project.repo_url, :class => 'a-link' do
-          %span= t('pages.show.urls.repo')
+          %span= t('.repo_url')
     - if current_project.demo_url.present?
       %dt
         %i.fa.fa-globe
-        = t('projects.show.project_siderbar.demo_site')
+        =t('.demo_label')
       %dd
         = link_to current_project.demo_url, :class => 'a-link' do
-          %span= t('pages.show.urls.demo')
+          %span= t('.demo_url')

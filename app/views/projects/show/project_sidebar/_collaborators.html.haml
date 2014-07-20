@@ -2,17 +2,17 @@
   - unless collaborator?
     = link_to project_users_path(current_project), method: :post, class: 'btn btn-xs btn-default pull-right' do
       %i.fa.fa-user
-      = t('projects.show.project_siderbar.im_collaborator')
-  %h4= t('projects.show.project_siderbar.collaborators')
+      = t('.im_collaborator')
+  %h4= t('.collaborators')
   .collaborators
     - current_project.users.each do |user|
       .user.media
         .avatar-contrainer.pull-left
           = render 'users/avatar', user: user
         .media-body
-          = link_to project_user_path(current_project, user), method: :delete, class: 'btn-remove btn btn-xs btn-danger pull-right', data: {confirm: t('projects.show.project_siderbar.are_you_sure_collaborators')} do
+          = link_to project_user_path(current_project, user), method: :delete, class: 'btn-remove btn btn-xs btn-danger pull-right', data: {confirm: t('.are_you_sure_collaborators')} do
             %i.fa.fa-times-circle
-            = t('projects.show.project_siderbar.remove')
+            = t('.remove')
           %strong.lead= user.name
           - if current_project.ideator == user
             .text-muted= t('.ideator')

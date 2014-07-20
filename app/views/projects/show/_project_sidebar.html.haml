@@ -2,10 +2,10 @@
   = link_to back_to_index_url, {:class => 'hidden-sm hidden-xs'} do
     %h4
       %i.fa.fa-long-arrow-left
-      %span= t('projects.show.project_siderbar.back')
+      %span= t('.back')
 
-= render :partial => 'projects/show/sidebar/image'
+= render :partial => 'projects/show/project_sidebar/image'
 %h1= current_project.title
 %p.lead= current_project.subtitle
-= render :partial => 'projects/show/sidebar/details'
-= render :partial => 'projects/show/sidebar/collaborators'
+= render :partial => 'projects/show/project_sidebar/details'
+= render :partial => 'projects/show/project_sidebar/collaborators'

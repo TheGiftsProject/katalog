@@ -18,7 +18,7 @@
 
   .form-group
     .controls
-      = link_to project_path, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this project?'}, method: :delete do
+      = link_to project_path, class: 'btn btn-danger', data: {confirm: t('.delete_confirm')}, method: :delete do
         %i.fa.fa-times-circle
         Delete Project
       &nbsp;

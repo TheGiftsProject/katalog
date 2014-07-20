@@ -1,5 +1,7 @@
 __FEATURES:__
  * Collapsable onboarding with invites.
+ * Fix long project title in row overlapping meta in thin screens. 
+ * Prevent creation until title and subtitles are present.
  
 __SANITY CHECKS:__
  * Don't load javascripts in root.
@@ -7,11 +9,10 @@ __SANITY CHECKS:__
  * n+1 checks (e.g. likes).
  * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
  * Check organization scopes (search for users, projects, all syncing stuff, validations and controller actions).
- * Sweep i18n, clean it and use proper scopes.
- * Error pages work (also when not in organization scope).
+ * Error pages work (also when not in organization scope). I18n for errors.
  * Specs - add for basic control flows.
  * What happens when organization is deleted? Merge users organization with existing one (only when changing organization).
- * Sweep code base and remove old stuff.
+ * Sweep code base and remove old stuff (JS, Css, controllers, concerns, models, helpers, models, 
  * Make sure postmark works again after production.
  
 __NICE TO HAVE:__

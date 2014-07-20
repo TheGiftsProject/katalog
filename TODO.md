@@ -1,6 +1,4 @@
 __FEATURES:__
- * I'm a collaborator.
- * Remove Collaborators.
  * Collapsable onboarding with invites.
  
 __SANITY CHECKS:__

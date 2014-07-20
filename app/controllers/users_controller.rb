@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   before_action :sign_in_required
   before_action :project_required
 
+  before_action :destroy_validations, only: [:destroy]
+
   def create
     current_project.users << current_user
     current_user.save
@@ -19,7 +21,13 @@ class UsersController < ApplicationController
   private
 
   def selected_user
-    User.find(params[:id])
+    current_project.users.find(params[:id])
+  end
+
+  def destroy_validations
+    redirect_to :back, alert: 'Unknown User' and return if selected_user.nil?
+    redirect_to :back, alert: 'Can\'t remove the ideator' and return if selected_user == current_project.ideator
+    redirect_to :back, alert: 'Can\'t remove all the users' and return if current_project.users.count == 1
   end
 
 end

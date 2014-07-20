@@ -3,6 +3,8 @@
   position: relative;
   max-height: 274px;
   overflow: hidden;
+  background-color: white;
+  border-width: 0;
   @include border-radius(20px);
   img {
     border: none;

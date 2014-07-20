@@ -2,6 +2,10 @@
   text-transform: uppercase;
 }
 
+.break-word {
+  overflow-wrap: break-word;
+}
+
 .btn-white{
   background: white;
   color: $dark-blue;

@@ -5,7 +5,7 @@
       %span= t('.back')
 
 = render :partial => 'projects/show/project_sidebar/image'
-%h1= current_project.title
-%p.lead= current_project.subtitle
+%h1.break-word= current_project.title
+%p.lead.break-word= current_project.subtitle
 = render :partial => 'projects/show/project_sidebar/details'
 = render :partial => 'projects/show/project_sidebar/collaborators'

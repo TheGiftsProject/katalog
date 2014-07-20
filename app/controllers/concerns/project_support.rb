@@ -49,8 +49,9 @@ module ProjectSupport
 
   def save_referer
     referer = request.referer
-    return if referer.nil?
+    return if referer.nil? || session[:last_project] == current_project.id
     session[:referer] = referer
+    session[:last_project] = current_project.id
   end
 
   def has_saved_referer?
@@ -59,6 +60,7 @@ module ProjectSupport
 
   def reset_referer
     session[:referer] = nil
+    session[:last_project] = nil
   end
 
 end

@@ -15,5 +15,7 @@
     .container
       = render 'layouts/components/messages'
       = yield
+    - if headless_page?
+      = render 'layouts/components/clouds'
     - yield :bottom_javascripts
     = configure_s3_storage

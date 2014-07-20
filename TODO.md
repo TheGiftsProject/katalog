@@ -1,9 +1,9 @@
 __FEATURES:__
- * Sort by likes and updated_at heuristics.
+ * I'm a collaborator.
  * Collapsable onboarding with invites.
- * Plain clouds in root.
  
 __SANITY CHECKS:__
+ * Don't load javascripts in root.
  * Error when submitting subtitle longer than 255. Show flash.
  * n+1 checks (e.g. likes).
  * Add authorization for everything related to project controller (don't allow edit if not contributor etc).

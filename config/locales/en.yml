@@ -41,8 +41,6 @@ en:
           shared: "Trending lifted projects"
         user:
           shared: "%{user}'s projects"
-        sync:
-          shared: "Sync session"
       tags:
         new_tag: 'new'
       like_button:
@@ -81,7 +79,6 @@ en:
           repo_label: 'Project repo'
           demo_url: 'Demo URL'
           demo_label: 'Demo site'
-          upload: 'Upload Image'
           added_on: 'Added on'
           lifted_on: 'Lifted on'
           likes: 'Likes'
@@ -101,11 +98,6 @@ en:
       comment:
         time_ago: '%{time_ago} ago'
         delete_post: 'Delete post'
-      back: 'Projects'
-      edit: 'Edit'
-      delete: 'Delete'
-      contribute: "I'm a contributor!"
-
 
     errors:
       code-404: "The page you're looking for isn't here"

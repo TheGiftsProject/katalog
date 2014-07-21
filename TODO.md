@@ -1,6 +1,5 @@
 __FEATURES:__
  * Collapsable onboarding with invites.
- * Move assets from public to app.
  
 __SANITY CHECKS:__
  * Sweep code base and remove old stuff (JS, Css, controllers, concerns, models, helpers, models).

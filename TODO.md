@@ -1,6 +1,5 @@
-__FEATURES:__
+__BUGS:__
  * Image upload to post now uploads to entire project, which refreshes page and doesnt allow you to post images...
- * Collapsable onboarding with invites.
  
 __SANITY CHECKS:__
  * Controllers code cleanup.
@@ -12,9 +11,9 @@ __SANITY CHECKS:__
  * What happens when Github organization is deleted? Merge users organization with existing one (only when changing organization).
  * Make sure postmark works again after production.
  
-__NICE TO HAVE:__
+__VERSION 1.6__
+ * Collapsable onboarding with invites.
  * Specs - add for basic control flows.
  * Edit posts.
- * Paper plane 3d.
  * Emoji autocomplete in posts and fixes in preview mode ('dancer' works, '+1' doesn't).
  * Github activity and project-neggers.

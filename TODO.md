@@ -1,3 +1,8 @@
+__ADI FEEDBACK:__
+ * Bigger font for small text or replace it with helvetica.
+ * Random idea refresh button should look like a button (make the left icon button like).
+ * The search input should be on the right side, add a search icon in its search field.
+
 __BUGS:__
  * Image upload to post now uploads to entire project, which refreshes page and doesnt allow you to post images...
  

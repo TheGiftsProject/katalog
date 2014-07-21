@@ -127,7 +127,12 @@ class ProjectsController < ApplicationController
   end
 
   def random_idea
-    @random_project = scoped_projects.idea.to_a.sample
+    if has_previous_liked_project
+      @random_project = previously_liked_project
+      reset_previously_liked_project
+    else
+      @random_project = scoped_projects.idea.to_a.sample
+    end
   end
 
   def users_projects

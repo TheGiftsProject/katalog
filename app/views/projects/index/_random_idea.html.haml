@@ -4,9 +4,9 @@
       %i.fa.fa-random
       %span.uppercase= t('.title')
     .pull-right
-      = render 'projects/index/like_button', :project => @random_project
+      = render 'projects/index/like_button', :project => @random_project, :widget => 'random'
     - if @random_project.present?
-      = render 'projects/index/project_row', :project => @random_project, :hide_icon => true
+      = render 'projects/index/project_row', :project => @random_project
       - if @random_project.image_url.present?
         %br
         .project-image

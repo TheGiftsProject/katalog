@@ -1,13 +1,13 @@
 .project-row
   = render 'users/avatar', :user => project.ideator
   .project-details
-    - if project.idea? && !local_assigns[:hide_icon]
+    - if project.idea? && !local_assigns[:widget]
       %i.fa.fa-lightbulb-o.idea-icon
     = link_to project.title, project, class: "project-title project-#{project.status}"
     = render 'projects/index/tags', :project => project
     .project-subtitle= project.subtitle
     .project-meta
-      = render 'projects/index/like_button', :project => project
+      = render 'projects/index/like_button', :project => project, :widget => local_assigns[:widget]
       .project-contributors{title: project.users.pluck(:nickname).to_sentence}
         %i.fa.fa-users.fa-fw
         = project.users.count

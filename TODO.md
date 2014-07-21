@@ -1,6 +1,5 @@
 __FEATURES:__
  * Collapsable onboarding with invites.
- * Make the same project in random project when liking from random.
  * Move assets from public to app.
  
 __SANITY CHECKS:__

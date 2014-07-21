@@ -19,7 +19,20 @@ module LikeSupport
   end
 
   def like_current_project
-    Like.create(:user => current_user, :project => current_project)
+    Like.create!(:user => current_user, :project => current_project)
+    session[:liked_project_id] = current_project.id if params[:widget]
+  end
+
+  def has_previous_liked_project
+    previously_liked_project.present?
+  end
+
+  def previously_liked_project
+    @_previously_liked_project ||= Project.find_by(id: session[:liked_project_id])
+  end
+
+  def reset_previously_liked_project
+    session[:liked_project_id] = nil
   end
 
   private

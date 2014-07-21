@@ -1,8 +1,10 @@
 __FEATURES:__
+ * Image upload to post now uploads to entire project, which refreshes page and doesnt allow you to post images...
  * Collapsable onboarding with invites.
  
 __SANITY CHECKS:__
- * Sweep code base and remove old stuff (CSS, controllers, helpers).
+ * Controllers code cleanup.
+ * CSS cleanup.
  * n+1 fixes. complete mess there.
  * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
  * Check organizations/projects/users scopes throughout controllers and support.

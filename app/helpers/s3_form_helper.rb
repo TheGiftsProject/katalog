@@ -4,14 +4,14 @@ module S3FormHelper
 
   def configure_s3_storage
     fields = {
-        :utf8 => '✓',
-        :key => key,
-        :acl => acl,
-        :AWSAccessKeyId => S3Storage.access_key_id,
-        :policy => policy,
-        :signature => signature,
-        :success_action_status => success_action_status,
-        'X-Requested-With' => 'xhr'
+      :utf8 => '✓',
+      :key => key,
+      :acl => acl,
+      :AWSAccessKeyId => S3Storage.access_key_id,
+      :policy => policy,
+      :signature => signature,
+      :success_action_status => success_action_status,
+      'X-Requested-With' => 'xhr'
     }
 
     javascript_tag <<-END
@@ -19,6 +19,8 @@ module S3FormHelper
       S3Storage.bucketUrl = "https://s3.amazonaws.com/#{S3Storage.bucket}/"
     END
   end
+
+  private
 
   def key
     "#{key_starts_with}{timestamp}-#{SecureRandom.hex}/${filename}"
@@ -46,17 +48,17 @@ module S3FormHelper
 
   def policy_data
     {
-        expiration: 10.hours.from_now.utc.iso8601,
-        conditions: [
-            ["starts-with", "$utf8", ""],
-            ["starts-with", "$key", key_starts_with],
-            ["starts-with", "$x-requested-with", ""],
-            ["content-length-range", 0, 500.megabytes],
-            ["starts-with","$content-type",""],
-            {bucket: S3Storage.bucket},
-            {acl: acl},
-            {success_action_status: success_action_status}
-        ]
+      expiration: 10.hours.from_now.utc.iso8601,
+      conditions: [
+        ["starts-with", "$utf8", ""],
+        ["starts-with", "$key", key_starts_with],
+        ["starts-with", "$x-requested-with", ""],
+        ["content-length-range", 0, 500.megabytes],
+        ["starts-with","$content-type",""],
+        {bucket: S3Storage.bucket},
+        {acl: acl},
+        {success_action_status: success_action_status}
+      ]
     }
   end
 

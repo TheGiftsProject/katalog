@@ -7,7 +7,6 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :text
 
-  scope :status_updates, -> { where(:updated => true) }
   scope :has_image, -> { where("text like '%![%](%)%'") }
   scope :reverse, -> { order(:id => :desc) }
 

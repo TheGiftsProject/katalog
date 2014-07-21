@@ -53,7 +53,7 @@
   z-index: -1;
   width: $width;
   height: $height;
-  background-image: image-url('/images/cloud.png');
+  background-image: image-url('cloud.png');
   background-size: $width $height;
 
   &.small {

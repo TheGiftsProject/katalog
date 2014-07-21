@@ -6,8 +6,6 @@ class Project < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
 
-  accepts_nested_attributes_for :posts
-
   self.per_page = 10
 
   enum :status, [:idea, :lifted]
@@ -34,8 +32,8 @@ class Project < ActiveRecord::Base
 
   def lift!
     update(
-        lifted_at: DateTime.now,
-        status: :lifted
+      lifted_at: DateTime.now,
+      status: :lifted
     )
   end
 
@@ -44,9 +42,5 @@ class Project < ActiveRecord::Base
   def slug
     "#{id}-#{title.parameterize}"
   end
-
-  # def last_posted_image
-  #   posts.has_image.last.try(:image_url)
-  # end
 
 end

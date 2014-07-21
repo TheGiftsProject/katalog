@@ -2,8 +2,8 @@ __FEATURES:__
  * Collapsable onboarding with invites.
  
 __SANITY CHECKS:__
- * Sweep code base and remove old stuff (JS, Css, controllers, concerns, models, helpers, models).
- * n+1 checks (e.g. likes).
+ * Sweep code base and remove old stuff (CSS, controllers, helpers).
+ * n+1 fixes. complete mess there.
  * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
  * Check organizations/projects/users scopes throughout controllers and support.
  * Error pages work? (also when not in organization scope - 404, rescue from record not found). I18n for errors.

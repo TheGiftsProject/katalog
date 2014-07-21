@@ -111,7 +111,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :image_url, :posts_attributes => [:text]])
+    params.require(:project).permit([:title, :subtitle, :demo_url, :repo_url, :image_url])
   end
 
   def build_project

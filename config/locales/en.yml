@@ -6,7 +6,7 @@ en:
   layouts:
     components:
       header:
-        search_placeholder: 'Search for a project or user'
+        search_placeholder: 'Project or user'
         change_organization: 'Change Organization (%{name})'
         sign_out: 'Sign Out'
       pills:

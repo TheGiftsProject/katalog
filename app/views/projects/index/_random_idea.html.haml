@@ -1,7 +1,8 @@
 .well.hidden-xs#random-idea
   .content
     = label_tag do
-      %i.fa.fa-random
+      %button.btn.btn-default.btn-xs
+        %i.fa.fa-question-circle
       %span.uppercase= t('.title')
     .pull-right
       = render 'projects/index/like_button', :project => @random_project, :widget => 'random'

@@ -1,5 +1,5 @@
-__ADI FEEDBACK:__
- * Random idea refresh button should look like a button (make the left icon button like).
+__TODO:
+ * Github activity (shay).
 
 __BUGS:__
  * Image upload to post now uploads to entire project, which refreshes page and doesnt allow you to post images...
@@ -19,4 +19,3 @@ __VERSION 1.6__
  * Specs - add for basic control flows.
  * Edit posts.
  * Emoji autocomplete in posts and fixes in preview mode ('dancer' works, '+1' doesn't).
- * Github activity and project-neggers.

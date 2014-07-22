@@ -5,6 +5,7 @@ $medium-weight: 200;
 $bold-weight:   300;
 
 $basic-font-family: KlavikaBasic;
+$font-size: 15px;
 
 @include font-face($basic-font-family, inline-font-files('KlavikaWebBasicRegular.woff', woff), false, $normal-weight);
 @include font-face($basic-font-family, inline-font-files('KlavikaWebBasicMedium.woff', woff), false, $medium-weight);
@@ -13,4 +14,5 @@ $basic-font-family: KlavikaBasic;
 body {
     font-family: $basic-font-family, Arial, sans-serif;
     font-weight: $font-weight;
+    font-size: $font-size;
 }

@@ -33,6 +33,10 @@
     @extend .pull-left;
   }
 
+  .project-subtitle {
+    margin-bottom: 3px;
+  }
+
   .project-details{
     @extend .media-body;
     position: relative;

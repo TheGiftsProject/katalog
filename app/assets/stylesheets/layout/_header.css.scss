@@ -11,9 +11,26 @@ nav.navbar {
   }
 
   .search-query {
-    min-width: 185px;
-    @include mobile{
+    padding-left: 26px;
+    min-width: 200px;
+    @include mobile {
       width: 303px;
+    }
+  }
+
+  .twitter-typeahead {
+
+    &:before {
+      font-family: FontAwesome;
+      content: "\f002";
+      display: block;
+      width: 14px;
+      height: 14px;
+      opacity: .5;
+      position: absolute;
+      z-index: 1000;
+      top: 5px;
+      left: 8px;
     }
   }
 

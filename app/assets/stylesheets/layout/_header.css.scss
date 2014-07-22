@@ -1,24 +1,25 @@
 nav.navbar {
 
   .logo {
-    width: 30px;
-    @include mobile {
-      width: 23px;
-    }
+    width: 23px;
     margin-top: -4px;
     margin-right: 2px;
-    @include filter(drop-shadow(0 1px rgba($gray, 0.5)))
   }
 
   .search-query {
     padding-left: 26px;
     min-width: 185px;
-    @include mobile {
-      width: 303px;
-    }
+  }
+
+  .brand-title {
+    color: $yellow;
   }
 
   .twitter-typeahead {
+
+    @include mobile {
+      width: 100%;
+    }
 
     &:before {
       font-family: FontAwesome;

@@ -7,20 +7,17 @@
         %span.icon-bar
       = link_to projects_path, class: 'navbar-brand uppercase' do
         = image_tag('logo-small.png', :class => 'logo')
-        = t('site.title')
+        %span.brand-title= t('site.title')
 
     .navbar-collapse.collapse#navbar-collapse
-      %form.navbar-form.navbar-left.hidden-sm{:role => 'search'}
-        .form-group
-          = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off
-
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav.navbar-left
         = render 'layouts/components/header_pill', path: projects_path, icon: 'fa-list', text: :all
         = render 'layouts/components/header_pill', path: mine_projects_path, icon: 'fa-child', text: :mine
         = render 'layouts/components/header_pill', path: ideas_projects_path, icon: 'fa-lightbulb-o', text: :ideas
         = render 'layouts/components/header_pill', path: lifted_projects_path, icon: 'fa-paper-plane', text: :lifted
         = render 'layouts/components/header_pill', path: sync_projects_path, icon: 'fa-refresh', text: :sync
 
+      %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
             = render 'users/avatar_img', :user => current_user, :type => 'tiny'
@@ -35,3 +32,7 @@
                 %a{:href => sign_out_path}
                   %i.fa.fa-sign-out
                   %span= t('.sign_out')
+
+      %form.navbar-form.navbar-right.hidden-sm{:role => 'search'}
+        .form-group
+        = text_field_tag :query, nil, :placeholder => t('.search_placeholder'), :class => 'form-control search-query', :autocomplete => :off

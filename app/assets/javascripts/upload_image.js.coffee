@@ -12,6 +12,7 @@ init = ->
     autoUpload: true
     dataType: 'xml'
     paramName: 'file'
+    dropZone: button
     formData: -> # this method is binded to fileupload component and must not be binded to this class
       data = S3Storage.generateFormData()
       fileType = if 'type' of @files[0] then @files[0].type else ''

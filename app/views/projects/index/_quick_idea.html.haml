@@ -12,27 +12,3 @@
           %i.fa.fa-plus-circle
           = t('.create')
 
-:coffee
-  projectFormValidation = ->
-
-    ui =
-     submitButton: $('#create-project-button')
-     titleField: $('#create-project-title')
-     subtitleField: $('#create-project-subtitle')
-
-    checkIfCanSubmit = ->
-     canSubmit = _.any(ui.titleField.val()) && _.any(ui.subtitleField.val())
-     ui.submitButton.toggleClass('disabled', !canSubmit)
-     canSubmit
-
-    checkIfCanSubmit()
-
-    $('.quick-creation-form').on('submit', (e) ->
-     e.preventDefault() if !checkIfCanSubmit()
-    )
-
-    ui.titleField.change(checkIfCanSubmit)
-    ui.subtitleField.change(checkIfCanSubmit)
-
-  $(document).on 'ready', projectFormValidation
-  $(document).on 'page:load', projectFormValidation

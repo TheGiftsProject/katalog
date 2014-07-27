@@ -1,7 +1,9 @@
-__TODO:
+__TODO:__
+ * Upgrade Rails.
  * Github activity (shay).
 
 __BUGS:__
+ * User search doesn't work?
  * Image upload to post now uploads to entire project, which refreshes page and doesnt allow you to post images...
  
 __SANITY CHECKS:__

@@ -4,13 +4,12 @@ __TODO:__
 
 __BUGS:__
  * User search doesn't work? - Yon: There's some caching issues - it's cached per day 
- * Image upload to post now uploads to entire project, which refreshes page and doesnt allow you to post images...
  
 __SANITY CHECKS:__
  * Controllers code cleanup.
  * CSS cleanup.
  * n+1 fixes. complete mess there.
- * Add authorization for everything related to project controller (don't allow edit if not contributor etc).
+ * Add authorization for everything related to project controller (make sure everything is scoped to your org).
  * Check organizations/projects/users scopes throughout controllers and support.
  * Error pages work? (also when not in organization scope - 404, rescue from record not found). I18n for errors.
  * What happens when Github organization is deleted? Merge users organization with existing one (only when changing organization).

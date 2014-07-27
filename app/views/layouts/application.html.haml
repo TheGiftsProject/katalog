@@ -15,6 +15,7 @@
     .container
       = render 'layouts/components/messages'
       = yield
+    = render 'layouts/components/footer'
     - if headless_page?
       = render 'layouts/components/clouds'
     - yield :bottom_javascripts

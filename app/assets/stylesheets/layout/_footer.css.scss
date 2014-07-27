@@ -1,0 +1,17 @@
+footer{
+  border-top: 1px solid $lighter-blue;
+  color: $dark-blue;
+  margin-top: 30px;
+  padding: 30px 15px;
+  font-size: 12px;
+  text-align: center;
+  p{
+    margin: 0;
+  }
+  a {
+    color: $darker-blue;
+    &:hover, &:active, &:focus{
+      color: $highlight-blue;
+    }
+  }
+}

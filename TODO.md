@@ -1,5 +1,6 @@
 __TODO:__
  * Upgrade Rails.
+ * Remove 'be the first to post' after you post.
  * Github activity (shay).
 
 __BUGS:__

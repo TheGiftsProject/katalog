@@ -2,6 +2,9 @@ __TODO:__
  * Upgrade Rails.
  * Remove 'be the first to post' after you post.
  * Github activity (shay).
+ * Remove line from footer in root page.
+ * Update name from Github.
+ * User name always (show page shows username).
 
 __BUGS:__
  * User search doesn't work? - Yon: There's some caching issues - it's cached per day 

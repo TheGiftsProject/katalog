@@ -1,4 +1,5 @@
 __TODO:__
+ * iPhone app icon.
  * Remove likes, remove lifted/ideas.
  * Fix syncing shuffling.
  * Upgrade Rails.

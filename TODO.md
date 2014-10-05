@@ -1,13 +1,12 @@
 __TODO:__
+ * Remove likes, remove lifted/ideas.
+ * Fix syncing shuffling.
  * Upgrade Rails.
  * Remove 'be the first to post' after you post.
- * Github activity (shay).
+ * Github activity.
  * Remove line from footer in root page.
  * Update name from Github.
  * User name always (show page shows username).
-
-__BUGS:__
- * User search doesn't work? - Yon: There's some caching issues - it's cached per day 
  
 __SANITY CHECKS:__
  * Controllers code cleanup.
@@ -23,4 +22,6 @@ __VERSION 1.6__
  * Collapsable onboarding with invites.
  * Specs - add for basic control flows.
  * Edit posts.
+ 
+__FUTURE__
  * Emoji autocomplete in posts and fixes in preview mode ('dancer' works, '+1' doesn't).

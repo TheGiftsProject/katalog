@@ -8,7 +8,7 @@
     .project-subtitle= project.subtitle
     .project-meta
       = render 'projects/index/like_button', :project => project, :widget => local_assigns[:widget]
-      .project-contributors{title: project.users.pluck(:nickname).to_sentence}
+      .project-contributors{title: project.users.pluck(:name).to_sentence}
         %i.fa.fa-users.fa-fw
         = project.users.count
       .project-last-updated

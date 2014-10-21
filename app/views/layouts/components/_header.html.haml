@@ -21,7 +21,7 @@
         %li.dropdown
           %a.dropdown-toggle{:href => '#', :data => {:toggle => 'dropdown'}}
             = render 'users/avatar_img', :user => current_user, :type => 'tiny'
-            = current_user.nickname
+            = current_user.name
             %span.caret
             %ul.dropdown-menu{:style => 'min-width: 100%;'}
               %li

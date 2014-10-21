@@ -34,7 +34,7 @@ en:
         mine:
           shared: 'My projects and ideas'
         index:
-          shared: "Trending projects and ideas"
+          shared: "Trending projects"
         ideas:
           shared: "Trending ideas"
         lifted:

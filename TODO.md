@@ -1,10 +1,9 @@
 __TODO:__
  * Random idea highlight.
- * Remove likes, remove lifted/ideas. Lift projects automatically once you give a repo.
+ * Lift projects automatically once you give a repo.
+ * AJAX like.
  * Remove 'be the first to post' after you post.
  * Github activity.
- * Update name from Github.
- * User name always (show page shows username).
  * Fix postmark.
 
 __VERSION 1.6__

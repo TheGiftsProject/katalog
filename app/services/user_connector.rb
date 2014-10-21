@@ -41,10 +41,12 @@ class UserConnector
   end
 
   def self.user_from_auth_hash(auth_hash)
-    User.where(:uid => auth_hash.uid).first_or_create(:email    => auth_hash.info.email,
-                                                      :name     => auth_hash.info.name,
-                                                      :nickname => auth_hash.info.nickname,
-                                                      :image    => auth_hash.info.image)
+    user = User.find_or_initialize_by(:uid => auth_hash.uid)
+    user.update!(:email    => auth_hash.info.email,
+                 :name     => auth_hash.info.name,
+                 :nickname => auth_hash.info.nickname,
+                 :image    => auth_hash.info.image)
+    user
   end
 
   def self.user_organizations(user)

@@ -1,7 +1,7 @@
 .comment.media
   %strong.lead
     = render 'users/avatar_img', :user => post.user, type: :tiny
-    = post.user.nickname
+    = post.user.name
   .when.pull-right
     %span.text-muted= t('.time_ago', :time_ago => time_ago_in_words(post.created_at))
     - if current_user == post.user

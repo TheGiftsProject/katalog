@@ -21,6 +21,7 @@ class window.PostView
 
   _initUI: ->
     @ui =
+      beTheFirst: $('#be-the-first')
       markdownText: @$el.find('.markdown-text')
       markdownPreview: @$el.find('.markdown-preview')
       form: $('#new_post')
@@ -55,6 +56,7 @@ class window.PostView
       else
         @ui.markdownText.val('')
         @ui.markdownText.change()
+        @ui.beTheFirst.remove()
         @ui.form.before(suc)
     )
 

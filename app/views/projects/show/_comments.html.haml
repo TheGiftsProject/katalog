@@ -2,9 +2,9 @@
   %h2= t('.title')
   .well.well-sm
     - if current_project.posts.count==0
-      .lead.text-center.well-lg
+      .lead.text-center.well-lg#be-the-first
         %i.fa.fa-list
-        Be the first to post comments on this project
+        = t('.be_the_first')
     - current_project.posts.each do |post|
       - if post.persisted?
         = render 'projects/show/comment', :post => post

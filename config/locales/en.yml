@@ -97,6 +97,7 @@ en:
         edit: 'Edit'
       comments:
         title: 'Activity'
+        be_the_first: 'Be the first to post comments on this project'
       comment:
         time_ago: '%{time_ago} ago'
         delete_post: 'Delete post'

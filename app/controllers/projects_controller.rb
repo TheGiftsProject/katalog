@@ -142,7 +142,6 @@ class ProjectsController < ApplicationController
       [user, projects.presence]
     end
     users_projects.delete_if { |arr| arr.second.blank? }
-    users_projects.sort_by {|arr| arr.second.first.updated_at }.reverse
   end
 
 end

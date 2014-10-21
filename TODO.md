@@ -5,7 +5,6 @@ __TODO:__
  * Upgrade Rails.
  * Remove 'be the first to post' after you post.
  * Github activity.
- * Remove line from footer in root page.
  * Update name from Github.
  * User name always (show page shows username).
  

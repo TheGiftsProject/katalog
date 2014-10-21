@@ -1,5 +1,9 @@
 footer{
-  border-top: 1px solid $lighter-blue;
+
+  &:not(.headless) {
+    border-top: 1px solid $lighter-blue;
+  }
+
   color: $dark-blue;
   margin-top: 30px;
   padding: 30px 15px;

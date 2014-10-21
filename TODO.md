@@ -2,7 +2,6 @@ __TODO:__
  * Random idea highlight.
  * iPhone app icon.
  * Remove likes, remove lifted/ideas. Lift projects automatically once you give a repo.
- * Fix syncing shuffling.
  * Upgrade Rails.
  * Remove 'be the first to post' after you post.
  * Github activity.

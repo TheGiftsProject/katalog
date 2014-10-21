@@ -43,7 +43,8 @@ class ProjectsController < ApplicationController
   def sync
     seed = Time.now.beginning_of_day.to_i
     rand = Random.new(seed)
-    @user_projects = users_projects.shuffle(:random => rand)
+    users = current_organization.users.order(:id).to_a.shuffle(:random => rand)
+    @user_projects = users_projects(users)
   end
 
   def random
@@ -135,8 +136,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def users_projects
-    users_projects = current_organization.users.map do |user|
+  def users_projects(users)
+    users_projects = users.map do |user|
       projects = scoped_projects.of_user(user).latest_first.limit(SYNC_PROJECT_LIMIT).up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD)
       [user, projects.presence]
     end

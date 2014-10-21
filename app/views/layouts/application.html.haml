@@ -5,7 +5,14 @@
     %title= t('site.title')
     %meta{:name => 'description', :content => t('site.description')}
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, user-scalable=no'}
+
     %link{:href => '/favicon.png', :rel => 'shortcut icon'}
+
+    %link{:href => '/apple-icon.png', :rel => 'apple-touch-icon'}
+    %link{:href => '/apple-icon-76x76.png', :rel => 'apple-touch-icon', :sizes => '76x76'}
+    %link{:href => '/apple-icon-120x120.png', :rel => 'apple-touch-icon', :sizes => '120x120'}
+    %link{:href => '/apple-icon-152x152.png', :rel => 'apple-touch-icon', :sizes => '152x152'}
+
     = csrf_meta_tags
     = stylesheet_link_tag 'application', 'data-turbolinks-track' => true, :media => 'all'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

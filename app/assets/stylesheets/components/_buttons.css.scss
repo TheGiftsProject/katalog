@@ -8,7 +8,12 @@
   }
 }
 
+.user-sync .collapse-btn {
+  display: block;
+}
+
 .collapse-btn {
+  display: none;
   cursor: pointer;
   vertical-align: middle;
 

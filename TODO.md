@@ -1,6 +1,5 @@
 __TODO:__
  * Random idea highlight.
- * Lift projects automatically once you give a repo.
  * AJAX like.
  * Github activity.
  * Fix postmark.

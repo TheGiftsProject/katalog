@@ -79,6 +79,7 @@ class ProjectsController < ApplicationController
 
   def update
     if current_project.update(project_params)
+      current_project.lift! if current_project.repo_url.present? && current_project.idea?
       redirect_to current_project, notice: t('notices.updated')
     else
       render action: 'edit'

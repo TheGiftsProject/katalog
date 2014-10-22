@@ -1,5 +1,4 @@
 .project-likes
   = link_to like_project_path(project, :params => {:widget => local_assigns[:widget]}), :method => 'post', :class => 'like-btn' do
     %i.fa.fa-thumbs-o-up{:title => project.likes.map(&:user).map(&:name).to_sentence, class: like_icon_class(likes_project?(project)), :data => {:toggle => "tooltip", :placement => 'bottom'}}
-  &nbsp;
   = project.likes.count

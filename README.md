@@ -1,6 +1,6 @@
 # Katalog
 __The place to manage your passion projects__
-![logo](https://raw.githubusercontent.com/TheGiftsProject/katalog/master/app/assets/images/logo-big.png)
+![logo](https://raw.githubusercontent.com/TheGiftsProject/katalog/master/app/assets/images/logo-small.png)
 
 Katalog is a passion-projects and ideas tracking web app. It allows your development team to suggest ideas for side-project, discuss about them, and kickstart them into live projects.
 

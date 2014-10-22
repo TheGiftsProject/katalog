@@ -43,8 +43,6 @@ en:
           shared: "%{user}'s projects"
       tags:
         new_tag: 'new'
-      like_button:
-        like: 'Like this project'
       project_row:
         last_updated: 'Updated %{time} ago'
       quick_idea:

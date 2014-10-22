@@ -5,11 +5,10 @@ class UserSync
 
     @collapseButtons.click((ev) =>
       button = $(ev.target)
-      row = $(ev.target).parent().parent()
-      panel = row.parent().find('.panel')
+      panel = $(ev.target).parent().parent().parent().find('.panel')
       collapse = button.hasClass('fa-caret-up')
       @replaceButton(button, collapse)
-      @collapseOrNot(panel, row, collapse)
+      @collapseOrNot(panel, collapse)
     )
 
   replaceButton: (btn, collapse) ->
@@ -18,13 +17,11 @@ class UserSync
     else
       btn.removeClass('fa-caret-down').addClass('fa-caret-up')
 
-  collapseOrNot: (panel, row, collapse) ->
+  collapseOrNot: (panel, collapse) ->
     if collapse
-      panel.slideUp()
-      row.addClass('collapsed')
+      panel.addClass('collapsed')
     else
-      panel.slideDown()
-      row.removeClass('collapsed')
+      panel.removeClass('collapsed')
 
 $(document).on 'ready page:load', ->
   new UserSync('.user-sync')

@@ -114,14 +114,13 @@
 }
 
 .user-sync {
-
-  .row.sync-separator {
-    border-bottom: 1px solid transparent;
-    transition: border-color 1s ease;
+  .panel {
+    overflow-y: hidden;
+    max-height: 320px;
+    transition: max-height 0.5s ease-in-out;
   }
 
-  .row.sync-separator.collapsed {
-    border-bottom: 1px solid white;
+  .panel.collapsed {
+    max-height: 10px;
   }
-
 }

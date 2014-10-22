@@ -5,7 +5,6 @@ __TODO:__
 
 __VERSION 1.6__
  * On-boarding page with invites.
- * Specs - add for basic control flows.
  * Edit posts.
  
 __FUTURE__

@@ -116,8 +116,8 @@
 .user-sync {
   .panel {
     overflow-y: hidden;
-    max-height: 320px;
-    transition: max-height 0.5s ease-in-out;
+    max-height: 700px;
+    transition: max-height 0.3s ease-in-out;
   }
 
   .panel.collapsed {

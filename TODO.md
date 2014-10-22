@@ -1,11 +1,10 @@
 __TODO:__
- * Random idea highlight.
- * AJAX like.
+ * AJAX likes.
  * Github activity.
  * Fix postmark.
 
 __VERSION 1.6__
- * Collapsable onboarding with invites.
+ * On-boarding page with invites.
  * Specs - add for basic control flows.
  * Edit posts.
  

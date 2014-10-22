@@ -2,7 +2,7 @@
   .content
     %label
       %i.fa.fa-random
-      %span.uppercase= t('.title')
+      %a.random-title.uppercase{href: 'javascript:;'}= t('.title')
     .pull-right
       = render 'projects/index/like_button', :project => @random_project, :widget => 'random'
     - if @random_project.present?

@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
 
-  self.per_page = 10
+  self.per_page = 8
 
   enum :status, [:idea, :lifted]
 

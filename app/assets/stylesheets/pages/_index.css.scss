@@ -112,3 +112,16 @@
     color: $gray;
   }
 }
+
+.user-sync {
+
+  .row.sync-separator {
+    border-bottom: 1px solid transparent;
+    transition: border-color 1s ease;
+  }
+
+  .row.sync-separator.collapsed {
+    border-bottom: 1px solid white;
+  }
+
+}

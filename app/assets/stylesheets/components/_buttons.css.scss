@@ -7,3 +7,12 @@
     width: 14px;
   }
 }
+
+.collapse-btn {
+  cursor: pointer;
+  vertical-align: middle;
+
+  &:hover {
+    @extend .text-primary;
+  }
+}

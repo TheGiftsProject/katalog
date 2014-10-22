@@ -10,5 +10,5 @@
       - @user_projects.each_slice(2) do |slice|
         .row
           - slice.each do |user, projects|
-            .half-column
+            .half-column.user-sync
               = render 'projects/index/project_list', title: user.shortname, projects: projects

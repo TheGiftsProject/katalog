@@ -9,6 +9,6 @@
     - else
       - @user_projects.each_slice(2) do |slice|
         .row
-          - slice.each do |user, projects|
+          - slice.each do |user_and_his_projects|
             .half-column.user-sync
-              = render 'projects/index/project_list', title: user.shortname, projects: projects
+              = render 'projects/index/project_list', title: user_and_his_projects[:user].shortname, projects: user_and_his_projects[:projects]

@@ -4,6 +4,7 @@ __TODO:__
  * AJAX likes.
  * Github activity.
  * Edit posts.
+ * Remember sync toggle in cookies.
 
 __VERSION 1.6__
  * On-boarding page with invites.

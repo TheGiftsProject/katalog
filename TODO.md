@@ -1,4 +1,5 @@
 __TODO:__
+ * Sync only my updates.
  * AJAX likes.
  * Github activity.
  * Edit posts.

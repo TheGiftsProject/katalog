@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   before_filter :sign_in_required
   before_filter :project_required
+  after_filter :set_project_update_for_current_user, :only => [:create]
 
   def create
     post = build_post

@@ -1,8 +1,8 @@
 __TODO:__
- * Sync only my updates.
+ * Sync only my updates (creation, contribution, comment with a contribution, lifting,
  * Another sidebar widget (most active contributor).
  * AJAX likes.
- * Github activity.
+ * Github activity (add update).
  * Edit posts.
  * Remember sync toggle in cookies.
 

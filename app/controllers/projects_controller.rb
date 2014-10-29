@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   before_filter :reset_referer, :only => [:index]
   before_filter :random_idea, only: [:index, :mine, :sync, :ideas, :lifted, :user]
   after_filter :set_viewed_cookie, :only => [:create, :show]
+  after_filter :set_project_update_for_current_user, :only => [:create, :lift, :update, :contribute]
 
   def index
     set_projects_for_scope(scoped_projects)

@@ -28,6 +28,12 @@ module ProjectSupport
     scoped_projects.find(project_id.to_i)
   end
 
+  # actions
+
+  def set_project_update_for_current_user
+
+  end
+
   # cookies
 
   def set_viewed_cookie

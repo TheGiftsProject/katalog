@@ -31,7 +31,7 @@ module ProjectSupport
   # actions
 
   def set_project_update_for_current_user
-
+    current_project.project_updates.find_or_create_by(:user => current_user).touch
   end
 
   # cookies

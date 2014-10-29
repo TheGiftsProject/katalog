@@ -146,7 +146,7 @@ class ProjectsController < ApplicationController
   def sync_projects(user)
     scoped_projects.
     of_user(user).
-    latest_first.
+    latest_first_by_user_update.
     limit(SYNC_PROJECT_LIMIT).
     up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD)
   end

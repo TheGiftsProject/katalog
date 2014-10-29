@@ -1,5 +1,4 @@
 __TODO:__
- * Sync only my updates (creation, contribution, comment with a contribution, lifting,
  * Another sidebar widget (most active contributor).
  * AJAX likes.
  * Github activity (add update).

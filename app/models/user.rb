@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   belongs_to :default_organization, :class_name => 'Organization'
   has_many :posts, :dependent => :destroy
   has_many :likes, :dependent => :destroy
+  has_many :project_updates, :dependent => :destroy
 
   def nickname
     self[:nickname] || self[:name]

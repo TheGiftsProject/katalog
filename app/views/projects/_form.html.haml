@@ -8,13 +8,13 @@
     .controls
       = f.text_field :subtitle, :placeholder => t('.placeholders.subtitle'), :class => 'input-xlarge form-control'
   .form-group
-    = f.label :demo_url, :class => 'control-label'
-    .controls
-      = f.url_field :demo_url, :placeholder => t('.placeholders.demo_url'), :class => 'input-xlarge form-control'
-  .form-group
     = f.label :repo_url, :class => 'control-label'
     .controls
       = f.url_field :repo_url, :placeholder => t('.placeholders.repo_url'), :class => 'input-xl form-control'
+  .form-group
+    = f.label :demo_url, :class => 'control-label'
+    .controls
+      = f.url_field :demo_url, :placeholder => t('.placeholders.demo_url'), :class => 'input-xlarge form-control'
 
   .form-group
     .controls

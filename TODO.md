@@ -1,6 +1,6 @@
 __TODO:__
- * Reverse repo-demo URLs in edit page.
  * Sync only my updates.
+ * Another sidebar widget (most active contributor).
  * AJAX likes.
  * Github activity.
  * Edit posts.

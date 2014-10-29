@@ -138,14 +138,16 @@ class ProjectsController < ApplicationController
   end
 
   def users_projects(users)
-    users_projects = users.map do |user|
-      projects = scoped_projects.of_user(user).latest_first.limit(SYNC_PROJECT_LIMIT).up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD)
-      {
-        :user => user,
-        :projects => projects
-      }
-    end
-    users_projects.delete_if { |user_and_his_projects| user_and_his_projects[:projects].blank? }
+    users_projects = users.map { |user| {:user => user, :projects => sync_projects(user) } }
+    users_projects.delete_if { |user_projects| user_projects[:projects].blank? }
+  end
+
+  def sync_projects(user)
+    scoped_projects.
+    of_user(user).
+    latest_first.
+    limit(SYNC_PROJECT_LIMIT).
+    up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD)
   end
 
 end

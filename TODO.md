@@ -1,4 +1,5 @@
 __TODO:__
+ * Reverse repo-demo URLs in edit page.
  * Sync only my updates.
  * AJAX likes.
  * Github activity.

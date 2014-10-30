@@ -144,11 +144,11 @@ class ProjectsController < ApplicationController
   end
 
   def sync_projects(user)
-    scoped_projects.
+    scoped_projects.joins(:project_updates).
     of_user(user).
-    latest_first_by_user_update.
     limit(SYNC_PROJECT_LIMIT).
-    up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD)
+    up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD).
+    latest_first_by_user_update(user)
   end
 
 end

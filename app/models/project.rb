@@ -16,7 +16,7 @@ class Project < ActiveRecord::Base
   scope :search, -> (query) { query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
   scope :of_user, -> (user) { includes(:users).where(:users => {:id => user.id}) }
-  scope :latest_first_by_user_update, -> { joins(:project_updates).order('project_updates.updated_at DESC').where('project_updates.user_id = users.id') }
+  scope :latest_first_by_user_update, -> (user) { joins(:project_updates).where('project_updates.user_id = ?', user.id).order('project_updates.updated_at DESC') }
 
   validates_presence_of :subtitle, :title
 

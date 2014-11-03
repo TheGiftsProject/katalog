@@ -1,4 +1,5 @@
 __TODO:__
+ * Sync jump for user with updates 1 month old?
  * Another sidebar widget (most active contributor).
  * AJAX likes.
  * Github activity (add update).

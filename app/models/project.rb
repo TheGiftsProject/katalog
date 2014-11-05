@@ -12,11 +12,13 @@ class Project < ActiveRecord::Base
   enum :status, [:idea, :lifted]
 
   scope :latest_first, -> { order('projects.updated_at DESC') }
-  scope :up_to_time_ago, -> (time) { where(:updated_at => time.ago..DateTime.now) }
   scope :search, -> (query) { query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
   scope :of_user, -> (user) { includes(:users).where(:users => {:id => user.id}) }
-  scope :latest_first_by_user_update, -> (user) { joins(:project_updates).where('project_updates.user_id = ?', user.id).order('project_updates.updated_at DESC') }
+  scope :order_by_user_update, -> (user, time) { includes(:project_updates).
+                                                 where('project_updates.user_id = ?', user.id).
+                                                 order("CASE WHEN (project_updates.updated_at >= '#{time.ago}') THEN (projects.updated_at) ELSE (project_updates.updated_at) END DESC")
+                                               }
 
   validates_presence_of :subtitle, :title
 

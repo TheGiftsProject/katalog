@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   DEFAULT_FILTER = :all
   SYNC_PROJECT_LIMIT = 3
-  SYNC_LAST_UPDATE_THRESHOLD = 3.months
+  SYNC_UPDATE_TIME_THRESHOLD = 1.months
 
   include ProjectSupport
   include LikeSupport
@@ -144,11 +144,10 @@ class ProjectsController < ApplicationController
   end
 
   def sync_projects(user)
-    scoped_projects.joins(:project_updates).
+    scoped_projects.
     of_user(user).
     limit(SYNC_PROJECT_LIMIT).
-    up_to_time_ago(SYNC_LAST_UPDATE_THRESHOLD).
-    latest_first_by_user_update(user)
+    order_by_user_update(user, SYNC_UPDATE_TIME_THRESHOLD)
   end
 
 end

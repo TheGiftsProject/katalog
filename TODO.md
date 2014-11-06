@@ -7,6 +7,7 @@ __TODO:__
  * Remember sync toggle in cookies.
 
 __VERSION 1.6__
+ * Better installation process (env variables bah).
  * E-mail notifications for replies.
  * On-boarding page with invites.
  

@@ -90,8 +90,6 @@ en:
           are_you_sure_collaborators: 'Are you sure you want to remove from collaborators?'
       toolbar:
         lift: 'Lift'
-        like: 'Like'
-        liked: 'Liked'
         edit: 'Edit'
       comments:
         title: 'Activity'

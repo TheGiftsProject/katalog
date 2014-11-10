@@ -23,7 +23,7 @@ module ProjectHelper
   end
 
   def like_icon_class(liked)
-    liked ? 'text-primary' : 'text-muted'
+    liked ? 'text-primary' : 'text-default'
   end
 
   def collaborator?

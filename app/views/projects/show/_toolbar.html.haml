@@ -1,15 +1,11 @@
 .project-toolbar
+  = link_to like_project_path(current_project), :method => 'post', class: "btn btn-default" do
+    %i.fa.fa-thumbs-o-up{ class: like_icon_class(likes_current_project?)}
   - unless current_project.lifted?
+    &nbsp;
     = link_to lift_project_path, method: :post, class: 'btn btn-primary' do
       %i.fa.fa-paper-plane
       %span= t('.lift')
-    &nbsp;
-  = link_to like_project_path(current_project), :method => 'post', class: "btn btn-default" do
-    %i.fa.fa-thumbs-o-up{ class: like_icon_class(likes_current_project?)}
-    - if likes_current_project?
-      %span= t('.liked')
-    - else
-      %span= t('.like')
   &nbsp;
   = link_to edit_project_path(current_project), class: 'btn btn-default' do
     %i.fa.fa-edit

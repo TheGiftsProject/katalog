@@ -34,4 +34,18 @@ module ProjectHelper
     project.image_url || image_path('no-image.png')
   end
 
+  def last_updated_time(project, user = nil)
+    if user.nil?
+      project.updated_at
+    else
+      my_project_update = user.project_updates.find_by(:project_id => project.id)
+      if my_project_update.updated_at < ProjectsController::SYNC_UPDATE_TIME_THRESHOLD.ago
+        my_project_update.updated_at
+      else
+        sync_project_update = project.project_updates.updated_in(ProjectsController::SYNC_UPDATE_TIME_THRESHOLD).latest_first.first
+        sync_project_update.updated_at
+      end
+    end
+  end
+
 end

@@ -7,7 +7,7 @@
     = render 'projects/index/no_projects'
   - else
     - projects.each do |project|
-      = render 'projects/index/project_row', :project => project
+      = render 'projects/index/project_row', :project => project, user_list: user_list
 
 - if projects.respond_to? :current_page
   = will_paginate projects, renderer: BootstrapPagination::Rails

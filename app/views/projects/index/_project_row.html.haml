@@ -13,4 +13,4 @@
         = project.users.count
       .project-last-updated
         %i.fa.fa-clock-o
-        %span.text-muted= t('.last_updated', :time => time_ago_in_words(project.updated_at))
+        %span.text-muted= t('.last_updated', :time => time_ago_in_words(last_updated_time(project, user_list)))

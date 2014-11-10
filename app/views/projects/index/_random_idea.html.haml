@@ -6,7 +6,7 @@
     .pull-right
       = render 'projects/index/like_button', :project => @random_project, :widget => 'random'
     - if @random_project.present?
-      = render 'projects/index/project_row', :project => @random_project
+      = render 'projects/index/project_row', :project => @random_project, :user_list => nil
       - if @random_project.image_url.present?
         %br
         .project-image

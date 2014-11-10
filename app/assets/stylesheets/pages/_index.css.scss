@@ -117,7 +117,7 @@
   .panel {
     overflow-y: hidden;
     max-height: 700px;
-    transition: max-height 0.3s ease-in-out;
+    &:not(.no-transition) { transition: max-height 0.3s ease-in-out; }
   }
 
   .panel.collapsed {

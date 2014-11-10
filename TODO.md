@@ -2,10 +2,9 @@ __TODO:__
  * Another sidebar widget (most active contributor).
  * AJAX likes.
  * Github activity (add update).
- * Remember sync toggle in cookies.
 
 __VERSION 1.6__
- * Better installation process (env variables bah).
+ * Better installation process (reduce dependency on .powenv, upgrade to Rails 4.2).
  * E-mail notifications for replies.
  * On-boarding page with invites.
- * Better discussion (edit posts, better emoji - autocomplete , better look
+ * Better discussion (edit posts, better Emoji - autocomplete, new lines).

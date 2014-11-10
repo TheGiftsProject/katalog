@@ -1,5 +1,4 @@
 __TODO:__
- * AJAX likes.
  * Github activity.
 
 __VERSION 1.6__

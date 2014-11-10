@@ -1,7 +1,6 @@
 __TODO:__
- * Another sidebar widget (most active contributor).
  * AJAX likes.
- * Github activity (add update).
+ * Github activity.
 
 __VERSION 1.6__
  * Better installation process (reduce dependency on .powenv, upgrade to Rails 4.2).

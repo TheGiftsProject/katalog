@@ -9,6 +9,4 @@ __TODO:__
 __VERSION 1.6__
  * E-mail notifications for replies.
  * On-boarding page with invites.
- 
-__BUGS:__
- * Emoji autocomplete in posts and fixes in preview mode ('dancer' works, '+1' doesn't) - Consider replacing the Emoji lib.
+ * Better discussion (edit posts, better emoji - autocomplete , better look

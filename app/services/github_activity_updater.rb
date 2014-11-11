@@ -9,12 +9,19 @@ class GithubActivityUpdater
 
   def update_activity
     relevant_projects.each do |project|
+      Rails.logger.info("Checking for Github activity for `#{project.title}`.")
       repo_name = project.github_repo_name
       branches = branches_of_project(repo_name)
       branches.each do |branch_name|
+        Rails.logger.info("Checking for Github activity in branch `#{branch_name}`.")
         commits = commits_of_branch(branch_name)
         commits_by_user = map_commits(commits).group_by(&:committer)
         commits_by_user.each do |github_nickname, commits_dates|
+          user = User.find_by(:nickname => github_nickname)
+          if user.present?
+            latest_commit_date = commits_dates.max
+            update_user_activity(user, project, latest_commit_date)
+          end
         end
       end
     end
@@ -45,6 +52,16 @@ class GithubActivityUpdater
         :committer => commit[:committer][:login]
       })
     end
+  end
+
+  def update_user_activity(user, project, latest_commit_date)
+    Rails.logger.info("Updating activity for user `#{user.nickname}` in `#{project.title}`.")
+    user.projects << project unless user.projects.include?(project)
+
+    project.update(:updated_at => latest_commit_date) if project.updated_at < latest_commit_date
+
+    project_update = user.project_updates.find_or_create_by(:project => project)
+    project_update.update(:updated_at => latest_commit_date) if project_update.updated_at < latest_commit_date
   end
 
 end

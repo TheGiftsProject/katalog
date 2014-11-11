@@ -13,8 +13,9 @@ class GithubActivityUpdater
       branches = branches_of_project(repo_name)
       branches.each do |branch_name|
         commits = commits_of_branch(branch_name)
-        mapped_commits = map_commits(commits)
-        # check that user still exist.
+        commits_by_user = map_commits(commits).group_by(&:committer)
+        commits_by_user.each do |github_nickname, commits_dates|
+        end
       end
     end
   end
@@ -39,10 +40,10 @@ class GithubActivityUpdater
 
   def map_commits(commits)
     commits.map do |commit|
-      {
+      OpenStruct.new({
         :updated_at => commit[:commit][:author][:date],
         :committer => commit[:committer][:login]
-      }
+      })
     end
   end
 

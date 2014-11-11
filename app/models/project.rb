@@ -11,6 +11,9 @@ class Project < ActiveRecord::Base
 
   enum :status, [:idea, :lifted]
 
+  GITHUB_REPO_HOST = 'https://github.com/'
+
+  scope :have_github_repo, -> { where("repo_url LIKE '#{GITHUB_REPO_HOST}%'") }
   scope :latest_first, -> { order('projects.updated_at DESC') }
   scope :search, -> (query) { query.blank? ? none : where('lower(title) like ? or lower(title) like ?',
                                                               "#{query.downcase}%", "% #{query.downcase}%")}
@@ -39,6 +42,11 @@ class Project < ActiveRecord::Base
       lifted_at: DateTime.now,
       status: :lifted
     )
+  end
+
+  def github_repo_name
+    return nil if repo_url.blank?
+    repo_url.sub(GITHUB_REPO_HOST, '')
   end
 
   private

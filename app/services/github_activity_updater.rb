@@ -9,20 +9,25 @@ class GithubActivityUpdater
 
   def update_activity
     relevant_projects.each do |project|
-      Rails.logger.info("Checking for Github activity for `#{project.title}`.")
-      repo_name = project.github_repo_name
-      branches = branches_of_project(repo_name)
-      branches.each do |branch_name|
-        Rails.logger.info("Checking for Github activity in branch `#{branch_name}`.")
-        commits = commits_of_branch(branch_name)
-        commits_by_user = map_commits(commits).group_by(&:committer)
-        commits_by_user.each do |github_nickname, commits_dates|
-          user = User.find_by(:nickname => github_nickname)
-          if user.present?
-            latest_commit_date = commits_dates.max
-            update_user_activity(user, project, latest_commit_date)
+      begin
+        puts "Checking for Github activity for `#{project.title}`."
+        repo_name = project.github_repo_name
+        branches = branches_of_project(repo_name)
+
+        branches.each do |branch_name|
+          puts "Checking for Github activity in branch `#{branch_name}`."
+          commits = commits_of_branch(repo_name, branch_name)
+          commits_by_user = map_commits(commits).group_by(&:committer)
+
+          commits_by_user.each do |github_nickname, commits_dates|
+            user = User.find_by(:nickname => github_nickname)
+            if user.present?
+              latest_commit_date = commits_dates.max
+              update_user_activity(user, project, latest_commit_date)
+            end
           end
         end
+      rescue Octokit::NotFound
       end
     end
   end
@@ -30,7 +35,7 @@ class GithubActivityUpdater
   private
 
   def github_api_client
-    Octokit::Client.new(:access_token => ENV['GITHUB_SECRET'])
+    Octokit::Client.new(:access_token => 'ENV['GITHUB_SECRET']')
   end
 
   def relevant_projects
@@ -41,7 +46,7 @@ class GithubActivityUpdater
     @api.branches(repo_name).map(&:name)
   end
 
-  def commits_of_branch(branch_name)
+  def commits_of_branch(repo_name, branch_name)
     @api.commits_since(repo_name, TIME_SINCE_LAST_ACTIVITY_UPDATE.ago, branch_name)
   end
 
@@ -55,7 +60,7 @@ class GithubActivityUpdater
   end
 
   def update_user_activity(user, project, latest_commit_date)
-    Rails.logger.info("Updating activity for user `#{user.nickname}` in `#{project.title}`.")
+    puts "Updating activity for user `#{user.nickname}` in `#{project.title}`."
     user.projects << project unless user.projects.include?(project)
 
     project.update(:updated_at => latest_commit_date) if project.updated_at < latest_commit_date

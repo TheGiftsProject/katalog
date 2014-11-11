@@ -35,7 +35,7 @@ class GithubActivityUpdater
   private
 
   def github_api_client
-    Octokit::Client.new(:access_token => ENV['GITHUB_SECRET'])
+    Octokit::Client.new(:access_token => ENV['GITHUB_ACCESS_TOKEN'])
   end
 
   def relevant_projects

@@ -15,14 +15,14 @@ class GithubActivityUpdater
         branches = branches_of_project(repo_name)
 
         branches.each do |branch_name|
-          puts "Checking for Github activity in branch `#{branch_name}`."
+          puts "-- Checking for Github activity in branch `#{branch_name}`."
           commits = commits_of_branch(repo_name, branch_name)
-          commits_by_user = map_commits(commits).group_by(&:committer)
+          commits_by_user = map_commits(commits).group_by { |commit_data| commit_data[:committer] }
 
-          commits_by_user.each do |github_nickname, commits_dates|
+          commits_by_user.each do |github_nickname, commits_data|
             user = User.find_by(:nickname => github_nickname)
             if user.present?
-              latest_commit_date = commits_dates.max
+              latest_commit_date = commits_data.map { |commits_data| commits_data[:updated_at] }.max
               update_user_activity(user, project, latest_commit_date)
             end
           end
@@ -52,15 +52,15 @@ class GithubActivityUpdater
 
   def map_commits(commits)
     commits.map do |commit|
-      OpenStruct.new({
+      {
         :updated_at => commit[:commit][:author][:date],
         :committer => commit[:committer][:login]
-      })
+      }
     end
   end
 
   def update_user_activity(user, project, latest_commit_date)
-    puts "Updating activity for user `#{user.nickname}` in `#{project.title}`."
+    puts "---- Found commit activity for user `#{user.nickname}` in `#{project.title}`."
     user.projects << project unless user.projects.include?(project)
 
     project.update(:updated_at => latest_commit_date) if project.updated_at < latest_commit_date

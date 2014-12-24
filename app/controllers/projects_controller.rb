@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
   def sync
     seed = Time.now.beginning_of_week.to_i
     rand = Random.new(seed)
-    users = current_organization.users.order(:id).to_a.shuffle(:random => rand)
+    users = current_organization.users.no_hidden.order(:id).to_a.shuffle(:random => rand)
     @user_projects = users_projects(users)
   end
 

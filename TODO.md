@@ -1,4 +1,5 @@
 __VERSION 1.6__
+ * Create idea as someone else.
  * CSS cleanup / code cleanup.
  * Invite someone to collaborate (or add others manually?).
  * AJAX Likes.

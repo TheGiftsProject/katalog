@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20141224072620) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "default_organization_id"
-    t.boolean  "hidden"
+    t.boolean  "hidden",                  default: false
   end
 
 end

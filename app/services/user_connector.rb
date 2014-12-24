@@ -43,9 +43,9 @@ class UserConnector
   def self.user_from_auth_hash(auth_hash)
     user = User.find_or_initialize_by(:uid => auth_hash.uid)
     user.update!(:email    => auth_hash.info.email,
-                 :name     => auth_hash.info.name,
                  :nickname => auth_hash.info.nickname,
                  :image    => auth_hash.info.image)
+    user.update!(:name     => auth_hash.info.name) if user.name.nil?
     user
   end
 

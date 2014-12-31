@@ -1,4 +1,6 @@
 __VERSION 1.6__
+ * Stats.
+ * Research subdomains without setting go daddy.
  * Create idea as someone else.
  * CSS cleanup / code cleanup.
  * Invite someone to collaborate (or add others manually?).

@@ -1,4 +1,5 @@
 __VERSION 1.6__
+ * Callbacks (+slack). 
  * Space to close tab in sync.
  * Stats.
  * Research subdomains without setting go daddy.

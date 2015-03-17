@@ -34,6 +34,7 @@ You can create a project from email if you configure an app in `postmarkapp.com`
 In order to test this feature you can do one of two things:
 
 * A curl POST command like the following:
+
 ```bash
 curl -X POST "127.0.0.1/postmark" \
   {

@@ -55,7 +55,7 @@ curl -X POST "127.0.0.1/postmark" \
 
 ## Version
 
-0.5.5
+0.6
 
 ## License
 

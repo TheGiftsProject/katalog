@@ -47,7 +47,7 @@ en:
         last_updated: 'Updated %{time} ago'
       quick_idea:
         title_placeholder: 'Title'
-        subtitle_placeholder: 'More details'
+        subtitle_placeholder: 'Details (optional)'
         title: 'Add an idea'
         create: 'Create'
       random_idea:

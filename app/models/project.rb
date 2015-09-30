@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
                                                  order("CASE WHEN (project_updates.updated_at >= '#{time.ago}') THEN (projects.updated_at) ELSE (project_updates.updated_at) END DESC")
                                                }
 
-  validates_presence_of :subtitle, :title
+  validates_presence_of :title
 
   def to_param
     slug

@@ -9,7 +9,7 @@ class QuickIdea
     @updateUI()
 
   canSubmit: =>
-    _.any(@ui.titleField.val()) && _.any(@ui.subtitleField.val())
+    _.any(@ui.titleField.val())
 
   updateUI: =>
     @ui.submitButton.toggleClass('disabled', !@canSubmit())

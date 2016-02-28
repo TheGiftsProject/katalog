@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141224072620) do
+ActiveRecord::Schema.define(version: 20160228145405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141224072620) do
     t.string   "github_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slack_token"
   end
 
   create_table "organizations_users", id: false, force: true do |t|
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20141224072620) do
     t.datetime "updated_at"
     t.integer  "default_organization_id"
     t.boolean  "hidden",                  default: false
+    t.string   "slack_id"
   end
 
 end

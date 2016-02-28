@@ -30,6 +30,7 @@ Katalog::Application.routes.draw do
   end
 
   post '/postmark', to: 'postmark#update'
+  post '/slack', to: 'slack#create'
 
   # authentication
   match '/auth/:provider/callback', :to => 'session#create', :via => [:get, :post]

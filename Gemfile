@@ -15,6 +15,8 @@ gem 'controller_support'
 gem 'haml'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-slack'
+
 gem 'octokit', '3.5.2'
 gem 'redcarpet'
 gem 'rouge'

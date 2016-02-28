@@ -3,6 +3,13 @@ class SessionController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
+    if params[:provider] == 'slack'
+      redirect_to_root("Must be already signed in") unless user_signed_in?
+      current_user.update(slack_id: auth_hash.uid)
+      redirect_to_root
+      return
+    end
+
     response = UserConnector.connect_from_omniauth(auth_hash)
     sign_in_with_connection_response(response)
   rescue => error
@@ -42,8 +49,8 @@ class SessionController < ApplicationController
     session[:organizations] = response.organizations if response.requires_organization?
   end
 
-  def redirect_to_root
-    redirect_to root_url(:port => nil)
+  def redirect_to_root(error = nil)
+    redirect_to root_url(:port => nil, error: error)
   end
 
   def set_error_flash(error)

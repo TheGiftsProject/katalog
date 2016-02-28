@@ -30,6 +30,7 @@ Katalog::Application.routes.draw do
   end
 
   post '/postmark', to: 'postmark#update'
+  get '/slack', to: 'slack#show'
   post '/slack', to: 'slack#create'
 
   # authentication

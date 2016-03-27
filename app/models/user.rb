@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :organizations
   belongs_to :default_organization, :class_name => 'Organization'
   has_many :posts, :dependent => :destroy
-  has_many :likes, :dependent => :destroy
   has_many :project_updates, :dependent => :destroy
 
   scope :no_hidden, -> { where(:hidden => false) }

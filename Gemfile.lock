@@ -230,6 +230,3 @@ DEPENDENCIES
   twitter-typeahead-rails
   uglifier (>= 2.5.1)
   will_paginate-bootstrap
-
-BUNDLED WITH
-   1.11.2

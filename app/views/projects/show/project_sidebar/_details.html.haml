@@ -8,11 +8,7 @@
       %dd= current_project.lifted_at.strftime('%d/%m/%Y')
     %dt Last updated on
     %dd= current_project.updated_at.strftime('%d/%m/%Y')
-    %dt
-      = t('.likes')
     %dd
-      = current_project.likes.count
-      %i.fa.fa-thumbs-o-up{:title => current_project.likes.map(&:user).map(&:name).to_sentence, :data => {:toggle => "tooltip", :placement => 'right'}}
     - if current_project.repo_url.present?
       %dt
         %i.fa.fa-github-square

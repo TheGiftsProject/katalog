@@ -3,8 +3,6 @@
     %label
       %i.fa.fa-random
       %a.random-title.uppercase{href: 'javascript:;'}= t('.title')
-    .pull-right
-      = render 'projects/index/like_button', :project => @random_project, :widget => 'random'
     - if @random_project.present?
       = render 'projects/index/project_row', :project => @random_project, :user_list => nil
       - if @random_project.image_url.present?

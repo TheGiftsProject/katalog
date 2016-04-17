@@ -70,13 +70,6 @@
     }
   }
 
-  .project-likes {
-    margin-right: 5px;
-
-    i:hover {
-      color: $gray;
-    }
-  }
 
   .project-contributors{
     display: inline;
@@ -102,14 +95,6 @@
     position: relative;
     top: auto;
     right: auto;
-  }
-}
-
-.project-likes{
-  display:inline;
-
-  i:hover {
-    color: $gray;
   }
 }
 

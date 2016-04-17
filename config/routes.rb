@@ -16,7 +16,6 @@ Katalog::Application.routes.draw do
 
     member do
       post :lift
-      post :like
       post :contribute
     end
 

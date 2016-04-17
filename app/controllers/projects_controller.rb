@@ -5,7 +5,6 @@ class ProjectsController < ApplicationController
   SYNC_UPDATE_TIME_THRESHOLD = 1.months
 
   include ProjectSupport
-  include LikeSupport
 
   before_filter :sign_in_required
   before_filter :project_required, :only => [:show, :edit, :update, :destroy]
@@ -92,16 +91,6 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, notice: t('notices.destroyed')
   end
 
-  def like
-    if likes_current_project?
-      unlike_current_project
-    else
-      like_current_project
-    end
-
-    redirect_to :back
-  end
-
   def contribute
     add_user_to_project
     redirect_to current_project, notice: t('notices.contribute')
@@ -130,12 +119,7 @@ class ProjectsController < ApplicationController
   end
 
   def random_idea
-    if has_previous_liked_project
-      @random_project = previously_liked_project
-      reset_previously_liked_project
-    else
-      @random_project = scoped_projects.idea.to_a.sample
-    end
+    @random_project = scoped_projects.idea.to_a.sample
   end
 
   def users_projects(users)

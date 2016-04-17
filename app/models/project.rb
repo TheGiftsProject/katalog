@@ -4,7 +4,6 @@ class Project < ActiveRecord::Base
   belongs_to :organization
   has_and_belongs_to_many :users
   has_many :posts, :dependent => :destroy
-  has_many :likes, :dependent => :destroy
   has_many :project_updates, :dependent => :destroy
 
   self.per_page = 8

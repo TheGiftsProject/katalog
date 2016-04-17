@@ -22,10 +22,6 @@ module ProjectHelper
     session[:referer] || projects_path
   end
 
-  def like_icon_class(liked)
-    liked ? 'text-primary' : 'text-default'
-  end
-
   def collaborator?
     current_project.users.include? current_user
   end

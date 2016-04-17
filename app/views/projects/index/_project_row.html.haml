@@ -7,7 +7,6 @@
     = render 'projects/index/tags', :project => project
     .project-subtitle= project.subtitle
     .project-meta
-      = render 'projects/index/like_button', :project => project, :widget => local_assigns[:widget]
       .project-contributors{:title => project.users.pluck(:name).to_sentence, :data => {:toggle => "tooltip", :placement => 'right'}}
         %i.fa.fa-users.fa-fw
         = project.users.count

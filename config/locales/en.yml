@@ -79,7 +79,6 @@ en:
           demo_label: 'Demo site'
           added_on: 'Added on'
           lifted_on: 'Lifted on'
-          likes: 'Likes'
         image:
           upload_image: "Upload Image"
         collaborators:
